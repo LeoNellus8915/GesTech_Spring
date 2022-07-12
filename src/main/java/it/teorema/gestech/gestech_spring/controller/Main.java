@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import it.teorema.gestech.gestech_spring.model.Risorse;
-import it.teorema.gestech.gestech_spring.model.Risorse_Service;
+import it.teorema.gestech.gestech_spring.service.Risorse_Service;
 
 @RestController
 public class Main

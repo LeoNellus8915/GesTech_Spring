@@ -1,4 +1,4 @@
-package it.teorema.gestech.gestech_spring.model;
+package it.teorema.gestech.gestech_spring.service;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,6 +8,8 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-public interface Auth_Service extends JpaRepository <Auth, Integer>
+import it.teorema.gestech.gestech_spring.model.Ruoli_risorse;
+
+public interface Ruoli_risorse_Service extends JpaRepository <Ruoli_risorse, Integer>
 {
 }

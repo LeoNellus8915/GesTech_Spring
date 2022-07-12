@@ -1,4 +1,4 @@
-package it.teorema.gestech.gestech_spring.model;
+package it.teorema.gestech.gestech_spring.service;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,6 +8,11 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-public interface Ruoli_Service extends JpaRepository <Ruoli, Integer>
+import it.teorema.gestech.gestech_spring.model.Risorse;
+
+public interface Risorse_Service extends JpaRepository <Risorse, Integer>
 {
+	@Query("from Risorse")
+	abstract
+	List findAll();
 }
