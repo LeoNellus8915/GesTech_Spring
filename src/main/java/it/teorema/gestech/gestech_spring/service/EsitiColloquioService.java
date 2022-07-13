@@ -8,8 +8,8 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import it.teorema.gestech.gestech_spring.model.Avvisi;
+import it.teorema.gestech.gestech_spring.model.EsitiColloquio;
 
-public interface Avvisi_Service extends JpaRepository <Avvisi, Integer>
+public interface EsitiColloquioService extends JpaRepository <EsitiColloquio, Integer>
 {
 }

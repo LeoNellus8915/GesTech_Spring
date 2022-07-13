@@ -11,7 +11,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="hy_dettagli_risorsa")
-public class Dettagli_risorsa
+public class DettagliRisorsa
 {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -44,9 +44,9 @@ public class Dettagli_risorsa
 	@Column(name = "id_seniority")
 	private int id_seniority;
 	
-	public Dettagli_risorsa() {}
+	public DettagliRisorsa() {}
 
-	public Dettagli_risorsa(int id, int id_risorsa, String file_base64, Date data_inserimento, int id_esito_colloquio,
+	public DettagliRisorsa(int id, int id_risorsa, String file_base64, Date data_inserimento, int id_esito_colloquio,
 			int id_skill1, int id_skill2, int id_skill3, int id_skill4, int id_skill5, int id_lingua1, int id_lingua2,
 			int id_lingua3, int id_seniority) {
 		super();

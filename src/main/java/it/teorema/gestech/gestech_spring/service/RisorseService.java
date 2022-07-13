@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import it.teorema.gestech.gestech_spring.model.Risorse;
 
-public interface Risorse_Service extends JpaRepository <Risorse, Integer>
+public interface RisorseService extends JpaRepository <Risorse, Integer>
 {
 	@Query("from Risorse")
 	abstract

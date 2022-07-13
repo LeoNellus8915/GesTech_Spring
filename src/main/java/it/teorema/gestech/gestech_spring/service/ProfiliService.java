@@ -8,8 +8,8 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import it.teorema.gestech.gestech_spring.model.Esiti_colloquio;
+import it.teorema.gestech.gestech_spring.model.Profili;
 
-public interface Esiti_colloquio_Service extends JpaRepository <Esiti_colloquio, Integer>
+public interface ProfiliService extends JpaRepository <Profili, Integer>
 {
 }

@@ -9,7 +9,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="ty_esiti_colloquio")
-public class Esiti_colloquio
+public class EsitiColloquio
 {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,9 +18,9 @@ public class Esiti_colloquio
 	@Column(name = "nome")
 	private String nome;
 	
-	public Esiti_colloquio() {}
+	public EsitiColloquio() {}
 
-	public Esiti_colloquio(int id, String nome) {
+	public EsitiColloquio(int id, String nome) {
 		super();
 		this.id = id;
 		this.nome = nome;

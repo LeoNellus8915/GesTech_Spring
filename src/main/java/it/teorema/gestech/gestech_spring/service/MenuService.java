@@ -8,8 +8,8 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import it.teorema.gestech.gestech_spring.model.Lingue;
+import it.teorema.gestech.gestech_spring.model.Menu;
 
-public interface Lingua_Service extends JpaRepository <Lingue, Integer>
+public interface MenuService extends JpaRepository <Menu, Integer>
 {
 }
