@@ -1,34 +1,31 @@
-package it.teorema.gestech.gestech_spring.controller;
+package it.teorema.gestech.gestech_spring.controller.api;
 
 import java.util.ArrayList;
-import java.util.Random;
-
-import javax.transaction.Transactional;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import it.teorema.gestech.gestech_spring.model.Risorse;
 import it.teorema.gestech.gestech_spring.service.RisorseService;
 
 @RestController
-public class Main
+public class RisorseController
 {
-    @Autowired
+	@Autowired
     RisorseService rs;
-    
-    @ResponseBody
-    @RequestMapping("/getRisorse")
-    public ArrayList getRisorse()
-    { 
-    	ArrayList risorse = new ArrayList();
-    	for (int c=0; c<rs.findAll().size(); c++)
+	
+	@RequestMapping("/api/risorse")
+	public Iterable<Risorse> getAll()
+	{
+
+		List<Risorse> risorse = new ArrayList<>();
+		for (int c=0; c<rs.findAll().size(); c++)
     	{
     		Risorse app = (Risorse) rs.findAll().get(c);
     		risorse.add(app);
     	}
-        return risorse;
-    }
+		return risorse;
+	}
 }
