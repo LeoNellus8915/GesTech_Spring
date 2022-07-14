@@ -9,14 +9,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class LoginController {
 	
-	private String templateName = "default";
-
-
+	//private String templateName = "default";
 	@RequestMapping(value = "/login")
 	public String showDashboardPage(HttpServletRequest request, Model theModel) {
-		
-		String password = request.getParameter("passwordMD5");
-		System.out.println("PASSWORD ----> " + password);		
+		String email = request.getParameter("email");
+		String password = request.getParameter("passwordMD5");		
 		/**
 		 * Todo verifica se la login è giusta
 		 * si redirect home
@@ -26,5 +23,4 @@ public class LoginController {
 		 */
 		return "redirect:home";
 	}
-	
 }
