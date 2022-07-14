@@ -13,19 +13,19 @@ import it.teorema.gestech.service.RisorseService;
 @RestController
 public class RisorseController
 {
-//	@Autowired
-//    RisorseService rs;
-//	
-//	@RequestMapping("/api/risorse")
-//	public Iterable<Risorse> getAll()
-//	{
-//
-//		List<Risorse> risorse = new ArrayList<>();
-//		for (int c=0; c<rs.findAll().size(); c++)
-//    	{
-//    		Risorse app = (Risorse) rs.findAll().get(c);
-//    		risorse.add(app);
-//    	}
-//		return risorse;
-//	}
+	@Autowired
+    RisorseService rs;
+	
+	@RequestMapping("/api/risorse")
+	public Iterable<Risorse> getAll()
+	{
+
+		List<Risorse> risorse = new ArrayList<>();
+		for (int c=0; c<rs.findAll().size(); c++)
+    	{
+    		Risorse app = (Risorse) rs.findAll().get(c);
+    		risorse.add(app);
+    	}
+		return risorse;
+	}
 }
