@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="">
+	<meta name="author" content="Gestech">
+	<title>Gestech | [[${titlePage}]]</title>
+	<link rel="icon" href="assets/img/basic/favicon.ico" type="image/x-icon">
+
+	<!-- CSS -->
+	<link rel="stylesheet" href="assets/css/bootstrap.min.css" crossorigin="anonymous">
+	<link rel="preconnect" href="assets/css/font-awesome.min.css" crossorigin="anonymous">
+	<link rel="stylesheet" href="assets/css/layout.css">
+	<link rel="stylesheet" href="assets/css/prism.css">
+	<link rel="stylesheet" href="assets/css/skin-blue.css">
+	<link rel="stylesheet" href="assets/css/app.css">
+	<link rel="stylesheet" href="assets/css/main.app.css">
+
+	<!-- JS -->
+	<script type="text/javascript" src="assets/js/jquery/jQuery-2.2.0.min.js"></script>
+	<script type="text/javascript" src="assets/js/bootstrap/bootstrap.min.js"></script>
+	<script type="text/javascript" src="assets/js/jquery/jquery.stickem.js"></script>
+	<script type="text/javascript" src="assets/js/jquery/jquery.slimscroll.min.js"></script>
+	<script type="text/javascript" src="assets/js/plugin/prism.js"></script>
+	<script type="text/javascript" src="assets/js/plugin/docs.js"></script>
+	<script type="text/javascript" src="assets/js/jquery/jquery.md5.min.js"></script>
+	<script type="text/javascript" src="assets/js/main.app.js"></script>
+
+</head>
+
+<body class="light loaded">
+	<div id="loader" class="loader loader-fade" th:replace="/component/pre-load :: pre-load"></div>
+	<div id="app">
+		<aside class="main-sidebar fixed offcanvas shadow" data-toggle="offcanvas">
+			<div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: 438px;">
+				<section class="sidebar" style="height: 438px; overflow: hidden; width: auto;">
+					<div class="w-80px mt-3 mb-3 ml-3">
+						<img src="assets/img/logo.png" alt="">
+					</div>
+					
+					<ul th:replace="/component/menu :: menu"> </ul>
+				</section>
+				<div class="slimScrollBar"
+					style="background: rgba(0, 0, 0, 0.3); width: 5px; position: absolute; top: 70px; opacity: 0.4; display: none; border-radius: 7px; z-index: 99; right: 1px; height: 279.249px;">
+				</div>
+				<div class="slimScrollRail"
+					style="width: 5px; height: 100%; position: absolute; top: 0px; display: none; border-radius: 7px; background: rgb(51, 51, 51); opacity: 0.2; z-index: 90; right: 1px;">
+				</div>
+			</div>
+		</aside>
+		<!--Sidebar End-->
+		<div class="sticky" th:replace="/component/sticky :: sticky"></div>
+
+		<div class="page has-sidebar-left height-full">
+			<header class="blue accent-3 relative nav-sticky">
+				<div class="container-fluid text-white">
+					<div class="row p-t-b-10 ">
+						<div class="col">
+							<h4>
+								<i class="icon-box"></i>
+								[[${titlePage}]]
+							</h4>
+						</div>
+					</div>
+				</div>
+			</header>
+			<div class="container-fluid relative animatedParent animateOnce">
+				<div class="tab-content pb-3" id="v-pills-tabContent">
+
+					<div th:replace="@{'/subPages/' + ${view}} :: ${view}"> </div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--/#app -->
+	<script type="text/javascript" src="assets/js/plugin/app.js"></script>
+
+
+
+
+	<!--
+--- Footer Part - Use Jquery anywhere at page.
+--- http://writing.colin-gourlay.com/safely-using-ready-before-including-jquery/
+-->
+	<script>(function ($, d) {$.each(readyQ, function (i, f) {$(f)}); $.each(bindReadyQ, function (i, f) {$(d).bind("ready", f)})})(jQuery, document)</script>
+
+	<div class="tooltip-inner" id="line-chart-tooltip" style="position: absolute; display: none; opacity: 0.8;"></div>
+
+</body>
+
+</html>
