@@ -1,15 +1,33 @@
+
 <!DOCTYPE html>
 <html lang="it">
+
 <head>
-<meta charset="utf-8">
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="description" content="">
-<meta name="author" content="">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="icon" href="../assets/img/basic/favicon.ico"	type="image/x-icon">
-<link href="../assets/fonts/roboto" rel="stylesheet">
-<link rel="stylesheet" href="../assets/css/app.css">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="">
+	<meta name="author" content="Gestech">
+	<title>Gestech | [[${titlePage}]]</title>
+	<link rel="icon" href="assets/img/basic/favicon.ico" type="image/x-icon">
+	<!-- CSS -->
+	<link rel="stylesheet" href="assets/css/bootstrap.min.css" crossorigin="anonymous">
+	<link rel="preconnect" href="assets/css/font-awesome.min.css" crossorigin="anonymous">
+	<link rel="stylesheet" href="assets/css/layout.css">
+	<link rel="stylesheet" href="assets/css/prism.css">
+	<link rel="stylesheet" href="assets/css/skin-blue.css">
+	<link rel="stylesheet" href="assets/css/app.css">
+
+	<!-- JS -->
+	<script type="text/javascript" src="assets/js/jquery/jQuery-2.2.0.min.js"></script>
+	<script type="text/javascript" src="assets/js/bootstrap/bootstrap.min.js"></script>
+	<script type="text/javascript" src="assets/js/jquery/jquery.stickem.js"></script>
+	<script type="text/javascript" src="assets/js/jquery/jquery.slimscroll.min.js"></script>
+	<script type="text/javascript" src="assets/js/plugin/prism.js"></script>
+	<script type="text/javascript" src="assets/js/plugin/docs.js"></script>
+	<script type="text/javascript" src="assets/js/jquery/jquery.md5.min.js"></script>
+	<script type="text/javascript" src="assets/js/plugin/app.js"></script>
+	<script type="text/javascript" src="assets/js/main.login.js"></script>
+	
 </head>
 
 <body class="light">
@@ -18,7 +36,7 @@
         <aside class="main-sidebar fixed offcanvas shadow" data-toggle='offcanvas'>
             <section class="sidebar">
                 <div class="mt-3 mb-3 ml-3">
-                    <img src="../assets/img/logo.png" alt="">
+                    <img src="assets/img/logo.png" alt="">
                 </div>
                 <div class="relative">
                     <div class="user-panel p-3 light mb-2">
@@ -58,7 +76,9 @@
                     <div class="d-flex">
                         <div class="d-none d-md-block">
                             <h1 class="nav-title text-white">Mario Verdi</h1> <!-- imput -->
+                            
                         </div>
+                        <div th:replace="@{'/subPages/' + ${view}} :: ${view}"> </div>
                     </div>
                 </div>
                 <!--Top Menu Start -->
@@ -73,7 +93,53 @@
             
             
         </div>
-    </div>    
+    </div> 
+    <!-- Pre loader --> 
+    <div id="loader" class="loader">
+    <div class="plane-container">
+        <div class="preloader-wrapper small active">
+            <div class="spinner-layer spinner-blue">
+                <div class="circle-clipper left">
+                    <div class="circle"></div>
+                </div><div class="gap-patch">
+                <div class="circle"></div>
+            </div><div class="circle-clipper right">
+                <div class="circle"></div>
+            </div>
+            </div>
+
+            <div class="spinner-layer spinner-red">
+                <div class="circle-clipper left">
+                    <div class="circle"></div>
+                </div><div class="gap-patch">
+                <div class="circle"></div>
+            </div><div class="circle-clipper right">
+                <div class="circle"></div>
+            </div>
+            </div>
+
+            <div class="spinner-layer spinner-yellow">
+                <div class="circle-clipper left">
+                    <div class="circle"></div>
+                </div><div class="gap-patch">
+                <div class="circle"></div>
+            </div><div class="circle-clipper right">
+                <div class="circle"></div>
+            </div>
+            </div>
+
+            <div class="spinner-layer spinner-green">
+                <div class="circle-clipper left">
+                    <div class="circle"></div>
+                </div><div class="gap-patch">
+                <div class="circle"></div>
+            </div><div class="circle-clipper right">
+                <div class="circle"></div>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>  
 </body>
 
 </html>
