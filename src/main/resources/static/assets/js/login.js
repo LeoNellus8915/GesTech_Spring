@@ -1,12 +1,23 @@
-function login()
-{
-	var email = document.getElementById("email").value;
-	var password = document.getElementById("password").value;
+function login() {
 	var params = {
-  	"email":email,
-  	"password": password
+		"email": $("#email").val(),
+		"password": $("#password").val()
 	}
-	var xhttp = new XMLHttpRequest();
+
+
+	$.ajax({
+		type: "POST",
+		url: 'login',
+		data: params,
+		contentType: "application/json; charset=utf-8",
+		dataType: "json",
+		success: function(respose) {
+			console.log(respose)
+		}
+	});
+
+
+	/*var xhttp = new XMLHttpRequest();
 	
 	xhttp.open("POST", 'login', true);
 	xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
@@ -23,5 +34,5 @@ function login()
 				alert("Credenziali Sbagliate");
 			localStorage.setItem("nome_utente", dati[1]);
 		}
-	}
+	}*/
 }
