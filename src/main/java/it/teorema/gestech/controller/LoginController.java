@@ -30,26 +30,25 @@ public class LoginController {
 		
 		String email = request.getParameter("email");
 		String password = request.getParameter("passwordMD5");
-		int prova = 0;
-		int id = 0;
+		String controllo = null;
+		int id_risorsa = 0;
 		
-		for (int c=0; c<risorse_service.findAll().size(); c++)
-    	{
-    		Risorse risorsa = (Risorse) risorse_service.findAll().get(c);
-    		if (email.equals(risorsa.getEmail()))
-    		{
-    			id = risorsa.getId();
-    			prova++;
-    		}
-    	}
-		if (id != 0)
+		Risorse risorsa;
+		if (risorse_service.findAll(email).size() == 1)
 		{
-			Auth auth = (Auth) auth_service.findAll(id).get(0);
+			risorsa = (Risorse) risorse_service.findAll(email).get(0);
+			id_risorsa = risorsa.getId();
+			controllo = "email";
+		}
+
+		if (id_risorsa != 0)
+		{
+			Auth auth = (Auth) auth_service.findAll(id_risorsa).get(0);
 			if (password.equals(auth.getPassword()))
-				prova++;
+				controllo = controllo.concat(" password");
 		}
 	
-		if (prova == 2)
+		if (controllo.equals("email password"))
 			return "redirect:home";
 		else
 			return "index";
