@@ -1,3 +1,35 @@
 <div th:fragment="home">
-prova
+
+<div class="page avviso">
+			<div class="page">
+				<div class="pos-f-t">
+				<input id="titolo" placeholder="Inserisci Titolo" type="text">
+				<label class="error" id="label-error-text" style="display:none">Il testo non pu&ograve; contenere i seguenti caratteri: % &</label>
+				<textarea name="avviso" id="avviso" onkeyup="controllo_caratteri('avviso')" placeholder="Inserire l'avviso"></textarea>
+					<div class="row">
+						<div class="col-6">
+							<input id="admin" type="checkbox" value="admin">
+	  						<label>Admin</label>
+	  						<input type="checkbox" id="recruiter" value="recruiter">
+	  						<label>Recruiter</label>
+	  						<input type="checkbox" id="commerciale" value="commerciale">
+	  						<label>Commerciale</label>
+	  						<input type="checkbox" id="dipendente" value="dipendente">
+	  						<label>Dipendente</label>
+	  						<input type="checkbox" id="tutti" value="tutti">
+	  						<label>Tutti</label>
+							<input type="hidden" name="Servlet" value="registra_avviso">
+					  	</div>	
+					  	<div class="col-6">
+					  		<div class="btright"><input onclick="registra_avviso()" type="submit"></div>
+					  	</div>
+					  	<div class="col-12">
+							<div class="row" id="stampa_avvisi">
+							</div>
+						</div>	
+					</div>  		
+				</div>						
+			</div>		
+		</div>
+		
 </div>

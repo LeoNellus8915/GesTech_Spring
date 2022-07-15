@@ -31,6 +31,6 @@ public class HomeController {
 		/**
 		 * nome del tempate da usare (default/login)
 		 */
-		return "default";
+		return templateName;
 	}
 }

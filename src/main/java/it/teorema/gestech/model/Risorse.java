@@ -201,4 +201,16 @@ public class Risorse
 	public void setCertificazioni(String certificazioni) {
 		this.certificazioni = certificazioni;
 	}
+
+	@Override
+	public String toString() {
+		return "Risorse [id=" + id + ", nome_cognome=" + nome_cognome + ", recapito=" + recapito + ", email=" + email
+				+ ", profilo_linkedin=" + profilo_linkedin + ", citta=" + citta + ", ruolo_risorsa=" + ruolo_risorsa
+				+ ", competenza_principale=" + competenza_principale + ", data_colloquio=" + data_colloquio
+				+ ", anno_colloquio=" + anno_colloquio + ", fonte_reperimento=" + fonte_reperimento
+				+ ", costo_giornaliero=" + costo_giornaliero + ", possibilita_lavorativa=" + possibilita_lavorativa
+				+ ", skill_campo_libero=" + skill_campo_libero + ", competenze_totali=" + competenze_totali
+				+ ", certificazioni=" + certificazioni + "]";
+	}
+	
 }

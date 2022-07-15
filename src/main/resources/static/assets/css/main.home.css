@@ -1,0 +1,10 @@
+textarea#avviso {
+    width: 100%;
+    height: 300px;
+    margin-bottom: 20px;
+    padding: 10px;
+    border-radius: 5px;
+}
+.avviso {
+   margin: 15px;
+}
