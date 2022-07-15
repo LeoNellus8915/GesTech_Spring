@@ -58,4 +58,9 @@ public class Auth
 	public void setData(Date data) {
 		this.data = data;
 	}
+
+	@Override
+	public String toString() {
+		return "Auth [id=" + id + ", id_risorsa=" + id_risorsa + ", password=" + password + ", data=" + data + "]";
+	}
 }
