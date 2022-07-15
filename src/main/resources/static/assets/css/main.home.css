@@ -8,3 +8,29 @@ textarea#avviso {
 .avviso {
    margin: 15px;
 }
+
+input#titolo {
+    width: 100%;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: solid 1px #333333;
+    padding: 10px;
+    background: #f9f9f9;
+}
+
+input[type=submit] {
+    background-color: rgb(12, 12, 135);
+    color: white;
+    padding: 5 25 5 25;
+    border: none;
+    border-radius: 30px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.btright {
+    float: right;
+}
+
+input[type="submit"] {
+    padding: 5px 25px;
+}
