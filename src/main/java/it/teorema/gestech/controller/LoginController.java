@@ -24,7 +24,6 @@ public class LoginController {
 	@Autowired
 	AuthService auth_service;
 	
-	//private String templateName = "default";
 	@RequestMapping(value = "/login")
 	public String showDashboardPage(HttpServletRequest request, Model theModel) {
 		
@@ -51,7 +50,10 @@ public class LoginController {
 		if (controllo.equals("email password"))
 			return "redirect:home";
 		else
+		{
+			theModel.addAttribute("titlePage", "Login");
 			return "index";
+		}
 			
 		/**
 		 * Todo verifica se la login è giusta
