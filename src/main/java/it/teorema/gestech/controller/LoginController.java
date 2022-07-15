@@ -30,13 +30,13 @@ public class LoginController {
 		
 		String email = request.getParameter("email");
 		String password = request.getParameter("passwordMD5");
-		String controllo = null;
+		String controllo = "";
+		List service = risorse_service.findAll(email);
 		int id_risorsa = 0;
 		
-		Risorse risorsa;
-		if (risorse_service.findAll(email).size() == 1)
+		if (service.size() == 1)
 		{
-			risorsa = (Risorse) risorse_service.findAll(email).get(0);
+			Risorse risorsa = (Risorse) service.get(0);
 			id_risorsa = risorsa.getId();
 			controllo = "email";
 		}
