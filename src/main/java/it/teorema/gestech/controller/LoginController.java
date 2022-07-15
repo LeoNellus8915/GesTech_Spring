@@ -13,9 +13,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import it.teorema.gestech.model.Auth;
 import it.teorema.gestech.model.Risorse;
-import it.teorema.gestech.model.Lingue;
 import it.teorema.gestech.service.AuthService;
-import it.teorema.gestech.service.LinguaService;
 import it.teorema.gestech.service.RisorseService;
 
 @Controller
