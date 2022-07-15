@@ -15,21 +15,35 @@ public class Avvisi
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
 	private int id;
-	@Column(name = "id_ruolo")
-	private int id_ruolo;
+	@Column(name = "titolo")
+	private String titolo;
+	@Column(name = "ruoli")
+	private String ruoli;
 	@Column(name = "id_risorsa")
 	private int id_risorsa;
 	@Column(name = "note")
 	private String note;
 	
-	public Avvisi() {}
-
-	public Avvisi(int id, int id_ruolo, int id_risorsa, String note) {
+	public Avvisi(int id, String titolo, String ruoli, int id_risorsa, String note) {
 		super();
 		this.id = id;
-		this.id_ruolo = id_ruolo;
+		this.titolo = titolo;
+		this.ruoli = ruoli;
 		this.id_risorsa = id_risorsa;
 		this.note = note;
+	}
+
+	public String getTitolo() {
+		return titolo;
+	}
+
+	public void setTitolo(String titolo) {
+		this.titolo = titolo;
+	}
+
+	public Avvisi() {
+		super();
+		// TODO Auto-generated constructor stub
 	}
 
 	public int getId() {
@@ -40,12 +54,12 @@ public class Avvisi
 		this.id = id;
 	}
 
-	public int getId_ruolo() {
-		return id_ruolo;
+	public String getRuoli() {
+		return ruoli;
 	}
 
-	public void setId_ruolo(int id_ruolo) {
-		this.id_ruolo = id_ruolo;
+	public void setRuoli(String ruoli) {
+		this.ruoli = ruoli;
 	}
 
 	public int getId_risorsa() {

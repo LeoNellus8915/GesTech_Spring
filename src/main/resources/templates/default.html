@@ -34,22 +34,62 @@
 <body class="light loaded">
 	<div id="loader" class="loader loader-fade" th:replace="/component/pre-load :: pre-load"></div>
 	<div id="app">
-		<aside class="main-sidebar fixed offcanvas shadow" data-toggle="offcanvas">
-			<div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: 438px;">
-				<section class="sidebar" style="height: 438px; overflow: hidden; width: auto;">
-					<div class="w-80px mt-3 mb-3 ml-3">
-						<img src="assets/img/logo.png" alt="">
+		<aside class="main-sidebar fixed offcanvas shadow"
+			data-toggle='offcanvas'>
+			<section class="sidebar">
+				<div class="mt-3 mb-3 ml-3">
+				   <a href="home.jsp">
+					<input type="image" src="Immagini/logo.png" alt="">
+					</a>
+				</div>
+				<div class="relative">
+					<div class="user-panel p-3 light mb-2">
+						<div>
+							<div class="float-left image">
+								<img class="user_avatar" src="Immagini/u2.png" alt="User Image">
+							</div>
+							<div class="float-left info">
+								<h6 class="font-weight-light mt-2 mb-1">[[${nome_cognome}]]</h6>
+								<a href="#">[[${ruolo}]]</a>
+							</div>
+						</div>
+						<div class="clearfix"></div>
+						<div id="userSettingsCollapse">
+							<div class="list-group mt-3 shadow">
+								<a href="cambiapassword.jsp" class="list-group-item list-group-item-action"><i
+									class="icon icon-lock black-text s-18"></i> <span class="cambiapass">Cambia Password</span></a>
+							</div>
+						</div>
 					</div>
-					
-					<ul th:replace="/component/menu :: menu"> </ul>
-				</section>
-				<div class="slimScrollBar"
-					style="background: rgba(0, 0, 0, 0.3); width: 5px; position: absolute; top: 70px; opacity: 0.4; display: none; border-radius: 7px; z-index: 99; right: 1px; height: 279.249px;">
 				</div>
-				<div class="slimScrollRail"
-					style="width: 5px; height: 100%; position: absolute; top: 0px; display: none; border-radius: 7px; background: rgb(51, 51, 51); opacity: 0.2; z-index: 90; right: 1px;">
-				</div>
-			</div>
+				<ul class="sidebar-menu">
+				<li class="treeview"><a href="home.jsp"> <i
+							class="icon icon-home light-blue-text s-18"> <input
+								type="hidden" name="Servlet" value="logout">
+						</i> <span>Home/Avvisi</span>
+					</a></li>
+						<li class="treeview"><a href="ricerca.jsp"> <i
+							class="icon icon-account_box red-text s-18"> <input
+								type="hidden" name="Servlet" value="logout">
+						</i> <span>Tutti i Candidati</span>
+					</a></li>
+						<li class="treeview"><a href="profilo&cv.jsp"> <i
+							class="icon icon-add_box light-green-text s-18"> <input
+								type="hidden" name="Servlet" value="logout">
+						</i> <span>Aggiungi candidato</span>
+					</a></li>
+					<li class="treeview"><a href="nuovoutente.jsp"> <i
+							class="icon icon-add_box light-green-text s-18"> <input
+								type="hidden" name="Servlet" value="logout">
+						</i> <span>Aggiungi nuovo utente</span>
+					</a></li>
+					<li class="treeview"><a href="index.jsp"> <i
+							class="icon icon-exit_to_app purple-text s-18"> <input
+								type="hidden" name="Servlet" value="logout">
+						</i> <span>Esci</span>
+					</a></li>
+				</ul>
+			</section>
 		</aside>
 		<!--Sidebar End-->
 		<div class="sticky" th:replace="/component/sticky :: sticky"></div>
