@@ -16,6 +16,7 @@ public class HomeController {
 		 * TODO controllo se loggato
 		 */
 		theModel.addAttribute("titlePage", "Login");
+		theModel.addAttribute("msg_credenziali", "Inserisci le credenziali per accedere al sistema");
 		return "index";
 	}
 	

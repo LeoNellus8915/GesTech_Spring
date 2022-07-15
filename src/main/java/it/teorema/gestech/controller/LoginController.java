@@ -51,7 +51,9 @@ public class LoginController {
 			return "redirect:home";
 		else
 		{
+			theModel.addAttribute("msg_credenziali", "Credenziali errate, si prega di riprovare");
 			theModel.addAttribute("titlePage", "Login");
+			theModel.addAttribute("class", "<p style=color: red>");
 			return "index";
 		}
 			
