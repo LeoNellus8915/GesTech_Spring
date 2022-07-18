@@ -1,6 +1,6 @@
 package it.teorema.gestech.model;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -22,11 +22,11 @@ public class Auth
 	@Column(name = "password")
 	private String password;
 	@Column(name = "data")
-	private Date data;
+	private LocalDate data;
 
 	public Auth(){}
 	
-	public Auth(int id, int id_risorsa, String password, Date data) {
+	public Auth(int id, int id_risorsa, String password, LocalDate data) {
 		super();
 		this.id = id;
 		this.id_risorsa = id_risorsa;
@@ -52,10 +52,10 @@ public class Auth
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public Date getData() {
+	public LocalDate getData() {
 		return data;
 	}
-	public void setData(Date data) {
+	public void setData(LocalDate data) {
 		this.data = data;
 	}
 

@@ -1,6 +1,15 @@
 package it.teorema.gestech.controller;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.ZonedDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -60,6 +69,10 @@ public class HomeController {
 	{
 		Avvisi salva_avviso = new Avvisi();
 		
+		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");  
+		LocalDateTime now = LocalDateTime.now();  
+		LocalDateTime data = LocalDateTime.parse(dtf.format(now), dtf);
+
 		HttpSession session = request.getSession(true);
 		int id_risorsa = (int) session.getAttribute("id");
 		String nome_cognome = (String) session.getAttribute("nome_cognome");
@@ -67,16 +80,22 @@ public class HomeController {
 		
 		String input_titolo = request.getParameter("titolo");
 		String input_avviso = request.getParameter("avviso");
-		String[] input_ruolo = request.getParameterValues("ruolo");
-		List<String> lista_ruoli = Arrays.asList(input_ruolo);
 		
+		
+		String[] input_ruolo = request.getParameterValues("ruolo");
+		List lista_ruoli = Arrays.asList(input_ruolo);
+		 
+		
+		System.out.println("ho i dati");
 		salva_avviso.setTitolo(input_titolo);
 		salva_avviso.setId_risorsa(id_risorsa);
 		salva_avviso.setRuoli(lista_ruoli.toString());
 		salva_avviso.setNote(input_avviso);
+		salva_avviso.setData(data);
 		
 		avvisi_service.save(salva_avviso);
 		
+		System.out.println("ho salvato");
 		theModel.addAttribute("nome_cognome", nome_cognome);
 		theModel.addAttribute("ruolo", ruolo);
 		theModel.addAttribute("titlePage", "HOME");

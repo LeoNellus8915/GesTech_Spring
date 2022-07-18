@@ -1,5 +1,7 @@
 package it.teorema.gestech.model;
 
+import java.time.LocalDateTime;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -23,14 +25,17 @@ public class Avvisi
 	private int id_risorsa;
 	@Column(name = "note")
 	private String note;
+	@Column(name = "data")
+	private LocalDateTime data;
 	
-	public Avvisi(int id, String titolo, String ruoli, int id_risorsa, String note) {
+	public Avvisi(int id, String titolo, String ruoli, int id_risorsa, String note, LocalDateTime data) {
 		super();
 		this.id = id;
 		this.titolo = titolo;
 		this.ruoli = ruoli;
 		this.id_risorsa = id_risorsa;
 		this.note = note;
+		this.data = data;
 	}
 
 	public String getTitolo() {
@@ -76,5 +81,13 @@ public class Avvisi
 
 	public void setNote(String note) {
 		this.note = note;
+	}
+
+	public LocalDateTime getData() {
+		return data;
+	}
+
+	public void setData(LocalDateTime data) {
+		this.data = data;
 	}
 }
