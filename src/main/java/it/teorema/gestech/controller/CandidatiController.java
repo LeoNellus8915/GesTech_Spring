@@ -2,10 +2,13 @@ package it.teorema.gestech.controller;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import it.teorema.gestech.model.Risorse;
 
 @Controller
 public class CandidatiController {
@@ -46,6 +49,12 @@ public class CandidatiController {
 		/**
 		 * nome del tempate da usare (default/login)
 		 */
+		return "default";
+	}
+	@RequestMapping("/aggiungiCandidato")
+	@Transactional
+	public String aggiungiCandidato(HttpServletRequest request, Model theModel)
+	{
 		return "default";
 	}
 }
