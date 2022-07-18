@@ -35,3 +35,7 @@ input[type="submit"] {
     padding: 5px 25px;
 }
 
+input[type=checkbox], input[type=radio] {
+    margin-right: 5px;
+    margin-left: 10px;
+}
