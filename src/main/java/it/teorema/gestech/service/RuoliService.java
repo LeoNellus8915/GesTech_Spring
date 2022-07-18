@@ -12,4 +12,7 @@ import it.teorema.gestech.model.Ruoli;
 
 public interface RuoliService extends JpaRepository <Ruoli, Integer>
 {
+	@Query("from Ruoli")
+	abstract
+	List findAll();
 }
