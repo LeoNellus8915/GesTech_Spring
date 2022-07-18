@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class CandidatiController {
 
-	@RequestMapping("/stampaCandidati")
+	@RequestMapping("/paginaCandidati")
 	public String home(HttpServletRequest request, Model theModel) {
 		/**
 		 * passo il nome della pagina che si deve caricare
@@ -23,7 +23,7 @@ public class CandidatiController {
 		theModel.addAttribute("nome_cognome", nome_cognome);
 		theModel.addAttribute("ruolo", ruolo);
 		theModel.addAttribute("titlePage", "Candidati");
-		theModel.addAttribute("view", "stampaCandidati");
+		theModel.addAttribute("view", "paginaCandidati");
 		/**
 		 * nome del tempate da usare (default/login)
 		 */
