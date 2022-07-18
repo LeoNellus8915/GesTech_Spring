@@ -23,6 +23,11 @@ public class LoginController {
 	@Autowired
 	AuthService auth_service;
 	
+	@RequestMapping("/logout")
+	public String index()
+	{
+		return "index";
+	}
 	@RequestMapping("/login")
 	public String showDashboardPage(HttpServletRequest request, Model theModel) {
 		
