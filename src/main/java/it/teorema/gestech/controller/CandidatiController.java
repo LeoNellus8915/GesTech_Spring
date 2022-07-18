@@ -1,30 +1,35 @@
 package it.teorema.gestech.controller;
 
+import java.util.ArrayList;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.transaction.Transactional;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import it.teorema.gestech.model.Risorse;
+import it.teorema.gestech.model.Ruoli;
+import it.teorema.gestech.service.RuoliService;
+import it.teorema.gestech.session.LocalSession;
 
 @Controller
 public class CandidatiController {
-
-	@RequestMapping("/paginaCandidati")
+	
+	@RequestMapping("/pagina-candidati")
 	public String paginaCandidati(HttpServletRequest request, Model theModel) {
 		/**
 		 * passo il nome della pagina che si deve caricare
 		 * i file si trovano in template/subPage
 		 */
 		HttpSession session = request.getSession(true);
-		String nome_cognome = (String) session.getAttribute("nome_cognome");
-		String ruolo = (String) session.getAttribute("ruolo");
+		LocalSession localSession = (LocalSession) session.getAttribute("localSession");
 		
-		theModel.addAttribute("nome_cognome", nome_cognome);
-		theModel.addAttribute("ruolo", ruolo);
+		theModel.addAttribute("nome_cognome", localSession.getNomeCognome());
+		theModel.addAttribute("ruolo", localSession.getRuolo());
 		theModel.addAttribute("titlePage", "Candidati");
 		theModel.addAttribute("view", "paginaCandidati");
 		/**
@@ -32,18 +37,17 @@ public class CandidatiController {
 		 */
 		return "default";
 	}
-	@RequestMapping("/nuovoCandidato")
+	@RequestMapping("/nuovo-candidato")
 	public String nuovoCandidato(HttpServletRequest request, Model theModel) {
 		/**
 		 * passo il nome della pagina che si deve caricare
 		 * i file si trovano in template/subPage
 		 */
 		HttpSession session = request.getSession(true);
-		String nome_cognome = (String) session.getAttribute("nome_cognome");
-		String ruolo = (String) session.getAttribute("ruolo");
+		LocalSession localSession = (LocalSession) session.getAttribute("localSession");
 		
-		theModel.addAttribute("nome_cognome", nome_cognome);
-		theModel.addAttribute("ruolo", ruolo);
+		theModel.addAttribute("nome_cognome", localSession.getNomeCognome());
+		theModel.addAttribute("ruolo", localSession.getRuolo());
 		theModel.addAttribute("titlePage", "Candidati");
 		theModel.addAttribute("view", "nuovoCandidato");
 		/**
@@ -51,10 +55,14 @@ public class CandidatiController {
 		 */
 		return "default";
 	}
-	@RequestMapping("/aggiungiCandidato")
+	
+	@RequestMapping("/aggiungi-candidato")
 	@Transactional
 	public String aggiungiCandidato(HttpServletRequest request, Model theModel)
 	{
+		
+		theModel.addAttribute("titlePage", "Candidati");
+		theModel.addAttribute("view", "nuovoUtente");
 		return "default";
 	}
 }

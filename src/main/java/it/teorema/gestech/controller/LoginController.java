@@ -14,6 +14,7 @@ import it.teorema.gestech.model.Auth;
 import it.teorema.gestech.model.Risorse;
 import it.teorema.gestech.service.AuthService;
 import it.teorema.gestech.service.RisorseService;
+import it.teorema.gestech.session.LocalSession;
 
 @Controller
 public class LoginController {
@@ -28,6 +29,7 @@ public class LoginController {
 	{
 		return "index";
 	}
+	
 	@RequestMapping("/login")
 	public String showDashboardPage(HttpServletRequest request, Model theModel) {
 		
@@ -35,33 +37,32 @@ public class LoginController {
 		String password = request.getParameter("passwordMD5");
 		String controllo = "";
 		List service = risorse_service.findAll(email);
-		int id_risorsa = 0;
+		int idRisorsa = 0;
 		
-		String nome_cognome = null;
+		String nomeCognome = null;
 		String ruolo = null;
+		LocalSession localSession = new LocalSession();
 		
 		if (service.size() == 1)
 		{
 			Risorse risorsa = (Risorse) service.get(0);
-			id_risorsa = risorsa.getId();
-			nome_cognome = risorsa.getNome_cognome();
+			idRisorsa = risorsa.getId();
+			nomeCognome = risorsa.getNome_cognome();
 			ruolo = risorsa.getRuolo_risorsa();
 			controllo = "email";
 		}
 		
-		
-
-		if (id_risorsa != 0)
+		if (idRisorsa != 0)
 		{
-			Auth auth = (Auth) auth_service.findAll(id_risorsa).get(0);
+			Auth auth = (Auth) auth_service.findAll(idRisorsa).get(0);
 			if (password.equals(auth.getPassword()))
 				controllo = controllo.concat(" password");
 		}
 		
+		localSession.setNomeCognome(nomeCognome);
+		localSession.setRuolo(ruolo);
 		HttpSession session = request.getSession(true);
-		session.setAttribute("id", id_risorsa);
-		session.setAttribute("nome_cognome", nome_cognome);
-		session.setAttribute("ruolo", ruolo);
+		session.setAttribute("localSession", localSession);
 	
 		if (controllo.equals("email password"))
 			return "redirect:home";

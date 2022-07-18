@@ -26,6 +26,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import it.teorema.gestech.model.Avvisi;
 import it.teorema.gestech.service.AvvisiService;
+import it.teorema.gestech.session.LocalSession;
 
 @Controller
 public class HomeController {
@@ -50,11 +51,10 @@ public class HomeController {
 		 * i file si trovano in template/subPage
 		 */
 		HttpSession session = request.getSession(true);
-		String nome_cognome = (String) session.getAttribute("nome_cognome");
-		String ruolo = (String) session.getAttribute("ruolo");
+		LocalSession localSession = (LocalSession) session.getAttribute("localSession");
 		
-		theModel.addAttribute("nome_cognome", nome_cognome);
-		theModel.addAttribute("ruolo", ruolo);
+		theModel.addAttribute("nome_cognome", localSession.getNomeCognome());
+		theModel.addAttribute("ruolo", localSession.getRuolo());
 		theModel.addAttribute("titlePage", "HOME");
 		theModel.addAttribute("view", "home");
 		/**
@@ -63,7 +63,7 @@ public class HomeController {
 		return "default";
 	}
 	
-	@RequestMapping("/salvaAvvisi")
+	@RequestMapping("/salva-avvisi")
 	@Transactional
 	public String salvaAvvisi(HttpServletRequest request, Model theModel)
 	{
@@ -74,30 +74,27 @@ public class HomeController {
 		LocalDateTime data = LocalDateTime.parse(dtf.format(now), dtf);
 
 		HttpSession session = request.getSession(true);
-		int id_risorsa = (int) session.getAttribute("id");
+		LocalSession localSession = new LocalSession();
+		
 		String nome_cognome = (String) session.getAttribute("nome_cognome");
 		String ruolo = (String) session.getAttribute("ruolo");
 		
 		String input_titolo = request.getParameter("titolo");
 		String input_avviso = request.getParameter("avviso");
-		
-		
+				
 		String[] input_ruolo = request.getParameterValues("ruolo");
 		List lista_ruoli = Arrays.asList(input_ruolo);
 		 
-		
-		System.out.println("ho i dati");
 		salva_avviso.setTitolo(input_titolo);
-		salva_avviso.setId_risorsa(id_risorsa);
+		salva_avviso.setId_risorsa(localSession.getIdRisorsa());
 		salva_avviso.setRuoli(lista_ruoli.toString());
 		salva_avviso.setNote(input_avviso);
 		salva_avviso.setData(data);
 		
 		avvisi_service.save(salva_avviso);
 		
-		System.out.println("ho salvato");
-		theModel.addAttribute("nome_cognome", nome_cognome);
-		theModel.addAttribute("ruolo", ruolo);
+		theModel.addAttribute("nome_cognome", localSession.getNomeCognome());
+		theModel.addAttribute("ruolo", localSession.getRuolo());
 		theModel.addAttribute("titlePage", "HOME");
 		theModel.addAttribute("view", "home");
 		
