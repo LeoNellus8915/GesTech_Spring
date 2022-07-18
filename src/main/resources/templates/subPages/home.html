@@ -2,25 +2,25 @@
 	<div class="page avviso">
 		<div class="page">
 			<div class="pos-f-t">
-				<form method="post" action="salvaAvvisi">
+				<form method="post" id="form" action="salvaAvvisi">
 					<input name="titolo" id="titolo" placeholder="Inserisci Titolo" type="text" required>
 					<label class="error" id="label-error-text" style="display:none">Il testo non pu&ograve; contenere i seguenti caratteri: % &</label>
 					<textarea name="avviso" id="avviso" onkeyup="controllo_caratteri('avviso')" placeholder="Inserire l'avviso" required></textarea>
 						<div class="row">
 							<div class="col-6">
-								<input name="ruolo" type="checkbox" id="admin" value="admin" required>
+								<input name="ruolo" type="checkbox" id="admin" value="admin">
 		  						<label>Admin</label>
-		  						<input name="ruolo" type="checkbox" id="recruiter" value="recruiter" required>
+		  						<input name="ruolo" type="checkbox" id="recruiter" value="recruiter">
 		  						<label>Recruiter</label>
-		  						<input name="ruolo" type="checkbox" id="commerciale" value="commerciale" required>
+		  						<input name="ruolo" type="checkbox" id="commerciale" value="commerciale">
 		  						<label>Commerciale</label>
-		  						<input name="ruolo" type="checkbox" id="dipendente" value="dipendente" required>
+		  						<input name="ruolo" type="checkbox" id="dipendente" value="dipendente">
 		  						<label>Dipendente</label>
-		  						<input name="ruolo" type="checkbox" id="tutti" value="tutti" Checked="checked" required> 
+		  						<input name="ruolo" type="checkbox" id="tutti" value="tutti"> 
 		  						<label>Tutti</label>
 						  	</div>
 						<div class="col-6">
-							<div class="btright"><input type="submit"></div>
+							<div class="btright"><input type="submit" onclick="controlloCheckbox()"></div>
 					  	</div>
 					  </div>
 					<div class="col-12">

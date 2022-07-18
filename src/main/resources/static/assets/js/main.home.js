@@ -5,6 +5,7 @@ $(function() {
 
 
 
+
 function controllo_caratteri(id_input){
 	var text = document.getElementById(id_input).value;
 
@@ -100,4 +101,29 @@ function stampa_avvisi()
 			}
 		}
 	}
+}
+
+function controlloCheckbox()
+{
+	var contatore = 0;
+	$("#form").on("submit", function (e) {
+		if ($("#admin").prop('checked'))
+			contatore++;
+		if ($("#recruiter").prop('checked'))
+			contatore++;
+		if ($("#commerciale").prop('checked'))
+			contatore++;
+		if ($("#dipendente").prop('checked'))
+			contatore++;
+		if ($("#tutti").prop('checked'))
+			contatore++;
+			
+		if (contatore != 0)
+			$("#form").submit();
+		else
+		{
+			alert("Selezionare almeno una checkbox'");
+			e.preventDefault();
+		}
+    });
 }

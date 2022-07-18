@@ -30,8 +30,9 @@ CREATE TABLE `hy_avvisi` (
   `id_risorsa` int DEFAULT NULL,
   `ruoli` varchar(100) DEFAULT NULL,
   `note` text,
+  `data` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -40,7 +41,7 @@ CREATE TABLE `hy_avvisi` (
 
 LOCK TABLES `hy_avvisi` WRITE;
 /*!40000 ALTER TABLE `hy_avvisi` DISABLE KEYS */;
-INSERT INTO `hy_avvisi` VALUES (2,NULL,1,'[commerciale, dipendente]','fbfbt'),(3,'yft',1,'[commerciale, dipendente, tutti]','nfnfntnftn');
+INSERT INTO `hy_avvisi` VALUES (4,'tgt',1,NULL,'fhhh','2022-07-18 00:00:00'),(5,'rdg',1,NULL,'drgdrgdrg','2022-07-18 00:00:00'),(6,'rgdg',1,NULL,'dgrdg','2022-07-18 12:51:18'),(7,'tgdr',1,'[dipendente, tutti]','gdrgdrg','2022-07-18 12:57:40');
 /*!40000 ALTER TABLE `hy_avvisi` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -53,4 +54,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-07-15 16:45:23
+-- Dump completed on 2022-07-18 14:41:04
