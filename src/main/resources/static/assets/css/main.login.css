@@ -12,3 +12,9 @@ img {
 .btn {
        margin-bottom: 15px;
 }
+
+.col-lg-6 {
+    flex: 0 0 50%;
+    max-width: 50%;
+    margin-bottom: 30px;
+}
