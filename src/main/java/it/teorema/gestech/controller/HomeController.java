@@ -44,7 +44,6 @@ public class HomeController {
 		String nome_cognome = (String) session.getAttribute("nome_cognome");
 		String ruolo = (String) session.getAttribute("ruolo");
 		
-		
 		theModel.addAttribute("nome_cognome", nome_cognome);
 		theModel.addAttribute("ruolo", ruolo);
 		theModel.addAttribute("titlePage", "HOME");
