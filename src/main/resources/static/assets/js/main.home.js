@@ -1,3 +1,10 @@
+$(function() {
+    $( "p" ).text( "The DOM is now loaded and can be manipulated." );
+  });
+
+
+
+
 function controllo_caratteri(id_input){
 	var text = document.getElementById(id_input).value;
 
