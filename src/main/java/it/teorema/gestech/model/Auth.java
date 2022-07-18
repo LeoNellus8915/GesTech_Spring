@@ -18,7 +18,7 @@ public class Auth
 	@Column(name = "id")
 	private int id;
 	@Column(name = "id_risorsa")
-	private int id_risorsa;
+	private int idRisorsa;
 	@Column(name = "password")
 	private String password;
 	@Column(name = "data")
@@ -26,10 +26,10 @@ public class Auth
 
 	public Auth(){}
 	
-	public Auth(int id, int id_risorsa, String password, LocalDate data) {
+	public Auth(int id, int idRisorsa, String password, LocalDate data) {
 		super();
 		this.id = id;
-		this.id_risorsa = id_risorsa;
+		this.idRisorsa = idRisorsa;
 		this.password = password;
 		this.data = data;
 	}
@@ -40,11 +40,11 @@ public class Auth
 	public void setId(int id) {
 		this.id = id;
 	}
-	public int getId_risorsa() {
-		return id_risorsa;
+	public int getIdRisorsa() {
+		return idRisorsa;
 	}
-	public void setId_risorsa(int id_risorsa) {
-		this.id_risorsa = id_risorsa;
+	public void setIdRisorsa(int idRisorsa) {
+		this.idRisorsa = idRisorsa;
 	}
 	public String getPassword() {
 		return password;
@@ -57,10 +57,5 @@ public class Auth
 	}
 	public void setData(LocalDate data) {
 		this.data = data;
-	}
-
-	@Override
-	public String toString() {
-		return "Auth [id=" + id + ", id_risorsa=" + id_risorsa + ", password=" + password + ", data=" + data + "]";
 	}
 }

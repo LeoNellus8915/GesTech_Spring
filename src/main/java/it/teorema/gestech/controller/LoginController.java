@@ -20,9 +20,9 @@ import it.teorema.gestech.session.LocalSession;
 public class LoginController {
 	
 	@Autowired
-	RisorseService risorse_service;
+	RisorseService risorseService;
 	@Autowired
-	AuthService auth_service;
+	AuthService authService;
 	
 	@RequestMapping("/logout")
 	public String index()
@@ -36,7 +36,7 @@ public class LoginController {
 		String email = request.getParameter("email");
 		String password = request.getParameter("passwordMD5");
 		String controllo = "";
-		List service = risorse_service.findAll(email);
+		List service = risorseService.findAll(email);
 		int idRisorsa = 0;
 		
 		String nomeCognome = null;
@@ -47,14 +47,14 @@ public class LoginController {
 		{
 			Risorse risorsa = (Risorse) service.get(0);
 			idRisorsa = risorsa.getId();
-			nomeCognome = risorsa.getNome_cognome();
-			ruolo = risorsa.getRuolo_risorsa();
+			nomeCognome = risorsa.getNomeCognome();
+			ruolo = risorsa.getRuoloRisorsa();
 			controllo = "email";
 		}
 		
 		if (idRisorsa != 0)
 		{
-			Auth auth = (Auth) auth_service.findAll(idRisorsa).get(0);
+			Auth auth = (Auth) authService.findAll(idRisorsa).get(0);
 			if (password.equals(auth.getPassword()))
 				controllo = controllo.concat(" password");
 		}
@@ -68,17 +68,9 @@ public class LoginController {
 			return "redirect:home";
 		else
 		{
-			theModel.addAttribute("msg_credenziali", "Credenziali errate, si prega di riprovare");
+			theModel.addAttribute("msgCredenziali", "Credenziali errate, si prega di riprovare");
 			theModel.addAttribute("titlePage", "Login");
 			return "index";
 		}
-			
-		/**
-		 * Todo verifica se la login è giusta
-		 * si redirect home
-		 * no page login con messaggio di errore 
-		 * 
-		 * return index;
-		 */
 	}
 }

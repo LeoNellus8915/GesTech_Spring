@@ -17,7 +17,7 @@ public class Commenti
 	@Column(name = "id")
 	private int id;
 	@Column(name = "id_file_risorsa")
-	private int id_file_risorsa;
+	private int idFileRisorsa;
 	@Column(name = "note")
 	private String note;
 	@Column(name = "data")
@@ -25,10 +25,10 @@ public class Commenti
 	
 	public Commenti() {}
 
-	public Commenti(int id, int id_file_risorsa, String note, LocalDateTime data) {
+	public Commenti(int id, int idFileRisorsa, String note, LocalDateTime data) {
 		super();
 		this.id = id;
-		this.id_file_risorsa = id_file_risorsa;
+		this.idFileRisorsa = idFileRisorsa;
 		this.note = note;
 		this.data = data;
 	}
@@ -41,12 +41,12 @@ public class Commenti
 		this.id = id;
 	}
 
-	public int getId_file_risorsa() {
-		return id_file_risorsa;
+	public int getIdFileRisorsa() {
+		return idFileRisorsa;
 	}
 
-	public void setId_file_risorsa(int id_file_risorsa) {
-		this.id_file_risorsa = id_file_risorsa;
+	public void setIdFileRisorsa(int idFileRisorsa) {
+		this.idFileRisorsa = idFileRisorsa;
 	}
 
 	public String getNote() {

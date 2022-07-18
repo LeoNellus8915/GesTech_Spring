@@ -18,59 +18,58 @@ public class Risorse
 	@Column(name = "id")
 	private int id;
 	@Column(name = "nome_cognome")
-	private String nome_cognome;
+	private String nomeCognome;
 	@Column(name = "recapito")
 	private String recapito;
 	@Column(name = "email")
 	private String email;
 	@Column(name = "profilo_linkedin")
-	private String profilo_linkedin;
+	private String profiloLinkedin;
 	@Column(name = "citta")
 	private String citta;
 	@Column(name = "ruolo_risorsa")
-	private String ruolo_risorsa;
+	private String ruoloRisorsa;
 	@Column(name = "competenza_principale")
-	private String competenza_principale;
+	private String competenzaPrincipale;
 	@Column(name = "data_colloquio")
-	private Date data_colloquio;
+	private Date dataColloquio;
 	@Column(name = "anno_colloquio")
-	private int anno_colloquio;
+	private int annoColloquio;
 	@Column(name = "fonte_reperimento")
-	private String fonte_reperimento;
+	private String fonteReperimento;
 	@Column(name = "costo_giornaliero")
-	private double costo_giornaliero;
+	private double costoGiornaliero;
 	@Column(name = "possibilita_lavorativa")
-	private String possibilita_lavorativa;
+	private String possibilitaLavorativa;
 	@Column(name = "skill_campo_libero")
-	private String skill_campo_libero;
+	private String skillCampoLibero;
 	@Column(name = "competenze_totali")
-	private String competenze_totali;
+	private String competenzeTotali;
 	@Column(name = "certificazioni")
 	private String certificazioni;
 	
 	public Risorse() {}
-	
-	public Risorse(int id, String nome_cognome, String recapito, String email, String profilo_linkedin, String citta,
-			String ruolo_risorsa, String competenza_principale, Date data_colloquio, int anno_colloquio,
-			String fonte_reperimento, double costo_giornaliero, String possibilita_lavorativa, String skill_campo_libero,
-			String competenze_totali, String certificazioni)
-	{
+
+	public Risorse(int id, String nomeCognome, String recapito, String email, String profiloLinkedin, String citta,
+			String ruoloRisorsa, String competenzaPrincipale, Date dataColloquio, int annoColloquio,
+			String fonteReperimento, double costoGiornaliero, String possibilitaLavorativa, String skillCampoLibero,
+			String competenzeTotali, String certificazioni) {
 		super();
 		this.id = id;
-		this.nome_cognome = nome_cognome;
+		this.nomeCognome = nomeCognome;
 		this.recapito = recapito;
 		this.email = email;
-		this.profilo_linkedin = profilo_linkedin;
+		this.profiloLinkedin = profiloLinkedin;
 		this.citta = citta;
-		this.ruolo_risorsa = ruolo_risorsa;
-		this.competenza_principale = competenza_principale;
-		this.data_colloquio = data_colloquio;
-		this.anno_colloquio = anno_colloquio;
-		this.fonte_reperimento = fonte_reperimento;
-		this.costo_giornaliero = costo_giornaliero;
-		this.possibilita_lavorativa = possibilita_lavorativa;
-		this.skill_campo_libero = skill_campo_libero;
-		this.competenze_totali = competenze_totali;
+		this.ruoloRisorsa = ruoloRisorsa;
+		this.competenzaPrincipale = competenzaPrincipale;
+		this.dataColloquio = dataColloquio;
+		this.annoColloquio = annoColloquio;
+		this.fonteReperimento = fonteReperimento;
+		this.costoGiornaliero = costoGiornaliero;
+		this.possibilitaLavorativa = possibilitaLavorativa;
+		this.skillCampoLibero = skillCampoLibero;
+		this.competenzeTotali = competenzeTotali;
 		this.certificazioni = certificazioni;
 	}
 
@@ -82,12 +81,12 @@ public class Risorse
 		this.id = id;
 	}
 
-	public String getNome_cognome() {
-		return nome_cognome;
+	public String getNomeCognome() {
+		return nomeCognome;
 	}
 
-	public void setNome_cognome(String nome_cognome) {
-		this.nome_cognome = nome_cognome;
+	public void setNomeCognome(String nomeCognome) {
+		this.nomeCognome = nomeCognome;
 	}
 
 	public String getRecapito() {
@@ -106,12 +105,12 @@ public class Risorse
 		this.email = email;
 	}
 
-	public String getProfilo_linkedin() {
-		return profilo_linkedin;
+	public String getProfiloLinkedin() {
+		return profiloLinkedin;
 	}
 
-	public void setProfilo_linkedin(String profilo_linkedin) {
-		this.profilo_linkedin = profilo_linkedin;
+	public void setProfiloLinkedin(String profiloLinkedin) {
+		this.profiloLinkedin = profiloLinkedin;
 	}
 
 	public String getCitta() {
@@ -122,76 +121,76 @@ public class Risorse
 		this.citta = citta;
 	}
 
-	public String getRuolo_risorsa() {
-		return ruolo_risorsa;
+	public String getRuoloRisorsa() {
+		return ruoloRisorsa;
 	}
 
-	public void setRuolo_risorsa(String ruolo_risorsa) {
-		this.ruolo_risorsa = ruolo_risorsa;
+	public void setRuoloRisorsa(String ruoloRisorsa) {
+		this.ruoloRisorsa = ruoloRisorsa;
 	}
 
-	public String getCompetenza_principale() {
-		return competenza_principale;
+	public String getCompetenzaPrincipale() {
+		return competenzaPrincipale;
 	}
 
-	public void setCompetenza_principale(String competenza_principale) {
-		this.competenza_principale = competenza_principale;
+	public void setCompetenzaPrincipale(String competenzaPrincipale) {
+		this.competenzaPrincipale = competenzaPrincipale;
 	}
 
-	public Date getData_colloquio() {
-		return data_colloquio;
+	public Date getDataColloquio() {
+		return dataColloquio;
 	}
 
-	public void setData_colloquio(Date data_colloquio) {
-		this.data_colloquio = data_colloquio;
+	public void setDataColloquio(Date dataColloquio) {
+		this.dataColloquio = dataColloquio;
 	}
 
-	public int getAnno_colloquio() {
-		return anno_colloquio;
+	public int getAnnoColloquio() {
+		return annoColloquio;
 	}
 
-	public void setAnno_colloquio(int anno_colloquio) {
-		this.anno_colloquio = anno_colloquio;
+	public void setAnnoColloquio(int annoColloquio) {
+		this.annoColloquio = annoColloquio;
 	}
 
-	public String getFonte_reperimento() {
-		return fonte_reperimento;
+	public String getFonteReperimento() {
+		return fonteReperimento;
 	}
 
-	public void setFonte_reperimento(String fonte_reperimento) {
-		this.fonte_reperimento = fonte_reperimento;
+	public void setFonteReperimento(String fonteReperimento) {
+		this.fonteReperimento = fonteReperimento;
 	}
 
-	public double getCosto_giornaliero() {
-		return costo_giornaliero;
+	public double getCostoGiornaliero() {
+		return costoGiornaliero;
 	}
 
-	public void setCosto_giornaliero(double costo_giornaliero) {
-		this.costo_giornaliero = costo_giornaliero;
+	public void setCostoGiornaliero(double costoGiornaliero) {
+		this.costoGiornaliero = costoGiornaliero;
 	}
 
-	public String getPossibilita_lavorativa() {
-		return possibilita_lavorativa;
+	public String getPossibilitaLavorativa() {
+		return possibilitaLavorativa;
 	}
 
-	public void setPossibilita_lavorativa(String possibilita_lavorativa) {
-		this.possibilita_lavorativa = possibilita_lavorativa;
+	public void setPossibilitaLavorativa(String possibilitaLavorativa) {
+		this.possibilitaLavorativa = possibilitaLavorativa;
 	}
 
-	public String getSkill_campo_libero() {
-		return skill_campo_libero;
+	public String getSkillCampoLibero() {
+		return skillCampoLibero;
 	}
 
-	public void setSkill_campo_libero(String skill_campo_libero) {
-		this.skill_campo_libero = skill_campo_libero;
+	public void setSkillCampoLibero(String skillCampoLibero) {
+		this.skillCampoLibero = skillCampoLibero;
 	}
 
-	public String getCompetenze_totali() {
-		return competenze_totali;
+	public String getCompetenzeTotali() {
+		return competenzeTotali;
 	}
 
-	public void setCompetenze_totali(String competenze_totali) {
-		this.competenze_totali = competenze_totali;
+	public void setCompetenzeTotali(String competenzeTotali) {
+		this.competenzeTotali = competenzeTotali;
 	}
 
 	public String getCertificazioni() {
@@ -201,16 +200,4 @@ public class Risorse
 	public void setCertificazioni(String certificazioni) {
 		this.certificazioni = certificazioni;
 	}
-
-	@Override
-	public String toString() {
-		return "Risorse [id=" + id + ", nome_cognome=" + nome_cognome + ", recapito=" + recapito + ", email=" + email
-				+ ", profilo_linkedin=" + profilo_linkedin + ", citta=" + citta + ", ruolo_risorsa=" + ruolo_risorsa
-				+ ", competenza_principale=" + competenza_principale + ", data_colloquio=" + data_colloquio
-				+ ", anno_colloquio=" + anno_colloquio + ", fonte_reperimento=" + fonte_reperimento
-				+ ", costo_giornaliero=" + costo_giornaliero + ", possibilita_lavorativa=" + possibilita_lavorativa
-				+ ", skill_campo_libero=" + skill_campo_libero + ", competenze_totali=" + competenze_totali
-				+ ", certificazioni=" + certificazioni + "]";
-	}
-	
 }

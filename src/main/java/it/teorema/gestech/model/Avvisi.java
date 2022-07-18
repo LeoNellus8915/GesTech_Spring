@@ -22,18 +22,20 @@ public class Avvisi
 	@Column(name = "ruoli")
 	private String ruoli;
 	@Column(name = "id_risorsa")
-	private int id_risorsa;
+	private int idRisorsa;
 	@Column(name = "note")
 	private String note;
 	@Column(name = "data")
 	private LocalDateTime data;
 	
-	public Avvisi(int id, String titolo, String ruoli, int id_risorsa, String note, LocalDateTime data) {
+	public Avvisi() {}
+	
+	public Avvisi(int id, String titolo, String ruoli, int idRisorsa, String note, LocalDateTime data) {
 		super();
 		this.id = id;
 		this.titolo = titolo;
 		this.ruoli = ruoli;
-		this.id_risorsa = id_risorsa;
+		this.idRisorsa = idRisorsa;
 		this.note = note;
 		this.data = data;
 	}
@@ -44,11 +46,6 @@ public class Avvisi
 
 	public void setTitolo(String titolo) {
 		this.titolo = titolo;
-	}
-
-	public Avvisi() {
-		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public int getId() {
@@ -67,12 +64,12 @@ public class Avvisi
 		this.ruoli = ruoli;
 	}
 
-	public int getId_risorsa() {
-		return id_risorsa;
+	public int getIdRisorsa() {
+		return idRisorsa;
 	}
 
-	public void setId_risorsa(int id_risorsa) {
-		this.id_risorsa = id_risorsa;
+	public void setIdRisorsa(int idRisorsa) {
+		this.idRisorsa = idRisorsa;
 	}
 
 	public String getNote() {

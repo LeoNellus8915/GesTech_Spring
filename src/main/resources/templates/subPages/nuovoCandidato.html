@@ -1,5 +1,5 @@
 <div th:fragment="nuovoCandidato">
-	<form method="post" action="aggiungiCandidato" name="Aggiungi Candidato" enctype ="multipart/form-data">
+	<form method="post" action="aggiungi-candidato" name="Aggiungi Candidato" enctype ="multipart/form-data">
 		<div class="card no-b  no-r">
 			<div class="card-body">
 				<h5 class="card-title">Anagrafica</h5>
@@ -7,8 +7,8 @@
 					<div class="col-md-12">
 						<div class="form-row">
 							<div class="form-group col-6 m-0">
-								<label for="nome_congnome" class="col-form-label s-12">NOME
-									E COGNOME</label> <input id="nome_cognome" name="nome_cognome"
+								<label for="nomeCognome" class="col-form-label s-12">NOME
+									E COGNOME</label> <input id="nomeCognome" name="nomeCognome"
 									placeholder="Inserisci Nome e Cognome"
 									class="form-control r-0 light s-12 " type="text">
 							</div>
@@ -28,14 +28,14 @@
 									type="text">
 							</div>
 							<div class="form-group col-6 m-0">
-								<label for="email" class="col-form-label s-12">PROFILO LINKEDIN</label>
-								<input id="profilo_linkedin" name="profilo_linkedin" placeholder="Linkedin URL"
+								<label for="profiloLinkedin" class="col-form-label s-12">PROFILO LINKEDIN</label>
+								<input id="profiloLinkedin" name="profiloLinkedin" placeholder="Linkedin URL"
 									class="form-control r-0 light s-12 datePicker"
 									data-time-picker="false" data-format-date='Y/m/d'
 									type="text">
 							</div>
 							<div class="form-group col-6 m-0">
-								<label for="citta_di_allocazione"
+								<label for="citta"
 									class="col-form-label s-12">CITTA'</label> <input
 									id="citta" name="citta"
 									placeholder="Inserisci Città"
@@ -43,11 +43,6 @@
 									data-time-picker="false" data-format-date='Y/m/d'
 									type="text">
 							</div>
-							<!-- <div class="form-group col-6 m-0">
-								<label for="citta_di_allocazione"
-									class="col-form-label s-12">CARICA CV</label><br>
-     							<input type="file" name="nomeFile" enctype="multipart/form-data">
-     						</div>-->
 						</div>
 					</div>
 				</div>
@@ -62,24 +57,24 @@
 					<div class="col-md-12">
 						<div class="form-row">
 							<div class="form-group col-4 m-0">
-								<label for="data_colloquio" class="col-form-label s-12"><i
+								<label for="dataColloquio" class="col-form-label s-12"><i
 									class="icon-calendar mr-2"></i>DATA COLLOQUIO</label> <input
-									id="data_colloquio" name="data_colloquio"
+									id="dataColloquio" name="dataColloquio"
 									placeholder="Inserisci Data Colloquio"
 									class="form-control r-0 light s-12 datePicker"
 									data-time-picker="false" data-format-date='Y/m/d'
 									type="text">
 							</div>
 							<div class="form-group col-4 m-0">
-								<label for="anno_colloquio" class="col-form-label s-12">ANNO
-									COLLOQUIO</label> <input id="anno_colloquio"
-									name="anno_colloquio" placeholder="Inserisci Anno
+								<label for="annoColloquio" class="col-form-label s-12">ANNO
+									COLLOQUIO</label> <input id="annoColloquio"
+									name="annoColloquio" placeholder="Inserisci Anno
 									Colloquio" class="form-control r-0 light s-12 date-picker"
 									type="text">
 							</div>
 							<div class="form-group col-4 m-0">
-								<label for="esito_colloquio" class="col-form-label s-12">ESITO COLLOQUIO</label> 
-								<select name="esito_colloquio" id="esito_colloquio" class="form-control r-0 light s-12 date-picker"></select>
+								<label for="esitoColloquio" class="col-form-label s-12">ESITO COLLOQUIO</label> 
+								<select name="esitoColloquio" id="esitoColloquio" class="form-control r-0 light s-12 date-picker"></select>
 							</div>
 						</div>
 					</div>
@@ -91,19 +86,19 @@
 					<div class="col-md-12">
 						<div class="form-row">
 							<div class="form-group col-4 m-0">
-								<label for="fonte_reperimento" class="col-form-label s-12">FONTE
-									REPERIMENTO</label> <input id="fonte_reperimento"
-									name="fonte_reperimento"
+								<label for="fonteReperimento" class="col-form-label s-12">FONTE
+									REPERIMENTO</label> <input id="fonteReperimento"
+									name="fonteReperimento"
 									placeholder="Inserisci Fonte Reperimento"
 									class="form-control r-0 light s-12 date-picker" type="text">
 							</div>
 							<div class="form-group col-4 m-0">
-								<label for="ruolo_profilo" class="col-form-label s-12">RUOLO</label>
-								<select name="ruolo_profilo" id="ruolo_profilo" class="form-control r-0 light s-12 date-picker"></select>
+								<label for="ruoloProfilo" class="col-form-label s-12">RUOLO</label>
+								<select name="ruoloProfilo" id="ruoloProfilo" class="form-control r-0 light s-12 date-picker"></select>
 							</div>
 							<div class="form-group col-4 m-0">
-								<label for="competenza_principale" class="col-form-label s-12">COMPETENZA PRINCIPALE</label>
-								<input id="competenza_principale" name="competenza_principale" placeholder="Insersci Competenza Principale"
+								<label for="competenzaPrincipale" class="col-form-label s-12">COMPETENZA PRINCIPALE</label>
+								<input id="competenzaPrincipale" name="competenzaPrincipale" placeholder="Insersci Competenza Principale"
 									class="form-control r-0 light s-12 date-picker" type="text">
 							</div>
 						</div>
@@ -116,17 +111,17 @@
 					<div class="col-md-12">
 						<div class="form-row">
 							<div class="form-group col-6 m-0">
-								<label for="costo_giornaliero" class="col-form-label s-12">COSTO
-									GIORNALIERO</label> <input id="costo_giornaliero"
-									name="costo_giornaliero"
+								<label for="costoGiornaliero" class="col-form-label s-12">COSTO
+									GIORNALIERO</label> <input id="costoGiornaliero"
+									name="costoGiornaliero"
 									placeholder="Insersci Costo Giornaliero"
 									class="form-control r-0 light s-12 date-picker" type="text">
 							</div>
 							<div class="form-group col-6 m-0">
-								<label for="possibilita_lavorativa"
+								<label for="possibilitaLavorativa"
 									class="col-form-label s-12">POSSIBILITA' LAVORATIVA</label>
-								<input id="possibilita_lavorativa"
-									name="possibilita_lavorativa"
+								<input id="possibilitaLavorativa"
+									name="possibilitaLavorativa"
 									placeholder="Insersci Possibilità Lavorativa"
 									class="form-control r-0 light s-12 date-picker" type="text">
 							</div>
@@ -141,30 +136,30 @@
 					<div class="col-md-12">
 						<div class="form-row">
 							<div class="form-group col-4 m-0">
-								<label for="skill_1" class="col-form-label s-12">SKILL1</label>
-								<select name="skill_1" id="skill_1" class="form-control r-0 light s-12 date-picker"></select>
+								<label for="skill1" class="col-form-label s-12">SKILL1</label>
+								<select name="skill1" id="skill1" class="form-control r-0 light s-12 date-picker"></select>
 							</div>
 							<div class="form-group col-4 m-0">
-								<label for="skill_2" class="col-form-label s-12">SKILL2</label>
-								<select name="skill_2" id="skill_2" class="form-control r-0 light s-12 date-picker"></select>
+								<label for="skill2" class="col-form-label s-12">SKILL2</label>
+								<select name="skill2" id="skill2" class="form-control r-0 light s-12 date-picker"></select>
 							</div>
 							<div class="form-group col-4 m-0">
-								<label for="skill_3" class="col-form-label s-12">SKILL3</label>
-								<select name="skill_3" id="skill_3" class="form-control r-0 light s-12 date-picker"></select>
+								<label for="skill3" class="col-form-label s-12">SKILL3</label>
+								<select name="skill3" id="skill3" class="form-control r-0 light s-12 date-picker"></select>
 							</div>
 
 							<div class="form-group col-4 m-0">
-								<label for="skill_4" class="col-form-label s-12">SKILL4</label>
-								<select name="skill_4" id="skill_4" class="form-control r-0 light s-12 date-picker"></select>
+								<label for="skill4" class="col-form-label s-12">SKILL4</label>
+								<select name="skill4" id="skill4" class="form-control r-0 light s-12 date-picker"></select>
 							</div>
 							<div class="form-group col-4 m-0">
-								<label for="skill_5" class="col-form-label s-12">SKILL5</label>
-								<select name="skill_5" id="skill_5" class="form-control r-0 light s-12 date-picker"></select>
+								<label for="skill5" class="col-form-label s-12">SKILL5</label>
+								<select name="skill5" id="skill5" class="form-control r-0 light s-12 date-picker"></select>
 							</div>
 							<div class="form-group col-4 m-0">
-								<label for="skill_campo_libero" class="col-form-label s-12">SKILL
-									(campo libero)</label> <input id="skill_campo_libero"
-									name="skill_campo_libero"
+								<label for="skillCampoLibero" class="col-form-label s-12">SKILL
+									(campo libero)</label> <input id="skillCampoLibero"
+									name="skillCampoLibero"
 									placeholder="Insersci Skill Campo Libero"
 									class="form-control r-0 light s-12 date-picker" type="text">
 							</div>
@@ -179,16 +174,16 @@
 					<div class="col-md-12">
 						<div class="form-row">
 							<div class="form-group col-4 m-0">
-								<label for="lingua_1" class="col-form-label s-12">LINGUA 1</label> 
-									<select name="lingua_1" id="lingua_1" class="form-control r-0 light s-12 date-picker"></select>
+								<label for="lingua1" class="col-form-label s-12">LINGUA 1</label> 
+									<select name="lingua1" id="lingua1" class="form-control r-0 light s-12 date-picker"></select>
 							</div>
 							<div class="form-group col-4 m-0">
-								<label for="lingua_2" class="col-form-label s-12">LINGUA 2</label>
-								<select name="lingua_2" id="lingua_2" class="form-control r-0 light s-12 date-picker"></select>
+								<label for="lingua2" class="col-form-label s-12">LINGUA 2</label>
+								<select name="lingua2" id="lingua2" class="form-control r-0 light s-12 date-picker"></select>
 							</div>
 							<div class="form-group col-4 m-0">
-								<label for="lingua_3" class="col-form-label s-12">LINGUA 3</label> 
-								<select name="lingua_3" id="lingua_3" class="form-control r-0 light s-12 date-picker"></select>
+								<label for="lingua3" class="col-form-label s-12">LINGUA 3</label> 
+								<select name="lingua3" id="lingua3" class="form-control r-0 light s-12 date-picker"></select>
 							</div>
 						</div>
 					</div>
@@ -201,9 +196,9 @@
 					<div class="col-md-12">
 						<div class="form-row">
 							<div class="form-group col-4 m-0">
-								<label for="competenze_totali" class="col-form-label s-12">COMPETENZE
-									TOTALI</label> <input id="competenze_totali"
-									name="competenze_totali"
+								<label for="competenzeTotali" class="col-form-label s-12">COMPETENZE
+									TOTALI</label> <input id="competenzeTotali"
+									name="competenzeTotali"
 									placeholder="Insersci Competenze Totali"
 									class="form-control r-0 light s-12 date-picker" type="text">
 							</div>
@@ -241,7 +236,6 @@
 				<hr>
 
 				<div class="card-body">
-					<input type="hidden" name="Servlet" value="profilo">
 					<input type="submit" value="SALVA">
 				</div>
 			</div>

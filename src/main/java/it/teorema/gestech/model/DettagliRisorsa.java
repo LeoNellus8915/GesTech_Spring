@@ -18,52 +18,52 @@ public class DettagliRisorsa
 	@Column(name = "id")
 	private int id;
 	@Column(name = "id_risorsa")
-	private int id_risorsa;
+	private int idRisorsa;
 	@Column(name = "file_base64")
-	private String file_base64;
+	private String fileBase64;
 	@Column(name = "data_inserimento")
-	private Date data_inserimento;
+	private Date dataInserimento;
 	@Column(name = "id_esito_colloquio")
-	private int id_esito_colloquio;
+	private int idEsitoColloquio;
 	@Column(name = "id_skill1")
-	private int id_skill1;
+	private int idSkill1;
 	@Column(name = "id_skill2")
-	private int id_skill2;
+	private int idSkill2;
 	@Column(name = "id_skill3")
-	private int id_skill3;
+	private int idSkill3;
 	@Column(name = "id_skill4")
-	private int id_skill4;
+	private int idSkill4;
 	@Column(name = "id_skill5")
-	private int id_skill5;
+	private int idSkill5;
 	@Column(name = "id_lingua1")
-	private int id_lingua1;
+	private int idLingua1;
 	@Column(name = "id_lingua2")
-	private int id_lingua2;
+	private int idLingua2;
 	@Column(name = "id_lingua3")
-	private int id_lingua3;
+	private int idLingua3;
 	@Column(name = "id_seniority")
-	private int id_seniority;
+	private int idSeniority;
 	
 	public DettagliRisorsa() {}
 
-	public DettagliRisorsa(int id, int id_risorsa, String file_base64, Date data_inserimento, int id_esito_colloquio,
-			int id_skill1, int id_skill2, int id_skill3, int id_skill4, int id_skill5, int id_lingua1, int id_lingua2,
-			int id_lingua3, int id_seniority) {
+	public DettagliRisorsa(int id, int idRisorsa, String fileBase64, Date dataInserimento, int idEsitoColloquio,
+			int idSkill1, int idSkill2, int idSkill3, int idSkill4, int idSkill5, int idLingua1, int idLingua2,
+			int idLingua3, int idSeniority) {
 		super();
 		this.id = id;
-		this.id_risorsa = id_risorsa;
-		this.file_base64 = file_base64;
-		this.data_inserimento = data_inserimento;
-		this.id_esito_colloquio = id_esito_colloquio;
-		this.id_skill1 = id_skill1;
-		this.id_skill2 = id_skill2;
-		this.id_skill3 = id_skill3;
-		this.id_skill4 = id_skill4;
-		this.id_skill5 = id_skill5;
-		this.id_lingua1 = id_lingua1;
-		this.id_lingua2 = id_lingua2;
-		this.id_lingua3 = id_lingua3;
-		this.id_seniority = id_seniority;
+		this.idRisorsa = idRisorsa;
+		this.fileBase64 = fileBase64;
+		this.dataInserimento = dataInserimento;
+		this.idEsitoColloquio = idEsitoColloquio;
+		this.idSkill1 = idSkill1;
+		this.idSkill2 = idSkill2;
+		this.idSkill3 = idSkill3;
+		this.idSkill4 = idSkill4;
+		this.idSkill5 = idSkill5;
+		this.idLingua1 = idLingua1;
+		this.idLingua2 = idLingua2;
+		this.idLingua3 = idLingua3;
+		this.idSeniority = idSeniority;
 	}
 
 	public int getId() {
@@ -74,107 +74,107 @@ public class DettagliRisorsa
 		this.id = id;
 	}
 
-	public int getId_risorsa() {
-		return id_risorsa;
+	public int getIdRisorsa() {
+		return idRisorsa;
 	}
 
-	public void setId_risorsa(int id_risorsa) {
-		this.id_risorsa = id_risorsa;
+	public void setIdRisorsa(int idRisorsa) {
+		this.idRisorsa = idRisorsa;
 	}
 
-	public String getFile_base64() {
-		return file_base64;
+	public String getFileBase64() {
+		return fileBase64;
 	}
 
-	public void setFile_base64(String file_base64) {
-		this.file_base64 = file_base64;
+	public void setFileBase64(String fileBase64) {
+		this.fileBase64 = fileBase64;
 	}
 
-	public Date getData_inserimento() {
-		return data_inserimento;
+	public Date getDataInserimento() {
+		return dataInserimento;
 	}
 
-	public void setData_inserimento(Date data_inserimento) {
-		this.data_inserimento = data_inserimento;
+	public void setDataInserimento(Date dataInserimento) {
+		this.dataInserimento = dataInserimento;
 	}
 
-	public int getId_esito_colloquio() {
-		return id_esito_colloquio;
+	public int getIdEsitoColloquio() {
+		return idEsitoColloquio;
 	}
 
-	public void setId_esito_colloquio(int id_esito_colloquio) {
-		this.id_esito_colloquio = id_esito_colloquio;
+	public void setIdEsitoColloquio(int idEsitoColloquio) {
+		this.idEsitoColloquio = idEsitoColloquio;
 	}
 
-	public int getId_skill1() {
-		return id_skill1;
+	public int getIdSkill1() {
+		return idSkill1;
 	}
 
-	public void setId_skill1(int id_skill1) {
-		this.id_skill1 = id_skill1;
+	public void setIdSkill1(int idSkill1) {
+		this.idSkill1 = idSkill1;
 	}
 
-	public int getId_skill2() {
-		return id_skill2;
+	public int getIdSkill2() {
+		return idSkill2;
 	}
 
-	public void setId_skill2(int id_skill2) {
-		this.id_skill2 = id_skill2;
+	public void setIdSkill2(int idSkill2) {
+		this.idSkill2 = idSkill2;
 	}
 
-	public int getId_skill3() {
-		return id_skill3;
+	public int getIdSkill3() {
+		return idSkill3;
 	}
 
-	public void setId_skill3(int id_skill3) {
-		this.id_skill3 = id_skill3;
+	public void setIdSkill3(int idSkill3) {
+		this.idSkill3 = idSkill3;
 	}
 
-	public int getId_skill4() {
-		return id_skill4;
+	public int getIdSkill4() {
+		return idSkill4;
 	}
 
-	public void setId_skill4(int id_skill4) {
-		this.id_skill4 = id_skill4;
+	public void setIdSkill4(int idSkill4) {
+		this.idSkill4 = idSkill4;
 	}
 
-	public int getId_skill5() {
-		return id_skill5;
+	public int getIdSkill5() {
+		return idSkill5;
 	}
 
-	public void setId_skill5(int id_skill5) {
-		this.id_skill5 = id_skill5;
+	public void setIdSkill5(int idSkill5) {
+		this.idSkill5 = idSkill5;
 	}
 
-	public int getId_lingua1() {
-		return id_lingua1;
+	public int getIdLingua1() {
+		return idLingua1;
 	}
 
-	public void setId_lingua1(int id_lingua1) {
-		this.id_lingua1 = id_lingua1;
+	public void setIdLingua1(int idLingua1) {
+		this.idLingua1 = idLingua1;
 	}
 
-	public int getId_lingua2() {
-		return id_lingua2;
+	public int getIdLingua2() {
+		return idLingua2;
 	}
 
-	public void setId_lingua2(int id_lingua2) {
-		this.id_lingua2 = id_lingua2;
+	public void setIdLingua2(int idLingua2) {
+		this.idLingua2 = idLingua2;
 	}
 
-	public int getId_lingua3() {
-		return id_lingua3;
+	public int getIdLingua3() {
+		return idLingua3;
 	}
 
-	public void setId_lingua3(int id_lingua3) {
-		this.id_lingua3 = id_lingua3;
+	public void setIdLingua3(int idLingua3) {
+		this.idLingua3 = idLingua3;
 	}
 
-	public int getId_seniority() {
-		return id_seniority;
+	public int getIdSeniority() {
+		return idSeniority;
 	}
 
-	public void setId_seniority(int id_seniority) {
-		this.id_seniority = id_seniority;
+	public void setIdSeniority(int idSeniority) {
+		this.idSeniority = idSeniority;
 	}
 }

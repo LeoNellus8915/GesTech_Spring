@@ -16,7 +16,7 @@ public class Menu
 	@Column(name = "id")
 	private int id;
 	@Column(name = "id_ruolo")
-	private int id_ruolo;
+	private int idRuolo;
 	@Column(name = "categoria")
 	private String categoria;
 	@Column(name = "label")
@@ -26,10 +26,10 @@ public class Menu
 	
 	public Menu() {}
 
-	public Menu(int id, int id_ruolo, String categoria, String label, String url) {
+	public Menu(int id, int idRuolo, String categoria, String label, String url) {
 		super();
 		this.id = id;
-		this.id_ruolo = id_ruolo;
+		this.idRuolo = idRuolo;
 		this.categoria = categoria;
 		this.label = label;
 		this.url = url;
@@ -43,12 +43,12 @@ public class Menu
 		this.id = id;
 	}
 
-	public int getId_ruolo() {
-		return id_ruolo;
+	public int getIdRuolo() {
+		return idRuolo;
 	}
 
-	public void setId_ruolo(int id_ruolo) {
-		this.id_ruolo = id_ruolo;
+	public void setIdRuolo(int idRuolo) {
+		this.idRuolo = idRuolo;
 	}
 
 	public String getCategoria() {

@@ -16,17 +16,17 @@ public class RuoliRisorse
 	@Column(name = "id")
 	private int id;
 	@Column(name = "id_risorsa")
-	private int id_risorsa;
+	private int idRisorsa;
 	@Column(name = "id_ruolo")
-	private int id_ruolo;
+	private int idRuolo;
 	
 	public RuoliRisorse() {}
 
-	public RuoliRisorse(int id, int id_risorsa, int id_ruolo) {
+	public RuoliRisorse(int id, int idRisorsa, int idRuolo) {
 		super();
 		this.id = id;
-		this.id_risorsa = id_risorsa;
-		this.id_ruolo = id_ruolo;
+		this.idRisorsa = idRisorsa;
+		this.idRuolo = idRuolo;
 	}
 
 	public int getId() {
@@ -37,19 +37,19 @@ public class RuoliRisorse
 		this.id = id;
 	}
 
-	public int getId_risorsa() {
-		return id_risorsa;
+	public int getIdRisorsa() {
+		return idRisorsa;
 	}
 
-	public void setId_risorsa(int id_risorsa) {
-		this.id_risorsa = id_risorsa;
+	public void setIdRisorsa(int idRisorsa) {
+		this.idRisorsa = idRisorsa;
 	}
 
-	public int getId_ruolo() {
-		return id_ruolo;
+	public int getIdRuolo() {
+		return idRuolo;
 	}
 
-	public void setId_ruolo(int id_ruolo) {
-		this.id_ruolo = id_ruolo;
+	public void setIdRuolo(int idRuolo) {
+		this.idRuolo = idRuolo;
 	}
 }

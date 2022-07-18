@@ -31,35 +31,26 @@ import it.teorema.gestech.session.LocalSession;
 @Controller
 public class HomeController {
 	@Autowired
-	AvvisiService avvisi_service;
+	AvvisiService avvisiService;
 	
 	@RequestMapping("/")
-	public String index(Model theModel)
+	public String index(HttpServletRequest request, Model theModel)
 	{
-		/**
-		 * TODO controllo se loggato
-		 */
 		theModel.addAttribute("titlePage", "Login");
-		theModel.addAttribute("msg_credenziali", "Inserisci le credenziali per accedere al sistema");
+		theModel.addAttribute("msgCredenziali", "Inserisci le credenziali per accedere al sistema");
 		return "index";
 	}
 	
 	@RequestMapping("/home")
 	public String home(HttpServletRequest request, Model theModel) {
-		/**
-		 * passo il nome della pagina che si deve caricare
-		 * i file si trovano in template/subPage
-		 */
 		HttpSession session = request.getSession(true);
 		LocalSession localSession = (LocalSession) session.getAttribute("localSession");
 		
-		theModel.addAttribute("nome_cognome", localSession.getNomeCognome());
+		theModel.addAttribute("nomeCognome", localSession.getNomeCognome());
 		theModel.addAttribute("ruolo", localSession.getRuolo());
 		theModel.addAttribute("titlePage", "HOME");
 		theModel.addAttribute("view", "home");
-		/**
-		 * nome del tempate da usare (default/login)
-		 */
+		
 		return "default";
 	}
 	
@@ -67,7 +58,7 @@ public class HomeController {
 	@Transactional
 	public String salvaAvvisi(HttpServletRequest request, Model theModel)
 	{
-		Avvisi salva_avviso = new Avvisi();
+		Avvisi salvaAvviso = new Avvisi();
 		
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");  
 		LocalDateTime now = LocalDateTime.now();  
@@ -76,24 +67,24 @@ public class HomeController {
 		HttpSession session = request.getSession(true);
 		LocalSession localSession = new LocalSession();
 		
-		String nome_cognome = (String) session.getAttribute("nome_cognome");
+		String nomeCognome = (String) session.getAttribute("nomeCognome");
 		String ruolo = (String) session.getAttribute("ruolo");
 		
-		String input_titolo = request.getParameter("titolo");
-		String input_avviso = request.getParameter("avviso");
+		String inputTitolo = request.getParameter("titolo");
+		String inputAvviso = request.getParameter("avviso");
 				
-		String[] input_ruolo = request.getParameterValues("ruolo");
-		List lista_ruoli = Arrays.asList(input_ruolo);
+		String[] inputRuolo = request.getParameterValues("ruolo");
+		List listaRuoli = Arrays.asList(inputRuolo);
 		 
-		salva_avviso.setTitolo(input_titolo);
-		salva_avviso.setId_risorsa(localSession.getIdRisorsa());
-		salva_avviso.setRuoli(lista_ruoli.toString());
-		salva_avviso.setNote(input_avviso);
-		salva_avviso.setData(data);
+		salvaAvviso.setTitolo(inputTitolo);
+		salvaAvviso.setIdRisorsa(localSession.getIdRisorsa());
+		salvaAvviso.setRuoli(listaRuoli.toString());
+		salvaAvviso.setNote(inputAvviso);
+		salvaAvviso.setData(data);
 		
-		avvisi_service.save(salva_avviso);
+		avvisiService.save(salvaAvviso);
 		
-		theModel.addAttribute("nome_cognome", localSession.getNomeCognome());
+		theModel.addAttribute("nomeCognome", localSession.getNomeCognome());
 		theModel.addAttribute("ruolo", localSession.getRuolo());
 		theModel.addAttribute("titlePage", "HOME");
 		theModel.addAttribute("view", "home");

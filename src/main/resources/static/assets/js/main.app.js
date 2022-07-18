@@ -17,16 +17,3 @@
 			else { p(f) } 
 			} 
 			})(window, document);
-			
-			
-function stampaRuoli()
-{
-	$.ajax({
-  		dataType: "json",
- 		url: "stampaRuoli",
-  		success: function (data){
-		for (var c=0; c<data.length; c++)
-			$('#ruolo').append(`<option value="${data[c].id}">${data[c].nome}</option>`);
-		}
-	});
-}

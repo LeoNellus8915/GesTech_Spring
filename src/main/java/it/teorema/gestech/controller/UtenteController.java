@@ -35,12 +35,9 @@ public class UtenteController {
 
 	@RequestMapping("/nuovo-utente")
 	public String nuovoUtente(HttpServletRequest request, Model theModel) {
-		/**
-		 * passo il nome della pagina che si deve caricare i file si trovano in
-		 * template/subPage
-		 */
+
 		HttpSession session = request.getSession(true);
-		LocalSession ls  = (LocalSession) session.getAttribute("localSession");
+		LocalSession localSession  = (LocalSession) session.getAttribute("localSession");
 
 		ArrayList ruoli = new ArrayList();
 		for (int c = 0; c < ruoliService.findAll().size(); c++) {
@@ -49,13 +46,11 @@ public class UtenteController {
 		}
 
 		theModel.addAttribute("ruoli", ruoli);
-		theModel.addAttribute("nomeCognome", ls.getNomeCognome());
-		theModel.addAttribute("ruolo", ls.getRuolo());
+		theModel.addAttribute("nomeCognome", localSession.getNomeCognome());
+		theModel.addAttribute("ruolo", localSession.getRuolo());
 		theModel.addAttribute("titlePage", "Utente");
 		theModel.addAttribute("view", "nuovoUtente");
-		/**
-		 * nome del tempate da usare (default/login)
-		 */
+
 		return "default";
 	}
 }

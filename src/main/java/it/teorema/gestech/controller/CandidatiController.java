@@ -28,7 +28,7 @@ public class CandidatiController {
 		HttpSession session = request.getSession(true);
 		LocalSession localSession = (LocalSession) session.getAttribute("localSession");
 		
-		theModel.addAttribute("nome_cognome", localSession.getNomeCognome());
+		theModel.addAttribute("nomeCognome", localSession.getNomeCognome());
 		theModel.addAttribute("ruolo", localSession.getRuolo());
 		theModel.addAttribute("titlePage", "Candidati");
 		theModel.addAttribute("view", "paginaCandidati");
@@ -46,7 +46,7 @@ public class CandidatiController {
 		HttpSession session = request.getSession(true);
 		LocalSession localSession = (LocalSession) session.getAttribute("localSession");
 		
-		theModel.addAttribute("nome_cognome", localSession.getNomeCognome());
+		theModel.addAttribute("nomeCognome", localSession.getNomeCognome());
 		theModel.addAttribute("ruolo", localSession.getRuolo());
 		theModel.addAttribute("titlePage", "Candidati");
 		theModel.addAttribute("view", "nuovoCandidato");
