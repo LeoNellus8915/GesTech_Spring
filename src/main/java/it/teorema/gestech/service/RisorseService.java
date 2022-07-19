@@ -12,5 +12,9 @@ public interface RisorseService extends JpaRepository <Risorse, Integer>
 {
 	@Query("from Risorse where email = :email")
 	abstract
-	List findAll(@Param("email") String email);
+	List<Risorse> findAll(@Param("email") String email);
+	
+	@Query("from Risorse")
+	abstract
+	List<Risorse> findAll();
 }
