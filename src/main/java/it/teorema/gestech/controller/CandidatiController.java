@@ -16,10 +16,7 @@ public class CandidatiController {
 	
 	@RequestMapping("/pagina-candidati")
 	public String paginaCandidati(HttpServletRequest request, Model theModel) {
-		/**
-		 * passo il nome della pagina che si deve caricare
-		 * i file si trovano in template/subPage
-		 */
+		
 		HttpSession session = request.getSession(true);
 		LocalSession localSession = (LocalSession) session.getAttribute("localSession");
 		
@@ -27,17 +24,14 @@ public class CandidatiController {
 		theModel.addAttribute("ruolo", localSession.getRuolo());
 		theModel.addAttribute("titlePage", "Candidati");
 		theModel.addAttribute("view", "paginaCandidati");
-		/**
-		 * nome del tempate da usare (default/login)
-		 */
+		
 		return "default";
 	}
+	
 	@RequestMapping("/nuovo-candidato")
+	@Transactional
 	public String nuovoCandidato(HttpServletRequest request, Model theModel) {
-		/**
-		 * passo il nome della pagina che si deve caricare
-		 * i file si trovano in template/subPage
-		 */
+		
 		HttpSession session = request.getSession(true);
 		LocalSession localSession = (LocalSession) session.getAttribute("localSession");
 		
@@ -45,9 +39,7 @@ public class CandidatiController {
 		theModel.addAttribute("ruolo", localSession.getRuolo());
 		theModel.addAttribute("titlePage", "Nuovo Candidato");
 		theModel.addAttribute("view", "nuovoCandidato");
-		/**
-		 * nome del tempate da usare (default/login)
-		 */
+		
 		return "default";
 	}
 	
