@@ -14,5 +14,5 @@ public interface RuoliRisorseService extends JpaRepository <RuoliRisorse, Intege
 
 	@Query("from RuoliRisorse where id_risorsa = :idRisorsa")
 	abstract
-	List findIdRuolo(@Param("idRisorsa") int idRisorsa);
+	List<RuoliRisorse> findIdRuolo(@Param("idRisorsa") int idRisorsa);
 }

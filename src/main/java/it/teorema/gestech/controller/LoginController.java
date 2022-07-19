@@ -44,7 +44,7 @@ public class LoginController {
 		String email = request.getParameter("email");
 		String password = request.getParameter("passwordMD5");
 		String controllo = "";
-		List service = risorseService.findAll(email);
+		List<Risorse> service = risorseService.findAll(email);
 		
 		int idRisorsa = 0;
 		String nomeCognome = null;
@@ -56,11 +56,11 @@ public class LoginController {
 			Risorse risorsa = (Risorse) service.get(0);
 			idRisorsa = risorsa.getId();
 			
-			List listIdRuolo = ruoliRisorseService.findIdRuolo(idRisorsa);
+			List<RuoliRisorse> listIdRuolo = ruoliRisorseService.findIdRuolo(idRisorsa);
 			RuoliRisorse ruoliRisorsa = (RuoliRisorse) listIdRuolo.get(0);
 			int idRuoloRisorsa = ruoliRisorsa.getId();
 			
-			List ruoloRisorsa = ruoliService.findRuolo(idRuoloRisorsa);
+			List<Ruoli> ruoloRisorsa = ruoliService.findRuolo(idRuoloRisorsa);
 			Ruoli ruoli = (Ruoli) ruoloRisorsa.get(0);
 			ruolo = ruoli.getNome();
 			nomeCognome = risorsa.getNomeCognome();
