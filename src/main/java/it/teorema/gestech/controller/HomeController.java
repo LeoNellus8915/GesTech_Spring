@@ -2,6 +2,7 @@ package it.teorema.gestech.controller;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -13,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import it.teorema.gestech.model.Avvisi;
 import it.teorema.gestech.service.AvvisiService;
@@ -58,7 +60,7 @@ public class HomeController {
 		LocalSession localSession = (LocalSession) session.getAttribute("localSession");
 				
 		String[] inputRuolo = request.getParameterValues("ruolo");
-		List listaRuoli = Arrays.asList(inputRuolo);
+		List<String> listaRuoli = Arrays.asList(inputRuolo);
 		 
 		salvaAvviso.setTitolo(request.getParameter("titolo"));
 		salvaAvviso.setIdRisorsa(localSession.getIdRisorsa());
@@ -74,5 +76,14 @@ public class HomeController {
 		theModel.addAttribute("view", "home");
 		
 		return "default";
+	}
+	
+	@RequestMapping("/stampa-avvisi")
+	@ResponseBody
+	public List<Avvisi> tutteLeRisorse()
+	{
+		List<Avvisi> avvisi = new ArrayList<Avvisi>();
+		avvisi = avvisiService.findAll();
+		return avvisi;
 	}
 }

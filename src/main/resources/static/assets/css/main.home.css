@@ -72,16 +72,14 @@ p.titolo_avvisi {
     font-variant: all-petite-caps;
 }
 /* CORPO AVVISO*/
-p {
+p.testo_avvisi {
     font-size: 14px;
     font-weight: 300;
     letter-spacing: .2px;
-}
-
-p {
     margin-top: 0;
     margin-bottom: 1rem;
 }
+
 /* RUOLO AVVISI*/
 span.ruolo_avvisi {
     background: #f1f1f1;

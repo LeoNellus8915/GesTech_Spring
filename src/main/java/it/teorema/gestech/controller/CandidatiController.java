@@ -3,7 +3,6 @@ package it.teorema.gestech.controller;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -16,14 +15,12 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import it.teorema.gestech.model.Avvisi;
 import it.teorema.gestech.model.EsitiColloquio;
 import it.teorema.gestech.model.Linguaggi;
 import it.teorema.gestech.model.Lingue;
 import it.teorema.gestech.model.Livelli;
 import it.teorema.gestech.model.Profili;
 import it.teorema.gestech.model.Risorse;
-import it.teorema.gestech.model.Ruoli;
 import it.teorema.gestech.service.DettagliRisorseService;
 import it.teorema.gestech.service.EsitiColloquioService;
 import it.teorema.gestech.service.LinguaggiService;
@@ -128,7 +125,7 @@ public class CandidatiController {
 	
 	@RequestMapping("/tutte-le-risorse")
 	@ResponseBody
-	public List tutteLeRisorse()
+	public List<Risorse> tutteLeRisorse()
 	{
 		List<Risorse> risorse = risorseService.findAll();
 		return risorse;
