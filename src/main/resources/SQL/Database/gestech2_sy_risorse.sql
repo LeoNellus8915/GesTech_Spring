@@ -41,8 +41,9 @@ CREATE TABLE `sy_risorse` (
   `skill_campo_libero` varchar(100) DEFAULT NULL,
   `competenze_totali` varchar(100) DEFAULT NULL,
   `certificazioni` varchar(100) DEFAULT NULL,
+  `data_inserimento` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -51,7 +52,7 @@ CREATE TABLE `sy_risorse` (
 
 LOCK TABLES `sy_risorse` WRITE;
 /*!40000 ALTER TABLE `sy_risorse` DISABLE KEYS */;
-INSERT INTO `sy_risorse` VALUES (1,'Admin','','admin@gmail.com','','','','',NULL,'','',1,'','','','');
+INSERT INTO `sy_risorse` VALUES (1,'Admin','','admin@gmail.com','','','','',NULL,'','',1,'','','','','2022-07-15 10:25:34'),(2,'Riccardo','',NULL,'','Magliano Sabina','Sedentario','Informatico',NULL,'','',1,'','','','','2022-07-19 11:35:30');
 /*!40000 ALTER TABLE `sy_risorse` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -64,4 +65,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-07-18 14:41:05
+-- Dump completed on 2022-07-19 11:46:39
