@@ -12,4 +12,7 @@ import it.teorema.gestech.model.Livelli;
 
 public interface LivelliService extends JpaRepository <Livelli, Integer>
 {
+	@Query("from Livelli")
+	abstract
+	List<Livelli> findAll();
 }

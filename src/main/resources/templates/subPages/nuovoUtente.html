@@ -9,7 +9,7 @@
 			</div>
 			<div class="form-group col-6 m-0 ruolo">
 				<label for="ruolo" class="col-form-label s-12">Ruolo</label>
-				<select name="ruolo" id="ruolo" class="cascata">
+				<select name="ruolo" id="ruolo" class="form-control r-0 light s-12 date-picker">
 					<option value="0">Selezionare...</option>
     				<option th:each="ruolo : ${ruoli}" th:value="${ruolo.id}" th:text="${ruolo.nome}"></option>
     			</select>

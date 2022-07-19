@@ -12,4 +12,7 @@ import it.teorema.gestech.model.EsitiColloquio;
 
 public interface EsitiColloquioService extends JpaRepository <EsitiColloquio, Integer>
 {
+	@Query("from EsitiColloquio")
+	abstract
+	List <EsitiColloquio> findAll();
 }

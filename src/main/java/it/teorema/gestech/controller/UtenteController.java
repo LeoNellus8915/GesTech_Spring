@@ -40,11 +40,7 @@ public class UtenteController {
 		HttpSession session = request.getSession(true);
 		LocalSession localSession  = (LocalSession) session.getAttribute("localSession");
 
-		List<Ruoli> ruoli = new ArrayList<Ruoli>();
-		for (int c = 0; c < ruoliService.findAll().size(); c++) {
-			Ruoli app = (Ruoli) ruoliService.findAll().get(c);
-			ruoli.add(app);
-		}
+		List<Ruoli> ruoli = ruoliService.findAll();
 
 		theModel.addAttribute("ruoli", ruoli);
 		theModel.addAttribute("nomeCognome", localSession.getNomeCognome());
