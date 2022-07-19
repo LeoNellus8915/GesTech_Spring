@@ -50,27 +50,20 @@ public class HomeController {
 	{
 		Avvisi salvaAvviso = new Avvisi();
 		
-		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");  
+		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");  
 		LocalDateTime now = LocalDateTime.now();  
 		LocalDateTime data = LocalDateTime.parse(dtf.format(now), dtf);		
 
 		HttpSession session = request.getSession(true);
 		LocalSession localSession = (LocalSession) session.getAttribute("localSession");
-		
-		System.out.println(localSession.getIdRisorsa());
-		System.out.println(localSession.getNomeCognome());
-		System.out.println(localSession.getRuolo());
-		
-		String inputTitolo = request.getParameter("titolo");
-		String inputAvviso = request.getParameter("avviso");
 				
 		String[] inputRuolo = request.getParameterValues("ruolo");
 		List listaRuoli = Arrays.asList(inputRuolo);
 		 
-		salvaAvviso.setTitolo(inputTitolo);
+		salvaAvviso.setTitolo(request.getParameter("titolo"));
 		salvaAvviso.setIdRisorsa(localSession.getIdRisorsa());
 		salvaAvviso.setRuoli(listaRuoli.toString());
-		salvaAvviso.setNote(inputAvviso);
+		salvaAvviso.setNote(request.getParameter("avviso"));
 		salvaAvviso.setData(data);
 		
 		avvisiService.save(salvaAvviso);
@@ -82,5 +75,4 @@ public class HomeController {
 		
 		return "default";
 	}
-	
 }

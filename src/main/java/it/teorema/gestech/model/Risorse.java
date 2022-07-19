@@ -1,5 +1,6 @@
 package it.teorema.gestech.model;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Date;
 
@@ -33,13 +34,13 @@ public class Risorse
 	@Column(name = "competenza_principale")
 	private String competenzaPrincipale;
 	@Column(name = "data_colloquio")
-	private Date dataColloquio;
+	private LocalDate dataColloquio;
 	@Column(name = "anno_colloquio")
-	private int annoColloquio;
+	private String annoColloquio;
 	@Column(name = "fonte_reperimento")
 	private String fonteReperimento;
 	@Column(name = "costo_giornaliero")
-	private double costoGiornaliero;
+	private Double costoGiornaliero;
 	@Column(name = "possibilita_lavorativa")
 	private String possibilitaLavorativa;
 	@Column(name = "skill_campo_libero")
@@ -48,16 +49,14 @@ public class Risorse
 	private String competenzeTotali;
 	@Column(name = "certificazioni")
 	private String certificazioni;
-	@Column(name = "data_inserimento")
-	private LocalDateTime dataInserimento;
 	
 	public Risorse() {
 	}
 
 	public Risorse(int id, String nomeCognome, String recapito, String email, String profiloLinkedin, String citta,
-			String ruoloRisorsa, String competenzaPrincipale, Date dataColloquio, int annoColloquio,
-			String fonteReperimento, double costoGiornaliero, String possibilitaLavorativa, String skillCampoLibero,
-			String competenzeTotali, String certificazioni, LocalDateTime dataInserimento) {
+			String ruoloRisorsa, String competenzaPrincipale, LocalDate dataColloquio, String annoColloquio,
+			String fonteReperimento, Double costoGiornaliero, String possibilitaLavorativa, String skillCampoLibero,
+			String competenzeTotali, String certificazioni) {
 		super();
 		this.id = id;
 		this.nomeCognome = nomeCognome;
@@ -75,7 +74,6 @@ public class Risorse
 		this.skillCampoLibero = skillCampoLibero;
 		this.competenzeTotali = competenzeTotali;
 		this.certificazioni = certificazioni;
-		this.dataInserimento = dataInserimento;
 	}
 
 	public int getId() {
@@ -142,19 +140,19 @@ public class Risorse
 		this.competenzaPrincipale = competenzaPrincipale;
 	}
 
-	public Date getDataColloquio() {
+	public LocalDate getDataColloquio() {
 		return dataColloquio;
 	}
 
-	public void setDataColloquio(Date dataColloquio) {
+	public void setDataColloquio(LocalDate dataColloquio) {
 		this.dataColloquio = dataColloquio;
 	}
 
-	public int getAnnoColloquio() {
+	public String getAnnoColloquio() {
 		return annoColloquio;
 	}
 
-	public void setAnnoColloquio(int annoColloquio) {
+	public void setAnnoColloquio(String annoColloquio) {
 		this.annoColloquio = annoColloquio;
 	}
 
@@ -166,11 +164,11 @@ public class Risorse
 		this.fonteReperimento = fonteReperimento;
 	}
 
-	public double getCostoGiornaliero() {
+	public Double getCostoGiornaliero() {
 		return costoGiornaliero;
 	}
 
-	public void setCostoGiornaliero(double costoGiornaliero) {
+	public void setCostoGiornaliero(Double costoGiornaliero) {
 		this.costoGiornaliero = costoGiornaliero;
 	}
 
@@ -204,13 +202,5 @@ public class Risorse
 
 	public void setCertificazioni(String certificazioni) {
 		this.certificazioni = certificazioni;
-	}
-
-	public LocalDateTime getDataInserimento() {
-		return dataInserimento;
-	}
-
-	public void setDataInserimento(LocalDateTime dataInserimento) {
-		this.dataInserimento = dataInserimento;
 	}
 }

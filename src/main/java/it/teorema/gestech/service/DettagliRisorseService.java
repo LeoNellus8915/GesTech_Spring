@@ -10,6 +10,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import it.teorema.gestech.model.DettagliRisorsa;
 
-public interface DettagliRisorsaService extends JpaRepository <DettagliRisorsa, Integer>
+public interface DettagliRisorseService extends JpaRepository <DettagliRisorsa, Integer>
 {
 }

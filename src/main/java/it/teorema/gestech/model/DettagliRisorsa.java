@@ -1,5 +1,6 @@
 package it.teorema.gestech.model;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -22,7 +23,7 @@ public class DettagliRisorsa
 	@Column(name = "file_base64")
 	private String fileBase64;
 	@Column(name = "data_inserimento")
-	private Date dataInserimento;
+	private LocalDateTime dataInserimento;
 	@Column(name = "id_esito_colloquio")
 	private int idEsitoColloquio;
 	@Column(name = "id_skill1")
@@ -46,7 +47,7 @@ public class DettagliRisorsa
 	
 	public DettagliRisorsa() {}
 
-	public DettagliRisorsa(int id, int idRisorsa, String fileBase64, Date dataInserimento, int idEsitoColloquio,
+	public DettagliRisorsa(int id, int idRisorsa, String fileBase64, LocalDateTime dataInserimento, int idEsitoColloquio,
 			int idSkill1, int idSkill2, int idSkill3, int idSkill4, int idSkill5, int idLingua1, int idLingua2,
 			int idLingua3, int idSeniority) {
 		super();
@@ -90,11 +91,11 @@ public class DettagliRisorsa
 		this.fileBase64 = fileBase64;
 	}
 
-	public Date getDataInserimento() {
+	public LocalDateTime getDataInserimento() {
 		return dataInserimento;
 	}
 
-	public void setDataInserimento(Date dataInserimento) {
+	public void setDataInserimento(LocalDateTime dataInserimento) {
 		this.dataInserimento = dataInserimento;
 	}
 
