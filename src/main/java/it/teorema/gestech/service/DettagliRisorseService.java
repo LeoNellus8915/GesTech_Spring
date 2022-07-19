@@ -12,4 +12,8 @@ import it.teorema.gestech.model.DettagliRisorsa;
 
 public interface DettagliRisorseService extends JpaRepository <DettagliRisorsa, Integer>
 {
+	@Query("select r.id, d.dataInserimento, r.nomeCognome, r.citta, r.ruoloRisorsa, r.competenzaPrincipale "
+			+ "from DettagliRisorsa d, Risorse r where r.id = d.idRisorsa")
+	abstract
+	List findAll();
 }

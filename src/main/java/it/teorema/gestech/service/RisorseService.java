@@ -17,4 +17,8 @@ public interface RisorseService extends JpaRepository <Risorse, Integer>
 	@Query("from Risorse")
 	abstract
 	List<Risorse> findAll();
+	
+	@Query("select max(id) from Risorse")
+	abstract
+	Integer findId();
 }

@@ -3,6 +3,7 @@ package it.teorema.gestech.controller;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -15,12 +16,16 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import ch.qos.logback.classic.net.SyslogAppender;
+import it.teorema.gestech.model.Avvisi;
+import it.teorema.gestech.model.DettagliRisorsa;
 import it.teorema.gestech.model.EsitiColloquio;
 import it.teorema.gestech.model.Linguaggi;
 import it.teorema.gestech.model.Lingue;
 import it.teorema.gestech.model.Livelli;
 import it.teorema.gestech.model.Profili;
 import it.teorema.gestech.model.Risorse;
+import it.teorema.gestech.model.Ruoli;
 import it.teorema.gestech.service.DettagliRisorseService;
 import it.teorema.gestech.service.EsitiColloquioService;
 import it.teorema.gestech.service.LinguaggiService;
@@ -92,16 +97,13 @@ public class CandidatiController {
 	public String AggiungiCandidato(HttpServletRequest request, Model theModel)
 	{
 		Risorse risorsa = new Risorse();
+		DettagliRisorsa dettagliRisorsa = new DettagliRisorsa();
 		
 		DateTimeFormatter format1 = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");  
-		LocalDateTime now = LocalDateTime.now();  
-		LocalDateTime data = LocalDateTime.parse(format1.format(now), format1);		
-
-		HttpSession session = request.getSession(true);
-		LocalSession localSession = (LocalSession) session.getAttribute("localSession");
-		
 		DateTimeFormatter format2 = DateTimeFormatter.ofPattern("yyyy-MM-dd");  
-
+		LocalDateTime now = LocalDateTime.now();  
+		LocalDateTime data = LocalDateTime.parse(format1.format(now), format1);	
+	
 		risorsa.setNomeCognome((String) request.getParameter("nomeCognome"));
 		risorsa.setRecapito((String) request.getParameter("recapito"));
 		risorsa.setEmail((String) request.getParameter("email"));
@@ -119,15 +121,32 @@ public class CandidatiController {
 		risorsa.setCertificazioni((String) request.getParameter("certificazioni"));
 		
 		risorseService.save(risorsa);
+		
+		int idRisorsa = risorseService.findId();	
+		
+		dettagliRisorsa.setDataInserimento(data);
+		dettagliRisorsa.setIdEsitoColloquio(Integer.parseInt(request.getParameter("esitoColloquio")));
+		dettagliRisorsa.setIdLingua1(Integer.parseInt(request.getParameter("lingua1")));
+		dettagliRisorsa.setIdLingua2(Integer.parseInt(request.getParameter("lingua2")));
+		dettagliRisorsa.setIdLingua3(Integer.parseInt(request.getParameter("lingua3")));
+		dettagliRisorsa.setIdRisorsa(idRisorsa);
+		dettagliRisorsa.setIdSeniority(Integer.parseInt(request.getParameter("seniority")));
+		dettagliRisorsa.setIdSkill1(Integer.parseInt(request.getParameter("skill1")));
+		dettagliRisorsa.setIdSkill2(Integer.parseInt(request.getParameter("skill2")));
+		dettagliRisorsa.setIdSkill3(Integer.parseInt(request.getParameter("skill3")));
+		dettagliRisorsa.setIdSkill4(Integer.parseInt(request.getParameter("skill4")));
+		dettagliRisorsa.setIdSkill5(Integer.parseInt(request.getParameter("skill5")));
+		
+		dettagliRisorseService.save(dettagliRisorsa);
 
 		return "redirect:pagina-candidati";
 	}
 	
 	@RequestMapping("/tutte-le-risorse")
 	@ResponseBody
-	public List<Risorse> tutteLeRisorse()
+	public List tutteLeRisorse()
 	{
-		List<Risorse> risorse = risorseService.findAll();
-		return risorse;
+		List json = dettagliRisorseService.findAll();
+		return json;
 	}
 }
