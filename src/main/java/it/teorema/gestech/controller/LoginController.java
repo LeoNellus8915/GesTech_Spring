@@ -48,7 +48,8 @@ public class LoginController {
 			Risorse risorsa = (Risorse) service.get(0);
 			idRisorsa = risorsa.getId();
 			nomeCognome = risorsa.getNomeCognome();
-			ruolo = risorsa.getRuoloRisorsa();
+			ruolo = risorsa.getRuoloRisorsa();  //ruolo sbagiato
+			System.out.println("Ruolo   "+risorsa.getRuoloRisorsa());
 			controllo = "email";
 		}
 		

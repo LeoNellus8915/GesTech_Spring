@@ -1,15 +1,8 @@
 package it.teorema.gestech.controller;
 
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -19,10 +12,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import it.teorema.gestech.model.Avvisi;
 import it.teorema.gestech.service.AvvisiService;
@@ -62,13 +52,16 @@ public class HomeController {
 		
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");  
 		LocalDateTime now = LocalDateTime.now();  
-		LocalDateTime data = LocalDateTime.parse(dtf.format(now), dtf);
+		LocalDateTime data = LocalDateTime.parse(dtf.format(now), dtf);		
 
 		HttpSession session = request.getSession(true);
-		LocalSession localSession = new LocalSession();
+		LocalSession localSession = (LocalSession) session.getAttribute("localSession");
 		
-		String nomeCognome = (String) session.getAttribute("nomeCognome");
-		String ruolo = (String) session.getAttribute("ruolo");
+
+		
+		System.out.println(localSession.getIdRisorsa());
+		System.out.println(localSession.getNomeCognome());
+		System.out.println(localSession.getRuolo());
 		
 		String inputTitolo = request.getParameter("titolo");
 		String inputAvviso = request.getParameter("avviso");

@@ -1,0 +1,20 @@
+/*LOGO*/
+img {
+    max-width: 50%;
+}
+
+/*BOTTONE ACCEDI*/
+.btn-group-lg>.btn, .btn-lg {
+    border-radius: 20px;
+    font-size: 16px;
+}
+/*DIMENTICATO NOME UTENTE E PASSWORD*/
+.btn {
+       margin-bottom: 15px;
+}
+
+.col-lg-6 {
+    flex: 0 0 50%;
+    max-width: 50%;
+    margin-bottom: 30px;
+}
