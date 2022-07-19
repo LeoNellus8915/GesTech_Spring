@@ -32,7 +32,7 @@ CREATE TABLE `hy_avvisi` (
   `note` text,
   `data` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -41,7 +41,7 @@ CREATE TABLE `hy_avvisi` (
 
 LOCK TABLES `hy_avvisi` WRITE;
 /*!40000 ALTER TABLE `hy_avvisi` DISABLE KEYS */;
-INSERT INTO `hy_avvisi` VALUES (4,'tgt',1,NULL,'fhhh','2022-07-18 00:00:00'),(5,'rdg',1,NULL,'drgdrgdrg','2022-07-18 00:00:00'),(6,'rgdg',1,NULL,'dgrdg','2022-07-18 12:51:18'),(7,'tgdr',1,'[dipendente, tutti]','gdrgdrg','2022-07-18 12:57:40'),(8,'ht',0,'[dipendente]','hfthftht','2022-07-18 20:29:58'),(9,'f',1,'[dipendente]','ntftfnf','2022-07-19 11:55:32'),(10,'hth',1,'[dipendente, tutti]','ftfhtf','2022-07-19 13:02:59'),(11,'thfhf',1,'[recruiter, commerciale]','thfthft','2022-07-19 13:09:44');
+INSERT INTO `hy_avvisi` VALUES (4,'tgt',1,NULL,'fhhh','2022-07-18 00:00:00'),(5,'rdg',1,NULL,'drgdrgdrg','2022-07-18 00:00:00'),(6,'rgdg',1,NULL,'dgrdg','2022-07-18 12:51:18'),(7,'tgdr',1,'[dipendente, tutti]','gdrgdrg','2022-07-18 12:57:40'),(8,'ht',0,'[dipendente]','hfthftht','2022-07-18 20:29:58'),(9,'f',1,'[dipendente]','ntftfnf','2022-07-19 11:55:32'),(10,'hth',1,'[dipendente, tutti]','ftfhtf','2022-07-19 13:02:59'),(11,'thfhf',1,'[recruiter, commerciale]','thfthft','2022-07-19 13:09:44'),(12,'rdg',1,'[commerciale]','4grdrg','2022-07-19 16:28:20');
 /*!40000 ALTER TABLE `hy_avvisi` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -54,4 +54,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-07-19 14:07:42
+-- Dump completed on 2022-07-19 16:41:54
