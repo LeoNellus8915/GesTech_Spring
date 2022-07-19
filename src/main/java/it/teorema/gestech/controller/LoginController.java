@@ -12,8 +12,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import it.teorema.gestech.model.Auth;
 import it.teorema.gestech.model.Risorse;
+import it.teorema.gestech.model.Ruoli;
+import it.teorema.gestech.model.RuoliRisorse;
 import it.teorema.gestech.service.AuthService;
 import it.teorema.gestech.service.RisorseService;
+import it.teorema.gestech.service.RuoliRisorseService;
+import it.teorema.gestech.service.RuoliService;
 import it.teorema.gestech.session.LocalSession;
 
 @Controller
@@ -23,6 +27,10 @@ public class LoginController {
 	RisorseService risorseService;
 	@Autowired
 	AuthService authService;
+	@Autowired
+	RuoliRisorseService ruoliRisorseService;
+	@Autowired
+	RuoliService ruoliService;
 	
 	@RequestMapping("/logout")
 	public String index()
@@ -37,8 +45,8 @@ public class LoginController {
 		String password = request.getParameter("passwordMD5");
 		String controllo = "";
 		List service = risorseService.findAll(email);
-		int idRisorsa = 0;
 		
+		int idRisorsa = 0;
 		String nomeCognome = null;
 		String ruolo = null;
 		LocalSession localSession = new LocalSession();
@@ -47,9 +55,15 @@ public class LoginController {
 		{
 			Risorse risorsa = (Risorse) service.get(0);
 			idRisorsa = risorsa.getId();
+			
+			List listIdRuolo = ruoliRisorseService.findIdRuolo(idRisorsa);
+			RuoliRisorse ruoliRisorsa = (RuoliRisorse) listIdRuolo.get(0);
+			int idRuoloRisorsa = ruoliRisorsa.getId();
+			
+			List ruoloRisorsa = ruoliService.findRuolo(idRuoloRisorsa);
+			Ruoli ruoli = (Ruoli) ruoloRisorsa.get(0);
+			ruolo = ruoli.getNome();
 			nomeCognome = risorsa.getNomeCognome();
-			ruolo = risorsa.getRuoloRisorsa();  //ruolo sbagiato
-			System.out.println("Ruolo   "+risorsa.getRuoloRisorsa());
 			controllo = "email";
 		}
 		
@@ -59,14 +73,16 @@ public class LoginController {
 			if (password.equals(auth.getPassword()))
 				controllo = controllo.concat(" password");
 		}
-		
-		localSession.setNomeCognome(nomeCognome);
-		localSession.setRuolo(ruolo);
-		HttpSession session = request.getSession(true);
-		session.setAttribute("localSession", localSession);
 	
-		if (controllo.equals("email password"))
+		if (controllo.equals("email password")) 
+		{
+			localSession.setNomeCognome(nomeCognome);
+			localSession.setRuolo(ruolo);
+			localSession.setIdRisorsa(idRisorsa);
+			HttpSession session = request.getSession(true);
+			session.setAttribute("localSession", localSession);
 			return "redirect:home";
+		}
 		else
 		{
 			theModel.addAttribute("msgCredenziali", "Credenziali errate, si prega di riprovare");
