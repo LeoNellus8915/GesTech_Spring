@@ -15,5 +15,5 @@ public interface AuthService extends JpaRepository <Auth, Integer>
 {
 	@Query("from Auth where id = :id")
 	abstract
-	List findAll(@Param("id") int id);
+	List<Auth> findAll(@Param("id") int id);
 }

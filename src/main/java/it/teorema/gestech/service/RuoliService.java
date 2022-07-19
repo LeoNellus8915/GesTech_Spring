@@ -16,5 +16,5 @@ public interface RuoliService extends JpaRepository <Ruoli, Integer>
 
 	@Query("from Ruoli  where id = :idRuolo")
 	abstract
-	List<Ruoli> findRuolo(@Param("idRuolo") Object idRuolo);
+	List<Ruoli> findRuolo(@Param("idRuolo") int idRuolo);
 }

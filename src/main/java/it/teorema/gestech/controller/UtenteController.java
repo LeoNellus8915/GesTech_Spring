@@ -1,6 +1,7 @@
 package it.teorema.gestech.controller;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.servlet.http.HttpServletRequest;
@@ -39,7 +40,7 @@ public class UtenteController {
 		HttpSession session = request.getSession(true);
 		LocalSession localSession  = (LocalSession) session.getAttribute("localSession");
 
-		ArrayList ruoli = new ArrayList();
+		List<Ruoli> ruoli = new ArrayList<Ruoli>();
 		for (int c = 0; c < ruoliService.findAll().size(); c++) {
 			Ruoli app = (Ruoli) ruoliService.findAll().get(c);
 			ruoli.add(app);

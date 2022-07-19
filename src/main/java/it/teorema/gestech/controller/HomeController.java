@@ -57,8 +57,6 @@ public class HomeController {
 		HttpSession session = request.getSession(true);
 		LocalSession localSession = (LocalSession) session.getAttribute("localSession");
 		
-
-		
 		System.out.println(localSession.getIdRisorsa());
 		System.out.println(localSession.getNomeCognome());
 		System.out.println(localSession.getRuolo());
