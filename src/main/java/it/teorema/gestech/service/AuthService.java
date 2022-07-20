@@ -13,7 +13,7 @@ import it.teorema.gestech.model.Auth;
 
 public interface AuthService extends JpaRepository <Auth, Integer>
 {
-	@Query("from Auth where id = :id")
+	@Query("from Auth where idRisorsa = :id")
 	abstract
 	List<Auth> findAll(@Param("id") int id);
 }
