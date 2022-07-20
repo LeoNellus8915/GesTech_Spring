@@ -5,3 +5,12 @@
     margin-block-end: 30px;
 }
 
+
+.row.heather {
+    display: block;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+    flex-direction: row-reverse;
+    justify-content: center;
+}
