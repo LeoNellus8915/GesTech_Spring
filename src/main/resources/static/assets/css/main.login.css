@@ -8,9 +8,19 @@ img {
     border-radius: 20px;
     font-size: 16px;
 }
+
+.btn-success {
+    color: #212529;
+    background-color:  rgb(12, 12, 135);
+}
 /*DIMENTICATO NOME UTENTE E PASSWORD*/
 .btn {
        margin-bottom: 15px;
+}
+
+.s-18 {
+    font-size: 18px!important;
+    color: white;
 }
 
 .col-lg-6 {
