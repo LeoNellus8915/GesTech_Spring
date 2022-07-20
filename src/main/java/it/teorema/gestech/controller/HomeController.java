@@ -28,15 +28,23 @@ public class HomeController {
 	@RequestMapping("/")
 	public String index(HttpServletRequest request, Model theModel)
 	{
-		theModel.addAttribute("titlePage", "Login");
-		theModel.addAttribute("msgCredenziali", "Inserisci le credenziali per accedere al sistema");
-		return "index";
+		HttpSession session = request.getSession(true);
+		if (session.getAttribute("idSessione") == null)
+		{
+			theModel.addAttribute("titlePage", "Login");
+			theModel.addAttribute("msgCredenziali", "Inserisci le credenziali per accedere al sistema");
+			return "index";
+		}
+		else
+			return "redirect:home";
 	}
 	
 	@RequestMapping("/home")
 	public String home(HttpServletRequest request, Model theModel) {
 		HttpSession session = request.getSession(true);
 		LocalSession localSession = (LocalSession) session.getAttribute("localSession");
+		
+		session.setAttribute("idSessione", 1);
 		
 		theModel.addAttribute("nomeCognome", localSession.getNomeCognome());
 		theModel.addAttribute("ruolo", localSession.getRuolo());

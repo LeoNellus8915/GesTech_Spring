@@ -33,8 +33,10 @@ public class LoginController {
 	RuoliService ruoliService;
 	
 	@RequestMapping("/logout")
-	public String index()
+	public String index(HttpServletRequest request)
 	{
+		HttpSession session = request.getSession(true);
+		session.invalidate();
 		return "index";
 	}
 	

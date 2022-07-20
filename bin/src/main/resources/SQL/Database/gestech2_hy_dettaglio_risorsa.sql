@@ -28,7 +28,7 @@ CREATE TABLE `hy_dettaglio_risorsa` (
   `id` int NOT NULL AUTO_INCREMENT,
   `id_risorsa` int DEFAULT NULL,
   `file_base64` text,
-  `data_inserimento` date DEFAULT NULL,
+  `data_inserimento` datetime DEFAULT NULL,
   `id_esito_colloquio` int DEFAULT NULL,
   `id_skill1` int DEFAULT NULL,
   `id_skill2` int DEFAULT NULL,
@@ -40,7 +40,7 @@ CREATE TABLE `hy_dettaglio_risorsa` (
   `id_lingua3` int DEFAULT NULL,
   `id_seniority` int DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -49,6 +49,7 @@ CREATE TABLE `hy_dettaglio_risorsa` (
 
 LOCK TABLES `hy_dettaglio_risorsa` WRITE;
 /*!40000 ALTER TABLE `hy_dettaglio_risorsa` DISABLE KEYS */;
+INSERT INTO `hy_dettaglio_risorsa` VALUES (1,1,NULL,'2022-07-19 00:00:00',7,8,18,15,13,13,14,16,16,3),(2,2,NULL,'2022-07-19 00:00:00',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `hy_dettaglio_risorsa` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -61,4 +62,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-07-18 14:41:05
+-- Dump completed on 2022-07-19 16:41:53
