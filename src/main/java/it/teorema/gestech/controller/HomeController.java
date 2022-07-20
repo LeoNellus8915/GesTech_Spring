@@ -14,9 +14,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import it.teorema.gestech.model.Avvisi;
+import it.teorema.gestech.service.AuthService;
 import it.teorema.gestech.service.AvvisiService;
 import it.teorema.gestech.session.LocalSession;
 
@@ -24,6 +26,8 @@ import it.teorema.gestech.session.LocalSession;
 public class HomeController {
 	@Autowired
 	AvvisiService avvisiService;
+	@Autowired
+	AuthService authService;
 	
 	@RequestMapping("/")
 	public String index(HttpServletRequest request, Model theModel)
@@ -37,6 +41,35 @@ public class HomeController {
 		}
 		else
 			return "redirect:home";
+	}
+	
+	@RequestMapping("/modifica-password")
+	public String modificaPassword(HttpServletRequest request, Model theModel) {
+		HttpSession session = request.getSession(true);
+		LocalSession localSession = (LocalSession) session.getAttribute("localSession");
+		
+		theModel.addAttribute("nomeCognome", localSession.getNomeCognome());
+		theModel.addAttribute("ruolo", localSession.getRuolo());
+		theModel.addAttribute("titlePage", "Password");
+		theModel.addAttribute("view", "cambiaPassword");
+		
+		return "default";
+	}
+	
+	@Transactional
+	@RequestMapping("/cambia-password")
+	public String cambiaPassword(HttpServletRequest request, Model theModel) {
+		HttpSession session = request.getSession(true);
+		LocalSession localSession = (LocalSession) session.getAttribute("localSession");
+		
+		authService.cambiaPassword(request.getParameter("passwordMD5"), localSession.getIdRisorsa());
+		
+		theModel.addAttribute("nomeCognome", localSession.getNomeCognome());
+		theModel.addAttribute("ruolo", localSession.getRuolo());
+		theModel.addAttribute("titlePage", "Candidati");
+		theModel.addAttribute("view", "paginaCandidati");
+		
+		return "default";
 	}
 	
 	@RequestMapping("/home")
@@ -77,6 +110,23 @@ public class HomeController {
 		salvaAvviso.setData(data);
 		
 		avvisiService.save(salvaAvviso);
+		
+		theModel.addAttribute("nomeCognome", localSession.getNomeCognome());
+		theModel.addAttribute("ruolo", localSession.getRuolo());
+		theModel.addAttribute("titlePage", "HOME");
+		theModel.addAttribute("view", "home");
+		
+		return "default";
+	}
+	
+	@Transactional
+	@RequestMapping("/cancella-avviso")
+	public String cancellaAvviso(@RequestParam(value="idAvviso") int idAvviso, HttpServletRequest request, Model theModel)
+	{
+		HttpSession session = request.getSession(true);
+		LocalSession localSession = (LocalSession) session.getAttribute("localSession");
+		
+		avvisiService.cancellaAvviso(idAvviso);	
 		
 		theModel.addAttribute("nomeCognome", localSession.getNomeCognome());
 		theModel.addAttribute("ruolo", localSession.getRuolo());

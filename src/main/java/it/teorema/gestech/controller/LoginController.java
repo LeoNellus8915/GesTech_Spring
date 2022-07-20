@@ -47,7 +47,6 @@ public class LoginController {
 		String password = request.getParameter("passwordMD5");
 		String controllo = "";
 		List<Risorse> service = risorseService.findAll(email);
-		
 		int idRisorsa = 0;
 		String nomeCognome = null;
 		String ruolo = null;

@@ -104,21 +104,21 @@ public class CandidatiController {
 		LocalDateTime now = LocalDateTime.now();  
 		LocalDateTime data = LocalDateTime.parse(format1.format(now), format1);	
 	
-		risorsa.setNomeCognome((String) request.getParameter("nomeCognome"));
-		risorsa.setRecapito((String) request.getParameter("recapito"));
-		risorsa.setEmail((String) request.getParameter("email"));
-		risorsa.setProfiloLinkedin((String) request.getParameter("profiloLinkedin"));
-		risorsa.setCitta((String) request.getParameter("citta"));
-		risorsa.setRuoloRisorsa((String) request.getParameter("ruoloProfilo"));
+		risorsa.setNomeCognome(request.getParameter("nomeCognome"));
+		risorsa.setRecapito(request.getParameter("recapito"));
+		risorsa.setEmail(request.getParameter("email"));
+		risorsa.setProfiloLinkedin(request.getParameter("profiloLinkedin"));
+		risorsa.setCitta(request.getParameter("citta"));
+		risorsa.setRuoloRisorsa(request.getParameter("ruoloProfilo"));
 		risorsa.setDataColloquio(LocalDate.parse(request.getParameter("dataColloquio"), format2));
-		risorsa.setAnnoColloquio((String) request.getParameter("annoColloquio"));
-		risorsa.setFonteReperimento((String) request.getParameter("fonteReperimento"));
-		risorsa.setCompetenzaPrincipale((String) request.getParameter("competenzaPrincipale"));
+		risorsa.setAnnoColloquio(request.getParameter("annoColloquio"));
+		risorsa.setFonteReperimento(request.getParameter("fonteReperimento"));
+		risorsa.setCompetenzaPrincipale(request.getParameter("competenzaPrincipale"));
 		risorsa.setCostoGiornaliero(Double.parseDouble(request.getParameter("costoGiornaliero")));
-		risorsa.setPossibilitaLavorativa((String) request.getParameter("possibilitaLavorativa"));
-		risorsa.setSkillCampoLibero((String) request.getParameter("skillCampoLibero"));
-		risorsa.setCompetenzeTotali((String) request.getParameter("competenzeTotali"));
-		risorsa.setCertificazioni((String) request.getParameter("certificazioni"));
+		risorsa.setPossibilitaLavorativa(request.getParameter("possibilitaLavorativa"));
+		risorsa.setSkillCampoLibero(request.getParameter("skillCampoLibero"));
+		risorsa.setCompetenzeTotali(request.getParameter("competenzeTotali"));
+		risorsa.setCertificazioni(request.getParameter("certificazioni"));
 		
 		risorseService.save(risorsa);
 		

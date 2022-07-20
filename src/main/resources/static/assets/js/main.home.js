@@ -2,10 +2,6 @@ $(function() {
     $( "p" ).text( "The DOM is now loaded and can be manipulated." );
   });
 
-
-
-
-
 function controllo_caratteri(id_input){
 	var text = document.getElementById(id_input).value;
 
@@ -42,7 +38,7 @@ function stampaAvvisi()
 				document.getElementById('div_avvisi' + c).appendChild(dataOra);
 				
 				const icona = document.createElement("i");
-				icona.innerHTML = '<a href="#"><i class="icon icon-delete red-text s-18" onclick="elimina_avviso(------)"></i>';
+				icona.innerHTML = '<a href="cancella-avviso?idAvviso='+dati[c].id+'"><i class="icon icon-delete red-text s-18"></i>';
 				document.getElementById('div_avvisi' + c).appendChild(icona);
 				
 				const titolo = document.createElement("p");
