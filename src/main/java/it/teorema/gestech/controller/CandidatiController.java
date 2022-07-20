@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import ch.qos.logback.classic.net.SyslogAppender;
@@ -94,7 +95,7 @@ public class CandidatiController {
 	
 	@RequestMapping("/aggiungi-candidato")
 	@Transactional
-	public String AggiungiCandidato(HttpServletRequest request, Model theModel)
+	public String aggiungiCandidato(HttpServletRequest request, Model theModel)
 	{
 		Risorse risorsa = new Risorse();
 		DettagliRisorse dettagliRisorsa = new DettagliRisorse();
@@ -149,5 +150,43 @@ public class CandidatiController {
 		List json = dettagliRisorseService.findAll();
 		System.out.println(json);
 		return json;
+	}
+	
+	@RequestMapping("/visualizza-candidati")
+	public String visualizzaCandidati(@RequestParam(value="idRisorsa") int idRisorsa, HttpServletRequest request, Model theModel)
+	{
+		
+		HttpSession session = request.getSession(true);
+		LocalSession localSession = (LocalSession) session.getAttribute("localSession");
+		
+		Risorse risorse = new Risorse();
+		
+		theModel.addAttribute("nomeCognome", localSession.getNomeCognome());
+		theModel.addAttribute("ruolo", localSession.getRuolo());
+		theModel.addAttribute("titlePage", "Visualizza Candidati");
+		theModel.addAttribute("view", "visualizzaCandidati");
+		
+		return "default";
+		
+		
+	}
+	
+	@RequestMapping("/modifica-candidati")
+	public String modificaCandidati(@RequestParam(value="idRisorsa") int idRisorsa, HttpServletRequest request, Model theModel)
+	{
+		
+		HttpSession session = request.getSession(true);
+		LocalSession localSession = (LocalSession) session.getAttribute("localSession");
+		
+		Risorse risorse = new Risorse();
+		
+		theModel.addAttribute("nomeCognome", localSession.getNomeCognome());
+		theModel.addAttribute("ruolo", localSession.getRuolo());
+		theModel.addAttribute("titlePage", "Modifica Candidati");
+		theModel.addAttribute("view", "modificaCandidati");
+		
+		return "default";
+		
+		
 	}
 }

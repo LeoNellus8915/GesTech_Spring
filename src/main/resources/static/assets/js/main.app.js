@@ -25,14 +25,12 @@ function controllaPassword()
 	var p1 = $("#password").val();
 	var p2 = $("#confermaPassword").val();
 	$('form').one('submit', function(e) {
-		alert("sono qui 1");
 		if (p1 != p2) {
 			alert('Le password non coincidono!');
 			e.preventDefault();
 		}
 		else
 		{
-			alert ("sono qui 2");
 			var passwordMD5 = MD5($("#password").val());
 			$("#form").append(
 				$('<input>', { type: 'hidden', id: 'passwordMD5', name: 'passwordMD5', value: passwordMD5 })

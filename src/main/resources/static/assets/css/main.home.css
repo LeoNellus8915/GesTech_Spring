@@ -63,6 +63,7 @@ span.data_ora_avvisi {
 .icon-delete:before {
     content: "\e872"
 }
+
 /* TITOLO AVVISO*/
 p.titolo_avvisi {
     margin-top: 18px;
