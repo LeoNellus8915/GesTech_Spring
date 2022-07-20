@@ -10,8 +10,25 @@ img {
 }
 
 .btn-success {
-    color: #212529;
-    background-color:  rgb(12, 12, 135);
+       background-color:  rgb(12, 12, 135);
+}
+.btn-success:hover{
+    color:#fff;
+     background-color: rgb(6, 6, 243);
+    border-color: rgb(6, 6, 243);
+}
+.btn-success.disabled,.btn-success:disabled{
+    color:#212529;
+    background-color: rgb(6, 6, 243);
+    border-color: rgb(6, 6, 243);
+}
+.btn-success:not(:disabled):not(.disabled).active,.btn-success:not(:disabled):not(.disabled):active,.show>.btn-success.dropdown-toggle{
+    color:#fff;
+    background-color: rgb(6, 6, 243);
+    border-color: rgb(6, 6, 243);
+}
+.btn-success:not(:disabled):not(.disabled).active:focus,.btn-success:not(:disabled):not(.disabled):active:focus,.show>.btn-success.dropdown-toggle:focus{
+    box-shadow:0 0 0 .2rem rgb(6, 6, 243);
 }
 /*DIMENTICATO NOME UTENTE E PASSWORD*/
 .btn {
