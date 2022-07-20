@@ -12,7 +12,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="hy_dettaglio_risorsa")
-public class DettagliRisorsa
+public class DettagliRisorse
 {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -45,9 +45,9 @@ public class DettagliRisorsa
 	@Column(name = "id_seniority")
 	private Integer idSeniority;
 	
-	public DettagliRisorsa() {}
+	public DettagliRisorse() {}
 
-	public DettagliRisorsa(Integer id, Integer idRisorsa, String fileBase64, LocalDateTime dataInserimento, Integer idEsitoColloquio,
+	public DettagliRisorse(Integer id, Integer idRisorsa, String fileBase64, LocalDateTime dataInserimento, Integer idEsitoColloquio,
 			Integer idSkill1, Integer idSkill2, Integer idSkill3, Integer idSkill4, Integer idSkill5, Integer idLingua1, Integer idLingua2,
 			Integer idLingua3, Integer idSeniority) {
 		super();

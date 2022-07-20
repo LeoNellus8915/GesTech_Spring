@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import ch.qos.logback.classic.net.SyslogAppender;
 import it.teorema.gestech.model.Avvisi;
-import it.teorema.gestech.model.DettagliRisorsa;
+import it.teorema.gestech.model.DettagliRisorse;
 import it.teorema.gestech.model.EsitiColloquio;
 import it.teorema.gestech.model.Linguaggi;
 import it.teorema.gestech.model.Lingue;
@@ -97,7 +97,7 @@ public class CandidatiController {
 	public String AggiungiCandidato(HttpServletRequest request, Model theModel)
 	{
 		Risorse risorsa = new Risorse();
-		DettagliRisorsa dettagliRisorsa = new DettagliRisorsa();
+		DettagliRisorse dettagliRisorsa = new DettagliRisorse();
 		
 		DateTimeFormatter format1 = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");  
 		DateTimeFormatter format2 = DateTimeFormatter.ofPattern("yyyy-MM-dd");  
@@ -147,6 +147,7 @@ public class CandidatiController {
 	public List tutteLeRisorse()
 	{
 		List json = dettagliRisorseService.findAll();
+		System.out.println(json);
 		return json;
 	}
 }

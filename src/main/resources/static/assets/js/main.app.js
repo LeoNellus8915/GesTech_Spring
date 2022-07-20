@@ -24,12 +24,11 @@ function controllaPassword()
 {
 	var p1 = $("#password").val();
 	var p2 = $("#confermaPassword").val();
-	$("#form").on("click", function (e) {
+	$('form').one('submit', function(e) {
 		alert("sono qui 1");
 		if (p1 != p2) {
 			alert('Le password non coincidono!');
 			e.preventDefault();
-			window.history.back();	
 		}
 		else
 		{
@@ -38,7 +37,6 @@ function controllaPassword()
 			$("#form").append(
 				$('<input>', { type: 'hidden', id: 'passwordMD5', name: 'passwordMD5', value: passwordMD5 })
 			);
-			$("#form").submit();
 		}
 	});
 }

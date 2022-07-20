@@ -8,12 +8,12 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import it.teorema.gestech.model.DettagliRisorsa;
+import it.teorema.gestech.model.DettagliRisorse;
 
-public interface DettagliRisorseService extends JpaRepository <DettagliRisorsa, Integer>
+public interface DettagliRisorseService extends JpaRepository <DettagliRisorse, Integer>
 {
 	@Query("select r.id, d.dataInserimento, r.nomeCognome, r.citta, r.ruoloRisorsa, r.competenzaPrincipale "
-			+ "from DettagliRisorsa d, Risorse r where r.id = d.idRisorsa")
+			+ "from DettagliRisorse d, Risorse r where r.id = d.idRisorsa")
 	abstract
 	List findAll();
 }
