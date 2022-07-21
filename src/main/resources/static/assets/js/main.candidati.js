@@ -25,10 +25,7 @@ function tutteLeRisorse()
 				createdRow: function(row, dati)
 				{
 				    if (dati[5] == 'Inaffidabile')
-				    {
-						console.log("bella");
-				        $(row).css('background-color', 'red');
-				    }
+				        $(row).css('background-color', '#f08080');
 				},
 				language: {
             		"lengthMenu": "Schermo _MENU_ record per pagina",
