@@ -161,6 +161,16 @@ public class CandidatiController {
 		return json;
 	}
 	
+	@RequestMapping("/stampa-commenti")
+	@ResponseBody
+	public List stampaCommenti(@RequestParam(value="idRisorsa") int idRisorsa)
+	{
+		System.out.println("qaSDFGHFD     "+idRisorsa);
+		List commenti = commentiService.stampaCommenti(idRisorsa);
+		
+		return commenti;
+	}
+	
 	@RequestMapping("/visualizza-candidato")
 	public String visualizzaCandidati(@RequestParam(value="idRisorsa") int idRisorsa, HttpServletRequest request, Model theModel)
 	{

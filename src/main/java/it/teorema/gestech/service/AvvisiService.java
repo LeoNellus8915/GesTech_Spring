@@ -8,7 +8,7 @@ import org.springframework.data.repository.query.Param;
 import it.teorema.gestech.model.Avvisi;
 
 public interface AvvisiService extends JpaRepository <Avvisi, Integer>
-{
+{	
 	@Modifying
 	@Query("delete from Avvisi where id = :idAvviso")
 	abstract
