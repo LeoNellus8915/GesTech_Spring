@@ -15,7 +15,7 @@
 									<a onclick="scarica()" class="btn btn-success  mt-3 martopsu">Scarica CV</a> 
 									<a onclick="genera_cv()" class="btn btn-success  mt-3 martopsu">Genera CV</a> 
 									<a th:href="@{'modifica-candidato?idRisorsa=' + ${id}}" class="btn btn-success giallo mt-3">Modifica</a> 
-									<a href="#" class="btn btn-success rosso  mt-3" onclick="elimina()">Elimina</a>
+									<a th:href="@{'elimina-candidato?idRisorsa=' + ${id}}" class="btn btn-success rosso mt-3">Elimina</a>
 
 									<div class="mt-5">
                                     <ul class="social social list-inline">
@@ -50,7 +50,7 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="p-4">
-                                            <h5 class="text-black">Città</h5>
+                                            <h5 class="text-black">Cittï¿½</h5>
                                            <h5 class="p-t-10">[[${citta}]]<span id="citta_di_allocazione"></span></h5>
                                         </div>
                                     </div>
@@ -129,7 +129,7 @@
                                      </div>
                                     <div class="col-md-6">
                                         <div class="p-4">
-                                            <h4 class="text-black">Possibilità  Lavorativa:</h4>
+                                            <h4 class="text-black">Possibilitï¿½ Lavorativa:</h4>
                                             <h5 class="p-t-10">[[${possibilitaLavorativa}]]<span id="possibilita_lavorativa"></span></h5>
                                         </div>
                                      </div> 

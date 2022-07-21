@@ -3,6 +3,7 @@ package it.teorema.gestech.service;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
@@ -25,4 +26,9 @@ public interface RisorseService extends JpaRepository <Risorse, Integer>
 	@Query("from Risorse where id = :idRisorsa")
 	abstract
 	Risorse findById(@Param("idRisorsa") int idRisorsa);
+	
+	@Modifying
+	@Query("delete from Risorse where id = :idRisorsa")
+	abstract
+	void rimuoviCandidato(@Param("idRisorsa") int idRisorsa);
 }

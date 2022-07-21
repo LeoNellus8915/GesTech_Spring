@@ -196,7 +196,22 @@ public class CandidatiController {
 		theModel.addAttribute("view", "modificaCandidato");
 		
 		return "default";
+	}
+	
+	@RequestMapping("/elimina-candidato")
+	@Transactional
+	public String eliminaCandidato(@RequestParam(value="idRisorsa") int idRisorsa, HttpServletRequest request, Model theModel)
+	{
+		HttpSession session = request.getSession(true);
+		LocalSession localSession = (LocalSession) session.getAttribute("localSession");
 		
+		dettagliRisorseService.rimuoviCandidato(idRisorsa);
+		risorseService.rimuoviCandidato(idRisorsa);
 		
+		theModel.addAttribute("nomeCognome", localSession.getNomeCognome());
+		theModel.addAttribute("ruolo", localSession.getRuolo());
+		theModel.addAttribute("titlePage", "Candidati");
+		theModel.addAttribute("view", "paginaCandidati");
+		return "default";
 	}
 }

@@ -17,7 +17,8 @@ function tutteLeRisorse()
 				dati[2] -> Nome e Cognome
 				dati[3] -> Città
 				dati[4] -> Ruolo
-				dati[5] -> SkillPrincipale
+				dati[5] -> Skill Principale
+				dati[6] -> Esito Colloquio
 				*/
 			}
 			$('#tabellaRicerca').DataTable({

@@ -119,8 +119,8 @@ public class HomeController {
 		return "default";
 	}
 	
-	@Transactional
 	@RequestMapping("/cancella-avviso")
+	@Transactional
 	public String cancellaAvviso(@RequestParam(value="idAvviso") int idAvviso, HttpServletRequest request, Model theModel)
 	{
 		HttpSession session = request.getSession(true);
