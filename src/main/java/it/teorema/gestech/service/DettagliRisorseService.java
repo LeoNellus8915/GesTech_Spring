@@ -1,5 +1,6 @@
 package it.teorema.gestech.service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -21,4 +22,8 @@ public interface DettagliRisorseService extends JpaRepository <DettagliRisorse, 
 	@Query("delete from DettagliRisorse where idRisorsa = :idRisorsa")
 	abstract
 	void rimuoviCandidato(@Param("idRisorsa") int idRisorsa);
+	
+	@Query("select dataInserimento from DettagliRisorse where idRisorsa = :idRisorsa")
+	abstract
+	LocalDateTime getDataInserimento(@Param("idRisorsa") int idRisorsa);
 }

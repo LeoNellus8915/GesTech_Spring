@@ -47,8 +47,6 @@ public class Risorse
 	private String competenzeTotali;
 	@Column(name = "certificazioni")
 	private String certificazioni;
-	@Column(name = "data_inserimento")
-	private String dataInserimento;
 	
 	public Risorse() {
 	}
@@ -56,7 +54,7 @@ public class Risorse
 	public Risorse(int id, String nomeCognome, String recapito, String email, String profiloLinkedin, String citta,
 			String ruoloRisorsa, String competenzaPrincipale, LocalDate dataColloquio, String annoColloquio,
 			String fonteReperimento, Double costoGiornaliero, String possibilitaLavorativa, String skillCampoLibero,
-			String competenzeTotali, String certificazioni, String dataInserimento) {
+			String competenzeTotali, String certificazioni) {
 		super();
 		this.id = id;
 		this.nomeCognome = nomeCognome;
@@ -74,7 +72,6 @@ public class Risorse
 		this.skillCampoLibero = skillCampoLibero;
 		this.competenzeTotali = competenzeTotali;
 		this.certificazioni = certificazioni;
-		this.dataInserimento = dataInserimento;
 	}
 
 	public int getId() {
@@ -203,14 +200,5 @@ public class Risorse
 
 	public void setCertificazioni(String certificazioni) {
 		this.certificazioni = certificazioni;
-	}
-
-	public String getDataInserimento() {
-		return dataInserimento;
-	}
-
-	public void setDataInserimento(String dataInserimento) {
-		this.dataInserimento = dataInserimento;
-	}
-	
+	}	
 }

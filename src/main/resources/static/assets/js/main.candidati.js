@@ -8,8 +8,8 @@ function tutteLeRisorse()
 		dataType: "json",
 		success: function(dati) {
 			for (var c=0; c<dati.length; c++){
-				var b1 = '<a href="visualizza-candidato?idRisorsa='+dati[c].at(0)+'" onclick="setStorage('+dati[c].at(0)+')"><i class="icon-eye mr-3"></i></a>';
-				var b2 = '<a href="modifica-candidato?idRisorsa='+dati[c].at(0)+'" onclick="setStorage('+dati[c].at(0)+')"><i class="icon-pencil"></i></a>';
+				var b1 = '<a href="visualizza-candidato?idRisorsa='+dati[c].at(0)+'"><i class="icon-eye mr-3"></i></a>';
+				var b2 = '<a href="modifica-candidato?idRisorsa='+dati[c].at(0)+'"><i class="icon-pencil"></i></a>';
 				arrayRow.push([dati[c].at(1), dati[c].at(2), dati[c].at(3), dati[c].at(4), dati[c].at(5), dati[c].at(6), b1 + b2]);
 				/*
 				dati[0] -> id
