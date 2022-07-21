@@ -2,14 +2,16 @@ $(function() {
     $( "p" ).text( "The DOM is now loaded and can be manipulated." );
   });
 
-function controllo_caratteri(id_input){
-	var text = document.getElementById(id_input).value;
+function controllo_caratteri(idInput){
+	
+	var text = $(idInput).val();
 
 	if(text.match(/(%|&)/)){
-		document.getElementById("label-error-text").style.display = "block";
+		$('#label-error-text').css('display', 'block');
 	} 
 	else {
-		document.getElementById("label-error-text").style.display = "none";
+		$('#label-error-text').css('display', 'none');
+
 	}
 	
 }
@@ -26,33 +28,35 @@ function stampaAvvisi()
 			{
 				var split_finale = "";
 				
-				const div = document.createElement("div");
-				div.classList.add('col-4', 'card_avvisi');
-				div.id = "div_avvisi" + c;
-				//document.getElementById("stampaAvvisi").appendChild(div);
-				$("#stampaAvvisi").append(div);
+				$('<div/>',{
+				    class: 'col-4 card_avvisi',
+				    id: "div_avvisi" + c,
+				}).appendTo('#stampaAvvisi');
 			
-				const dataOra = document.createElement("span");
-				dataOra.value = dati[c].data;
-				dataOra.innerHTML = dati[c].data;
-				dataOra.classList.add('data_ora_avvisi');
-				document.getElementById('div_avvisi' + c).appendChild(dataOra);
+				$('<span/>',{
+					value: dati[c].data,
+				    class: 'data_ora_avvisi',
+				    text: dati[c].data,
+				}).appendTo('#div_avvisi' + c);
 				
-				const icona = document.createElement("i");
-				icona.innerHTML = '<a href="cancella-avviso?idAvviso='+dati[c].id+'"><i class="icon icon-delete red-text s-18"></i>';
-				document.getElementById('div_avvisi' + c).appendChild(icona);
+				$('<a>',{
+					href: 'cancella-avviso?idAvviso='+dati[c].id,
+					id: dati[c].id,
+				}).appendTo('#div_avvisi' + c);
+				$('#div_avvisi' + c).append('<i class="icon icon-delete red-text s-18"></i>');
+				$('#div_avvisi' + c).append('</a>');
 				
-				const titolo = document.createElement("p");
-				titolo.value = dati[c].titolo;
-				titolo.innerHTML = dati[c].titolo;
-				titolo.classList.add('titolo_avvisi');
-				document.getElementById('div_avvisi' + c).appendChild(titolo);
+				$('<p/>',{
+					value: dati[c].titolo,
+				    class: 'titolo_avvisi',
+				    text: dati[c].titolo,
+				}).appendTo('#div_avvisi' + c);
 				
-				const avviso = document.createElement("p");
-				avviso.value = dati[c].note;
-				avviso.innerHTML = dati[c].note;
-				avviso.classList.add('testo_avvisi');
-				document.getElementById('div_avvisi' + c).appendChild(avviso);
+				$('<p/>',{
+					value: dati[c].note,
+				    class: 'testo_avvisi',
+				    text: dati[c].note,
+				}).appendTo('#div_avvisi' + c);
 				
 				var split = dati[c].ruoli.split(",")
 				if(split.length != 1)
@@ -64,11 +68,12 @@ function stampaAvvisi()
 					split_finale = split[0].substring(1);
 					split_finale = split_finale.slice(0, -1);
 				}
-				const ruolo = document.createElement("span");
-				ruolo.value = split_finale;
-				ruolo.innerHTML = split_finale;
-				ruolo.classList.add('ruolo_avvisi');
-				document.getElementById('div_avvisi' + c).appendChild(ruolo);
+				
+				$('<span/>',{
+					value: split_finale,
+				    class: 'ruolo_avvisi',
+				    text: split_finale,
+				}).appendTo('#div_avvisi' + c);
 			}
 		},
 	});
