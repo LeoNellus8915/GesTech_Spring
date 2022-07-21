@@ -3,7 +3,6 @@ package it.teorema.gestech.controller;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -17,8 +16,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import ch.qos.logback.classic.net.SyslogAppender;
-import it.teorema.gestech.model.Avvisi;
 import it.teorema.gestech.model.DettagliRisorse;
 import it.teorema.gestech.model.EsitiColloquio;
 import it.teorema.gestech.model.Linguaggi;
@@ -26,7 +23,6 @@ import it.teorema.gestech.model.Lingue;
 import it.teorema.gestech.model.Livelli;
 import it.teorema.gestech.model.Profili;
 import it.teorema.gestech.model.Risorse;
-import it.teorema.gestech.model.Ruoli;
 import it.teorema.gestech.service.DettagliRisorseService;
 import it.teorema.gestech.service.EsitiColloquioService;
 import it.teorema.gestech.service.LinguaggiService;
@@ -145,9 +141,9 @@ public class CandidatiController {
 	
 	@RequestMapping("/tutte-le-risorse")
 	@ResponseBody
-	public List tutteLeRisorse()
+	public List<?> tutteLeRisorse()
 	{
-		List json = dettagliRisorseService.findAll();
+		List<?> json = dettagliRisorseService.findAll();
 		System.out.println(json);
 		return json;
 	}
@@ -159,7 +155,7 @@ public class CandidatiController {
 		HttpSession session = request.getSession(true);
 		LocalSession localSession = (LocalSession) session.getAttribute("localSession");
 		
-		Risorse risorse = new Risorse();
+		//Risorse risorse = new Risorse();
 		
 		theModel.addAttribute("nomeCognome", localSession.getNomeCognome());
 		theModel.addAttribute("ruolo", localSession.getRuolo());
@@ -178,7 +174,7 @@ public class CandidatiController {
 		HttpSession session = request.getSession(true);
 		LocalSession localSession = (LocalSession) session.getAttribute("localSession");
 		
-		Risorse risorse = new Risorse();
+		//Risorse risorse = new Risorse();
 		
 		theModel.addAttribute("nomeCognome", localSession.getNomeCognome());
 		theModel.addAttribute("ruolo", localSession.getRuolo());
