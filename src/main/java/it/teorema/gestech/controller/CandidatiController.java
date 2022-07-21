@@ -141,9 +141,9 @@ public class CandidatiController {
 	
 	@RequestMapping("/tutte-le-risorse")
 	@ResponseBody
-	public List<?> tutteLeRisorse()
+	public List tutteLeRisorse()
 	{
-		List<?> json = dettagliRisorseService.findAll();
+		List json = dettagliRisorseService.findAll();
 		System.out.println(json);
 		return json;
 	}
