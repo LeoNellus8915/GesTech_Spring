@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import it.teorema.gestech.model.Commenti;
 import it.teorema.gestech.model.DettagliRisorse;
 import it.teorema.gestech.model.EsitiColloquio;
 import it.teorema.gestech.model.Linguaggi;
@@ -23,6 +24,7 @@ import it.teorema.gestech.model.Lingue;
 import it.teorema.gestech.model.Livelli;
 import it.teorema.gestech.model.Profili;
 import it.teorema.gestech.model.Risorse;
+import it.teorema.gestech.service.CommentiService;
 import it.teorema.gestech.service.DettagliRisorseService;
 import it.teorema.gestech.service.EsitiColloquioService;
 import it.teorema.gestech.service.LinguaggiService;
@@ -48,6 +50,8 @@ public class CandidatiController {
 	LivelliService livelliService;
 	@Autowired
 	DettagliRisorseService dettagliRisorseService;
+	@Autowired
+	CommentiService commentiService;
 	
 	@RequestMapping("/pagina-candidati")
 	public String paginaCandidati(HttpServletRequest request, Model theModel){
@@ -95,6 +99,7 @@ public class CandidatiController {
 	{
 		Risorse risorsa = new Risorse();
 		DettagliRisorse dettagliRisorsa = new DettagliRisorse();
+		Commenti commenti = new Commenti();
 		
 		DateTimeFormatter format1 = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");  
 		DateTimeFormatter format2 = DateTimeFormatter.ofPattern("yyyy-MM-dd");  
@@ -135,6 +140,15 @@ public class CandidatiController {
 		dettagliRisorsa.setIdSkill5(Integer.parseInt(request.getParameter("skill5")));
 		
 		dettagliRisorseService.save(dettagliRisorsa);
+		
+		if (request.getParameter("certificazioni") != null)
+		{
+			commenti.setData(LocalDate.parse(format2.format(now), format2));
+			commenti.setIdRisorsa(idRisorsa);
+			commenti.setNote(request.getParameter("commento"));
+			
+			commentiService.save(commenti);
+		}
 
 		return "redirect:pagina-candidati";
 	}

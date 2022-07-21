@@ -1,5 +1,6 @@
 package it.teorema.gestech.model;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -16,19 +17,19 @@ public class Commenti
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
 	private int id;
-	@Column(name = "id_file_risorsa")
-	private int idFileRisorsa;
+	@Column(name = "id_risorsa")
+	private int idRisorsa;
 	@Column(name = "note")
 	private String note;
 	@Column(name = "data")
-	private LocalDateTime data;
+	private LocalDate data;
 	
 	public Commenti() {}
 
-	public Commenti(int id, int idFileRisorsa, String note, LocalDateTime data) {
+	public Commenti(int id, int idRisorsa, String note, LocalDate data) {
 		super();
 		this.id = id;
-		this.idFileRisorsa = idFileRisorsa;
+		this.idRisorsa = idRisorsa;
 		this.note = note;
 		this.data = data;
 	}
@@ -41,12 +42,12 @@ public class Commenti
 		this.id = id;
 	}
 
-	public int getIdFileRisorsa() {
-		return idFileRisorsa;
+	public int getIdRisorsa() {
+		return idRisorsa;
 	}
 
-	public void setIdFileRisorsa(int idFileRisorsa) {
-		this.idFileRisorsa = idFileRisorsa;
+	public void setIdRisorsa(int idRisorsa) {
+		this.idRisorsa = idRisorsa;
 	}
 
 	public String getNote() {
@@ -57,11 +58,11 @@ public class Commenti
 		this.note = note;
 	}
 
-	public LocalDateTime getData() {
+	public LocalDate getData() {
 		return data;
 	}
 
-	public void setData(LocalDateTime data) {
+	public void setData(LocalDate data) {
 		this.data = data;
 	}
 }
