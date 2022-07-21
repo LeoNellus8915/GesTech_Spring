@@ -25,7 +25,8 @@ function controllaPassword()
 	var p1 = $("#password").val();
 	var p2 = $("#confermaPassword").val();
 	$('form').one('submit', function(e) {
-		if (p1 != p2) {
+		if (p1 != p2)
+		{
 			alert('Le password non coincidono!');
 			e.preventDefault();
 		}

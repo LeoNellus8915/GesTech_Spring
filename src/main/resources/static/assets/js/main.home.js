@@ -29,7 +29,8 @@ function stampaAvvisi()
 				const div = document.createElement("div");
 				div.classList.add('col-4', 'card_avvisi');
 				div.id = "div_avvisi" + c;
-				document.getElementById("stampaAvvisi").appendChild(div);
+				//document.getElementById("stampaAvvisi").appendChild(div);
+				$("#stampaAvvisi").append(div);
 			
 				const dataOra = document.createElement("span");
 				dataOra.value = dati[c].data;

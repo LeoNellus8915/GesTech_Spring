@@ -144,7 +144,6 @@ public class CandidatiController {
 	public List tutteLeRisorse()
 	{
 		List json = dettagliRisorseService.findAll();
-		System.out.println(json);
 		return json;
 	}
 	
