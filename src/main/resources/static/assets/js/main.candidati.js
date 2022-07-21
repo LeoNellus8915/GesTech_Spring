@@ -10,7 +10,7 @@ function tutteLeRisorse()
 			for (var c=0; c<dati.length; c++){
 				var b1 = '<a href="visualizza-candidati?idRisorsa='+dati[c].at(0)+'" onclick="setStorage('+dati[c].at(0)+')"><i class="icon-eye mr-3"></i></a>';
 				var b2 = '<a href="modifica-candidati?idRisorsa='+dati[c].at(0)+'" onclick="setStorage('+dati[c].at(0)+')"><i class="icon-pencil"></i></a>';
-				arrayRow.push([dati[c].at(1), dati[c].at(2), dati[c].at(3), dati[c].at(4), dati[c].at(5), b1 + b2]);
+				arrayRow.push([dati[c].at(1), dati[c].at(2), dati[c].at(3), dati[c].at(4), dati[c].at(5), dati[c].at(6), b1 + b2]);
 				/*
 				dati[0] -> id
 				dati[1] -> Data e Ora
@@ -22,6 +22,14 @@ function tutteLeRisorse()
 			}
 			$('#tabellaRicerca').DataTable({
 				data: arrayRow,
+				createdRow: function(row, dati)
+				{
+				    if (dati[5] == 'Inaffidabile')
+				    {
+						console.log("bella");
+				        $(row).css('background-color', 'red');
+				    }
+				},
 				language: {
             		"lengthMenu": "Schermo _MENU_ record per pagina",
             		"zeroRecords": "Nessun riscontro",

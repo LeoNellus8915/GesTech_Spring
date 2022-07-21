@@ -172,8 +172,8 @@ public class CandidatiController {
 		
 		theModel.addAttribute("nomeCognome", localSession.getNomeCognome());
 		theModel.addAttribute("ruolo", localSession.getRuolo());
-		theModel.addAttribute("titlePage", "Visualizza Candidati");
-		theModel.addAttribute("view", "visualizzaCandidati");
+		theModel.addAttribute("titlePage", "Visualizza Candidato");
+		theModel.addAttribute("view", "visualizzaCandidato");
 		
 		return "default";
 		
@@ -191,8 +191,8 @@ public class CandidatiController {
 		
 		theModel.addAttribute("nomeCognome", localSession.getNomeCognome());
 		theModel.addAttribute("ruolo", localSession.getRuolo());
-		theModel.addAttribute("titlePage", "Modifica Candidati");
-		theModel.addAttribute("view", "modificaCandidati");
+		theModel.addAttribute("titlePage", "Modifica Candidato");
+		theModel.addAttribute("view", "modificaCandidato");
 		
 		return "default";
 		

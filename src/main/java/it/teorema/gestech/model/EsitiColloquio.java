@@ -21,7 +21,6 @@ public class EsitiColloquio
 	public EsitiColloquio() {}
 
 	public EsitiColloquio(int id, String nome) {
-		super();
 		this.id = id;
 		this.nome = nome;
 	}
