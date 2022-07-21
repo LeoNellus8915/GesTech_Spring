@@ -154,7 +154,21 @@ public class CandidatiController {
 		HttpSession session = request.getSession(true);
 		LocalSession localSession = (LocalSession) session.getAttribute("localSession");
 		
-		//Risorse risorse = new Risorse();
+		Risorse risorse = risorseService.findById(idRisorsa);
+		
+		theModel.addAttribute("email", risorse.getEmail());
+		theModel.addAttribute("recapito", risorse.getRecapito());
+		theModel.addAttribute("citta", risorse.getCitta());
+		theModel.addAttribute("dataInserimento", risorse.getDataInserimento());
+		theModel.addAttribute("competenzaPrincipale", risorse.getCompetenzaPrincipale());
+		theModel.addAttribute("dataColloquio", risorse.getDataColloquio());
+		theModel.addAttribute("annoColloquio", risorse.getAnnoColloquio());
+		//theModel.addAttribute("esitoColloquio", risorse.getEsitoColloquio());
+		theModel.addAttribute("fonteReperimento", risorse.getFonteReperimento());
+		theModel.addAttribute("costoGiornaliero", risorse.getCostoGiornaliero());
+		theModel.addAttribute("possibilitaLavorativa", risorse.getPossibilitaLavorativa());
+		theModel.addAttribute("competenzeTotali", risorse.getCompetenzeTotali());
+		theModel.addAttribute("certificazioni", risorse.getCertificazioni());
 		
 		theModel.addAttribute("nomeCognome", localSession.getNomeCognome());
 		theModel.addAttribute("ruolo", localSession.getRuolo());

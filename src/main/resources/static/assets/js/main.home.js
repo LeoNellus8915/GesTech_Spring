@@ -1,7 +1,3 @@
-$(function() {
-    $( "p" ).text( "The DOM is now loaded and can be manipulated." );
-  });
-
 function controllo_caratteri(idInput){
 	
 	var text = $(idInput).val();
@@ -11,9 +7,7 @@ function controllo_caratteri(idInput){
 	} 
 	else {
 		$('#label-error-text').css('display', 'none');
-
 	}
-	
 }
 
 function stampaAvvisi()
