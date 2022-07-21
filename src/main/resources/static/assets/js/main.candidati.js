@@ -49,7 +49,7 @@ function tutteLeRisorse()
 function stampaCommenti(){
 	$.ajax({
 		type: "GET",
-		url: "http://localhost:8080/stampa-commenti?idRisorsa="+$("#id".val),
+		url: "http://localhost:8080/stampa-commenti?idRisorsa="+$("#id").val(),
 		contentType: "application/json; charset=utf-8",
 		dataType: "json",
 		success: function(dati){
