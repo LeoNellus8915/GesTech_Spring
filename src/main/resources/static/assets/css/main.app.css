@@ -14,3 +14,11 @@
     flex-direction: row-reverse;
     justify-content: center;
 }
+
+.giallo {
+    background: #fcd12a;
+}
+
+.rosso {
+    background: red;
+}

@@ -29,7 +29,11 @@ input[type=submit] {
 
 .btright {
     float: right;
+    margin-bottom: 50px;
+    font-weight: 400;
+    line-height: 1.9;
 }
+
 
 input[type="submit"] {
     padding: 5px 25px;
@@ -57,11 +61,13 @@ input[type="submit"] {
 }
 /* DATA AVVISI*/
 span.data_ora_avvisi {
-    font-size: 12px;
+    font-size: 15px;
 }
 /* ICONA CESTINO*/
 .icon-delete:before {
-    content: "\e872"
+    content: "\e872";
+    position: relative;
+    left: 120px;
 }
 
 /* TITOLO AVVISO*/
@@ -88,4 +94,11 @@ span.ruolo_avvisi {
     padding: 5px;
     border-radius: 5px;
     color: #18448f;
+}
+
+form.label_home {
+    margin-bottom: 50px;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.9;
 }
