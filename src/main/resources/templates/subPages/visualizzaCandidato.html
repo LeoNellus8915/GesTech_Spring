@@ -9,12 +9,12 @@
                             <div class="text-center p-5 mt-5">
                                 <div>
                                     <h4 class="p-t-10">[[${nomeCognome}]] <span id="nome_cognome"></span></h4>
-                                    <h5 class="p-t-10">[[${Ruolo}]] <span id="ruolo_profilo"></span></h5>
+                                    <h5 class="p-t-10">[[${ruolo}]] <span id="ruolo_profilo"></span></h5>
                                 </div>
                                     <input type="hidden" id="id" name="id">
 									<a onclick="scarica()" class="btn btn-success  mt-3 martopsu">Scarica CV</a> 
 									<a onclick="genera_cv()" class="btn btn-success  mt-3 martopsu">Genera CV</a> 
-									<a href="stampa_profilo.jsp" class="btn btn-success giallo mt-3">Modifica</a> 
+									<a th:href="@{'modifica-candidato?idRisorsa=' + ${id}}" class="btn btn-success giallo mt-3">Modifica</a> 
 									<a href="#" class="btn btn-success rosso  mt-3" onclick="elimina()">Elimina</a>
 
 									<div class="mt-5">

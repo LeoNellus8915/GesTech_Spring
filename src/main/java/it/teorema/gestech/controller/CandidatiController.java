@@ -147,7 +147,7 @@ public class CandidatiController {
 		return json;
 	}
 	
-	@RequestMapping("/visualizza-candidati")
+	@RequestMapping("/visualizza-candidato")
 	public String visualizzaCandidati(@RequestParam(value="idRisorsa") int idRisorsa, HttpServletRequest request, Model theModel)
 	{
 		
@@ -156,6 +156,7 @@ public class CandidatiController {
 		
 		Risorse risorse = risorseService.findById(idRisorsa);
 		
+		theModel.addAttribute("id", risorse.getId());
 		theModel.addAttribute("email", risorse.getEmail());
 		theModel.addAttribute("recapito", risorse.getRecapito());
 		theModel.addAttribute("citta", risorse.getCitta());
@@ -180,7 +181,7 @@ public class CandidatiController {
 		
 	}
 	
-	@RequestMapping("/modifica-candidati")
+	@RequestMapping("/modifica-candidato")
 	public String modificaCandidati(@RequestParam(value="idRisorsa") int idRisorsa, HttpServletRequest request, Model theModel)
 	{
 		
