@@ -53,13 +53,12 @@ function stampaCommenti(){
 		contentType: "application/json; charset=utf-8",
 		dataType: "json",
 		success: function(dati){
-			console.log(dati);
 			for (var c = 0; c < dati.length; c++)
 			{
 				$('<span/>',{
 					value: dati[c].at(0) + dati[c].at(1),
 				    class: 'data_nomecognome_commenti',
-				    text: dati[c].at(0) + dati[c].at(1),
+				    text: dati[c].at(0) + "   " + dati[c].at(1),
 				}).appendTo('#commento');
 				$('<p/>',{
 					value: dati[c].at(2),
