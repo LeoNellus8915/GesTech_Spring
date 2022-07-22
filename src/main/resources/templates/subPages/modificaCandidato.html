@@ -75,7 +75,7 @@
 							<div class="form-group col-4 m-0">
 								<label for="esitoColloquio" class="col-form-label s-12">ESITO COLLOQUIO</label> 
 								<select name="esitoColloquio" id="esitoColloquio" class="form-control r-0 light s-12 date-picker">
-									<option value="0">Selezionare...</option>
+									<option th:text="${esitoColloquio}"></option>
     								<option th:each="esitoColloquio : ${esitiColloquio}" th:value="${esitoColloquio.id}" th:text="${esitoColloquio.nome}"></option>
     							</select>
 							</div>
@@ -98,7 +98,7 @@
 							<div class="form-group col-4 m-0">
 								<label for="ruoloProfilo" class="col-form-label s-12">RUOLO</label>
 								<select name="ruoloProfilo" id="ruoloProfilo" class="form-control r-0 light s-12 date-picker">
-									<option value="0">Selezionare...</option>
+									<option th:text="${profilo}"></option>
     								<option th:each="profilo : ${profili}" th:value="${profilo.nome}" th:text="${profilo.nome}"></option>
 								</select>
 							</div>
@@ -241,7 +241,7 @@
 							<div class="form-group col-4 m-0">
 								<label for="seniority" class="col-form-label s-12">SENIORITY</label>
 								<select name="seniority" id="seniority" class="form-control r-0 light s-12 date-picker">
-									<option value="0">Selezionare...</option>
+									<option th:text="${livello}"></option>
    									<option th:each="livello : ${livelli}" th:value="${livello.id}" th:text="${livello.nome}"></option>
    								</select>
 							</div>

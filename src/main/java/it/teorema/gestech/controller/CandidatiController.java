@@ -199,7 +199,7 @@ public class CandidatiController {
 		theModel.addAttribute("lingua1", lingueService.getLingua1(idRisorsa));
 		theModel.addAttribute("lingua2", lingueService.getLingua2(idRisorsa));
 		theModel.addAttribute("lingua3", lingueService.getLingua3(idRisorsa));
-		theModel.addAttribute("seniority", profiliService.getSeniority(idRisorsa));
+		theModel.addAttribute("seniority", livelliService.getSeniority(idRisorsa));
 		theModel.addAttribute("skillCampoLibero", risorse.getSkillCampoLibero());
 		theModel.addAttribute("competenzeTotali", risorse.getCompetenzeTotali());
 		theModel.addAttribute("certificazioni", risorse.getCertificazioni());
@@ -232,6 +232,7 @@ public class CandidatiController {
 		theModel.addAttribute("annoColloquio", risorse.getAnnoColloquio());
 		theModel.addAttribute("esitoColloquio", esitiColloquioService.getEsitoColloquio(idRisorsa));
 		theModel.addAttribute("fonteReperimento", risorse.getFonteReperimento());
+		theModel.addAttribute("ruolo", profiliService.getRuolo(idRisorsa));
 		theModel.addAttribute("costoGiornaliero", risorse.getCostoGiornaliero());
 		theModel.addAttribute("possibilitaLavorativa", risorse.getPossibilitaLavorativa());
 		theModel.addAttribute("skill1", linguaggiService.getSkill1(idRisorsa));
@@ -242,10 +243,21 @@ public class CandidatiController {
 		theModel.addAttribute("lingua1", lingueService.getLingua1(idRisorsa));
 		theModel.addAttribute("lingua2", lingueService.getLingua2(idRisorsa));
 		theModel.addAttribute("lingua3", lingueService.getLingua3(idRisorsa));
-		theModel.addAttribute("seniority", profiliService.getSeniority(idRisorsa));
+		theModel.addAttribute("livello", livelliService.getSeniority(idRisorsa));
 		theModel.addAttribute("skillCampoLibero", risorse.getSkillCampoLibero());
 		theModel.addAttribute("competenzeTotali", risorse.getCompetenzeTotali());
 		theModel.addAttribute("certificazioni", risorse.getCertificazioni());
+		
+		List<EsitiColloquio> esitiColloquio = esitiColloquioService.findAllException(esitiColloquioService.getEsitoColloquio(idRisorsa));
+		theModel.addAttribute("esitiColloquio", esitiColloquio);
+		List<Profili> profili = profiliService.findAllException(profiliService.getRuolo(idRisorsa));
+		theModel.addAttribute("profili", profili);
+		List<Linguaggi> linguaggi = linguaggiService.findAll();
+		theModel.addAttribute("linguaggi", linguaggi);
+		List<Lingue> lingue = lingueService.findAll();
+		theModel.addAttribute("lingue", lingue);
+		List<Livelli> livelli = livelliService.findAllException(livelliService.getSeniority(idRisorsa));
+		theModel.addAttribute("livelli", livelli);
 		
 		theModel.addAttribute("nomeCognome", localSession.getNomeCognome());
 		theModel.addAttribute("ruolo", localSession.getRuolo());
