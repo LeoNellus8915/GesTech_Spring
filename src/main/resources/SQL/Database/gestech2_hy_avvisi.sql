@@ -41,7 +41,7 @@ CREATE TABLE `hy_avvisi` (
 
 LOCK TABLES `hy_avvisi` WRITE;
 /*!40000 ALTER TABLE `hy_avvisi` DISABLE KEYS */;
-INSERT INTO `hy_avvisi` VALUES (8,'ht',0,'[dipendente]','hfthftht','2022-07-18 20:29:58'),(9,'f',1,'[dipendente]','ntftfnf','2022-07-19 11:55:32'),(11,'thfhf',1,'[recruiter, commerciale]','thfthft','2022-07-19 13:09:44'),(12,'rdg',1,'[commerciale]','4grdrg','2022-07-19 16:28:20'),(13,'rsgdg',1,'[dipendente]','rsgrdgdg','2022-07-20 10:45:39'),(14,'bubu',1,'[dipendente]','%&','2022-07-22 10:48:50'),(15,'bubu',1,'[dipendente]','%&','2022-07-22 10:52:42');
+INSERT INTO `hy_avvisi` VALUES (8,'ht',0,'[dipendente]','hfthftht','2022-07-18 20:29:58'),(11,'thfhf',1,'[recruiter, commerciale]','thfthft','2022-07-19 13:09:44'),(12,'rdg',1,'[commerciale]','4grdrg','2022-07-19 16:28:20'),(13,'rsgdg',1,'[dipendente]','rsgrdgdg','2022-07-20 10:45:39');
 /*!40000 ALTER TABLE `hy_avvisi` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -54,4 +54,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-07-22 11:04:11
+-- Dump completed on 2022-07-22 12:15:01

@@ -42,7 +42,7 @@ CREATE TABLE `sy_risorse` (
   `competenze_totali` varchar(100) DEFAULT NULL,
   `certificazioni` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=49 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=54 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -51,7 +51,7 @@ CREATE TABLE `sy_risorse` (
 
 LOCK TABLES `sy_risorse` WRITE;
 /*!40000 ALTER TABLE `sy_risorse` DISABLE KEYS */;
-INSERT INTO `sy_risorse` VALUES (1,'Admin','','admin@gmail.com','','','','',NULL,'','',1,'','','',''),(2,'Riccardo','',NULL,'','Magliano Sabina','Sedentario','Informatico',NULL,'','',1,'','','',''),(48,'Riccardo Omar Barionovi','3755260319','leonellus8915@gmail.com','rhirshsifsjif','Magiano Sabina','operatore','Programmatore','2022-10-10','','Online',100,'Tanta','Java','Tante','Diploma');
+INSERT INTO `sy_risorse` VALUES (1,'Admin','','admin@gmail.com','','','','',NULL,'','',1,'','','',''),(2,'Riccardo','',NULL,'','Magliano Sabina','Sedentario','Informatico',NULL,'','',1,'','','',''),(48,'Riccardo Omar Barionovi','3755260319','leonellus8915@gmail.com','rhirshsifsjif','Magiano Sabina','operatore','Programmatore','2022-10-10','2022','Online',100,'Tanta','Java','Tante','Diploma'),(52,'grtgdgrg','','','','fsfesffes','0','','2022-07-14','','',0,'','','',''),(53,'aaa','','','','Magiano Sabina','Nessuno','Programmatore','2022-07-03','','',0,'','','','');
 /*!40000 ALTER TABLE `sy_risorse` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -64,4 +64,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-07-22 11:04:10
+-- Dump completed on 2022-07-22 12:15:00

@@ -33,12 +33,7 @@ function stampaAvvisi()
 				    text: dati[c].data,
 				}).appendTo('#div_avvisi' + c);
 				
-				$('<a>',{
-					href: 'cancella-avviso?idAvviso='+dati[c].id,
-					id: dati[c].id,
-				}).appendTo('#div_avvisi' + c);
-				$('#div_avvisi' + c).append('<i class="icon icon-delete red-text s-18"></i>');
-				$('#div_avvisi' + c).append('</a>');
+				$('#div_avvisi' + c).append('<a href="cancella-avviso?idAvviso='+dati[c].id+'"><i class="icon icon-delete red-text s-18"></i></a>');
 				
 				$('<p/>',{
 					value: dati[c].titolo,

@@ -100,11 +100,17 @@ public class CandidatiController {
 		Risorse risorsa = new Risorse();
 		DettagliRisorse dettagliRisorsa = new DettagliRisorse();
 		Commenti commenti = new Commenti();
+		Double costoGiornaliero;
 		
 		DateTimeFormatter format1 = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");  
 		DateTimeFormatter format2 = DateTimeFormatter.ofPattern("yyyy-MM-dd");  
 		LocalDateTime now = LocalDateTime.now();  
 		LocalDateTime data = LocalDateTime.parse(format1.format(now), format1);	
+		
+		if (request.getParameter("costoGiornaliero") == "")
+			costoGiornaliero = (double) 0;
+		else
+			costoGiornaliero = Double.parseDouble(request.getParameter("costoGiornaliero"));
 	
 		risorsa.setNomeCognome(request.getParameter("nomeCognome"));
 		risorsa.setRecapito(request.getParameter("recapito"));
@@ -116,7 +122,7 @@ public class CandidatiController {
 		risorsa.setAnnoColloquio(request.getParameter("annoColloquio"));
 		risorsa.setFonteReperimento(request.getParameter("fonteReperimento"));
 		risorsa.setCompetenzaPrincipale(request.getParameter("competenzaPrincipale"));
-		risorsa.setCostoGiornaliero(Double.parseDouble(request.getParameter("costoGiornaliero")));
+		risorsa.setCostoGiornaliero(costoGiornaliero);
 		risorsa.setPossibilitaLavorativa(request.getParameter("possibilitaLavorativa"));
 		risorsa.setSkillCampoLibero(request.getParameter("skillCampoLibero"));
 		risorsa.setCompetenzeTotali(request.getParameter("competenzeTotali"));

@@ -9,7 +9,7 @@
 							<div class="form-group col-6 m-0">
 								<label for="nomeCognome" class="col-form-label s-12">NOME
 									E COGNOME</label> <input id="nomeCognome" name="nomeCognome"
-									placeholder="Inserisci Nome e Cognome"
+									placeholder="Inserisci Nome e Cognome" required
 									class="form-control r-0 light s-12 " type="text">
 							</div>
 							<div class="form-group col-6 m-0">
@@ -40,8 +40,7 @@
 									id="citta" name="citta"
 									placeholder="Inserisci Citt&agrave;"
 									class="form-control r-0 light s-12 datePicker"
-									data-time-picker="false" data-format-date='Y/m/d'
-									type="text">
+									type="text" required>
 							</div>
 						</div>
 					</div>
@@ -63,7 +62,7 @@
 									placeholder="Inserisci Data Colloquio"
 									class="form-control r-0 light s-12 datePicker"
 									data-time-picker="false" data-format-date='Y-m-d'
-									type="text">
+									type="date" required>
 							</div>
 							<div class="form-group col-4 m-0">
 								<label for="annoColloquio" class="col-form-label s-12">ANNO
@@ -75,7 +74,7 @@
 							<div class="form-group col-4 m-0">
 								<label for="esitoColloquio" class="col-form-label s-12">ESITO COLLOQUIO</label> 
 								<select name="esitoColloquio" id="esitoColloquio" class="form-control r-0 light s-12 date-picker">
-									<option value="0">Selezionare...</option>
+									<option value="11">Selezionare...</option>
     								<option th:each="esitoColloquio : ${esitiColloquio}" th:value="${esitoColloquio.id}" th:text="${esitoColloquio.nome}"></option>
     							</select>
 							</div>
@@ -98,14 +97,14 @@
 							<div class="form-group col-4 m-0">
 								<label for="ruoloProfilo" class="col-form-label s-12">RUOLO</label>
 								<select name="ruoloProfilo" id="ruoloProfilo" class="form-control r-0 light s-12 date-picker">
-									<option value="0">Selezionare...</option>
+									<option value="Nessuno">Selezionare...</option>
     								<option th:each="profilo : ${profili}" th:value="${profilo.nome}" th:text="${profilo.nome}"></option>
 								</select>
 							</div>
 							<div class="form-group col-4 m-0">
 								<label for="competenzaPrincipale" class="col-form-label s-12">COMPETENZA PRINCIPALE</label>
 								<input id="competenzaPrincipale" name="competenzaPrincipale" placeholder="Insersci Competenza Principale"
-									class="form-control r-0 light s-12 date-picker" type="text">
+									class="form-control r-0 light s-12 date-picker" type="text" required>
 							</div>
 						</div>
 					</div>
@@ -121,6 +120,7 @@
 									GIORNALIERO</label> <input id="costoGiornaliero"
 									name="costoGiornaliero"
 									placeholder="Insersci Costo Giornaliero"
+									default="0"
 									class="form-control r-0 light s-12 date-picker" type="text">
 							</div>
 							<div class="form-group col-6 m-0">

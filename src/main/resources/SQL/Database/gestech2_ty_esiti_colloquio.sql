@@ -28,7 +28,7 @@ CREATE TABLE `ty_esiti_colloquio` (
   `id` int NOT NULL AUTO_INCREMENT,
   `nome` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -37,7 +37,7 @@ CREATE TABLE `ty_esiti_colloquio` (
 
 LOCK TABLES `ty_esiti_colloquio` WRITE;
 /*!40000 ALTER TABLE `ty_esiti_colloquio` DISABLE KEYS */;
-INSERT INTO `ty_esiti_colloquio` VALUES (1,'Ottimo'),(2,'Positivo'),(3,'Negativo'),(4,'Pessimo'),(5,'Da Ricolloquiare'),(6,'Non si Presenta'),(7,'Non Ricontattare'),(8,'Non Risponde al Telefono'),(9,'Rinuncia'),(10,'Inaffidabile');
+INSERT INTO `ty_esiti_colloquio` VALUES (1,'Ottimo'),(2,'Positivo'),(3,'Negativo'),(4,'Pessimo'),(5,'Da Ricolloquiare'),(6,'Non si Presenta'),(7,'Non Ricontattare'),(8,'Non Risponde al Telefono'),(9,'Rinuncia'),(10,'Inaffidabile'),(11,'Non Colloquiato');
 /*!40000 ALTER TABLE `ty_esiti_colloquio` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -50,4 +50,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-07-22 11:04:10
+-- Dump completed on 2022-07-22 12:15:00
