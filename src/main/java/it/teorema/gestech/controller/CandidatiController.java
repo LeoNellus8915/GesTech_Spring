@@ -238,7 +238,7 @@ public class CandidatiController {
 		theModel.addAttribute("annoColloquio", risorse.getAnnoColloquio());
 		theModel.addAttribute("esitoColloquio", esitiColloquioService.getEsitoColloquio(idRisorsa));
 		theModel.addAttribute("fonteReperimento", risorse.getFonteReperimento());
-		theModel.addAttribute("ruolo", profiliService.getRuolo(idRisorsa));
+		theModel.addAttribute("profilo", profiliService.getRuolo(idRisorsa));
 		theModel.addAttribute("costoGiornaliero", risorse.getCostoGiornaliero());
 		theModel.addAttribute("possibilitaLavorativa", risorse.getPossibilitaLavorativa());
 		theModel.addAttribute("skill1", linguaggiService.getSkill1(idRisorsa));
@@ -254,31 +254,38 @@ public class CandidatiController {
 		theModel.addAttribute("competenzeTotali", risorse.getCompetenzeTotali());
 		theModel.addAttribute("certificazioni", risorse.getCertificazioni());
 		
-		System.out.println("getskill " + linguaggiService.getSkill1(idRisorsa) + " ------");
+		theModel.addAttribute("esitiColloquio", esitiColloquioService.findAllException(esitiColloquioService.getEsitoColloquio(idRisorsa)));
+		theModel.addAttribute("idEsitoColloquio", esitiColloquioService.findIdEsitoColloquio(esitiColloquioService.getEsitoColloquio(idRisorsa)));
 		
-		List<EsitiColloquio> esitiColloquio = esitiColloquioService.findAllException(esitiColloquioService.getEsitoColloquio(idRisorsa));
-		theModel.addAttribute("esitiColloquio", esitiColloquio);
-		List<Profili> profili = profiliService.findAllException(profiliService.getRuolo(idRisorsa));
-		theModel.addAttribute("profili", profili);
-		List<Linguaggi> linguaggi1 = linguaggiService.findAllException(linguaggiService.getSkill1(idRisorsa));
-		theModel.addAttribute("linguaggi1", linguaggi1);
-		System.out.println("getskills "+ linguaggi1 + " -------");
-		List<Linguaggi> linguaggi2 = linguaggiService.findAllException(linguaggiService.getSkill2(idRisorsa));
-		theModel.addAttribute("linguaggi2", linguaggi2);
-		List<Linguaggi> linguaggi3 = linguaggiService.findAllException(linguaggiService.getSkill3(idRisorsa));
-		theModel.addAttribute("linguaggi3", linguaggi3);
-		List<Linguaggi> linguaggi4 = linguaggiService.findAllException(linguaggiService.getSkill4(idRisorsa));
-		theModel.addAttribute("linguaggi4", linguaggi4);
-		List<Linguaggi> linguaggi5 = linguaggiService.findAllException(linguaggiService.getSkill5(idRisorsa));
-		theModel.addAttribute("linguaggi5", linguaggi5);
-		List<Lingue> lingue1 = lingueService.findAllException(lingueService.getLingua1(idRisorsa));
-		theModel.addAttribute("lingue1", lingue1);
-		List<Lingue> lingue2 = lingueService.findAllException(lingueService.getLingua1(idRisorsa));
-		theModel.addAttribute("lingue2", lingue2);
-		List<Lingue> lingue3 = lingueService.findAllException(lingueService.getLingua1(idRisorsa));
-		theModel.addAttribute("lingue3", lingue3);
-		List<Livelli> livelli = livelliService.findAllException(livelliService.getSeniority(idRisorsa));
-		theModel.addAttribute("livelli", livelli);
+		theModel.addAttribute("profili", profiliService.findAllException(profiliService.getRuolo(idRisorsa)));
+		theModel.addAttribute("idProfilo", profiliService.findIdProfilo(profiliService.getRuolo(idRisorsa)));
+		
+		theModel.addAttribute("linguaggi1", linguaggiService.findAllException(linguaggiService.getSkill1(idRisorsa)));
+		theModel.addAttribute("idLinguaggio1", linguaggiService.findIdSkill1(linguaggiService.getSkill1(idRisorsa)));
+		
+		theModel.addAttribute("linguaggi2", linguaggiService.findAllException(linguaggiService.getSkill2(idRisorsa)));
+		theModel.addAttribute("idLinguaggio2", linguaggiService.findIdSkill2(linguaggiService.getSkill2(idRisorsa)));
+		
+		theModel.addAttribute("linguaggi3", linguaggiService.findAllException(linguaggiService.getSkill3(idRisorsa)));
+		theModel.addAttribute("idLinguaggio3", linguaggiService.findIdSkill3(linguaggiService.getSkill3(idRisorsa)));
+		
+		theModel.addAttribute("linguaggi4", linguaggiService.findAllException(linguaggiService.getSkill4(idRisorsa)));
+		theModel.addAttribute("idLinguaggio4", linguaggiService.findIdSkill4(linguaggiService.getSkill4(idRisorsa)));
+		
+		theModel.addAttribute("linguaggi5", linguaggiService.findAllException(linguaggiService.getSkill5(idRisorsa)));
+		theModel.addAttribute("idLinguaggio5", linguaggiService.findIdSkill5(linguaggiService.getSkill5(idRisorsa)));
+		
+		theModel.addAttribute("lingue1", lingueService.findAllException(lingueService.getLingua1(idRisorsa)));
+		theModel.addAttribute("idLingua1", lingueService.findIdLingua1(lingueService.getLingua1(idRisorsa)));
+		
+		theModel.addAttribute("lingue2", lingueService.findAllException(lingueService.getLingua2(idRisorsa)));
+		theModel.addAttribute("idLingua2", lingueService.findIdLingua2(lingueService.getLingua2(idRisorsa)));
+		
+		theModel.addAttribute("lingue3", lingueService.findAllException(lingueService.getLingua3(idRisorsa)));
+		theModel.addAttribute("idLingua3", lingueService.findIdLingua3(lingueService.getLingua3(idRisorsa)));
+		
+		theModel.addAttribute("livelli", livelliService.findAllException(livelliService.getSeniority(idRisorsa)));
+		theModel.addAttribute("idLivello", livelliService.findIdProfilo(livelliService.getSeniority(idRisorsa)));
 		
 		theModel.addAttribute("nomeCognome", localSession.getNomeCognome());
 		theModel.addAttribute("ruolo", localSession.getRuolo());
@@ -286,6 +293,84 @@ public class CandidatiController {
 		theModel.addAttribute("view", "modificaCandidato");
 		
 		return "default";
+	}
+	
+	@RequestMapping("/modifica-campi-candidato")
+	@Transactional
+	public String ModificaCampiCandidato(HttpServletRequest request, Model theModel)
+	{
+		HttpSession session = request.getSession(true);
+		LocalSession localSession = (LocalSession) session.getAttribute("localSession");
+		
+		Risorse risorsa = new Risorse();
+		DettagliRisorse dettagliRisorsa = new DettagliRisorse();
+		
+		int idRisorsa = Integer.parseInt(request.getParameter("idRisorsa"));
+		String nomeCognome = request.getParameter("nomeCognome");
+		String recapito = request.getParameter("recapito");
+		String email = request.getParameter("email");
+		String profiloLinkedin = request.getParameter("profiloLinkedin");
+		String citta = request.getParameter("citta");
+		LocalDate dataColloquio = LocalDate.parse(request.getParameter("dataColloquio"));
+		String annoColloquio = request.getParameter("annoColloquio");
+		int esitoColloquio = Integer.parseInt(request.getParameter("esitoColloquio"));
+		String fonteReperimento = request.getParameter("fonteReperimento");
+		String ruoloRisorsa = request.getParameter("ruoloRisorsa");
+		String competenzaPrincipale = request.getParameter("competenzaPrincipale");
+		Double costoGiornaliero = Double.parseDouble(request.getParameter("costoGiornaliero"));
+		String possibilitaLavorativa = request.getParameter("possibilitaLavorativa");
+		int skill1 = Integer.parseInt(request.getParameter("skill1"));
+		int skill2 = Integer.parseInt(request.getParameter("skill2"));
+		int skill3 = Integer.parseInt(request.getParameter("skill3"));
+		int skill4 = Integer.parseInt(request.getParameter("skill4"));
+		int skill5 = Integer.parseInt(request.getParameter("skill5"));
+		int lingua1 = Integer.parseInt(request.getParameter("lingua1"));
+		int lingua2 = Integer.parseInt(request.getParameter("lingua2"));
+		int lingua3 = Integer.parseInt(request.getParameter("lingua3"));
+		String skillCampoLibero = request.getParameter("skillCampoLibero");
+		String competenzeTotali = request.getParameter("competenzeTotali");
+		String certificazioni = request.getParameter("certificazioni");
+		int seniority = Integer.parseInt(request.getParameter("seniority"));
+		
+		risorseService.updateCandidato(idRisorsa, nomeCognome, recapito, profiloLinkedin, citta, dataColloquio, annoColloquio, fonteReperimento,
+				ruoloRisorsa, competenzaPrincipale, costoGiornaliero, possibilitaLavorativa, skillCampoLibero, competenzeTotali, certificazioni);
+		
+		dettagliRisorseService.updateCandidato(idRisorsa, esitoColloquio, skill1, skill2, skill3, skill4, skill5, lingua1, lingua2, lingua3, seniority);
+		
+		Risorse risorse = risorseService.findById(idRisorsa);
+		
+		theModel.addAttribute("id", risorse.getId());
+		theModel.addAttribute("nomeCognomeCandidato", risorse.getNomeCognome());
+		theModel.addAttribute("email", risorse.getEmail());
+		theModel.addAttribute("recapito", risorse.getRecapito());
+		theModel.addAttribute("citta", risorse.getCitta());
+		theModel.addAttribute("dataInserimento", dettagliRisorseService.getDataInserimento(idRisorsa));
+		theModel.addAttribute("competenzaPrincipale", risorse.getCompetenzaPrincipale());
+		theModel.addAttribute("dataColloquio", risorse.getDataColloquio());
+		theModel.addAttribute("annoColloquio", risorse.getAnnoColloquio());
+		theModel.addAttribute("esitoColloquio", esitiColloquioService.getEsitoColloquio(idRisorsa));
+		theModel.addAttribute("fonteReperimento", risorse.getFonteReperimento());
+		theModel.addAttribute("costoGiornaliero", risorse.getCostoGiornaliero());
+		theModel.addAttribute("possibilitaLavorativa", risorse.getPossibilitaLavorativa());
+		theModel.addAttribute("skill1", linguaggiService.getSkill1(idRisorsa));
+		theModel.addAttribute("skill2", linguaggiService.getSkill2(idRisorsa));
+		theModel.addAttribute("skill3", linguaggiService.getSkill3(idRisorsa));
+		theModel.addAttribute("skill4", linguaggiService.getSkill4(idRisorsa));
+		theModel.addAttribute("skill5", linguaggiService.getSkill5(idRisorsa));
+		theModel.addAttribute("lingua1", lingueService.getLingua1(idRisorsa));
+		theModel.addAttribute("lingua2", lingueService.getLingua2(idRisorsa));
+		theModel.addAttribute("lingua3", lingueService.getLingua3(idRisorsa));
+		theModel.addAttribute("seniority", livelliService.getSeniority(idRisorsa));
+		theModel.addAttribute("skillCampoLibero", risorse.getSkillCampoLibero());
+		theModel.addAttribute("competenzeTotali", risorse.getCompetenzeTotali());
+		theModel.addAttribute("certificazioni", risorse.getCertificazioni());
+		
+		theModel.addAttribute("nomeCognome", localSession.getNomeCognome());
+		theModel.addAttribute("ruolo", localSession.getRuolo());
+		theModel.addAttribute("titlePage", "Candidati");
+		theModel.addAttribute("view", "paginaCandidati");
+		
+		return "default";		
 	}
 	
 	@RequestMapping("/elimina-candidato")

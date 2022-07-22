@@ -26,4 +26,13 @@ public interface DettagliRisorseService extends JpaRepository <DettagliRisorse, 
 	@Query("select dataInserimento from DettagliRisorse where idRisorsa = :idRisorsa")
 	abstract
 	LocalDateTime getDataInserimento(@Param("idRisorsa") int idRisorsa);
+	
+	@Modifying
+	@Query("update DettagliRisorse set idEsitoColloquio = :esitoColloquio, idSkill1 = :skill1, idSkill2 = :skill2, idSkill3 = :skill3, idSkill4 = :skill4, "
+			+ "idSkill5 = :skill5, idLingua1 = :lingua1, idLingua2 = :lingua2, idLingua3 = :lingua3, idSeniority = :seniority where idRisorsa = :idRisorsa")
+	abstract
+	void updateCandidato(@Param("idRisorsa") int idRisorsa, @Param("esitoColloquio") int esitoColloquio, 
+			@Param("skill1") int skill1, @Param("skill2") int skill2, @Param("skill3") int skill3, 
+			@Param("skill4") int skill4, @Param("skill5") int skill5, @Param("lingua1") int lingua1, 
+			@Param("lingua2") int lingua2, @Param("lingua3") int lingua3, @Param("seniority") int seniority);
 }

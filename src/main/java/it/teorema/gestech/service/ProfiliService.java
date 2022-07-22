@@ -24,4 +24,8 @@ public interface ProfiliService extends JpaRepository <Profili, Integer>
 			+ "where nome != :ruolo")
 	abstract 
 	List<Profili> findAllException(String ruolo);
+
+	@Query("select id from Profili where nome = :nome")
+	abstract 
+	int findIdProfilo(String nome);
 }

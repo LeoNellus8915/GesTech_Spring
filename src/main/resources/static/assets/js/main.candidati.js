@@ -7,7 +7,6 @@ function tutteLeRisorse()
 		contentType: "application/json; charset=utf-8",
 		dataType: "json",
 		success: function(dati) {
-			console.log(dati);
 			for (var c=0; c<dati.length; c++){
 				var b1 = '<a href="visualizza-candidato?idRisorsa='+dati[c].at(0)+'"><i class="icon-eye mr-3"></i></a>';
 				var b2 = '<a href="modifica-candidato?idRisorsa='+dati[c].at(0)+'"><i class="icon-pencil"></i></a>';

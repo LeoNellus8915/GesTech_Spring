@@ -24,4 +24,8 @@ public interface EsitiColloquioService extends JpaRepository <EsitiColloquio, In
 			+ "where nome != :esitoColloquio")
 	abstract 
 	List<EsitiColloquio> findAllException(String esitoColloquio);
+
+	@Query("select id from EsitiColloquio where nome = :nomeEsitoColloquio")
+	abstract 
+	int findIdEsitoColloquio(String nomeEsitoColloquio);
 }

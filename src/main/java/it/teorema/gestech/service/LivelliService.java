@@ -25,4 +25,8 @@ public interface LivelliService extends JpaRepository <Livelli, Integer>
 			+ "where nome != :seniority")
 	abstract 
 	List<Livelli> findAllException(String seniority);
+
+	@Query("select id from Livelli where nome = :nome")
+	abstract 
+	int findIdProfilo(String nome);
 }
