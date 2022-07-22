@@ -76,7 +76,7 @@ function stampaAvvisi()
 function controlloCheckbox()
 {
 	var contatore = 0;
-	$("#form").on("submit", function (e) {
+	$("#form").one("submit", function (e) {
 		if ($("#admin").prop('checked'))
 			contatore++;
 		if ($("#recruiter").prop('checked'))
@@ -92,7 +92,7 @@ function controlloCheckbox()
 			$("#form").submit();
 		else
 		{
-			alert("Selezionare almeno una checkbox'");
+			alert("Selezionare almeno una checkbox");
 			e.preventDefault();
 		}
     });

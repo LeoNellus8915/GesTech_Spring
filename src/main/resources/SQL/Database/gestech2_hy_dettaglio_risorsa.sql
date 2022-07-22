@@ -1,10 +1,10 @@
 CREATE DATABASE  IF NOT EXISTS `gestech2` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
 USE `gestech2`;
--- MySQL dump 10.13  Distrib 8.0.28, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.29, for Win64 (x86_64)
 --
 -- Host: localhost    Database: gestech2
 -- ------------------------------------------------------
--- Server version	8.0.28
+-- Server version	8.0.29
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -40,7 +40,7 @@ CREATE TABLE `hy_dettaglio_risorsa` (
   `id_lingua3` int DEFAULT NULL,
   `id_seniority` int DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -49,7 +49,7 @@ CREATE TABLE `hy_dettaglio_risorsa` (
 
 LOCK TABLES `hy_dettaglio_risorsa` WRITE;
 /*!40000 ALTER TABLE `hy_dettaglio_risorsa` DISABLE KEYS */;
-INSERT INTO `hy_dettaglio_risorsa` VALUES (1,1,NULL,'2022-07-19 00:00:00',7,8,18,15,13,13,14,16,16,3),(2,2,NULL,'2022-07-19 00:00:00',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+INSERT INTO `hy_dettaglio_risorsa` VALUES (1,1,NULL,'2022-07-19 00:00:00',7,8,18,15,13,13,14,16,16,3),(2,2,NULL,'2022-07-19 00:00:00',10,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(19,48,NULL,'2022-07-22 11:03:49',5,4,7,6,12,5,7,8,4,3);
 /*!40000 ALTER TABLE `hy_dettaglio_risorsa` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -62,4 +62,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-07-19 16:41:53
+-- Dump completed on 2022-07-22 11:04:11

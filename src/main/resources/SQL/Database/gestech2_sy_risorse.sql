@@ -1,10 +1,10 @@
 CREATE DATABASE  IF NOT EXISTS `gestech2` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
 USE `gestech2`;
--- MySQL dump 10.13  Distrib 8.0.28, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.29, for Win64 (x86_64)
 --
 -- Host: localhost    Database: gestech2
 -- ------------------------------------------------------
--- Server version	8.0.28
+-- Server version	8.0.29
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -41,9 +41,8 @@ CREATE TABLE `sy_risorse` (
   `skill_campo_libero` varchar(100) DEFAULT NULL,
   `competenze_totali` varchar(100) DEFAULT NULL,
   `certificazioni` varchar(100) DEFAULT NULL,
-  `data_inserimento` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=49 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -52,7 +51,7 @@ CREATE TABLE `sy_risorse` (
 
 LOCK TABLES `sy_risorse` WRITE;
 /*!40000 ALTER TABLE `sy_risorse` DISABLE KEYS */;
-INSERT INTO `sy_risorse` VALUES (1,'Admin','','admin@gmail.com','','','','',NULL,'','',1,'','','','','2022-07-15 10:25:34'),(2,'Riccardo','',NULL,'','Magliano Sabina','Sedentario','Informatico',NULL,'','',1,'','','','','2022-07-19 11:35:30'),(23,'','','','','','gestore applicativo','','2022-10-10','5646','',543,'','','','',NULL);
+INSERT INTO `sy_risorse` VALUES (1,'Admin','','admin@gmail.com','','','','',NULL,'','',1,'','','',''),(2,'Riccardo','',NULL,'','Magliano Sabina','Sedentario','Informatico',NULL,'','',1,'','','',''),(48,'Riccardo Omar Barionovi','3755260319','leonellus8915@gmail.com','rhirshsifsjif','Magiano Sabina','operatore','Programmatore','2022-10-10','','Online',100,'Tanta','Java','Tante','Diploma');
 /*!40000 ALTER TABLE `sy_risorse` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -65,4 +64,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-07-19 16:41:55
+-- Dump completed on 2022-07-22 11:04:10
