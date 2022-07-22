@@ -3662,8 +3662,8 @@ input[type=button].btn-block,input[type=reset].btn-block,input[type=submit].btn-
 .page-item.active .page-link{
     z-index:1;
     color:#fff;
-    background-color:#03a9f4;
-    border-color:#03a9f4
+    background-color: #0c0c87;
+    border-color: #0c0c87;
 }
 .page-item.disabled .page-link{
     color:#6c757d;
@@ -13892,7 +13892,8 @@ a.text-dark:focus,a.text-dark:hover{
     content:"\f03e"
 }
 .icon-pencil:before{
-    content:"\f040"
+    content:"\f040";
+    color: #0c0c87;
 }
 .icon-map-marker:before{
     content:"\f041"
@@ -14021,7 +14022,8 @@ a.text-dark:focus,a.text-dark:hover{
     content:"\f06d"
 }
 .icon-eye:before{
-    content:"\f06e"
+    content:"\f06e";
+    color: #0c0c87;
 }
 .icon-eye-slash:before{
     content:"\f070"
@@ -25152,7 +25154,7 @@ div.dataTables_wrapper div.dataTables_paginate{
     text-align:right
 }
 div.dataTables_wrapper div.dataTables_paginate ul.pagination{
-    margin:2px 0;
+    margin:15px 0;
     white-space:nowrap;
     justify-content:flex-end
 }
