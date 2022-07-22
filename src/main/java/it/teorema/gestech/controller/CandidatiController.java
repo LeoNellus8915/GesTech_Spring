@@ -163,9 +163,8 @@ public class CandidatiController {
 	
 	@RequestMapping("/stampa-commenti")
 	@ResponseBody
-	public List stampaCommenti(@RequestParam(value="idRisorsa") int idRisorsa)
+	public List stampaCommenti(@RequestParam(value="idRisorsa") int idRisorsa) 
 	{
-		System.out.println("qaSDFGHFD     "+idRisorsa);
 		List commenti = commentiService.stampaCommenti(idRisorsa);
 		
 		return commenti;
