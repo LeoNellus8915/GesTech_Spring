@@ -31,4 +31,9 @@ public interface LingueService extends JpaRepository <Lingue, Integer>
 			+ "where l.id = d.idLingua3 and d.idRisorsa = :idRisorsa")
 	abstract
 	String getLingua3(@Param(value = "idRisorsa") int idRisorsa);
+
+	@Query("from Lingue "
+			+ "where nome != :lingua")
+	abstract 
+	List<Lingue> findAllException(String lingua);
 }

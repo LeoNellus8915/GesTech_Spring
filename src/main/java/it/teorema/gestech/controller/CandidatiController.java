@@ -258,10 +258,22 @@ public class CandidatiController {
 		theModel.addAttribute("esitiColloquio", esitiColloquio);
 		List<Profili> profili = profiliService.findAllException(profiliService.getRuolo(idRisorsa));
 		theModel.addAttribute("profili", profili);
-		List<Linguaggi> linguaggi = linguaggiService.findAll();
-		theModel.addAttribute("linguaggi", linguaggi);
-		List<Lingue> lingue = lingueService.findAll();
-		theModel.addAttribute("lingue", lingue);
+		List<Linguaggi> linguaggi1 = linguaggiService.findAllException(linguaggiService.getSkill1(idRisorsa));
+		theModel.addAttribute("linguaggi1", linguaggi1);
+		List<Linguaggi> linguaggi2 = linguaggiService.findAllException(linguaggiService.getSkill2(idRisorsa));
+		theModel.addAttribute("linguaggi2", linguaggi2);
+		List<Linguaggi> linguaggi3 = linguaggiService.findAllException(linguaggiService.getSkill3(idRisorsa));
+		theModel.addAttribute("linguaggi3", linguaggi3);
+		List<Linguaggi> linguaggi4 = linguaggiService.findAllException(linguaggiService.getSkill4(idRisorsa));
+		theModel.addAttribute("linguaggi4", linguaggi4);
+		List<Linguaggi> linguaggi5 = linguaggiService.findAllException(linguaggiService.getSkill5(idRisorsa));
+		theModel.addAttribute("linguaggi5", linguaggi5);
+		List<Lingue> lingue1 = lingueService.findAllException(lingueService.getLingua1(idRisorsa));
+		theModel.addAttribute("lingue1", lingue1);
+		List<Lingue> lingue2 = lingueService.findAllException(lingueService.getLingua1(idRisorsa));
+		theModel.addAttribute("lingue2", lingue2);
+		List<Lingue> lingue3 = lingueService.findAllException(lingueService.getLingua1(idRisorsa));
+		theModel.addAttribute("lingue3", lingue3);
 		List<Livelli> livelli = livelliService.findAllException(livelliService.getSeniority(idRisorsa));
 		theModel.addAttribute("livelli", livelli);
 		
