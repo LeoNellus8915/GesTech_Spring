@@ -3660,8 +3660,8 @@ input[type=button].btn-block,input[type=reset].btn-block,input[type=submit].btn-
     border-bottom-right-radius:.25rem
 }
 .page-item.active .page-link{
-    z-index:1;
-    color:#fff;
+    z-index: 1;
+    color: #fff;
     background-color: #0c0c87;
     border-color: #0c0c87;
 }
@@ -13760,7 +13760,8 @@ a.text-dark:focus,a.text-dark:hover{
     content:"\f014"
 }
 .icon-home:before{
-    content:"\f015"
+    content:"\f015";
+    padding-right:14px;
 }
 .icon-file-o:before{
     content:"\f016"
