@@ -28,3 +28,8 @@ input.aggiungi_utente {
     margin-top: 30px;
     border-radius: 5px !important;
 }
+
+a.btn-fab.btn-fab-md.fab-right.fab-right-bottom-fixed.shadow.btn-primary.chiudiruota {
+    transform: rotate(45deg) !important;
+    background: red;
+}
