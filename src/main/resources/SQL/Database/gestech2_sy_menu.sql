@@ -2,7 +2,7 @@ CREATE DATABASE  IF NOT EXISTS `gestech2` /*!40100 DEFAULT CHARACTER SET utf8mb4
 USE `gestech2`;
 -- MySQL dump 10.13  Distrib 8.0.29, for Win64 (x86_64)
 --
--- Host: localhost    Database: gestech2
+-- Host: 127.0.0.1    Database: gestech2
 -- ------------------------------------------------------
 -- Server version	8.0.29
 
@@ -52,4 +52,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-07-22 12:15:00
+-- Dump completed on 2022-07-22 12:54:45

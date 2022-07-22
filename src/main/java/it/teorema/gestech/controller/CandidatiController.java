@@ -254,12 +254,15 @@ public class CandidatiController {
 		theModel.addAttribute("competenzeTotali", risorse.getCompetenzeTotali());
 		theModel.addAttribute("certificazioni", risorse.getCertificazioni());
 		
+		System.out.println("getskill " + linguaggiService.getSkill1(idRisorsa) + " ------");
+		
 		List<EsitiColloquio> esitiColloquio = esitiColloquioService.findAllException(esitiColloquioService.getEsitoColloquio(idRisorsa));
 		theModel.addAttribute("esitiColloquio", esitiColloquio);
 		List<Profili> profili = profiliService.findAllException(profiliService.getRuolo(idRisorsa));
 		theModel.addAttribute("profili", profili);
 		List<Linguaggi> linguaggi1 = linguaggiService.findAllException(linguaggiService.getSkill1(idRisorsa));
 		theModel.addAttribute("linguaggi1", linguaggi1);
+		System.out.println("getskills "+ linguaggi1 + " -------");
 		List<Linguaggi> linguaggi2 = linguaggiService.findAllException(linguaggiService.getSkill2(idRisorsa));
 		theModel.addAttribute("linguaggi2", linguaggi2);
 		List<Linguaggi> linguaggi3 = linguaggiService.findAllException(linguaggiService.getSkill3(idRisorsa));
