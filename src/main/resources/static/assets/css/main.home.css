@@ -61,13 +61,13 @@ input[type="submit"] {
 }
 /* DATA AVVISI*/
 span.data_ora_avvisi {
-    font-size: 15px;
+    font-size: 12px;
 }
 /* ICONA CESTINO*/
 .icon-delete:before {
     content: "\e872";
-    position: relative;
-    left: 120px;
+    position: absolute;
+    right: 20px;
 }
 
 /* TITOLO AVVISO*/

@@ -33,3 +33,10 @@ a.btn-fab.btn-fab-md.fab-right.fab-right-bottom-fixed.shadow.btn-primary.chiudir
     transform: rotate(45deg) !important;
     background: red;
 }
+
+.paginate_button.current {
+    background: #18448f;
+    padding: 10px;
+    color: #fff;
+    margin-left: 10px;
+}
