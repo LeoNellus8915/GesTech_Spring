@@ -8786,7 +8786,9 @@ a.text-dark:focus,a.text-dark:hover{
     content:"\e8b3"
 }
 .icon-home2:before{
-    content:"\e88a"
+    content:"\e88a";
+    padding-right: 15px;
+    
 }
 .icon-hot_tub:before{
     content:"\edb0"
@@ -13761,7 +13763,6 @@ a.text-dark:focus,a.text-dark:hover{
 }
 .icon-home:before{
     content:"\f015";
-    padding-right:14px;
 }
 .icon-file-o:before{
     content:"\f016"
