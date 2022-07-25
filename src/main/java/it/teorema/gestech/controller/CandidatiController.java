@@ -304,7 +304,7 @@ public class CandidatiController {
 	
 	@RequestMapping("/modifica-campi-candidato")
 	@Transactional
-	public String ModificaCampiCandidato(HttpServletRequest request, Model theModel)
+	public String modificaCampiCandidato(HttpServletRequest request, Model theModel)
 	{
 		HttpSession session = request.getSession(true);
 		LocalSession localSession = (LocalSession) session.getAttribute("localSession");
@@ -342,32 +342,6 @@ public class CandidatiController {
 		dettagliRisorseService.updateCandidato(idRisorsa, esitoColloquio, profilo, skill1, skill2, skill3, skill4, skill5, lingua1, lingua2, lingua3, seniority);
 		
 		Risorse risorse = risorseService.findById(idRisorsa);
-		
-		theModel.addAttribute("id", risorse.getId());
-		theModel.addAttribute("nomeCognomeCandidato", risorse.getNomeCognome());
-		theModel.addAttribute("email", risorse.getEmail());
-		theModel.addAttribute("recapito", risorse.getRecapito());
-		theModel.addAttribute("citta", risorse.getCitta());
-		theModel.addAttribute("dataInserimento", dettagliRisorseService.getDataInserimento(idRisorsa));
-		theModel.addAttribute("competenzaPrincipale", risorse.getCompetenzaPrincipale());
-		theModel.addAttribute("dataColloquio", risorse.getDataColloquio());
-		theModel.addAttribute("annoColloquio", risorse.getAnnoColloquio());
-		theModel.addAttribute("esitoColloquio", esitiColloquioService.getEsitoColloquio(idRisorsa));
-		theModel.addAttribute("fonteReperimento", risorse.getFonteReperimento());
-		theModel.addAttribute("costoGiornaliero", risorse.getCostoGiornaliero());
-		theModel.addAttribute("possibilitaLavorativa", risorse.getPossibilitaLavorativa());
-		theModel.addAttribute("skill1", linguaggiService.getSkill1(idRisorsa));
-		theModel.addAttribute("skill2", linguaggiService.getSkill2(idRisorsa));
-		theModel.addAttribute("skill3", linguaggiService.getSkill3(idRisorsa));
-		theModel.addAttribute("skill4", linguaggiService.getSkill4(idRisorsa));
-		theModel.addAttribute("skill5", linguaggiService.getSkill5(idRisorsa));
-		theModel.addAttribute("lingua1", lingueService.getLingua1(idRisorsa));
-		theModel.addAttribute("lingua2", lingueService.getLingua2(idRisorsa));
-		theModel.addAttribute("lingua3", lingueService.getLingua3(idRisorsa));
-		theModel.addAttribute("seniority", livelliService.getSeniority(idRisorsa));
-		theModel.addAttribute("skillCampoLibero", risorse.getSkillCampoLibero());
-		theModel.addAttribute("competenzeTotali", risorse.getCompetenzeTotali());
-		theModel.addAttribute("certificazioni", risorse.getCertificazioni());
 		
 		theModel.addAttribute("nomeCognome", localSession.getNomeCognome());
 		theModel.addAttribute("ruolo", localSession.getRuolo());
