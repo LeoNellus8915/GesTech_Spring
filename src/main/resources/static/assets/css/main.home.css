@@ -68,6 +68,7 @@ span.data_ora_avvisi {
     content: "\e872";
     position: absolute;
     right: 20px;
+    font-size: 14px;
 }
 
 /* TITOLO AVVISO*/
