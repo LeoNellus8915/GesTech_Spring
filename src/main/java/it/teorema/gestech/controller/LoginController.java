@@ -82,7 +82,7 @@ public class LoginController {
 			localSession.setIdRisorsa(idRisorsa);
 			HttpSession session = request.getSession(true);
 			session.setAttribute("localSession", localSession);
-			return "redirect:home";
+			return "redirect:home"+ruolo;
 		}
 		else
 		{

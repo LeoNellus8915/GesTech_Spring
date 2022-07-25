@@ -1,4 +1,4 @@
-<div th:fragment="home">
+<div th:fragment="homeAdmin">
 	<script>
 		window.onload = function() {
 			stampaAvvisi();
@@ -6,7 +6,6 @@
 	</script>
 	<div class="page avviso">
 		<div class="page">
-			<div class="pos-f-t">
 				<form method="post" id="form" action="salva-avvisi">
 					<input name="titolo" id="titolo" placeholder="Inserisci Titolo" type="text" required>
 					<label class="error" id="label-error-text" style="display:none">Il testo non pu&ograve; contenere i seguenti caratteri: % &</label>
@@ -30,8 +29,7 @@
 					  </div>
 						<div class="row" id="stampaAvvisi" >
 						</div>		
-				</form>
-			</div>  		
+				</form>	
 		</div>						
 	</div>		
 </div>	
