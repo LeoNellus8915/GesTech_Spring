@@ -1,6 +1,7 @@
 <div th:fragment="nuovoUtente">
 	<form id="form" method="post" action="aggiungi-utente">
 		<div class="row spazio">
+			<div><p>[[${controllo}]]</p></div>
 			<div class="form-group col-6 m-0">
 				<label for="nomeCognome" class="col-form-label s-12">Nome e cognome</label>
 				<input id="nomeCognome" name="nomeCognome"

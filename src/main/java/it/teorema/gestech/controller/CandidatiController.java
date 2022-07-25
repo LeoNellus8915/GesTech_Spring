@@ -67,7 +67,7 @@ public class CandidatiController {
 		return "default";
 	}
 	
-	@RequestMapping("/nuovo-candidato")
+	@RequestMapping("/pagina-nuovo-candidato")
 	@Transactional
 	public String nuovoCandidato(HttpServletRequest request, Model theModel) {
 		
@@ -97,66 +97,72 @@ public class CandidatiController {
 	@Transactional
 	public String aggiungiCandidato(HttpServletRequest request, Model theModel)
 	{
-		Risorse risorsa = new Risorse();
-		DettagliRisorse dettagliRisorsa = new DettagliRisorse();
-		Commenti commenti = new Commenti();
-		Double costoGiornaliero;
+		// Controllo se il candidato è già presente
+		if(risorseService.findByEmail(request.getParameter("email")) == null) {
 		
-		DateTimeFormatter format1 = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");  
-		DateTimeFormatter format2 = DateTimeFormatter.ofPattern("yyyy-MM-dd");  
-		LocalDateTime now = LocalDateTime.now();  
-		LocalDateTime data = LocalDateTime.parse(format1.format(now), format1);	
+			Risorse risorsa = new Risorse();
+			DettagliRisorse dettagliRisorsa = new DettagliRisorse();
+			Commenti commenti = new Commenti();
+			Double costoGiornaliero;
 		
-		if (request.getParameter("costoGiornaliero") == "")
-			costoGiornaliero = (double) 0;
-		else
-			costoGiornaliero = Double.parseDouble(request.getParameter("costoGiornaliero"));
+			DateTimeFormatter format1 = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");  
+			DateTimeFormatter format2 = DateTimeFormatter.ofPattern("yyyy-MM-dd");  
+			LocalDateTime now = LocalDateTime.now();  
+			LocalDateTime data = LocalDateTime.parse(format1.format(now), format1);	
+		
+			if (request.getParameter("costoGiornaliero") == "")
+				costoGiornaliero = (double) 0;
+			else
+				costoGiornaliero = Double.parseDouble(request.getParameter("costoGiornaliero"));
 	
-		risorsa.setNomeCognome(request.getParameter("nomeCognome"));
-		risorsa.setRecapito(request.getParameter("recapito"));
-		risorsa.setEmail(request.getParameter("email"));
-		risorsa.setProfiloLinkedin(request.getParameter("profiloLinkedin"));
-		risorsa.setCitta(request.getParameter("citta"));
-		risorsa.setRuoloRisorsa(request.getParameter("ruoloProfilo"));
-		risorsa.setDataColloquio(LocalDate.parse(request.getParameter("dataColloquio"), format2));
-		risorsa.setAnnoColloquio(request.getParameter("annoColloquio"));
-		risorsa.setFonteReperimento(request.getParameter("fonteReperimento"));
-		risorsa.setCompetenzaPrincipale(request.getParameter("competenzaPrincipale"));
-		risorsa.setCostoGiornaliero(costoGiornaliero);
-		risorsa.setPossibilitaLavorativa(request.getParameter("possibilitaLavorativa"));
-		risorsa.setSkillCampoLibero(request.getParameter("skillCampoLibero"));
-		risorsa.setCompetenzeTotali(request.getParameter("competenzeTotali"));
-		risorsa.setCertificazioni(request.getParameter("certificazioni"));
+			risorsa.setNomeCognome(request.getParameter("nomeCognome"));
+			risorsa.setRecapito(request.getParameter("recapito"));
+			risorsa.setEmail(request.getParameter("email"));
+			risorsa.setProfiloLinkedin(request.getParameter("profiloLinkedin"));
+			risorsa.setCitta(request.getParameter("citta"));
+			risorsa.setRuoloRisorsa(request.getParameter("ruoloProfilo"));
+			risorsa.setDataColloquio(LocalDate.parse(request.getParameter("dataColloquio"), format2));
+			risorsa.setAnnoColloquio(request.getParameter("annoColloquio"));
+			risorsa.setFonteReperimento(request.getParameter("fonteReperimento"));
+			risorsa.setCompetenzaPrincipale(request.getParameter("competenzaPrincipale"));
+			risorsa.setCostoGiornaliero(costoGiornaliero);
+			risorsa.setPossibilitaLavorativa(request.getParameter("possibilitaLavorativa"));
+			risorsa.setSkillCampoLibero(request.getParameter("skillCampoLibero"));
+			risorsa.setCompetenzeTotali(request.getParameter("competenzeTotali"));
+			risorsa.setCertificazioni(request.getParameter("certificazioni"));
 		
-		risorseService.save(risorsa);
+			risorseService.save(risorsa);
 		
-		int idRisorsa = risorseService.findId();	
+			int idRisorsa = risorseService.findId();	
 		
-		dettagliRisorsa.setDataInserimento(data);
-		dettagliRisorsa.setIdEsitoColloquio(Integer.parseInt(request.getParameter("esitoColloquio")));
-		dettagliRisorsa.setIdLingua1(Integer.parseInt(request.getParameter("lingua1")));
-		dettagliRisorsa.setIdLingua2(Integer.parseInt(request.getParameter("lingua2")));
-		dettagliRisorsa.setIdLingua3(Integer.parseInt(request.getParameter("lingua3")));
-		dettagliRisorsa.setIdRisorsa(idRisorsa);
-		dettagliRisorsa.setIdSeniority(Integer.parseInt(request.getParameter("seniority")));
-		dettagliRisorsa.setIdSkill1(Integer.parseInt(request.getParameter("skill1")));
-		dettagliRisorsa.setIdSkill2(Integer.parseInt(request.getParameter("skill2")));
-		dettagliRisorsa.setIdSkill3(Integer.parseInt(request.getParameter("skill3")));
-		dettagliRisorsa.setIdSkill4(Integer.parseInt(request.getParameter("skill4")));
-		dettagliRisorsa.setIdSkill5(Integer.parseInt(request.getParameter("skill5")));
+			dettagliRisorsa.setDataInserimento(data);
+			dettagliRisorsa.setIdEsitoColloquio(Integer.parseInt(request.getParameter("esitoColloquio")));
+			dettagliRisorsa.setIdLingua1(Integer.parseInt(request.getParameter("lingua1")));
+			dettagliRisorsa.setIdLingua2(Integer.parseInt(request.getParameter("lingua2")));
+			dettagliRisorsa.setIdLingua3(Integer.parseInt(request.getParameter("lingua3")));
+			dettagliRisorsa.setIdRisorsa(idRisorsa);
+			dettagliRisorsa.setIdSeniority(Integer.parseInt(request.getParameter("seniority")));
+			dettagliRisorsa.setIdSkill1(Integer.parseInt(request.getParameter("skill1")));
+			dettagliRisorsa.setIdSkill2(Integer.parseInt(request.getParameter("skill2")));
+			dettagliRisorsa.setIdSkill3(Integer.parseInt(request.getParameter("skill3")));
+			dettagliRisorsa.setIdSkill4(Integer.parseInt(request.getParameter("skill4")));
+			dettagliRisorsa.setIdSkill5(Integer.parseInt(request.getParameter("skill5")));
 		
-		dettagliRisorseService.save(dettagliRisorsa);
+			dettagliRisorseService.save(dettagliRisorsa);
 				
-		if (request.getParameter("commento") != "")
-		{
-			commenti.setData(LocalDate.parse(format2.format(now), format2));
-			commenti.setIdRisorsa(idRisorsa);
-			commenti.setNote(request.getParameter("commento"));
+			if (request.getParameter("commento") != "")
+			{
+				commenti.setData(LocalDate.parse(format2.format(now), format2));
+				commenti.setIdRisorsa(idRisorsa);
+				commenti.setNote(request.getParameter("commento"));
 			
-			commentiService.save(commenti);
+				commentiService.save(commenti);
+			}
+			return "redirect:pagina-candidati";
 		}
-
-		return "redirect:pagina-candidati";
+		else {
+			return "redirect:pagina-candidati";
+		}
 	}
 	
 	@RequestMapping("/tutte-le-risorse")

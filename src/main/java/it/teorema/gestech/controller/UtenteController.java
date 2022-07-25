@@ -39,17 +39,6 @@ public class UtenteController {
 	RuoliRisorseService ruoliRisorseService;
 	@Autowired
 	DettagliRisorseService dettagliRisorsaService;
-//	@Autowired
-//	HttpServletRequest request;
-//	
-//	private LocalSession ls;
-//	@PostConstruct
-//	public void initialize() {
-//		System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
-//		HttpSession session = request.getSession(true);
-//		System.out.println(session);
-//		ls = (LocalSession) session.getAttribute("localSession");
-//	}
 	
 	@RequestMapping("/nuovo-utente")
 	public String nuovoUtente(HttpServletRequest request, Model theModel) {
@@ -83,6 +72,8 @@ public class UtenteController {
 		RuoliRisorse ruoliRisorse = new RuoliRisorse();
 		DettagliRisorse dettagliRisorsa = new DettagliRisorse();
 		
+		String controllo = risorseService.findByEmail(request.getParameter("email"));
+		if(controllo == null) {
 		risorsa.setNomeCognome((String) request.getParameter("nomeCognome"));
 		risorsa.setEmail((String) request.getParameter("email"));
 		
@@ -107,5 +98,13 @@ public class UtenteController {
 		dettagliRisorsaService.save(dettagliRisorsa);
 		
 		return "redirect:pagina-candidati";
+		}
+		else {
+			
+			//da fare stampa in nuovoUtente
+			
+			theModel.addAttribute("controllo", "Utente già presente");
+			return "redirect:nuovo-utente";
+		}
 	}
 }
