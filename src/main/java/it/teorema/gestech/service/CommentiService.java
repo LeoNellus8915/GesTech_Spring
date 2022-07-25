@@ -15,5 +15,5 @@ public interface CommentiService extends JpaRepository <Commenti, Integer>
 			+ "where r.id = c.idRisorsa and r.id = :idRisorsa "
 			+ "order by c.data desc")
 	abstract
-	List stampaCommenti(@Param("idRisorsa") int idRisorsa);
+	List stampaCommenti(int idRisorsa);
 }

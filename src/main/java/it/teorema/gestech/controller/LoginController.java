@@ -46,15 +46,14 @@ public class LoginController {
 		String email = request.getParameter("email");
 		String password = request.getParameter("passwordMD5");
 		String controllo = "";
-		List<Risorse> service = risorseService.findAll(email);
+		Risorse risorsa = risorseService.findAll(email);
 		int idRisorsa = 0;
 		String nomeCognome = null;
 		String ruolo = null;
 		LocalSession localSession = new LocalSession();
 		
-		if (service.size() == 1)
+		if (risorsa != null)
 		{
-			Risorse risorsa = (Risorse) service.get(0);
 			idRisorsa = risorsa.getId();
 			
 			List<RuoliRisorse> listIdRuolo = ruoliRisorseService.findIdRuolo(idRisorsa);
@@ -70,7 +69,7 @@ public class LoginController {
 		
 		if (idRisorsa != 0)
 		{
-			Auth auth = (Auth) authService.findAll(idRisorsa).get(0);
+			Auth auth = (Auth) authService.findAll(idRisorsa);
 			if (password.equals(auth.getPassword()))
 				controllo = controllo.concat(" password");
 		}

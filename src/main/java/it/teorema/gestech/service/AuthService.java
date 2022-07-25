@@ -13,10 +13,10 @@ public interface AuthService extends JpaRepository <Auth, Integer>
 {
 	@Query("from Auth where idRisorsa = :idRisorsa")
 	abstract
-	List<Auth> findAll(@Param("idRisorsa") int idRisorsa);
+	Auth findAll(int idRisorsa);
 	
 	@Modifying
 	@Query("update Auth set password = :password where idRisorsa = :idRisorsa")
 	abstract
-	void cambiaPassword(@Param("password") String password, @Param("idRisorsa") int idRisorsa);
+	void cambiaPassword(String password, int idRisorsa);
 }

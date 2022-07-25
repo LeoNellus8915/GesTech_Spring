@@ -18,31 +18,31 @@ public interface LinguaggiService extends JpaRepository <Linguaggi, Integer>
 			+ "from Linguaggi l, DettagliRisorse d "
 			+ "where l.id = d.idSkill1 and d.idRisorsa = :idRisorsa")
 	abstract
-	String getSkill1(@Param(value = "idRisorsa") int idRisorsa);
+	String getSkill1(int idRisorsa);
 	
 	@Query("select l.nome "
 			+ "from Linguaggi l, DettagliRisorse d "
 			+ "where l.id = d.idSkill2 and d.idRisorsa = :idRisorsa")
 	abstract
-	String getSkill2(@Param(value = "idRisorsa") int idRisorsa);
+	String getSkill2(int idRisorsa);
 	
 	@Query("select l.nome "
 			+ "from Linguaggi l, DettagliRisorse d "
 			+ "where l.id = d.idSkill3 and d.idRisorsa = :idRisorsa")
 	abstract
-	String getSkill3(@Param(value = "idRisorsa") int idRisorsa);
+	String getSkill3(int idRisorsa);
 	
 	@Query("select l.nome "
 			+ "from Linguaggi l, DettagliRisorse d "
 			+ "where l.id = d.idSkill4 and d.idRisorsa = :idRisorsa")
 	abstract
-	String getSkill4(@Param(value = "idRisorsa") int idRisorsa);
+	String getSkill4(int idRisorsa);
 	
 	@Query("select l.nome "
 			+ "from Linguaggi l, DettagliRisorse d "
 			+ "where l.id = d.idSkill5 and d.idRisorsa = :idRisorsa")
 	abstract
-	String getSkill5(@Param(value = "idRisorsa") int idRisorsa);
+	String getSkill5(int idRisorsa);
 
 	@Query("from Linguaggi "
 			+ "where nome != :skill")
