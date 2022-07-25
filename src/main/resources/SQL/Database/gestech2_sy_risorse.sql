@@ -2,7 +2,7 @@ CREATE DATABASE  IF NOT EXISTS `gestech2` /*!40100 DEFAULT CHARACTER SET utf8mb4
 USE `gestech2`;
 -- MySQL dump 10.13  Distrib 8.0.29, for Win64 (x86_64)
 --
--- Host: 127.0.0.1    Database: gestech2
+-- Host: localhost    Database: gestech2
 -- ------------------------------------------------------
 -- Server version	8.0.29
 
@@ -31,7 +31,6 @@ CREATE TABLE `sy_risorse` (
   `email` varchar(50) DEFAULT NULL,
   `profilo_linkedin` varchar(500) DEFAULT NULL,
   `citta` varchar(50) DEFAULT NULL,
-  `ruolo_risorsa` varchar(30) DEFAULT NULL,
   `competenza_principale` varchar(100) DEFAULT NULL,
   `data_colloquio` date DEFAULT NULL,
   `anno_colloquio` varchar(5) DEFAULT NULL,
@@ -42,7 +41,7 @@ CREATE TABLE `sy_risorse` (
   `competenze_totali` varchar(100) DEFAULT NULL,
   `certificazioni` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=57 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=59 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -51,7 +50,7 @@ CREATE TABLE `sy_risorse` (
 
 LOCK TABLES `sy_risorse` WRITE;
 /*!40000 ALTER TABLE `sy_risorse` DISABLE KEYS */;
-INSERT INTO `sy_risorse` VALUES (1,'Admin','','admin@gmail.com','','','','',NULL,'','',1,'','','',''),(54,'Mario Rossi','3572844223','mario.rossi@gmail.com','prova.com','Bracciano','capo progetto/team leader','Programmatore Java','2022-07-02','2022','Interno',60,'Immediata','Html','',''),(55,'Carlo Cracco','3755260319','carlocracco@gmail.com','prova.com','Roma','Nessuno','Programmatore Java','2022-06-07','2022','',0,'Immediata','','',''),(56,'Prova','','','','Bracciano','Nessuno','Programmatore Java','2022-07-12','','',0,'','','','');
+INSERT INTO `sy_risorse` VALUES (1,'Carlo Craccoaaaaa','3755260319','admin@gmail.com','prova.com','Roma','Programmatore Java','2022-06-07','2022','',0,'Immediata','','',''),(54,'Mario Rossi','3572844223','mario.rossi@gmail.com','prova.com','Bracciano','Programmatore Java','2022-07-02','2022','Interno',60,'Immediata','Html','',''),(55,'Carlo Cracco','3755260319','carlocracco@gmail.com','prova.com','Roma','Programmatore Java','2022-06-07','2022','iih',0,'Immediata','','aaaaaaaaaaaa',''),(56,'Prova','','','','Bracciano','Programmatore Java','2022-07-12','','',0,'','','','');
 /*!40000 ALTER TABLE `sy_risorse` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -64,4 +63,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-07-22 12:54:45
+-- Dump completed on 2022-07-25 12:13:17
