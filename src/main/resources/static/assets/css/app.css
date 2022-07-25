@@ -25868,8 +25868,8 @@ a.btn-fab{
     text-decoration:none
 }
 .paper-nav-toggle.active i::after,.paper-nav-toggle.active i::before,.paper-nav-toggle.dl-active i::after,.paper-nav-toggle.dl-active i::before{
-    background:#03a9f4
-}
+    background:#ffc107;
+    }
 .paper-nav-toggle:active,.paper-nav-toggle:focus,.paper-nav-toggle:hover{
     outline:0;
     border-bottom:none!important;
@@ -25880,18 +25880,18 @@ a.btn-fab{
     display:inline-block;
     width:25px;
     height:2px;
-    color:#03a9f4;
+    color:#ffc107;
     font:bold 14px/.4 Helvetica;
     text-transform:uppercase;
     text-indent:-55px;
-    background:#03a9f4;
+    background:#ffc107;
     transition:all .2s ease-out
 }
 .paper-nav-toggle i::after,.paper-nav-toggle i::before{
     content:'';
     width:25px;
     height:2px;
-    background:#03a9f4;
+    background:#ffc107;
     position:absolute;
     left:0;
     transition:all .2s ease-out
