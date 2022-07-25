@@ -12,5 +12,5 @@ public interface AvvisiService extends JpaRepository <Avvisi, Integer>
 	@Modifying
 	@Query("delete from Avvisi where id = :idAvviso")
 	abstract
-	void cancellaAvviso(@Param("idAvviso") int idAvviso);
+	void cancellaAvviso(int idAvviso);
 }

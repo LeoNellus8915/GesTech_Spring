@@ -11,8 +11,7 @@ import it.teorema.gestech.model.RuoliRisorse;
 
 public interface RuoliRisorseService extends JpaRepository <RuoliRisorse, Integer>
 {
-
 	@Query("from RuoliRisorse where id_risorsa = :idRisorsa")
 	abstract
-	List<RuoliRisorse> findIdRuolo(@Param("idRisorsa") int idRisorsa);
+	List<RuoliRisorse> findIdRuolo(int idRisorsa);
 }

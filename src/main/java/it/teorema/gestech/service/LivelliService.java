@@ -19,7 +19,7 @@ public interface LivelliService extends JpaRepository <Livelli, Integer>
 			+ "from Livelli l, DettagliRisorse d "
 			+ "where l.id = d.idSeniority and d.idRisorsa = :idRisorsa")
 	abstract
-	String getSeniority(@Param (value = "idRisorsa") int idRisorsa);
+	String getSeniority(int idRisorsa);
 	
 	@Query("from Livelli "
 			+ "where nome != :seniority")

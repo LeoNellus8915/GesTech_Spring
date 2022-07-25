@@ -18,19 +18,19 @@ public interface LingueService extends JpaRepository <Lingue, Integer>
 			+ "from Lingue l, DettagliRisorse d "
 			+ "where l.id = d.idLingua1 and d.idRisorsa = :idRisorsa")
 	abstract
-	String getLingua1(@Param(value = "idRisorsa") int idRisorsa);
+	String getLingua1(int idRisorsa);
 	
 	@Query("select l.nome "
 			+ "from Lingue l, DettagliRisorse d "
 			+ "where l.id = d.idLingua2 and d.idRisorsa = :idRisorsa")
 	abstract
-	String getLingua2(@Param(value = "idRisorsa") int idRisorsa);
+	String getLingua2(int idRisorsa);
 	
 	@Query("select l.nome "
 			+ "from Lingue l, DettagliRisorse d "
 			+ "where l.id = d.idLingua3 and d.idRisorsa = :idRisorsa")
 	abstract
-	String getLingua3(@Param(value = "idRisorsa") int idRisorsa);
+	String getLingua3(int idRisorsa);
 
 	@Query("from Lingue "
 			+ "where nome != :lingua")

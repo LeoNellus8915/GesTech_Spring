@@ -14,7 +14,7 @@ public interface RisorseService extends JpaRepository <Risorse, Integer>
 {
 	@Query("from Risorse where email = :email")
 	abstract
-	List<Risorse> findAll(@Param("email") String email);
+	Risorse findAll(String email);
 	
 	@Query("from Risorse")
 	abstract
@@ -26,7 +26,7 @@ public interface RisorseService extends JpaRepository <Risorse, Integer>
 	
 	@Query("from Risorse where id = :idRisorsa")
 	abstract
-	Risorse findById(@Param("idRisorsa") int idRisorsa);
+	Risorse findById(int idRisorsa);
 	
 	@Query("select email "
 			+ "from Risorse "
@@ -45,11 +45,7 @@ public interface RisorseService extends JpaRepository <Risorse, Integer>
 			+ "competenzaPrincipale = :competenzaPrincipale, costoGiornaliero = :costoGiornaliero, possibilitaLavorativa = :possibilitaLavorativa, "
 			+ "skillCampoLibero = :skillCampoLibero, competenzeTotali = :competenzeTotali, certificazioni = :certificazioni where id = :idRisorsa")
 	abstract
-	void updateCandidato(@Param("idRisorsa") int idRisorsa, @Param("nomeCognome") String nomeCognome, @Param("recapito") String recapito, 
-			@Param("profiloLinkedin") String profiloLinkedin, @Param("citta") String citta, @Param("dataColloquio") LocalDate dataColloquio, 
-			@Param("annoColloquio") String annoColloquio, @Param("fonteReperimento") String fonteReperimento, 
-			@Param("competenzaPrincipale") String competenzaPrincipale, 
-			@Param("costoGiornaliero") Double costoGiornaliero, @Param("possibilitaLavorativa") String possibilitaLavorativa, 
-			@Param("skillCampoLibero") String skillCampoLibero, @Param("competenzeTotali") String competenzeTotali, 
-			@Param("certificazioni") String certificazioni);
+	void updateCandidato(int idRisorsa, String nomeCognome, String recapito, String profiloLinkedin, String citta, LocalDate dataColloquio, 
+			String annoColloquio, String fonteReperimento, String competenzaPrincipale, Double costoGiornaliero, String possibilitaLavorativa, 
+			String skillCampoLibero, String competenzeTotali, String certificazioni);
 }
