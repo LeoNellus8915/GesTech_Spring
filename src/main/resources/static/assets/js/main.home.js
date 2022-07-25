@@ -48,22 +48,24 @@ function stampaAvvisi()
 				    text: dati[c].note,
 				}).appendTo('#div_avvisi' + c);
 				
-				var split = dati[c].ruoli.split(",")
-				if(split.length != 1)
-				{
-					split_finale = split[0].substring(1) + split[split.length-1].slice(0, -1);
+				if($("#ruolo").val()=="Admin"){
+					var split = dati[c].ruoli.split(",")
+					if(split.length != 1)
+					{
+						split_finale = split[0].substring(1) + split[split.length-1].slice(0, -1);
+					}
+					else
+					{
+						split_finale = split[0].substring(1);
+						split_finale = split_finale.slice(0, -1);
+					}
+					
+					$('<span/>',{
+						value: split_finale,
+					    class: 'ruolo_avvisi',
+					    text: split_finale,
+					}).appendTo('#div_avvisi' + c);
 				}
-				else
-				{
-					split_finale = split[0].substring(1);
-					split_finale = split_finale.slice(0, -1);
-				}
-				
-				$('<span/>',{
-					value: split_finale,
-				    class: 'ruolo_avvisi',
-				    text: split_finale,
-				}).appendTo('#div_avvisi' + c);
 			}
 		},
 	});

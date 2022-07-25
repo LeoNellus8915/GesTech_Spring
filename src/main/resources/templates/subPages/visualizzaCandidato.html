@@ -12,14 +12,13 @@
                         <div class="col-md-4 b-r">
                             <div class="text-center p-5 mt-5">
                                 <div>
-                                    <h4 class="p-t-10">[[${nomeCognomeCandidato}]] <span id="nome_cognome"></span></h4>
-                                    <h5 class="p-t-10">[[${ruoloCandidato}]] <span id="ruolo_profilo"></span></h5>
+                                    <h4 class="p-t-10">[[${risorse.nomeCognome}]] <span id="nome_cognome"></span></h4>
                                 </div>
                                     <input type="hidden" id="id" th:value="${id}">
 									<a onclick="scarica()" class="btn btn-success  mt-3 martopsu">Scarica CV</a> 
 									<a onclick="genera_cv()" class="btn btn-success  mt-3 martopsu">Genera CV</a> 
-									<a th:href="@{'modifica-candidato?idRisorsa=' + ${id}}" class="btn btn-success giallo mt-3">Modifica</a> 
-									<a th:href="@{'elimina-candidato?idRisorsa=' + ${id}}" class="btn btn-success rosso mt-3">Elimina</a>
+									<a th:href="@{'modifica-candidato?idRisorsa=' + ${risorse.id}}" class="btn btn-success giallo mt-3">Modifica</a> 
+									<a th:href="@{'elimina-candidato?idRisorsa=' + ${risorse.id}}" class="btn btn-success rosso mt-3">Elimina</a>
 
 									<div class="mt-5">
                                     <ul class="social social list-inline">
@@ -36,13 +35,13 @@
                                     <div class="col-md-6">
                                         <div class="p-4">
                                             <h4 class="text-black">Email</h4>
-                                           <h5 class="p-t-10"> [[${email}]] <span id="email"></span></h5>
+                                           <h5 class="p-t-10"> [[${risorse.email}]] <span id="email"></span></h5>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="p-4">
                                             <h4 class="text-black">Recapito</h4>
-                                            <h5 class="p-t-10">[[${recapito}]] <span id="recapito"></span></h5>
+                                            <h5 class="p-t-10">[[${risorse.recapito}]] <span id="recapito"></span></h5>
                                         </div>
                                     </div>                                
                                 </div>
@@ -55,7 +54,7 @@
                                     <div class="col-md-6">
                                         <div class="p-4">
                                             <h5 class="text-black">Citt&agrave;</h5>
-                                           <h5 class="p-t-10">[[${citta}]]<span id="citta_di_allocazione"></span></h5>
+                                           <h5 class="p-t-10">[[${risorse.citta}]]<span id="citta_di_allocazione"></span></h5>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
@@ -76,7 +75,7 @@
                                     <div class="col-md-12">
                                         <div class="p-4">
                                             <h5 class="text-black">Competenza Principale</h5>
-                                            <h5 class="p-t-10">[[${competenzaPrincipale}]]<span id="competenza_principale"></span></h5>
+                                            <h5 class="p-t-10">[[${risorse.competenzaPrincipale}]]<span id="competenza_principale"></span></h5>
                                         </div>
                                     </div>
                                 </div>
@@ -91,13 +90,13 @@
                                     <div class="col-md-4">
                                         <div class="p-4">
                                             <h5 class="text-black">Data Colloquio:</h5>
-                                            <h5 class="p-t-10">[[${dataColloquio}]]<span id="data_colloquio"></span></h5>
+                                            <h5 class="p-t-10">[[${risorse.dataColloquio}]]<span id="data_colloquio"></span></h5>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="p-4">
                                             <h4 class="text-black">Anno Colloquio:</h4>
-                                            <h5 class="p-t-10">[[${annoColloquio}]]<span id="anno_colloquio"></span></h5>
+                                            <h5 class="p-t-10">[[${risorse.annoColloquio}]]<span id="anno_colloquio"></span></h5>
                                         </div>
                                     </div>   
                                     <div class="col-md-4">
@@ -115,7 +114,7 @@
                                     <div class="col-md-6">
                                         <div class="p-4">
                                             <h4 class="text-black">Fonte Reperimento: </h4>
-                                           <h5 class="p-t-10">[[${fonteReperimento}]]<span id="fonte_reperimento"></span></h5>
+                                           <h5 class="p-t-10">[[${risorse.fonteReperimento}]]<span id="fonte_reperimento"></span></h5>
                                         </div>
                                      </div>
                                      <div class="col-md-6">
@@ -134,13 +133,13 @@
                                     <div class="col-md-6">
                                         <div class="p-4">
                                             <h4 class="text-black">Costo Giornaliero:</h4>
-                                           <h5 class="p-t-10">[[${costoGiornaliero}]]<span id="costo_giornaliero"></span></h5>
+                                           <h5 class="p-t-10">[[${risorse.costoGiornaliero}]]<span id="costo_giornaliero"></span></h5>
                                         </div>
                                      </div>
                                     <div class="col-md-6">
                                         <div class="p-4">
                                             <h4 class="text-black">Possibilit&agrave; Lavorativa:</h4>
-                                            <h5 class="p-t-10">[[${possibilitaLavorativa}]]<span id="possibilita_lavorativa"></span></h5>
+                                            <h5 class="p-t-10">[[${risorse.possibilitaLavorativa}]]<span id="possibilita_lavorativa"></span></h5>
                                         </div>
                                      </div> 
                                 </div>   
@@ -183,7 +182,7 @@
                                      <div class="col-md-4">
                                         <div class="p-4">
                                             <h4 class="text-black">Skill campo libero</h4>
-                                            <h5 class="p-t-10">[[${skillCampoLibero}]]<span id="skill_campo_libero"></span></h5>
+                                            <h5 class="p-t-10">[[${risorse.skillCampoLibero}]]<span id="skill_campo_libero"></span></h5>
                                         </div>
                                      </div> 
                                 </div>   
@@ -221,13 +220,13 @@
                                     <div class="col-md-4">
                                         <div class="p-4">
                                             <h4 class="text-black">Competenze Totali:</h4>
-                                            <h5 class="p-t-10">[[${competenzeTotali}]]<span id="competenze_totali"></span></h5>
+                                            <h5 class="p-t-10">[[${risorse.competenzeTotali}]]<span id="competenze_totali"></span></h5>
                                         </div>
                                      </div>
                                     <div class="col-md-4">
                                         <div class="p-4">
                                             <h4 class="text-black">Certificazioni: </h4>
-                                            <h5 class="p-t-10">[[${certificazioni}]]<span id="certificazioni"></span></h5>
+                                            <h5 class="p-t-10">[[${risorse.certificazioni}]]<span id="certificazioni"></span></h5>
                                         </div>
                                      </div> 
                                      <div class="col-md-4">
