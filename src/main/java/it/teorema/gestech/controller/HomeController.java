@@ -82,7 +82,7 @@ public class HomeController {
 		theModel.addAttribute("nomeCognome", localSession.getNomeCognome());
 		theModel.addAttribute("ruolo", localSession.getRuolo());
 		theModel.addAttribute("titlePage", "HOME");
-		theModel.addAttribute("view", "home");
+		theModel.addAttribute("view", "homeAdmin");
 		
 		return "default"+localSession.getRuolo();
 	}

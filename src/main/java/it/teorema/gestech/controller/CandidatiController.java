@@ -120,7 +120,6 @@ public class CandidatiController {
 			risorsa.setEmail(request.getParameter("email"));
 			risorsa.setProfiloLinkedin(request.getParameter("profiloLinkedin"));
 			risorsa.setCitta(request.getParameter("citta"));
-			//risorsa.setRuoloRisorsa(request.getParameter("ruoloProfilo"));
 			risorsa.setDataColloquio(LocalDate.parse(request.getParameter("dataColloquio"), format2));
 			risorsa.setAnnoColloquio(request.getParameter("annoColloquio"));
 			risorsa.setFonteReperimento(request.getParameter("fonteReperimento"));
@@ -137,6 +136,7 @@ public class CandidatiController {
 		
 			dettagliRisorsa.setDataInserimento(data);
 			dettagliRisorsa.setIdEsitoColloquio(Integer.parseInt(request.getParameter("esitoColloquio")));
+			dettagliRisorsa.setIdProfilo(Integer.parseInt(request.getParameter("profilo")));
 			dettagliRisorsa.setIdLingua1(Integer.parseInt(request.getParameter("lingua1")));
 			dettagliRisorsa.setIdLingua2(Integer.parseInt(request.getParameter("lingua2")));
 			dettagliRisorsa.setIdLingua3(Integer.parseInt(request.getParameter("lingua3")));
@@ -161,7 +161,7 @@ public class CandidatiController {
 			return "redirect:pagina-candidati";
 		}
 		else {
-			return "redirect:pagina-candidati";
+			return "redirect:pagina-nuovo-candidato";
 		}
 	}
 	
