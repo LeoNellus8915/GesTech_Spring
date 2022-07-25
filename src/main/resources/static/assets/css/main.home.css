@@ -103,3 +103,7 @@ form.label_home {
     font-weight: 400;
     line-height: 1.9;
 }
+.icon-home light-blue-text s-18::before {
+    content: "\f015";
+    
+}
