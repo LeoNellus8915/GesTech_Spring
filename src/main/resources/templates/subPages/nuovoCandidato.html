@@ -2,19 +2,20 @@
 	<form method="post" action="aggiungi-candidato">
 		<div class="card no-b  no-r">
 			<div class="card-body">
+				<span th:text="${errore}"></span>
 				<h5 class="card-title">Anagrafica</h5>
 				<div class="form-row">
 					<div class="col-md-12">
 						<div class="form-row">
 							<div class="form-group col-6 m-0">
 								<label for="nomeCognome" class="col-form-label s-12">NOME
-									E COGNOME</label> <input id="nomeCognome" name="nomeCognome"
+									E COGNOME</label> <input th:value="${risorsa.nomeCognome}" id="nomeCognome" name="nomeCognome"
 									placeholder="Inserisci Nome e Cognome" required
 									class="form-control r-0 light s-12 " type="text">
 							</div>
 							<div class="form-group col-6 m-0">
 								<label for="recapito" class="col-form-label s-12">RECAPITO</label>
-								<input id="recapito" name="recapito"
+								<input th:value="${risorsa.recapito}" id="recapito" name="recapito"
 									placeholder="Inserisci Recapito"
 									class="form-control r-0 light s-12 date-picker" type="text">
 							</div>
@@ -22,14 +23,14 @@
 						<div class="form-row">
 							<div class="form-group col-6 m-0">
 								<label for="email" class="col-form-label s-12">EMAIL</label>
-								<input id="email" name="email" placeholder="Inserisci Email"
+								<input th:value="${risorsa.email}" id="email" name="email" placeholder="Inserisci Email"
 									class="form-control r-0 light s-12 datePicker"
 									data-time-picker="false" data-format-date='Y/m/d'
 									type="text">
 							</div>
 							<div class="form-group col-6 m-0">
 								<label for="profiloLinkedin" class="col-form-label s-12">PROFILO LINKEDIN</label>
-								<input id="profiloLinkedin" name="profiloLinkedin" placeholder="Linkedin URL"
+								<input th:value="${risorsa.profiloLinkedin}" id="profiloLinkedin" name="profiloLinkedin" placeholder="Linkedin URL"
 									class="form-control r-0 light s-12 datePicker"
 									data-time-picker="false" data-format-date='Y/m/d'
 									type="text">
@@ -37,7 +38,7 @@
 							<div class="form-group col-6 m-0">
 								<label for="citta"
 									class="col-form-label s-12">CITT&Agrave;</label> <input
-									id="citta" name="citta"
+									th:value="${risorsa.citta}" id="citta" name="citta"
 									placeholder="Inserisci Citt&agrave;"
 									class="form-control r-0 light s-12 datePicker"
 									type="text" required>
@@ -58,7 +59,7 @@
 							<div class="form-group col-4 m-0">
 								<label for="dataColloquio" class="col-form-label s-12"><i
 									class="icon-calendar mr-2"></i>DATA COLLOQUIO</label> <input
-									id="dataColloquio" name="dataColloquio"
+									th:value="${risorsa.dataColloquio}" id="dataColloquio" name="dataColloquio"
 									placeholder="Inserisci Data Colloquio"
 									class="form-control r-0 light s-12 datePicker"
 									data-time-picker="false" data-format-date='Y-m-d'
@@ -66,7 +67,7 @@
 							</div>
 							<div class="form-group col-4 m-0">
 								<label for="annoColloquio" class="col-form-label s-12">ANNO
-									COLLOQUIO</label> <input id="annoColloquio"
+									COLLOQUIO</label> <input th:value="${risorsa.annoColloquio}" id="annoColloquio"
 									name="annoColloquio" placeholder="Inserisci Anno Colloquio" 
 									class="form-control r-0 light s-12 date-picker"
 									type="text">
@@ -89,8 +90,8 @@
 						<div class="form-row">
 							<div class="form-group col-4 m-0">
 								<label for="fonteReperimento" class="col-form-label s-12">FONTE
-									REPERIMENTO</label> <input id="fonteReperimento"
-									name="fonteReperimento"
+									REPERIMENTO</label> <input th:value="${risorsa.fonteReperimento}" 
+									id="fonteReperimento" name="fonteReperimento"
 									placeholder="Inserisci Fonte Reperimento"
 									class="form-control r-0 light s-12 date-picker" type="text">
 							</div>
@@ -103,7 +104,8 @@
 							</div>
 							<div class="form-group col-4 m-0">
 								<label for="competenzaPrincipale" class="col-form-label s-12">COMPETENZA PRINCIPALE</label>
-								<input id="competenzaPrincipale" name="competenzaPrincipale" placeholder="Insersci Competenza Principale"
+								<input th:value="${risorsa.competenzaPrincipale}" id="competenzaPrincipale" 
+								name="competenzaPrincipale" placeholder="Insersci Competenza Principale"
 									class="form-control r-0 light s-12 date-picker" type="text" required>
 							</div>
 						</div>
@@ -117,16 +119,15 @@
 						<div class="form-row">
 							<div class="form-group col-6 m-0">
 								<label for="costoGiornaliero" class="col-form-label s-12">COSTO
-									GIORNALIERO</label> <input id="costoGiornaliero"
-									name="costoGiornaliero"
-									placeholder="Insersci Costo Giornaliero"
-									default="0"
+									GIORNALIERO</label> <input th:value="${risorsa.costoGiornaliero}" 
+									id="costoGiornaliero" name="costoGiornaliero"
+									placeholder="Insersci Costo Giornaliero" default="0"
 									class="form-control r-0 light s-12 date-picker" type="text">
 							</div>
 							<div class="form-group col-6 m-0">
 								<label for="possibilitaLavorativa"
 									class="col-form-label s-12">POSSIBILIT&Agrave; LAVORATIVA</label>
-								<input id="possibilitaLavorativa"
+								<input th:value="${risorsa.possibilitaLavorativa}" id="possibilitaLavorativa"
 									name="possibilitaLavorativa"
 									placeholder="Insersci Possibilit&Agrave; Lavorativa"
 									class="form-control r-0 light s-12 date-picker" type="text">
@@ -179,8 +180,8 @@
 							</div>
 							<div class="form-group col-4 m-0">
 								<label for="skillCampoLibero" class="col-form-label s-12">SKILL
-									(campo libero)</label> <input id="skillCampoLibero"
-									name="skillCampoLibero"
+									(campo libero)</label> <input th:value="${risorsa.skillCampoLibero}" 
+									id="skillCampoLibero" name="skillCampoLibero"
 									placeholder="Insersci Skill Campo Libero"
 									class="form-control r-0 light s-12 date-picker" type="text">
 							</div>
@@ -227,14 +228,15 @@
 						<div class="form-row">
 							<div class="form-group col-4 m-0">
 								<label for="competenzeTotali" class="col-form-label s-12">COMPETENZE
-									TOTALI</label> <input id="competenzeTotali"
+									TOTALI</label> <input th:value="${risorsa.competenzePrncipale}" 
+									id="competenzeTotali"
 									name="competenzeTotali"
 									placeholder="Insersci Competenze Totali"
 									class="form-control r-0 light s-12 date-picker" type="text">
 							</div>
 							<div class="form-group col-4 m-0">
 								<label for="certificazioni" class="col-form-label s-12">CERTIFICAZIONI</label>
-								<input id="certificazioni" name="certificazioni"
+								<input th:value="${risorsa.certificazioni}" id="certificazioni" name="certificazioni"
 									placeholder="Insersci Certificazioni"
 									class="form-control r-0 light s-12 date-picker" type="text">
 							</div>
@@ -257,7 +259,7 @@
 						<div class="form-row">
 							<div class="form-group col-12 m-0">
 								<label for="commento" class="col-form-label s-12">COMMENTO</label>
-								<input id="commento" name="commento"
+								<input th:value="${commenti.note}" id="commento" name="commento"
 									placeholder="Insersci Commento"
 									class="form-control r-0 light s-12 date-picker" type="text">
 							</div>

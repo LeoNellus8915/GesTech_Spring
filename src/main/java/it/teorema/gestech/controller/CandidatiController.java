@@ -74,6 +74,10 @@ public class CandidatiController {
 		HttpSession session = request.getSession(true);
 		LocalSession localSession = (LocalSession) session.getAttribute("localSession");
 		
+		Risorse risorsa = new Risorse();
+		DettagliRisorse dettagliRisorsa = new DettagliRisorse();
+		Commenti commenti = new Commenti();
+		
 		List<EsitiColloquio> esitiColloquio = esitiColloquioService.findAll();
 		List<Profili> profili = profiliService.findAll();
 		List<Linguaggi> linguaggi = linguaggiService.findAll();
@@ -85,6 +89,7 @@ public class CandidatiController {
 		theModel.addAttribute("linguaggi", linguaggi);
 		theModel.addAttribute("profili", profili);
 		theModel.addAttribute("esitiColloquio", esitiColloquio);
+		theModel.addAttribute("errore", "");
 		theModel.addAttribute("nomeCognome", localSession.getNomeCognome());
 		theModel.addAttribute("ruolo", localSession.getRuolo());
 		theModel.addAttribute("titlePage", "Nuovo Candidato");
@@ -97,9 +102,8 @@ public class CandidatiController {
 	@Transactional
 	public String aggiungiCandidato(HttpServletRequest request, Model theModel)
 	{
-		// Controllo se il candidato è già presente
-		if(risorseService.findByEmail(request.getParameter("email")) == null) {
-		
+		HttpSession session = request.getSession(true);
+		LocalSession localSession = (LocalSession) session.getAttribute("localSession");
 			Risorse risorsa = new Risorse();
 			DettagliRisorse dettagliRisorsa = new DettagliRisorse();
 			Commenti commenti = new Commenti();
@@ -130,8 +134,6 @@ public class CandidatiController {
 			risorsa.setCompetenzeTotali(request.getParameter("competenzeTotali"));
 			risorsa.setCertificazioni(request.getParameter("certificazioni"));
 		
-			risorseService.save(risorsa);
-		
 			int idRisorsa = risorseService.findId();	
 		
 			dettagliRisorsa.setDataInserimento(data);
@@ -147,21 +149,36 @@ public class CandidatiController {
 			dettagliRisorsa.setIdSkill3(Integer.parseInt(request.getParameter("skill3")));
 			dettagliRisorsa.setIdSkill4(Integer.parseInt(request.getParameter("skill4")));
 			dettagliRisorsa.setIdSkill5(Integer.parseInt(request.getParameter("skill5")));
-		
-			dettagliRisorseService.save(dettagliRisorsa);
-				
+			
 			if (request.getParameter("commento") != "")
 			{
 				commenti.setData(LocalDate.parse(format2.format(now), format2));
 				commenti.setIdRisorsa(idRisorsa);
 				commenti.setNote(request.getParameter("commento"));
-			
-				commentiService.save(commenti);
 			}
-			return "redirect:pagina-candidati";
+			
+			// Controllo se il candidato è già presente
+			if(risorseService.findByEmail(request.getParameter("email")) == null) {
+				risorseService.save(risorsa);
+				dettagliRisorseService.save(dettagliRisorsa);
+
+				if(!commenti.getNote().equals(null)) {
+					commentiService.save(commenti);
+				}
+				
+				return "redirect:pagina-candidati";
 		}
 		else {
-			return "redirect:pagina-nuovo-candidato";
+			theModel.addAttribute("risorsa", risorsa);
+			theModel.addAttribute("dettagliRisorsa", dettagliRisorsa);
+			theModel.addAttribute("commenti", commenti);
+			theModel.addAttribute("errore", "Candidato già presente");
+			theModel.addAttribute("nomeCognome", localSession.getNomeCognome());
+			theModel.addAttribute("ruolo", localSession.getRuolo());
+			theModel.addAttribute("titlePage", "Nuovo Candidato");
+			theModel.addAttribute("view", "nuovoCandidato");
+			
+			return "nuovoCandidato";
 		}
 	}
 	
@@ -192,20 +209,9 @@ public class CandidatiController {
 		
 		theModel.addAttribute("risorse", risorse);
 		
-		theModel.addAttribute("id", risorse.getId());
-		theModel.addAttribute("nomeCognomeCandidato", risorse.getNomeCognome());
-		theModel.addAttribute("email", risorse.getEmail());
-		theModel.addAttribute("recapito", risorse.getRecapito());
-		theModel.addAttribute("citta", risorse.getCitta());
 		theModel.addAttribute("dataInserimento", dettagliRisorseService.getDataInserimento(idRisorsa));
-		theModel.addAttribute("competenzaPrincipale", risorse.getCompetenzaPrincipale());
-		theModel.addAttribute("dataColloquio", risorse.getDataColloquio());
-		theModel.addAttribute("annoColloquio", risorse.getAnnoColloquio());
 		theModel.addAttribute("esitoColloquio", esitiColloquioService.getEsitoColloquio(idRisorsa));
-		theModel.addAttribute("fonteReperimento", risorse.getFonteReperimento());
 		theModel.addAttribute("profilo", profiliService.getProfilo(idRisorsa));
-		theModel.addAttribute("costoGiornaliero", risorse.getCostoGiornaliero());
-		theModel.addAttribute("possibilitaLavorativa", risorse.getPossibilitaLavorativa());
 		theModel.addAttribute("skill1", linguaggiService.getSkill1(idRisorsa));
 		theModel.addAttribute("skill2", linguaggiService.getSkill2(idRisorsa));
 		theModel.addAttribute("skill3", linguaggiService.getSkill3(idRisorsa));
@@ -215,9 +221,6 @@ public class CandidatiController {
 		theModel.addAttribute("lingua2", lingueService.getLingua2(idRisorsa));
 		theModel.addAttribute("lingua3", lingueService.getLingua3(idRisorsa));
 		theModel.addAttribute("seniority", livelliService.getSeniority(idRisorsa));
-		theModel.addAttribute("skillCampoLibero", risorse.getSkillCampoLibero());
-		theModel.addAttribute("competenzeTotali", risorse.getCompetenzeTotali());
-		theModel.addAttribute("certificazioni", risorse.getCertificazioni());
 		
 		theModel.addAttribute("nomeCognome", localSession.getNomeCognome());
 		theModel.addAttribute("ruolo", localSession.getRuolo());
@@ -293,7 +296,7 @@ public class CandidatiController {
 	
 	@RequestMapping("/modifica-campi-candidato")
 	@Transactional
-	public String modificaCampiCandidato(HttpServletRequest request, Model theModel)
+	public String ModificaCampiCandidato(HttpServletRequest request, Model theModel)
 	{
 		HttpSession session = request.getSession(true);
 		LocalSession localSession = (LocalSession) session.getAttribute("localSession");
@@ -329,13 +332,6 @@ public class CandidatiController {
 				competenzaPrincipale, costoGiornaliero, possibilitaLavorativa, skillCampoLibero, competenzeTotali, certificazioni);
 		
 		dettagliRisorseService.updateCandidato(idRisorsa, esitoColloquio, profilo, skill1, skill2, skill3, skill4, skill5, lingua1, lingua2, lingua3, seniority);
-		
-		Risorse risorse = risorseService.findById(idRisorsa);
-		
-		theModel.addAttribute("nomeCognome", localSession.getNomeCognome());
-		theModel.addAttribute("ruolo", localSession.getRuolo());
-		theModel.addAttribute("titlePage", "Candidati");
-		theModel.addAttribute("view", "paginaCandidati");
 		
 		return "default"+localSession.getRuolo();		
 	}
