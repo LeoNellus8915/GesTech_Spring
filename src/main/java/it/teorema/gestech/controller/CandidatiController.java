@@ -190,6 +190,8 @@ public class CandidatiController {
 		
 		Risorse risorse = risorseService.findById(idRisorsa);
 		
+		theModel.addAttribute("risorse", risorse);
+		
 		theModel.addAttribute("id", risorse.getId());
 		theModel.addAttribute("nomeCognomeCandidato", risorse.getNomeCognome());
 		theModel.addAttribute("email", risorse.getEmail());
@@ -233,21 +235,11 @@ public class CandidatiController {
 		
 		Risorse risorse = risorseService.findById(idRisorsa);
 		
-		theModel.addAttribute("id", risorse.getId());
-		theModel.addAttribute("nomeCognomeCandidato", risorse.getNomeCognome());
-		theModel.addAttribute("email", risorse.getEmail());
-		theModel.addAttribute("recapito", risorse.getRecapito());
-		theModel.addAttribute("profiloLinkedin", risorse.getProfiloLinkedin());
-		theModel.addAttribute("citta", risorse.getCitta());
+		theModel.addAttribute("risorse", risorse);
+		
 		theModel.addAttribute("dataInserimento", dettagliRisorseService.getDataInserimento(idRisorsa));
-		theModel.addAttribute("competenzaPrincipale", risorse.getCompetenzaPrincipale());
-		theModel.addAttribute("dataColloquio", risorse.getDataColloquio());
-		theModel.addAttribute("annoColloquio", risorse.getAnnoColloquio());
 		theModel.addAttribute("esitoColloquio", esitiColloquioService.getEsitoColloquio(idRisorsa));
-		theModel.addAttribute("fonteReperimento", risorse.getFonteReperimento());
 		theModel.addAttribute("profilo", profiliService.getProfilo(idRisorsa));
-		theModel.addAttribute("costoGiornaliero", risorse.getCostoGiornaliero());
-		theModel.addAttribute("possibilitaLavorativa", risorse.getPossibilitaLavorativa());
 		theModel.addAttribute("skill1", linguaggiService.getSkill1(idRisorsa));
 		theModel.addAttribute("skill2", linguaggiService.getSkill2(idRisorsa));
 		theModel.addAttribute("skill3", linguaggiService.getSkill3(idRisorsa));
@@ -257,9 +249,6 @@ public class CandidatiController {
 		theModel.addAttribute("lingua2", lingueService.getLingua2(idRisorsa));
 		theModel.addAttribute("lingua3", lingueService.getLingua3(idRisorsa));
 		theModel.addAttribute("livello", livelliService.getSeniority(idRisorsa));
-		theModel.addAttribute("skillCampoLibero", risorse.getSkillCampoLibero());
-		theModel.addAttribute("competenzeTotali", risorse.getCompetenzeTotali());
-		theModel.addAttribute("certificazioni", risorse.getCertificazioni());
 		
 		theModel.addAttribute("esitiColloquio", esitiColloquioService.findAllException(esitiColloquioService.getEsitoColloquio(idRisorsa)));
 		theModel.addAttribute("idEsitoColloquio", esitiColloquioService.findIdEsitoColloquio(esitiColloquioService.getEsitoColloquio(idRisorsa)));
