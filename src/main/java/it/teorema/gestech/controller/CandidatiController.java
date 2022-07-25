@@ -309,13 +309,10 @@ public class CandidatiController {
 		HttpSession session = request.getSession(true);
 		LocalSession localSession = (LocalSession) session.getAttribute("localSession");
 		
-		Risorse risorsa = new Risorse();
-		DettagliRisorse dettagliRisorsa = new DettagliRisorse();
 		
 		int idRisorsa = Integer.parseInt(request.getParameter("idRisorsa"));
 		String nomeCognome = request.getParameter("nomeCognome");
 		String recapito = request.getParameter("recapito");
-		String email = request.getParameter("email");
 		String profiloLinkedin = request.getParameter("profiloLinkedin");
 		String citta = request.getParameter("citta");
 		LocalDate dataColloquio = LocalDate.parse(request.getParameter("dataColloquio"));

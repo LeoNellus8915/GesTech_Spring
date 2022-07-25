@@ -12,15 +12,15 @@
 					<textarea name="avviso" id="avviso" onkeyup="controllo_caratteri('avviso')" placeholder="Inserire l'avviso" required></textarea>
 						<div class="row">
 							<div class="col-6">
-								<input name="ruolo" type="checkbox" id="admin" value="admin">
+								<input name="ruolo" type="checkbox" id="admin" value="Admin">
 		  						<label>Admin</label>
-		  						<input name="ruolo" type="checkbox" id="recruiter" value="recruiter">
+		  						<input name="ruolo" type="checkbox" id="recruiter" value="Recruiter">
 		  						<label>Recruiter</label>
-		  						<input name="ruolo" type="checkbox" id="commerciale" value="commerciale">
+		  						<input name="ruolo" type="checkbox" id="commerciale" value="Commerciale">
 		  						<label>Commerciale</label>
-		  						<input name="ruolo" type="checkbox" id="dipendente" value="dipendente">
+		  						<input name="ruolo" type="checkbox" id="dipendente" value="Dipendente">
 		  						<label>Dipendente</label>
-		  						<input name="ruolo" type="checkbox" id="tutti" value="tutti"> 
+		  						<input name="ruolo" type="checkbox" id="tutti" value="Tutti"> 
 		  						<label>Tutti</label>
 						  	</div>
 						<div class="col-6">
@@ -28,7 +28,8 @@
 					  	</div>
 					  </div>
 						<div class="row" id="stampaAvvisi" >
-						</div>		
+						</div>	
+						<input type="hidden" th:value="${ruolo}" id="ruolo">	
 				</form>	
 		</div>						
 	</div>		

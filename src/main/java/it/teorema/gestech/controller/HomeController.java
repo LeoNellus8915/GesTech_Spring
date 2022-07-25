@@ -133,15 +133,33 @@ public class HomeController {
 		theModel.addAttribute("titlePage", "HOME");
 		theModel.addAttribute("view", "home"+localSession.getRuolo());
 		
-		return "default";
+		return "default"+localSession.getRuolo();
 	}
 	
 	@RequestMapping("/stampa-avvisi")
 	@ResponseBody
-	public List<Avvisi> tutteLeRisorse()
+	public List<Avvisi> tutteLeRisorse(HttpServletRequest request)
 	{
+		HttpSession session = request.getSession(true);
+		LocalSession localSession = (LocalSession) session.getAttribute("localSession");
+		
 		List<Avvisi> avvisi = new ArrayList<Avvisi>();
 		avvisi = avvisiService.findAll();
-		return avvisi;
+		
+		List<Avvisi> stampaAvvisi = new ArrayList<Avvisi>();
+		
+		if(localSession.getRuolo().equals("Admin"))
+			return avvisi;
+		else 
+		{
+			for (Avvisi avvisi2 : avvisi) {
+				if(avvisi2.getRuoli().indexOf("Tutti") > 0)
+					stampaAvvisi.add(avvisi2);
+				else
+					if(avvisi2.getRuoli().indexOf(localSession.getRuolo()) > 0)
+						stampaAvvisi.add(avvisi2);
+			}
+			return stampaAvvisi;
+		}
 	}
 }

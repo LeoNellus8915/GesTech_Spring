@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import it.teorema.gestech.model.Auth;
 import it.teorema.gestech.model.Risorse;
-import it.teorema.gestech.model.Ruoli;
 import it.teorema.gestech.model.RuoliRisorse;
 import it.teorema.gestech.service.AuthService;
 import it.teorema.gestech.service.RisorseService;
