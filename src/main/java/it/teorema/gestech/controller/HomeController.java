@@ -53,7 +53,7 @@ public class HomeController {
 		theModel.addAttribute("titlePage", "Password");
 		theModel.addAttribute("view", "cambiaPassword");
 		
-		return "default";
+		return "default"+localSession.getRuolo();
 	}
 	
 	@Transactional
@@ -69,7 +69,7 @@ public class HomeController {
 		theModel.addAttribute("titlePage", "Candidati");
 		theModel.addAttribute("view", "paginaCandidati");
 		
-		return "default";
+		return "default"+localSession.getRuolo();
 	}
 	
 	@RequestMapping("/home")
@@ -84,7 +84,7 @@ public class HomeController {
 		theModel.addAttribute("titlePage", "HOME");
 		theModel.addAttribute("view", "home");
 		
-		return "default";
+		return "default"+localSession.getRuolo();
 	}
 	
 	@RequestMapping("/salva-avvisi")
@@ -116,7 +116,7 @@ public class HomeController {
 		theModel.addAttribute("titlePage", "HOME");
 		theModel.addAttribute("view", "home");
 		
-		return "default";
+		return "default"+localSession.getRuolo();
 	}
 	
 	@RequestMapping("/cancella-avviso")

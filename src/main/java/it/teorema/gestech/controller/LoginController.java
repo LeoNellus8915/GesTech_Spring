@@ -59,11 +59,11 @@ public class LoginController {
 			
 			List<RuoliRisorse> listIdRuolo = ruoliRisorseService.findIdRuolo(idRisorsa);
 			RuoliRisorse ruoliRisorsa = (RuoliRisorse) listIdRuolo.get(0);
-			int idRuoloRisorsa = ruoliRisorsa.getId();
+			int idRuoloRisorsa = ruoliRisorsa.getIdRuolo();
 			
-			List<Ruoli> ruoloRisorsa = ruoliService.findRuolo(idRuoloRisorsa);
-			Ruoli ruoli = (Ruoli) ruoloRisorsa.get(0);
-			ruolo = ruoli.getNome();
+			
+			String ruoloRisorsa = ruoliService.findRuolo(idRuoloRisorsa);
+			ruolo = ruoloRisorsa;
 			nomeCognome = risorsa.getNomeCognome();
 			controllo = "email";
 		}

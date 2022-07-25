@@ -54,7 +54,7 @@ public class UtenteController {
 		theModel.addAttribute("titlePage", "Utente");
 		theModel.addAttribute("view", "nuovoUtente");
 
-		return "default";
+		return "default"+localSession.getRuolo();
 	}
 	
 	@RequestMapping("/aggiungi-utente")

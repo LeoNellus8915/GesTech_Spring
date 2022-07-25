@@ -64,7 +64,7 @@ public class CandidatiController {
 		theModel.addAttribute("titlePage", "Candidati");
 		theModel.addAttribute("view", "paginaCandidati");
 		
-		return "default";
+		return "default"+localSession.getRuolo();
 	}
 	
 	@RequestMapping("/pagina-nuovo-candidato")
@@ -90,7 +90,7 @@ public class CandidatiController {
 		theModel.addAttribute("titlePage", "Nuovo Candidato");
 		theModel.addAttribute("view", "nuovoCandidato");
 		
-		return "default";
+		return "default"+localSession.getRuolo();
 	}
 	
 	@RequestMapping("/aggiungi-candidato")
@@ -221,7 +221,7 @@ public class CandidatiController {
 		theModel.addAttribute("titlePage", "Visualizza Candidato");
 		theModel.addAttribute("view", "visualizzaCandidato");
 		
-		return "default";		
+		return "default"+localSession.getRuolo();		
 	}
 	
 	@RequestMapping("/modifica-candidato")
@@ -298,7 +298,7 @@ public class CandidatiController {
 		theModel.addAttribute("titlePage", "Modifica Candidato");
 		theModel.addAttribute("view", "modificaCandidato");
 		
-		return "default";
+		return "default"+localSession.getRuolo();
 	}
 	
 	@RequestMapping("/modifica-campi-candidato")
@@ -376,7 +376,7 @@ public class CandidatiController {
 		theModel.addAttribute("titlePage", "Candidati");
 		theModel.addAttribute("view", "paginaCandidati");
 		
-		return "default";		
+		return "default"+localSession.getRuolo();		
 	}
 	
 	@RequestMapping("/elimina-candidato")
@@ -393,6 +393,6 @@ public class CandidatiController {
 		theModel.addAttribute("ruolo", localSession.getRuolo());
 		theModel.addAttribute("titlePage", "Candidati");
 		theModel.addAttribute("view", "paginaCandidati");
-		return "default";
+		return "default"+localSession.getRuolo();
 	}
 }
