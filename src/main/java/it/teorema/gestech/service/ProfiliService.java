@@ -16,14 +16,14 @@ public interface ProfiliService extends JpaRepository <Profili, Integer>
 
 	@Query("select p.nome "
 			+ "from Profili p, DettagliRisorse d "
-			+ "where p.id = d.idSeniority and d.idRisorsa = :idRisorsa")
+			+ "where d.idRisorsa = :idRisorsa and p.id = d.idProfilo")
 	abstract 
-	String getRuolo(@Param (value = "idRisorsa") int idRisorsa);
+	String getProfilo(int idRisorsa);
 
 	@Query("from Profili "
-			+ "where nome != :ruolo")
+			+ "where nome != :profilo")
 	abstract 
-	List<Profili> findAllException(String ruolo);
+	List<Profili> findAllException(String profilo);
 
 	@Query("select id from Profili where nome = :nome")
 	abstract 

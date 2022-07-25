@@ -27,8 +27,6 @@ public class Risorse
 	private String profiloLinkedin;
 	@Column(name = "citta")
 	private String citta;
-	@Column(name = "ruolo_risorsa")
-	private String ruoloRisorsa;
 	@Column(name = "competenza_principale")
 	private String competenzaPrincipale;
 	@Column(name = "data_colloquio")
@@ -52,7 +50,7 @@ public class Risorse
 	}
 
 	public Risorse(int id, String nomeCognome, String recapito, String email, String profiloLinkedin, String citta,
-			String ruoloRisorsa, String competenzaPrincipale, LocalDate dataColloquio, String annoColloquio,
+			String competenzaPrincipale, LocalDate dataColloquio, String annoColloquio,
 			String fonteReperimento, Double costoGiornaliero, String possibilitaLavorativa, String skillCampoLibero,
 			String competenzeTotali, String certificazioni) {
 		super();
@@ -62,7 +60,6 @@ public class Risorse
 		this.email = email;
 		this.profiloLinkedin = profiloLinkedin;
 		this.citta = citta;
-		this.ruoloRisorsa = ruoloRisorsa;
 		this.competenzaPrincipale = competenzaPrincipale;
 		this.dataColloquio = dataColloquio;
 		this.annoColloquio = annoColloquio;
@@ -120,14 +117,6 @@ public class Risorse
 
 	public void setCitta(String citta) {
 		this.citta = citta;
-	}
-
-	public String getRuoloRisorsa() {
-		return ruoloRisorsa;
-	}
-
-	public void setRuoloRisorsa(String ruoloRisorsa) {
-		this.ruoloRisorsa = ruoloRisorsa;
 	}
 
 	public String getCompetenzaPrincipale() {

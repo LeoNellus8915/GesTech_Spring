@@ -25,6 +25,8 @@ public class DettagliRisorse
 	private LocalDateTime dataInserimento;
 	@Column(name = "id_esito_colloquio")
 	private Integer idEsitoColloquio;
+	@Column(name = "id_profilo")
+	private Integer idProfilo;
 	@Column(name = "id_skill1")
 	private Integer idSkill1;
 	@Column(name = "id_skill2")
@@ -46,15 +48,17 @@ public class DettagliRisorse
 	
 	public DettagliRisorse() {}
 
-	public DettagliRisorse(Integer id, Integer idRisorsa, String fileBase64, LocalDateTime dataInserimento, Integer idEsitoColloquio,
-			Integer idSkill1, Integer idSkill2, Integer idSkill3, Integer idSkill4, Integer idSkill5, Integer idLingua1, Integer idLingua2,
-			Integer idLingua3, Integer idSeniority) {
+	public DettagliRisorse(Integer id, Integer idRisorsa, String fileBase64, LocalDateTime dataInserimento,
+			Integer idEsitoColloquio, Integer idProfilo, Integer idSkill1, Integer idSkill2, Integer idSkill3,
+			Integer idSkill4, Integer idSkill5, Integer idLingua1, Integer idLingua2, Integer idLingua3,
+			Integer idSeniority) {
 		super();
 		this.id = id;
 		this.idRisorsa = idRisorsa;
 		this.fileBase64 = fileBase64;
 		this.dataInserimento = dataInserimento;
 		this.idEsitoColloquio = idEsitoColloquio;
+		this.idProfilo = idProfilo;
 		this.idSkill1 = idSkill1;
 		this.idSkill2 = idSkill2;
 		this.idSkill3 = idSkill3;
@@ -104,6 +108,14 @@ public class DettagliRisorse
 
 	public void setIdEsitoColloquio(Integer idEsitoColloquio) {
 		this.idEsitoColloquio = idEsitoColloquio;
+	}
+
+	public Integer getIdProfilo() {
+		return idProfilo;
+	}
+
+	public void setIdProfilo(Integer idProfilo) {
+		this.idProfilo = idProfilo;
 	}
 
 	public Integer getIdSkill1() {

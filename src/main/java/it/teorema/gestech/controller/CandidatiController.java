@@ -120,7 +120,7 @@ public class CandidatiController {
 			risorsa.setEmail(request.getParameter("email"));
 			risorsa.setProfiloLinkedin(request.getParameter("profiloLinkedin"));
 			risorsa.setCitta(request.getParameter("citta"));
-			risorsa.setRuoloRisorsa(request.getParameter("ruoloProfilo"));
+			//risorsa.setRuoloRisorsa(request.getParameter("ruoloProfilo"));
 			risorsa.setDataColloquio(LocalDate.parse(request.getParameter("dataColloquio"), format2));
 			risorsa.setAnnoColloquio(request.getParameter("annoColloquio"));
 			risorsa.setFonteReperimento(request.getParameter("fonteReperimento"));
@@ -201,6 +201,7 @@ public class CandidatiController {
 		theModel.addAttribute("annoColloquio", risorse.getAnnoColloquio());
 		theModel.addAttribute("esitoColloquio", esitiColloquioService.getEsitoColloquio(idRisorsa));
 		theModel.addAttribute("fonteReperimento", risorse.getFonteReperimento());
+		theModel.addAttribute("profilo", profiliService.getProfilo(idRisorsa));
 		theModel.addAttribute("costoGiornaliero", risorse.getCostoGiornaliero());
 		theModel.addAttribute("possibilitaLavorativa", risorse.getPossibilitaLavorativa());
 		theModel.addAttribute("skill1", linguaggiService.getSkill1(idRisorsa));
@@ -244,7 +245,7 @@ public class CandidatiController {
 		theModel.addAttribute("annoColloquio", risorse.getAnnoColloquio());
 		theModel.addAttribute("esitoColloquio", esitiColloquioService.getEsitoColloquio(idRisorsa));
 		theModel.addAttribute("fonteReperimento", risorse.getFonteReperimento());
-		theModel.addAttribute("profilo", profiliService.getRuolo(idRisorsa));
+		theModel.addAttribute("profilo", profiliService.getProfilo(idRisorsa));
 		theModel.addAttribute("costoGiornaliero", risorse.getCostoGiornaliero());
 		theModel.addAttribute("possibilitaLavorativa", risorse.getPossibilitaLavorativa());
 		theModel.addAttribute("skill1", linguaggiService.getSkill1(idRisorsa));
@@ -263,8 +264,8 @@ public class CandidatiController {
 		theModel.addAttribute("esitiColloquio", esitiColloquioService.findAllException(esitiColloquioService.getEsitoColloquio(idRisorsa)));
 		theModel.addAttribute("idEsitoColloquio", esitiColloquioService.findIdEsitoColloquio(esitiColloquioService.getEsitoColloquio(idRisorsa)));
 		
-		theModel.addAttribute("profili", profiliService.findAllException(profiliService.getRuolo(idRisorsa)));
-		theModel.addAttribute("idProfilo", profiliService.findIdProfilo(profiliService.getRuolo(idRisorsa)));
+		theModel.addAttribute("profili", profiliService.findAllException(profiliService.getProfilo(idRisorsa)));
+		theModel.addAttribute("idProfilo", profiliService.findIdProfilo(profiliService.getProfilo(idRisorsa)));
 		
 		theModel.addAttribute("linguaggi1", linguaggiService.findAllException(linguaggiService.getSkill1(idRisorsa)));
 		theModel.addAttribute("idLinguaggio1", linguaggiService.findIdSkill1(linguaggiService.getSkill1(idRisorsa)));
@@ -321,7 +322,7 @@ public class CandidatiController {
 		String annoColloquio = request.getParameter("annoColloquio");
 		int esitoColloquio = Integer.parseInt(request.getParameter("esitoColloquio"));
 		String fonteReperimento = request.getParameter("fonteReperimento");
-		String ruoloRisorsa = request.getParameter("ruoloRisorsa");
+		int profilo = Integer.parseInt(request.getParameter("ruoloRisorsa"));
 		String competenzaPrincipale = request.getParameter("competenzaPrincipale");
 		Double costoGiornaliero = Double.parseDouble(request.getParameter("costoGiornaliero"));
 		String possibilitaLavorativa = request.getParameter("possibilitaLavorativa");
@@ -339,9 +340,9 @@ public class CandidatiController {
 		int seniority = Integer.parseInt(request.getParameter("seniority"));
 		
 		risorseService.updateCandidato(idRisorsa, nomeCognome, recapito, profiloLinkedin, citta, dataColloquio, annoColloquio, fonteReperimento,
-				ruoloRisorsa, competenzaPrincipale, costoGiornaliero, possibilitaLavorativa, skillCampoLibero, competenzeTotali, certificazioni);
+				competenzaPrincipale, costoGiornaliero, possibilitaLavorativa, skillCampoLibero, competenzeTotali, certificazioni);
 		
-		dettagliRisorseService.updateCandidato(idRisorsa, esitoColloquio, skill1, skill2, skill3, skill4, skill5, lingua1, lingua2, lingua3, seniority);
+		dettagliRisorseService.updateCandidato(idRisorsa, esitoColloquio, profilo, skill1, skill2, skill3, skill4, skill5, lingua1, lingua2, lingua3, seniority);
 		
 		Risorse risorse = risorseService.findById(idRisorsa);
 		

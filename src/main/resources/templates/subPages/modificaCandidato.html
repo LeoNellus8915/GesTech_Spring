@@ -96,7 +96,7 @@
 								<label for="ruoloRisorsa" class="col-form-label s-12">RUOLO</label>
 								<select name="ruoloRisorsa" id="ruoloRisorsa" class="form-control r-0 light s-12 date-picker">
 									<option th:value="${idProfilo}" th:text="${profilo}"></option>
-    								<option th:each="profilo : ${profili}" th:value="${profilo.nome}" th:text="${profilo.nome}"></option>
+    								<option th:each="profilo : ${profili}" th:value="${profilo.id}" th:text="${profilo.nome}"></option>
 								</select>
 							</div>
 							<div class="form-group col-4 m-0">
