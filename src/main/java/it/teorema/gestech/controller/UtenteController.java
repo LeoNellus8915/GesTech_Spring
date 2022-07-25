@@ -74,30 +74,30 @@ public class UtenteController {
 		
 		String controllo = risorseService.findByEmail(request.getParameter("email"));
 		if(controllo == null) {
-		risorsa.setNomeCognome((String) request.getParameter("nomeCognome"));
-		risorsa.setEmail((String) request.getParameter("email"));
-		
-		risorseService.save(risorsa);
-		
-		int idRisorsa = risorseService.findId();
-		
-		auth.setPassword((String) request.getParameter("passwordMD5"));
-		auth.setIdRisorsa(idRisorsa);
-		auth.setData(data);
-		
-		authService.save(auth);
-		
-		ruoliRisorse.setIdRisorsa(idRisorsa);
-		ruoliRisorse.setIdRuolo(Integer.parseInt(request.getParameter("ruolo")));
-		
-		ruoliRisorseService.save(ruoliRisorse);
-		
-		dettagliRisorsa.setDataInserimento(dataInserimento);
-		dettagliRisorsa.setIdRisorsa(idRisorsa);
-		
-		dettagliRisorsaService.save(dettagliRisorsa);
-		
-		return "redirect:pagina-candidati";
+			risorsa.setNomeCognome((String) request.getParameter("nomeCognome"));
+			risorsa.setEmail((String) request.getParameter("email"));
+			
+			risorseService.save(risorsa);
+			
+			int idRisorsa = risorseService.findId();
+			
+			auth.setPassword((String) request.getParameter("passwordMD5"));
+			auth.setIdRisorsa(idRisorsa);
+			auth.setData(data);
+			
+			authService.save(auth);
+			
+			ruoliRisorse.setIdRisorsa(idRisorsa);
+			ruoliRisorse.setIdRuolo(Integer.parseInt(request.getParameter("ruolo")));
+			
+			ruoliRisorseService.save(ruoliRisorse);
+			
+			dettagliRisorsa.setDataInserimento(dataInserimento);
+			dettagliRisorsa.setIdRisorsa(idRisorsa);
+			
+			dettagliRisorsaService.save(dettagliRisorsa);
+			
+			return "redirect:pagina-candidati";
 		}
 		else {
 			
