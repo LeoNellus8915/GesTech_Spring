@@ -19,6 +19,12 @@ public interface ProfiliService extends JpaRepository <Profili, Integer>
 			+ "where d.idRisorsa = :idRisorsa and p.id = d.idProfilo")
 	abstract 
 	String getProfilo(int idRisorsa);
+	
+	@Query("select nome "
+			+ "from Profili "
+			+ "where id = :idRisorsa")
+	abstract 
+	String getProfiloNonSalvato(int idRisorsa);
 
 	@Query("from Profili "
 			+ "where nome != :profilo")

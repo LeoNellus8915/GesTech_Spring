@@ -14,6 +14,12 @@ public interface LingueService extends JpaRepository <Lingue, Integer>
 	abstract
 	List<Lingue> findAll();
 	
+	@Query("select nome "
+			+ "from Lingue "
+			+ "where id = :idRisorsa")
+	abstract
+	String getLinguaNonSalvato(int idRisorsa);
+	
 	@Query("select l.nome "
 			+ "from Lingue l, DettagliRisorse d "
 			+ "where l.id = d.idLingua1 and d.idRisorsa = :idRisorsa")

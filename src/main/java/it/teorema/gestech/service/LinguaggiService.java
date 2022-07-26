@@ -14,6 +14,12 @@ public interface LinguaggiService extends JpaRepository <Linguaggi, Integer>
 	abstract
 	List <Linguaggi> findAll();
 	
+	@Query("select nome "
+			+ "from Linguaggi "
+			+ "where id = :idRisorsa")
+	abstract
+	String getSkillNonSalvato(int idRisorsa);
+	
 	@Query("select l.nome "
 			+ "from Linguaggi l, DettagliRisorse d "
 			+ "where l.id = d.idSkill1 and d.idRisorsa = :idRisorsa")
