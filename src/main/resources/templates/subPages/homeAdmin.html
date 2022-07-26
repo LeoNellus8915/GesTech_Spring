@@ -6,31 +6,31 @@
 	</script>
 	<div class="page avviso">
 		<div class="page">
-				<form method="post" id="form" action="salva-avvisi">
-					<input name="titolo" id="titolo" placeholder="Inserisci Titolo" type="text" required>
-					<label class="error" id="label-error-text" style="display:none">Il testo non pu&ograve; contenere i seguenti caratteri: % &</label>
-					<textarea name="avviso" id="avviso" onkeyup="controllo_caratteri('avviso')" placeholder="Inserire l'avviso" required></textarea>
-						<div class="row">
-							<div class="col-6">
-								<input name="ruolo" type="checkbox" id="admin" value="Admin">
-		  						<label>Admin</label>
-		  						<input name="ruolo" type="checkbox" id="recruiter" value="Recruiter">
-		  						<label>Recruiter</label>
-		  						<input name="ruolo" type="checkbox" id="commerciale" value="Commerciale">
-		  						<label>Commerciale</label>
-		  						<input name="ruolo" type="checkbox" id="dipendente" value="Dipendente">
-		  						<label>Dipendente</label>
-		  						<input name="ruolo" type="checkbox" id="tutti" value="Tutti"> 
-		  						<label>Tutti</label>
-						  	</div>
-						<div class="col-6">
-							<div class="btright"><input type="submit" onclick="controlloCheckbox()"></div>
-					  	</div>
-					  </div>
-						<div class="row" id="stampaAvvisi" >
-						</div>	
-						<input type="hidden" th:value="${ruolo}" id="ruolo">	
-				</form>	
+			<form method="post" id="form" action="salva-avvisi">
+				<input name="titolo" id="titolo" placeholder="Inserisci Titolo" type="text" required>
+				<label class="error" id="label-error-text" style="display:none">Il testo non pu&ograve; contenere i seguenti caratteri: % &</label>
+				<textarea name="avviso" id="avviso" onkeyup="controllo_caratteri('avviso')" placeholder="Inserire l'avviso" required></textarea>
+				<div class="row">
+					<div class="col-6">
+						<input name="ruolo" type="checkbox" id="admin" value="Admin">
+  						<label>Admin</label>
+  						<input name="ruolo" type="checkbox" id="recruiter" value="Recruiter">
+  						<label>Recruiter</label>
+  						<input name="ruolo" type="checkbox" id="commerciale" value="Commerciale">
+  						<label>Commerciale</label>
+  						<input name="ruolo" type="checkbox" id="dipendente" value="Dipendente">
+  						<label>Dipendente</label>
+  						<input name="ruolo" type="checkbox" id="tutti" value="Tutti"> 
+						<label>Tutti</label>
+					</div>
+					<div class="col-6">
+						<div class="btright"><input type="submit" onclick="controlloCheckbox()"></div>
+					</div>
+				</div>
+				<div class="row" id="stampaAvvisi"></div>	
+				<input type="hidden" th:value="${ruolo}" id="ruolo">	
+				<input type="hidden" th:value="${avvisi}" id="avvisi">
+			</form>	
 		</div>						
 	</div>		
 </div>	

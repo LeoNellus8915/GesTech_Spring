@@ -42,69 +42,87 @@ public class UtenteController {
 	
 	@RequestMapping("/nuovo-utente")
 	public String nuovoUtente(HttpServletRequest request, Model theModel) {
-
 		HttpSession session = request.getSession(true);
-		LocalSession localSession  = (LocalSession) session.getAttribute("localSession");
-
-		List<Ruoli> ruoli = ruoliService.findAll();
-
-		theModel.addAttribute("ruoli", ruoli);
-		theModel.addAttribute("nomeCognome", localSession.getNomeCognome());
-		theModel.addAttribute("ruolo", localSession.getRuolo());
-		theModel.addAttribute("titlePage", "Utente");
-		theModel.addAttribute("view", "nuovoUtente");
-
-		return "default"+localSession.getRuolo();
+		if (session.getAttribute("idSessione") == null)
+		{
+			theModel.addAttribute("titlePage", "Login");
+			theModel.addAttribute("msgCredenziali", "Inserisci le credenziali per accedere al sistema");
+			return "index";
+		}
+		else
+		{
+			LocalSession localSession  = (LocalSession) session.getAttribute("localSession");
+	
+			List<Ruoli> ruoli = ruoliService.findAll();
+	
+			theModel.addAttribute("ruoli", ruoli);
+			theModel.addAttribute("nomeCognome", localSession.getNomeCognome());
+			theModel.addAttribute("ruolo", localSession.getRuolo());
+			theModel.addAttribute("titlePage", "Utente");
+			theModel.addAttribute("view", "nuovoUtente");
+	
+			return "default"+localSession.getRuolo();
+		}
 	}
 	
 	@RequestMapping("/aggiungi-utente")
 	@Transactional
 	public String aggiungiUtente(HttpServletRequest request, Model theModel){		
-		DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-		LocalDate now = LocalDate.now();  
-		LocalDate data = LocalDate.parse(format.format(now), format);
-		DateTimeFormatter format2 = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"); 
-		LocalDateTime now2 = LocalDateTime.now();
-		LocalDateTime dataInserimento = LocalDateTime.parse(format2.format(now2), format2);
-
-		Risorse risorsa = new Risorse();
-		Auth auth = new Auth();
-		RuoliRisorse ruoliRisorse = new RuoliRisorse();
-		DettagliRisorse dettagliRisorsa = new DettagliRisorse();
-		
-		String controllo = risorseService.findByEmail(request.getParameter("email"));
-		if(controllo == null) {
-			risorsa.setNomeCognome((String) request.getParameter("nomeCognome"));
-			risorsa.setEmail((String) request.getParameter("email"));
-			
-			risorseService.save(risorsa);
-			
-			int idRisorsa = risorseService.findId();
-			
-			auth.setPassword((String) request.getParameter("passwordMD5"));
-			auth.setIdRisorsa(idRisorsa);
-			auth.setData(data);
-			
-			authService.save(auth);
-			
-			ruoliRisorse.setIdRisorsa(idRisorsa);
-			ruoliRisorse.setIdRuolo(Integer.parseInt(request.getParameter("ruolo")));
-			
-			ruoliRisorseService.save(ruoliRisorse);
-			
-			dettagliRisorsa.setDataInserimento(dataInserimento);
-			dettagliRisorsa.setIdRisorsa(idRisorsa);
-			
-			dettagliRisorsaService.save(dettagliRisorsa);
-			
-			return "redirect:pagina-candidati";
+		HttpSession session = request.getSession(true);
+		if (session.getAttribute("idSessione") == null)
+		{
+			theModel.addAttribute("titlePage", "Login");
+			theModel.addAttribute("msgCredenziali", "Inserisci le credenziali per accedere al sistema");
+			return "index";
 		}
-		else {
+		else
+		{
+			DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+			LocalDate now = LocalDate.now();  
+			LocalDate data = LocalDate.parse(format.format(now), format);
+			DateTimeFormatter format2 = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"); 
+			LocalDateTime now2 = LocalDateTime.now();
+			LocalDateTime dataInserimento = LocalDateTime.parse(format2.format(now2), format2);
+	
+			Risorse risorsa = new Risorse();
+			Auth auth = new Auth();
+			RuoliRisorse ruoliRisorse = new RuoliRisorse();
+			DettagliRisorse dettagliRisorsa = new DettagliRisorse();
 			
-			//da fare stampa in nuovoUtente
-			
-			theModel.addAttribute("controllo", "Utente già presente");
-			return "redirect:nuovo-utente";
+			String controllo = risorseService.findByEmail(request.getParameter("email"));
+			if(controllo == null) {
+				risorsa.setNomeCognome((String) request.getParameter("nomeCognome"));
+				risorsa.setEmail((String) request.getParameter("email"));
+				
+				risorseService.save(risorsa);
+				
+				int idRisorsa = risorseService.findId();
+				
+				auth.setPassword((String) request.getParameter("passwordMD5"));
+				auth.setIdRisorsa(idRisorsa);
+				auth.setData(data);
+				
+				authService.save(auth);
+				
+				ruoliRisorse.setIdRisorsa(idRisorsa);
+				ruoliRisorse.setIdRuolo(Integer.parseInt(request.getParameter("ruolo")));
+				
+				ruoliRisorseService.save(ruoliRisorse);
+				
+				dettagliRisorsa.setDataInserimento(dataInserimento);
+				dettagliRisorsa.setIdRisorsa(idRisorsa);
+				
+				dettagliRisorsaService.save(dettagliRisorsa);
+				
+				return "redirect:pagina-candidati";
+			}
+			else {
+				
+				//da fare stampa in nuovoUtente
+				
+				theModel.addAttribute("controllo", "Utente già presente");
+				return "redirect:nuovo-utente";
+			}
 		}
 	}
 }

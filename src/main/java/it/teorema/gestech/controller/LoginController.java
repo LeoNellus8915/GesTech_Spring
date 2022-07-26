@@ -32,9 +32,11 @@ public class LoginController {
 	RuoliService ruoliService;
 	
 	@RequestMapping("/logout")
-	public String index(HttpServletRequest request)
+	public String index(HttpServletRequest request, Model theModel)
 	{
 		HttpSession session = request.getSession(true);
+		theModel.addAttribute("msgCredenziali", "Credenziali errate, si prega di riprovare");
+		theModel.addAttribute("titlePage", "Login");
 		session.invalidate();
 		return "index";
 	}
@@ -80,6 +82,7 @@ public class LoginController {
 			localSession.setIdRisorsa(idRisorsa);
 			HttpSession session = request.getSession(true);
 			session.setAttribute("localSession", localSession);
+			session.setAttribute("idSessione", 1);
 			return "redirect:home";
 		}
 		else

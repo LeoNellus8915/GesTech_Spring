@@ -12,63 +12,57 @@ function controllo_caratteri(idInput){
 
 function stampaAvvisi()
 {
-	$.ajax({
-		type: "GET",
-		url: "http://localhost:8080/stampa-avvisi",
-		contentType: "application/json; charset=utf-8",
-		dataType: "json",
-		success: function(dati){
-			for (var c = 0; c < dati.length; c++)
+	var dati = $("#avvisi").val();
+	console.log(dati);
+	for (var c = 0; c < dati.length; c++)
+	{
+		var split_finale = "";
+		
+		$('<div/>',{
+		    class: 'col-4 card_avvisi',
+		    id: "div_avvisi" + c,
+		}).appendTo('#stampaAvvisi');
+	
+		$('<span/>',{
+			value: dati[c].data,
+		    class: 'data_ora_avvisi',
+		    text: dati[c].data,
+		}).appendTo('#div_avvisi' + c);
+		
+		if($("#ruolo").val()=="Admin")
+			$('#div_avvisi' + c).append('<a href="cancella-avviso?idAvviso='+dati[c].id+'"><i class="icon icon-delete red-text s-18"></i></a>');
+		
+		$('<p/>',{
+			value: dati[c].titolo,
+		    class: 'titolo_avvisi',
+		    text: dati[c].titolo,
+		}).appendTo('#div_avvisi' + c);
+		
+		$('<p/>',{
+			value: dati[c].note,
+		    class: 'testo_avvisi',
+		    text: dati[c].note,
+		}).appendTo('#div_avvisi' + c);
+		
+		if($("#ruolo").val()=="Admin"){
+			var split = dati[c].ruoli.split(",")
+			if(split.length != 1)
 			{
-				var split_finale = "";
-				
-				$('<div/>',{
-				    class: 'col-4 card_avvisi',
-				    id: "div_avvisi" + c,
-				}).appendTo('#stampaAvvisi');
-			
-				$('<span/>',{
-					value: dati[c].data,
-				    class: 'data_ora_avvisi',
-				    text: dati[c].data,
-				}).appendTo('#div_avvisi' + c);
-				
-				if($("#ruolo").val()=="Admin")
-					$('#div_avvisi' + c).append('<a href="cancella-avviso?idAvviso='+dati[c].id+'"><i class="icon icon-delete red-text s-18"></i></a>');
-				
-				$('<p/>',{
-					value: dati[c].titolo,
-				    class: 'titolo_avvisi',
-				    text: dati[c].titolo,
-				}).appendTo('#div_avvisi' + c);
-				
-				$('<p/>',{
-					value: dati[c].note,
-				    class: 'testo_avvisi',
-				    text: dati[c].note,
-				}).appendTo('#div_avvisi' + c);
-				
-				if($("#ruolo").val()=="Admin"){
-					var split = dati[c].ruoli.split(",")
-					if(split.length != 1)
-					{
-						split_finale = split[0].substring(1) + split[split.length-1].slice(0, -1);
-					}
-					else
-					{
-						split_finale = split[0].substring(1);
-						split_finale = split_finale.slice(0, -1);
-					}
-					
-					$('<span/>',{
-						value: split_finale,
-					    class: 'ruolo_avvisi',
-					    text: split_finale,
-					}).appendTo('#div_avvisi' + c);
-				}
+				split_finale = split[0].substring(1) + split[split.length-1].slice(0, -1);
 			}
-		},
-	});
+			else
+			{
+				split_finale = split[0].substring(1);
+				split_finale = split_finale.slice(0, -1);
+			}
+			
+			$('<span/>',{
+				value: split_finale,
+			    class: 'ruolo_avvisi',
+			    text: split_finale,
+			}).appendTo('#div_avvisi' + c);
+		}
+	}
 }
 
 function controlloCheckbox()
