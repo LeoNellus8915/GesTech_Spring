@@ -14,7 +14,8 @@ public interface DettagliRisorseService extends JpaRepository <DettagliRisorse, 
 {
 	@Query("select r.id, d.dataInserimento, r.nomeCognome, r.citta, p.nome, r.competenzaPrincipale, e.nome "
 			+ "from DettagliRisorse d, Risorse r, EsitiColloquio e, Profili p "
-			+ "where r.id = d.idRisorsa and e.id = d.idEsitoColloquio and p.id = d.idProfilo")
+			+ "where r.id = d.idRisorsa and e.id = d.idEsitoColloquio and p.id = d.idProfilo "
+			+ "and not exists (from RuoliRisorse where idRisorsa = r.id)")
 	abstract
 	List findAll();
 	
