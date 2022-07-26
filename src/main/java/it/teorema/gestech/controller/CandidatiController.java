@@ -24,6 +24,7 @@ import it.teorema.gestech.model.Linguaggi;
 import it.teorema.gestech.model.Lingue;
 import it.teorema.gestech.model.Livelli;
 import it.teorema.gestech.model.Profili;
+import it.teorema.gestech.model.ResponseWrapper;
 import it.teorema.gestech.model.Risorse;
 import it.teorema.gestech.service.CommentiService;
 import it.teorema.gestech.service.DettagliRisorseService;
@@ -380,6 +381,8 @@ public class CandidatiController {
 			
 			theModel.addAttribute("risorse", risorse);
 			
+			theModel.addAttribute("id", idRisorsa);
+			
 			theModel.addAttribute("dataInserimento", dettagliRisorseService.getDataInserimento(idRisorsa));
 			theModel.addAttribute("esitoColloquio", esitiColloquioService.getEsitoColloquio(idRisorsa));
 			theModel.addAttribute("profilo", profiliService.getProfilo(idRisorsa));
@@ -549,5 +552,26 @@ public class CandidatiController {
 			theModel.addAttribute("view", "paginaCandidati");
 			return "default"+localSession.getRuolo();
 		}
+	}
+	
+	@ResponseBody
+	@RequestMapping("/stampa-cv")
+	public ResponseWrapper stampaCV(@RequestParam(value="idRisorsa") int idRisorsa, HttpServletRequest request, Model theModel)
+	{
+		HttpSession session = request.getSession(true);
+		ResponseWrapper response = new ResponseWrapper();
+		if (session.getAttribute("idSessione") == null)
+		{
+			theModel.addAttribute("titlePage", "Login");
+			theModel.addAttribute("msgCredenziali", "Inserisci le credenziali per accedere al sistema");
+			response.setCodice("e00404");
+		}
+		else
+		{
+			response.setCodice("0");
+			response.setDescrizione("file64 presi con successo");
+			response.setPayload(dettagliRisorseService.getFile64(idRisorsa));
+		}
+		return response;
 	}
 }

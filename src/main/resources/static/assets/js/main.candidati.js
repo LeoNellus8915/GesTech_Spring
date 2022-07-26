@@ -129,5 +129,27 @@ function stampaCommenti(){
 	})
 }
 
-
-
+function scarica()
+{
+	$.ajax({
+		type: "GET",
+		url: "http://localhost:8080/stampa-cv?idRisorsa="+$("#id").val(),
+		contentType: "application/json; charset=utf-8",
+		dataType: "json",
+		success: function(dati){
+			for (var c = 0; c < dati.length; c++)
+			{
+				$('<span/>',{
+					value: dati[c].at(0) + dati[c].at(1),
+				    class: 'data_nomecognome_commenti',
+				    text: dati[c].at(0) + "   " + dati[c].at(1),
+				}).appendTo('#commento');
+				$('<p/>',{
+					value: dati[c].at(2),
+				    class: 'testo_commenti',
+				    text: dati[c].at(2),
+				}).appendTo('#commento');
+			}
+		}
+	})
+}

@@ -34,4 +34,8 @@ public interface DettagliRisorseService extends JpaRepository <DettagliRisorse, 
 	abstract
 	void updateCandidato(int idRisorsa, int esitoColloquio, int profilo, int skill1, int skill2, int skill3, 
 			int skill4, int skill5, int lingua1, int lingua2, int lingua3, int seniority);
+	
+	@Query("select fileBase64 from DettagliRisorse where idRisorsa = :idRisorsa")
+	abstract
+	String[] getFile64(int idRisorsa);
 }
