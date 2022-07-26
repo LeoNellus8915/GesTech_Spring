@@ -25594,7 +25594,7 @@ div.table-responsive>div.dataTables_wrapper>div.row>div[class^=col-]:last-child{
     padding:.7rem 1rem
 }
 .form-control{
-    border:1px solid #e1e8ee;
+    border:2px solid #3b3e47;
     box-shadow:none;
     border-radius:3px;
     transition:all .2s ease-in-out;
@@ -26648,7 +26648,7 @@ pre{
     color:#fff
 }
 .table thead th{
-    font-weight:400;
+    /*font-weight:400;*/
     font-size:12px
 }
 .v_tabs .tabs-left,.v_tabs .tabs-right{
