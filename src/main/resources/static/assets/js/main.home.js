@@ -12,7 +12,7 @@ function controllo_caratteri(idInput){
 
 function stampaAvvisi()
 {
-	var dati = $("#avvisi").val();
+	var dati = JSON.stringify($("#avvisi").val());
 	console.log(dati);
 	for (var c = 0; c < dati.length; c++)
 	{
