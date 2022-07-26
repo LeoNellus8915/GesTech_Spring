@@ -52,8 +52,8 @@ public class DettagliRisorse
 		idRisorsa = 0;
 		fileBase64 = "";
 		dataInserimento = LocalDateTime.now();;
-		idEsitoColloquio = 0;
-		idProfilo = 0;
+		idEsitoColloquio = 11;
+		idProfilo = 17;
 		idSkill1 = 0;
 		idSkill2 = 0;
 		idSkill3 = 0;

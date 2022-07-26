@@ -226,7 +226,7 @@ public class CandidatiController {
 				List<Livelli> livelli = new ArrayList<Livelli>();
 				
 				
-				if(dettagliRisorsa.getIdEsitoColloquio()!=0) {
+				if(dettagliRisorsa.getIdEsitoColloquio()!=11) {
 					esitiColloquio = esitiColloquioService.findAllException(esitiColloquioService.getEsitoColloquioNonSalvato(dettagliRisorsa.getIdEsitoColloquio()));
 					theModel.addAttribute("esitoColloquio", esitiColloquioService.getEsitoColloquioNonSalvato(dettagliRisorsa.getIdEsitoColloquio()));
 				}
@@ -235,7 +235,7 @@ public class CandidatiController {
 					theModel.addAttribute("esitoColloquio", "Selezionare...");
 				}
 					
-				if(dettagliRisorsa.getIdProfilo()!=0) {
+				if(dettagliRisorsa.getIdProfilo()!=17) {
 					profili = profiliService.findAllException(profiliService.getProfiloNonSalvato(dettagliRisorsa.getIdProfilo()));
 					theModel.addAttribute("profilo", profiliService.getProfiloNonSalvato(dettagliRisorsa.getIdProfilo()));
 				}
