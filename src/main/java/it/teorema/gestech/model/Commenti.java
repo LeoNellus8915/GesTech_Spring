@@ -24,7 +24,11 @@ public class Commenti
 	@Column(name = "data")
 	private LocalDate data;
 	
-	public Commenti() {}
+	public Commenti() {
+		id = 0;
+		idRisorsa = 0;
+		note = "";
+	}
 
 	public Commenti(int id, int idRisorsa, String note, LocalDate data) {
 		super();

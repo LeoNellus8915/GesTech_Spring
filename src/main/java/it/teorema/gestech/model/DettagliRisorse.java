@@ -1,5 +1,6 @@
 package it.teorema.gestech.model;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 import javax.persistence.Column;
@@ -46,7 +47,23 @@ public class DettagliRisorse
 	@Column(name = "id_seniority")
 	private Integer idSeniority;
 	
-	public DettagliRisorse() {}
+	public DettagliRisorse() {
+		id = 0;
+		idRisorsa = 0;
+		fileBase64 = "";
+		dataInserimento = LocalDateTime.now();;
+		idEsitoColloquio = 0;
+		idProfilo = 0;
+		idSkill1 = 0;
+		idSkill2 = 0;
+		idSkill3 = 0;
+		idSkill4 = 0;
+		idSkill5 = 0;
+		idLingua1 = 0;
+		idLingua2 = 0;
+		idLingua3 = 0;
+		idSeniority = 0;
+	}
 
 	public DettagliRisorse(Integer id, Integer idRisorsa, String fileBase64, LocalDateTime dataInserimento,
 			Integer idEsitoColloquio, Integer idProfilo, Integer idSkill1, Integer idSkill2, Integer idSkill3,

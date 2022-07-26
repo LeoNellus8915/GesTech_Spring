@@ -75,7 +75,7 @@
 							<div class="form-group col-4 m-0">
 								<label for="esitoColloquio" class="col-form-label s-12">ESITO COLLOQUIO</label> 
 								<select name="esitoColloquio" id="esitoColloquio" class="form-control r-0 light s-12 date-picker">
-									<option value="11">Selezionare...</option>
+									<option th:value="${dettagliRisorsa.idEsitoColloquio}" th:text="${esitoColloquio}"></option>
     								<option th:each="esitoColloquio : ${esitiColloquio}" th:value="${esitoColloquio.id}" th:text="${esitoColloquio.nome}"></option>
     							</select>
 							</div>
@@ -98,7 +98,7 @@
 							<div class="form-group col-4 m-0">
 								<label for="ruoloProfilo" class="col-form-label s-12">RUOLO</label>
 								<select name="profilo" id="profilo" class="form-control r-0 light s-12 date-picker">
-									<option value="Nessuno">Selezionare...</option>
+									<option th:value="${dettagliRisorsa.idProfilo}" th:text="${profilo}"></option>
     								<option th:each="profilo : ${profili}" th:value="${profilo.id}" th:text="${profilo.nome}"></option>
 								</select>
 							</div>
@@ -145,21 +145,21 @@
 							<div class="form-group col-4 m-0">
 								<label for="skill1" class="col-form-label s-12">SKILL1</label>
 								<select name="skill1" id="skill1" class="form-control r-0 light s-12 date-picker">
-									<option value="55">Selezionare...</option>
+									<option th:value="${dettagliRisorsa.idSkill1}" th:text="${skill1}"></option>
     								<option th:each="linguaggio : ${linguaggi}" th:value="${linguaggio.id}" th:text="${linguaggio.nome}"></option>
 								</select>
 							</div>
 							<div class="form-group col-4 m-0">
 								<label for="skill2" class="col-form-label s-12">SKILL2</label>
 								<select name="skill2" id="skill2" class="form-control r-0 light s-12 date-picker">
-									<option value="55">Selezionare...</option>
+									<option th:value="${dettagliRisorsa.idSkill2}" th:text="${skill2}"></option>
     								<option th:each="linguaggio : ${linguaggi}" th:value="${linguaggio.id}" th:text="${linguaggio.nome}"></option>
 								</select>
 							</div>
 							<div class="form-group col-4 m-0">
 								<label for="skill3" class="col-form-label s-12">SKILL3</label>
 								<select name="skill3" id="skill3" class="form-control r-0 light s-12 date-picker">
-									<option value="55">Selezionare...</option>
+									<option th:value="${dettagliRisorsa.idSkill3}" th:text="${skill3}"></option>
     								<option th:each="linguaggio : ${linguaggi}" th:value="${linguaggio.id}" th:text="${linguaggio.nome}"></option>
 								</select>
 							</div>
@@ -167,14 +167,14 @@
 							<div class="form-group col-4 m-0">
 								<label for="skill4" class="col-form-label s-12">SKILL4</label>
 								<select name="skill4" id="skill4" class="form-control r-0 light s-12 date-picker">
-									<option value="55">Selezionare...</option>
+									<option th:value="${dettagliRisorsa.idSkill4}" th:text="${skill4}"></option>
     								<option th:each="linguaggio : ${linguaggi}" th:value="${linguaggio.id}" th:text="${linguaggio.nome}"></option>
 								</select>
 							</div>
 							<div class="form-group col-4 m-0">
 								<label for="skill5" class="col-form-label s-12">SKILL5</label>
 								<select name="skill5" id="skill5" class="form-control r-0 light s-12 date-picker">
-									<option value="55">Selezionare...</option>
+									<option th:value="${dettagliRisorsa.idSkill5}" th:text="${skill5}"></option>
     								<option th:each="linguaggio : ${linguaggi}" th:value="${linguaggio.id}" th:text="${linguaggio.nome}"></option>
 								</select>
 							</div>
@@ -198,21 +198,21 @@
 							<div class="form-group col-4 m-0">
 								<label for="lingua1" class="col-form-label s-12">LINGUA 1</label> 
 									<select name="lingua1" id="lingua1" class="form-control r-0 light s-12 date-picker">
-										<option value="25">Selezionare...</option>
+										<option th:value="${dettagliRisorsa.idLingua1}" th:text="${lingua1}"></option>
     									<option th:each="lingua : ${lingue}" th:value="${lingua.id}" th:text="${lingua.nome}"></option>
     								</select>
 							</div>
 							<div class="form-group col-4 m-0">
 								<label for="lingua2" class="col-form-label s-12">LINGUA 2</label>
 								<select name="lingua2" id="lingua2" class="form-control r-0 light s-12 date-picker">
-									<option value="25">Selezionare...</option>
+									<option th:value="${dettagliRisorsa.idLingua2}" th:text="${lingua2}"></option>
    									<option th:each="lingua : ${lingue}" th:value="${lingua.id}" th:text="${lingua.nome}"></option>
    								</select>
 							</div>
 							<div class="form-group col-4 m-0">
 								<label for="lingua3" class="col-form-label s-12">LINGUA 3</label> 
 								<select name="lingua3" id="lingua3" class="form-control r-0 light s-12 date-picker">
-									<option value="25">Selezionare...</option>
+									<option th:value="${dettagliRisorsa.idLingua3}" th:text="${lingua3}"></option>
    									<option th:each="lingua : ${lingue}" th:value="${lingua.id}" th:text="${lingua.nome}"></option>
    								</select>
 							</div>
@@ -228,7 +228,7 @@
 						<div class="form-row">
 							<div class="form-group col-4 m-0">
 								<label for="competenzeTotali" class="col-form-label s-12">COMPETENZE
-									TOTALI</label> <input th:value="${risorsa.competenzePrncipale}" 
+									TOTALI</label> <input th:value="${risorsa.competenzeTotali}" 
 									id="competenzeTotali"
 									name="competenzeTotali"
 									placeholder="Insersci Competenze Totali"
@@ -243,7 +243,7 @@
 							<div class="form-group col-4 m-0">
 								<label for="seniority" class="col-form-label s-12">SENIORITY</label>
 								<select name="seniority" id="seniority" class="form-control r-0 light s-12 date-picker">
-									<option value="6">Selezionare...</option>
+									<option th:value="${dettagliRisorsa.idSeniority}" th:text="${seniority}"></option>
    									<option th:each="livello : ${livelli}" th:value="${livello.id}" th:text="${livello.nome}"></option>
    								</select>
 							</div>

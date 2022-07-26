@@ -19,6 +19,12 @@ public interface EsitiColloquioService extends JpaRepository <EsitiColloquio, In
 			+ "where e.id = d.idEsitoColloquio and d.idRisorsa = :idRisorsa")
 	abstract
 	String getEsitoColloquio(int idRisorsa);
+	
+	@Query("select nome "
+			+ "from EsitiColloquio "
+			+ "where id = :idRisorsa")
+	abstract
+	String getEsitoColloquioNonSalvato(int idRisorsa);
 
 	@Query("from EsitiColloquio "
 			+ "where nome != :esitoColloquio")

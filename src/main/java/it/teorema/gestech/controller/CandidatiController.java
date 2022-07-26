@@ -84,11 +84,25 @@ public class CandidatiController {
 		List<Lingue> lingue = lingueService.findAll();
 		List<Livelli> livelli = livelliService.findAll();
 
+		theModel.addAttribute("risorsa", risorsa);
+		theModel.addAttribute("dettagliRisorsa", dettagliRisorsa);
+		theModel.addAttribute("commenti", commenti);
 		theModel.addAttribute("livelli", livelli);
 		theModel.addAttribute("lingue", lingue);
 		theModel.addAttribute("linguaggi", linguaggi);
 		theModel.addAttribute("profili", profili);
 		theModel.addAttribute("esitiColloquio", esitiColloquio);
+		theModel.addAttribute("esitoColloquio", "Selezionare...");
+		theModel.addAttribute("profilo", "Selezionare...");
+		theModel.addAttribute("skill1", "Selezionare...");
+		theModel.addAttribute("skill2", "Selezionare...");
+		theModel.addAttribute("skill3", "Selezionare...");
+		theModel.addAttribute("skill4", "Selezionare...");
+		theModel.addAttribute("skill5", "Selezionare...");
+		theModel.addAttribute("lingua1", "Selezionare...");
+		theModel.addAttribute("lingua2", "Selezionare...");
+		theModel.addAttribute("lingua3", "Selezionare...");
+		theModel.addAttribute("seniority", "Selezionare...");
 		theModel.addAttribute("errore", "");
 		theModel.addAttribute("nomeCognome", localSession.getNomeCognome());
 		theModel.addAttribute("ruolo", localSession.getRuolo());
@@ -169,16 +183,40 @@ public class CandidatiController {
 				return "redirect:pagina-candidati";
 		}
 		else {
+			List<EsitiColloquio> esitiColloquio = esitiColloquioService.findAllException(esitiColloquioService.getEsitoColloquioNonSalvato(dettagliRisorsa.getIdEsitoColloquio()));
+			List<Profili> profili = profiliService.findAll();
+			List<Linguaggi> linguaggi = linguaggiService.findAll();
+			List<Lingue> lingue = lingueService.findAll();
+			List<Livelli> livelli = livelliService.findAll();
+			
+			theModel.addAttribute("dataInserimento", dettagliRisorseService.getDataInserimento(idRisorsa));
+			theModel.addAttribute("esitoColloquio", esitiColloquioService.getEsitoColloquioNonSalvato(dettagliRisorsa.getIdEsitoColloquio()));
+			theModel.addAttribute("profilo", profiliService.getProfilo(idRisorsa));
+			theModel.addAttribute("skill1", linguaggiService.getSkill1(idRisorsa));
+			theModel.addAttribute("skill2", linguaggiService.getSkill2(idRisorsa));
+			theModel.addAttribute("skill3", linguaggiService.getSkill3(idRisorsa));
+			theModel.addAttribute("skill4", linguaggiService.getSkill4(idRisorsa));
+			theModel.addAttribute("skill5", linguaggiService.getSkill5(idRisorsa));
+			theModel.addAttribute("lingua1", lingueService.getLingua1(idRisorsa));
+			theModel.addAttribute("lingua2", lingueService.getLingua2(idRisorsa));
+			theModel.addAttribute("lingua3", lingueService.getLingua3(idRisorsa));
+			theModel.addAttribute("seniority", livelliService.getSeniority(idRisorsa));
+			
 			theModel.addAttribute("risorsa", risorsa);
 			theModel.addAttribute("dettagliRisorsa", dettagliRisorsa);
 			theModel.addAttribute("commenti", commenti);
 			theModel.addAttribute("errore", "Candidato già presente");
+			theModel.addAttribute("livelli", livelli);
+			theModel.addAttribute("lingue", lingue);
+			theModel.addAttribute("linguaggi", linguaggi);
+			theModel.addAttribute("profili", profili);
+			theModel.addAttribute("esitiColloquio", esitiColloquio);
 			theModel.addAttribute("nomeCognome", localSession.getNomeCognome());
 			theModel.addAttribute("ruolo", localSession.getRuolo());
 			theModel.addAttribute("titlePage", "Nuovo Candidato");
 			theModel.addAttribute("view", "nuovoCandidato");
 			
-			return "nuovoCandidato";
+			return "default"+localSession.getRuolo();
 		}
 	}
 	
@@ -353,4 +391,3 @@ public class CandidatiController {
 		return "default"+localSession.getRuolo();
 	}
 }
-//aa

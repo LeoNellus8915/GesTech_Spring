@@ -47,6 +47,21 @@ public class Risorse
 	private String certificazioni;
 	
 	public Risorse() {
+		id = 0;
+		nomeCognome = "";
+		recapito = "";
+		email = "";
+		profiloLinkedin = "";
+		citta = "";
+		competenzaPrincipale = "";
+		dataColloquio = LocalDate.now();
+		annoColloquio = "";
+		fonteReperimento = "";
+		costoGiornaliero = 0.0;
+		possibilitaLavorativa = "";
+		skillCampoLibero = "";
+		competenzeTotali = "";
+		certificazioni = "";
 	}
 
 	public Risorse(int id, String nomeCognome, String recapito, String email, String profiloLinkedin, String citta,
