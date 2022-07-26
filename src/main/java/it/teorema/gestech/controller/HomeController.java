@@ -17,6 +17,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.google.gson.Gson;
+
 import it.teorema.gestech.model.Avvisi;
 import it.teorema.gestech.service.AuthService;
 import it.teorema.gestech.service.AvvisiService;
@@ -93,6 +95,7 @@ public class HomeController {
 	@RequestMapping("/home")
 	public String home(HttpServletRequest request, Model theModel) {
 		HttpSession session = request.getSession(true);
+		Gson gson = new Gson();
 		if (session.getAttribute("idSessione") == null)
 		{
 			theModel.addAttribute("titlePage", "Login");
@@ -113,16 +116,24 @@ public class HomeController {
 			
 			List<Avvisi> stampaAvvisi = new ArrayList<Avvisi>();
 			
-			if(localSession.getRuolo().equals("Admin"))
-				theModel.addAttribute("avvisi", avvisi);
+			if(localSession.getRuolo().equals("Admin")) {
+				for (Avvisi avviso : avvisi) {
+					String appoggio = avviso.getRuoli();
+					appoggio.substring(1);
+					appoggio=appoggio.replace("[","");
+					appoggio=appoggio.replace("]","");
+					appoggio=appoggio.replace(",", "");
+					avviso.setRuoli(appoggio);
+					System.out.println(appoggio);
+					theModel.addAttribute("avvisi", avvisi);
+				}
+			}
 			else 
 			{
-				for (Avvisi avvisi2 : avvisi) {
-					if(avvisi2.getRuoli().indexOf("Tutti") > 0)
-						stampaAvvisi.add(avvisi2);
-					else
-						if(avvisi2.getRuoli().indexOf(localSession.getRuolo()) > 0)
-							stampaAvvisi.add(avvisi2);
+				for (Avvisi avviso : avvisi) {	
+					if(avviso.getRuoli().indexOf("Tutti") > 0 || 
+							avviso.getRuoli().indexOf(localSession.getRuolo()) > 0) {
+					}
 				}
 				theModel.addAttribute("avvisi", stampaAvvisi);
 			}

@@ -1,12 +1,14 @@
 <div th:fragment="homeDipendente">
-	<script>
-		window.onload = function() {
-			stampaAvvisi();
-		}
-	</script>
 	<div class="page avviso">
 		<div class="page">
-			<div class="row" id="stampaAvvisi"></div>
+			<div class="row">
+				<div class="col-4 card_avvisi" th:each="avviso : ${avvisi}">
+					<span class="data_ora_avvisi" th:text="${avviso.data}"></span>
+				    <a href="cancella-avviso?idAvviso=${avviso.id}"><i class="icon icon-delete red-text s-18"></i></a> 
+					<p class="titolo_avvisi" th:text="${avviso.titolo}">
+					<p class="testo_avvisi" th:text="${avviso.note}">
+      			</div>
+			</div>	
 		</div>		
 		<input type="hidden" th:value="${avvisi}" id="avvisi">			
 	</div>		

@@ -1,9 +1,4 @@
 <div th:fragment="homeAdmin">
-	<script>
-		window.onload = function() {
-			stampaAvvisi();
-		}
-	</script>
 	<div class="page avviso">
 		<div class="page">
 			<form method="post" id="form" action="salva-avvisi">
@@ -27,9 +22,15 @@
 						<div class="btright"><input type="submit" onclick="controlloCheckbox()"></div>
 					</div>
 				</div>
-				<div class="row" id="stampaAvvisi"></div>	
-				<input type="hidden" th:value="${ruolo}" id="ruolo">	
-				<input type="hidden" th:value="${avvisi}" id="avvisi">
+				<div class="row">
+					<div class="col-4 card_avvisi" th:each="avviso : ${avvisi}">
+						<span class="data_ora_avvisi" th:text="${avviso.data}"></span>
+					    <a href="cancella-avviso?idAvviso=${avviso.id}"><i class="icon icon-delete red-text s-18"></i></a> 
+						<p class="titolo_avvisi" th:text="${avviso.titolo}">
+						<p class="testo_avvisi" th:text="${avviso.note}">
+						<p class="ruolo_avvisi" th:text="${avviso.ruoli}">
+       				</div>
+				</div>
 			</form>	
 		</div>						
 	</div>		
