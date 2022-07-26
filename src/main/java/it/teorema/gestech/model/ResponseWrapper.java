@@ -6,16 +6,16 @@ public class ResponseWrapper<T> implements Serializable {
 
     private static final long serialVersionUID = 3673698610730090932L;
 
-    private String codice;
+    private String code;
     private String descrizione;
     private T payload;
 
-	public String getCodice() {
-		return codice;
+	public String getCode() {
+		return code;
 	}
 
-	public void setCodice(String codice) {
-		this.codice = codice;
+	public void setCode(String codice) {
+		this.code = codice;
 	}
 
 	public String getDescrizione() {

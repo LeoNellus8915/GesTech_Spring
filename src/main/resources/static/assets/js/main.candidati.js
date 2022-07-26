@@ -137,19 +137,18 @@ function scarica()
 		contentType: "application/json; charset=utf-8",
 		dataType: "json",
 		success: function(dati){
-			for (var c = 0; c < dati.length; c++)
+			if (dati.code == 0)
 			{
-				$('<span/>',{
-					value: dati[c].at(0) + dati[c].at(1),
-				    class: 'data_nomecognome_commenti',
-				    text: dati[c].at(0) + "   " + dati[c].at(1),
-				}).appendTo('#commento');
-				$('<p/>',{
-					value: dati[c].at(2),
-				    class: 'testo_commenti',
-				    text: dati[c].at(2),
-				}).appendTo('#commento');
+				var link = document.createElement("a");
+				link.href = "data:application/pdf;base64," + dati.payload[0];
+				
+				link.download = "SomeName";
+				link.target = "blank";
+				
+				document.body.appendChild(link);
+				link.click();
+				document.body.removeChild(link);
 			}
 		}
 	})
-}
+ }

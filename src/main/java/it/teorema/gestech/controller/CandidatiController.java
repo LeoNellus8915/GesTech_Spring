@@ -564,11 +564,11 @@ public class CandidatiController {
 		{
 			theModel.addAttribute("titlePage", "Login");
 			theModel.addAttribute("msgCredenziali", "Inserisci le credenziali per accedere al sistema");
-			response.setCodice("e00404");
+			response.setCode("e00404");
 		}
 		else
 		{
-			response.setCodice("0");
+			response.setCode("0");
 			response.setDescrizione("file64 presi con successo");
 			response.setPayload(dettagliRisorseService.getFile64(idRisorsa));
 		}
