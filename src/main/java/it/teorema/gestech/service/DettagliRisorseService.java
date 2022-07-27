@@ -9,6 +9,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import it.teorema.gestech.model.DettagliRisorse;
+import it.teorema.gestech.model.Risorse;
 
 public interface DettagliRisorseService extends JpaRepository <DettagliRisorse, Integer>
 {
@@ -18,6 +19,11 @@ public interface DettagliRisorseService extends JpaRepository <DettagliRisorse, 
 			+ "and not exists (from RuoliRisorse where idRisorsa = r.id)")
 	abstract
 	List findAll();
+	
+	@Query("from DettagliRisorse "
+			+ "where idRisorsa = :idRisorsa")
+	abstract
+	DettagliRisorse findById(int idRisorsa);
 	
 	@Modifying
 	@Query("delete from DettagliRisorse where idRisorsa = :idRisorsa")

@@ -6,18 +6,18 @@
 				<div class="form-row">
 					<div class="col-md-12">
 						<div class="form-row">
-							<input type="hidden" name="idRisorsa" th:value="${risorse.id}">
+							<input type="hidden" name="idRisorsa" th:value="1">
 							<div class="form-group col-6 m-0">
 								<label for="nomeCognome" class="col-form-label s-12">NOME
 									E COGNOME</label> <input id="nomeCognome" name="nomeCognome"
-									th:value="${risorse.nomeCognome}"
+									th:value="${risorsa.nomeCognome}"
 									placeholder="Inserisci Nome e Cognome"
 									class="form-control r-0 light s-12 " type="text">
 							</div>
 							<div class="form-group col-6 m-0">
 								<label for="recapito" class="col-form-label s-12">RECAPITO</label>
 								<input id="recapito" name="recapito"
-									th:value="${risorse.recapito}"
+									th:value="${risorsa.recapito}"
 									placeholder="Inserisci Recapito"
 									class="form-control r-0 light s-12 date-picker" type="text">
 							</div>
@@ -25,13 +25,13 @@
 						<div class="form-row">
 							<div class="form-group col-6 m-0">
 								<label for="email" class="col-form-label s-12">EMAIL</label>
-								<input id="email" name="email" th:value="${risorse.email}"
+								<input id="email" name="email" th:value="${risorsa.email}"
 									class="form-control r-0 light s-12 datePicker"
 									type="text" placeholder="Inserisci Email">
 							</div>
 							<div class="form-group col-6 m-0">
 								<label for="profiloLinkedin" class="col-form-label s-12">PROFILO LINKEDIN</label>
-								<input id="profiloLinkedin" name="profiloLinkedin" th:value="${risorse.profiloLinkedin}"
+								<input id="profiloLinkedin" name="profiloLinkedin" th:value="${risorsa.profiloLinkedin}"
 									class="form-control r-0 light s-12 datePicker"
 									type="text" placeholder="Linkedin URL">
 							</div>
@@ -39,7 +39,7 @@
 								<label for="citta"
 									class="col-form-label s-12">CITT&Agrave;</label> <input
 									id="citta" name="citta"
-									th:value="${risorse.citta}"
+									th:value="${risorsa.citta}"
 									class="form-control r-0 light s-12 datePicker"
 									type="text" placeholder="Inserisci Citt&agrave;">
 							</div>
@@ -60,21 +60,21 @@
 								<label for="dataColloquio" class="col-form-label s-12"><i
 									class="icon-calendar mr-2"></i>DATA COLLOQUIO</label> <input
 									id="dataColloquio" name="dataColloquio"
-									th:value="${risorse.dataColloquio}"
+									th:value="${risorsa.dataColloquio}"
 									class="form-control r-0 light s-12 datePicker"
 									type="date" placeholder="Inserisci Data Colloquio">
 							</div>
 							<div class="form-group col-4 m-0">
 								<label for="annoColloquio" class="col-form-label s-12">ANNO
 									COLLOQUIO</label> <input id="annoColloquio"
-									name="annoColloquio" th:value="${risorse.annoColloquio}"
+									name="annoColloquio" th:value="${risorsa.annoColloquio}"
 									class="form-control r-0 light s-12 date-picker"
 									type="text" placeholder="Inserisci Anno Colloquio">
 							</div>
 							<div class="form-group col-4 m-0">
 								<label for="esitoColloquio" class="col-form-label s-12">ESITO COLLOQUIO</label> 
 								<select name="esitoColloquio" id="esitoColloquio" class="form-control r-0 light s-12 date-picker">
-									<option th:value="${idEsitoColloquio}" th:text="${esitoColloquio}"></option>
+									<option th:value="${dettagliRisorsa.idEsitoColloquio}" th:text="${esitoColloquio}"></option>
     								<option th:each="esitoColloquio : ${esitiColloquio}" th:value="${esitoColloquio.id}" th:text="${esitoColloquio.nome}"></option>
     							</select>
 							</div>
@@ -91,20 +91,20 @@
 								<label for="fonteReperimento" class="col-form-label s-12">FONTE
 									REPERIMENTO</label> <input id="fonteReperimento"
 									name="fonteReperimento"
-									th:value="${risorse.fonteReperimento}"
+									th:value="${risorsa.fonteReperimento}"
 									placeholder="Inserisci Fonte Reperimento"
 									class="form-control r-0 light s-12 date-picker" type="text">
 							</div>
 							<div class="form-group col-4 m-0">
 								<label for="ruoloRisorsa" class="col-form-label s-12">RUOLO</label>
 								<select name="ruoloRisorsa" id="ruoloRisorsa" class="form-control r-0 light s-12 date-picker">
-									<option th:value="${idProfilo}" th:text="${profilo}"></option>
+									<option th:value="${dettagliRisorsa.idProfilo}" th:text="${profilo}"></option>
     								<option th:each="profilo : ${profili}" th:value="${profilo.id}" th:text="${profilo.nome}"></option>
 								</select>
 							</div>
 							<div class="form-group col-4 m-0">
 								<label for="competenzaPrincipale" class="col-form-label s-12">COMPETENZA PRINCIPALE</label>
-								<input id="competenzaPrincipale" name="competenzaPrincipale" th:value="${risorse.competenzaPrincipale}"
+								<input id="competenzaPrincipale" name="competenzaPrincipale" th:value="${risorsa.competenzaPrincipale}"
 									class="form-control r-0 light s-12 date-picker" type="text"
 									placeholder="Insersci Competenza Principale">
 							</div>
@@ -121,7 +121,7 @@
 								<label for="costoGiornaliero" class="col-form-label s-12">COSTO
 									GIORNALIERO</label> <input id="costoGiornaliero"
 									name="costoGiornaliero" placeholder="Insersci Costo Giornaliero"
-									th:value="${risorse.costoGiornaliero}"
+									th:value="${risorsa.costoGiornaliero}"
 									class="form-control r-0 light s-12 date-picker" type="text">
 							</div>
 							<div class="form-group col-6 m-0">
@@ -130,7 +130,7 @@
 								<input id="possibilitaLavorativa"
 									name="possibilitaLavorativa"
 									placeholder="Insersci Possibilit&Agrave; Lavorativa"
-									th:value="${risorse.possibilitaLavorativa}"
+									th:value="${risorsa.possibilitaLavorativa}"
 									class="form-control r-0 light s-12 date-picker" type="text">
 							</div>
 						</div>
@@ -146,45 +146,45 @@
 							<div class="form-group col-4 m-0">
 								<label for="skill1" class="col-form-label s-12">SKILL1</label>
 								<select name="skill1" id="skill1" class="form-control r-0 light s-12 date-picker">
-									<option th:value="${idLinguaggio1}" th:text="${skill1}"></option>
-    								<option th:each="skill1 : ${linguaggi1}" th:value="${skill1.id}" th:text="${skill1.nome}"></option>
+									<option th:value="${dettagliRisorsa.idSkill1}" th:text="${skill1}"></option>
+    								<option th:each="linguaggio : ${linguaggi1}" th:value="${linguaggio.id}" th:text="${linguaggio.nome}"></option>
 								</select>
 							</div>
 							<div class="form-group col-4 m-0">
 								<label for="skill2" class="col-form-label s-12">SKILL2</label>
 								<select name="skill2" id="skill2" class="form-control r-0 light s-12 date-picker">
-									<option th:value="${idLinguaggio2}" th:text="${skill2}"></option>
-    								<option th:each="skill2 : ${linguaggi2}" th:value="${skill2.id}" th:text="${skill2.nome}"></option>
+									<option th:value="${dettagliRisorsa.idSkill2}" th:text="${skill2}"></option>
+    								<option th:each="linguaggio : ${linguaggi2}" th:value="${linguaggio.id}" th:text="${linguaggio.nome}"></option>
 								</select>
 							</div>
 							<div class="form-group col-4 m-0">
 								<label for="skill3" class="col-form-label s-12">SKILL3</label>
 								<select name="skill3" id="skill3" class="form-control r-0 light s-12 date-picker">
-									<option th:value="${idLinguaggio3}" th:text="${skill3}"></option>
-    								<option th:each="skill3 : ${linguaggi3}" th:value="${skill3.id}" th:text="${skill3.nome}"></option>
+									<option th:value="${dettagliRisorsa.idSkill3}" th:text="${skill3}"></option>
+    								<option th:each="linguaggio : ${linguaggi3}" th:value="${linguaggio.id}" th:text="${linguaggio.nome}"></option>
 								</select>
 							</div>
 
 							<div class="form-group col-4 m-0">
 								<label for="skill4" class="col-form-label s-12">SKILL4</label>
 								<select name="skill4" id="skill4" class="form-control r-0 light s-12 date-picker">
-									<option th:value="${idLinguaggio4}" th:text="${skill4}"></option>
-    								<option th:each="skill4 : ${linguaggi4}" th:value="${skill4.id}" th:text="${skill4.nome}"></option>
+									<option th:value="${dettagliRisorsa.idSkill4}" th:text="${skill4}"></option>
+    								<option th:each="linguaggio : ${linguaggi4}" th:value="${linguaggio.id}" th:text="${linguaggio.nome}"></option>
 								</select>
 							</div>
 							<div class="form-group col-4 m-0">
 								<label for="skill5" class="col-form-label s-12">SKILL5</label>
 								<select name="skill5" id="skill5" class="form-control r-0 light s-12 date-picker">
-									<option th:value="${idLinguaggio5}" th:text="${skill5}"></option>
-    								<option th:each="skill5 : ${linguaggi5}" th:value="${skill5.id}" th:text="${skill5.nome}"></option>
-								</select>
+									<option th:value="${dettagliRisorsa.idSkill5}" th:text="${skill5}"></option>
+    								<option th:each="linguaggio : ${linguaggi5}" th:value="${linguaggio.id}" th:text="${linguaggio.nome}"></option>
+    							</select>
 							</div>
 							<div class="form-group col-4 m-0">
 								<label for="skillCampoLibero" class="col-form-label s-12">SKILL
 									(campo libero)</label> <input id="skillCampoLibero"
 									name="skillCampoLibero"
 									placeholder="Insersci Skill Campo Libero"
-									th:value="${risorse.skillCampoLibero}"
+									th:value="${risorsa.skillCampoLibero}"
 									class="form-control r-0 light s-12 date-picker" type="text">
 							</div>
 						</div>
@@ -200,22 +200,22 @@
 							<div class="form-group col-4 m-0">
 								<label for="lingua1" class="col-form-label s-12">LINGUA 1</label> 
 									<select name="lingua1" id="lingua1" class="form-control r-0 light s-12 date-picker">
-										<option th:value="${idLingua1}" th:text="${lingua1}"></option>
-    									<option th:each="lingua1 : ${lingue1}" th:value="${lingua1.id}" th:text="${lingua1.nome}"></option>
+										<option th:value="${dettagliRisorsa.idLingua1}" th:text="${lingua1}"></option>
+    									<option th:each="lingua : ${lingue1}" th:value="${lingua.id}" th:text="${lingua.nome}"></option>
     								</select>
 							</div>
 							<div class="form-group col-4 m-0">
 								<label for="lingua2" class="col-form-label s-12">LINGUA 2</label>
 								<select name="lingua2" id="lingua2" class="form-control r-0 light s-12 date-picker">
-									<option th:value="${idLingua2}" th:text="${lingua2}"></option>
-    								<option th:each="lingua2 : ${lingue2}" th:value="${lingua2.id}" th:text="${lingua2.nome}"></option>
+									<option th:value="${dettagliRisorsa.idLingua2}" th:text="${lingua2}"></option>
+   									<option th:each="lingua : ${lingue2}" th:value="${lingua.id}" th:text="${lingua.nome}"></option>
    								</select>
 							</div>
 							<div class="form-group col-4 m-0">
 								<label for="lingua3" class="col-form-label s-12">LINGUA 3</label> 
 								<select name="lingua3" id="lingua3" class="form-control r-0 light s-12 date-picker">
-									<option th:value="${idLingua3}" th:text="${lingua3}"></option>
-    								<option th:each="lingua3 : ${lingue3}" th:value="${lingua3.id}" th:text="${lingua3.nome}"></option>
+									<option th:value="${dettagliRisorsa.idLingua3}" th:text="${lingua3}"></option>
+   									<option th:each="lingua : ${lingue3}" th:value="${lingua.id}" th:text="${lingua.nome}"></option>
    								</select>
 							</div>
 						</div>
@@ -232,21 +232,21 @@
 								<label for="competenzeTotali" class="col-form-label s-12">COMPETENZE
 									TOTALI</label> <input id="competenzeTotali"
 									name="competenzeTotali"
-									th:value="${risorse.competenzeTotali}"
+									th:value="${risorsa.competenzeTotali}"
 									placeholder="Insersci Competenze Totali"
 									class="form-control r-0 light s-12 date-picker" type="text">
 							</div>
 							<div class="form-group col-4 m-0">
 								<label for="certificazioni" class="col-form-label s-12">CERTIFICAZIONI</label>
 								<input id="certificazioni" name="certificazioni"
-									th:value="${risorse.certificazioni}"
+									th:value="${risorsa.certificazioni}"
 									placeholder="Insersci Certificazioni"
 									class="form-control r-0 light s-12 date-picker" type="text">
 							</div>
 							<div class="form-group col-4 m-0">
 								<label for="seniority" class="col-form-label s-12">SENIORITY</label>
 								<select name="seniority" id="seniority" class="form-control r-0 light s-12 date-picker">
-									<option th:value="${idLivello}" th:text="${livello}"></option>
+									<option th:value="${dettagliRisorsa.idSeniority}" th:text="${seniority}"></option>
    									<option th:each="livello : ${livelli}" th:value="${livello.id}" th:text="${livello.nome}"></option>
    								</select>
 							</div>
