@@ -402,7 +402,7 @@ public class CandidatiController {
 		}
 	}
 	
-	@RequestMapping(value = "/modifca-candidato/{idRisorsa}")
+	@RequestMapping(value = "/modifica-candidato/{idRisorsa}")
 	public String modifcaCandidato(@PathVariable int idRisorsa, HttpServletRequest request, Model theModel)
 	{
 		HttpSession session = request.getSession(true);
