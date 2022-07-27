@@ -34,6 +34,12 @@ public interface RisorseService extends JpaRepository <Risorse, Integer>
 	abstract 
 	String findByEmail(String email);
 	
+	@Query("select email "
+			+ "from Risorse "
+			+ "where id = :idRisorsa")
+	abstract 
+	String findEmailById(int idRisorsa);
+	
 	@Modifying
 	@Query("delete from Risorse where id = :idRisorsa")
 	abstract

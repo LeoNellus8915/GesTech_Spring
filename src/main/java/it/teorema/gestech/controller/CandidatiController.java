@@ -598,12 +598,15 @@ public class CandidatiController {
 			String certificazioni = request.getParameter("certificazioni");
 			int seniority = Integer.parseInt(request.getParameter("seniority"));
 			
-			if(!risorseService.findByEmail(email).equals(null)) 
+
+			theModel.addAttribute("errore", "Email inserita già presente, si prega di inserirne una nuova");
+			if(risorseService.findByEmail(email)==null  || risorseService.findByEmail(email).equals(risorseService.findEmailById(idRisorsa))) 
 			{
 				risorseService.updateCandidato(idRisorsa, nomeCognome, recapito, email, profiloLinkedin, citta, dataColloquio, annoColloquio, fonteReperimento,
 					competenzaPrincipale, costoGiornaliero, possibilitaLavorativa, skillCampoLibero, competenzeTotali, certificazioni);
 			
 				dettagliRisorseService.updateCandidato(idRisorsa, esitoColloquio, profilo, skill1, skill2, skill3, skill4, skill5, lingua1, lingua2, lingua3, seniority);
+				theModel.addAttribute("errore", "");
 			}
 			Risorse risorsa = risorseService.findById(idRisorsa);
 			theModel.addAttribute("risorsa", risorsa);
@@ -727,7 +730,6 @@ public class CandidatiController {
 			theModel.addAttribute("linguaggi5", linguaggi5);
 			theModel.addAttribute("profili", profili);
 			theModel.addAttribute("esitiColloquio", esitiColloquio);
-			theModel.addAttribute("errore", "Email inserita già presente, si prega di inserirne una nuova");
 			
 			theModel.addAttribute("nomeCognome", localSession.getNomeCognome());
 			theModel.addAttribute("ruolo", localSession.getRuolo());
