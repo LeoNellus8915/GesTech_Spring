@@ -67,7 +67,7 @@
 					</div>
 				</div>
 				<ul class="sidebar-menu">
-				<li class="treeview"><a href="home"> <i
+				<li class="treeview"><a href="/home"> <i
 							class="icon-home light-blue-text s-18">
 						</i> <span>Home/Avvisi</span>
 					</a></li>
@@ -130,7 +130,7 @@
 			<div class="container-fluid relative animatedParent animateOnce">
 				<div class="tab-content pb-3" id="v-pills-tabContent">
 
-					<div th:replace="@{'/subPages/' + ${view}} :: ${view}"> </div>
+					<div th:replace="@{'/subPages/' + ${path} + ${view}} :: ${view}"> </div>
 				</div>
 			</div>
 		</div>

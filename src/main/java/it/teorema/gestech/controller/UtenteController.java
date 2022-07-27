@@ -59,6 +59,7 @@ public class UtenteController {
 			theModel.addAttribute("nomeCognome", localSession.getNomeCognome());
 			theModel.addAttribute("ruolo", localSession.getRuolo());
 			theModel.addAttribute("titlePage", "Utente");
+			theModel.addAttribute("path", "utente/");
 			theModel.addAttribute("view", "nuovoUtente");
 	
 			return "default"+localSession.getRuolo();

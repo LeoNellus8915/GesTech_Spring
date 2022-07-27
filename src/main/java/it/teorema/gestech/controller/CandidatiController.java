@@ -76,7 +76,8 @@ public class CandidatiController {
 			theModel.addAttribute("nomeCognome", localSession.getNomeCognome());
 			theModel.addAttribute("ruolo", localSession.getRuolo());
 			theModel.addAttribute("titlePage", "Candidati");
-			theModel.addAttribute("view", "candidati/paginaCandidati");
+			theModel.addAttribute("path", "candidati/");
+			theModel.addAttribute("view", "paginaCandidati");
 			
 			return "default"+localSession.getRuolo();
 		}
@@ -132,9 +133,11 @@ public class CandidatiController {
 			theModel.addAttribute("lingua3", "Selezionare...");
 			theModel.addAttribute("seniority", "Selezionare...");
 			theModel.addAttribute("errore", "");
+			
 			theModel.addAttribute("nomeCognome", localSession.getNomeCognome());
 			theModel.addAttribute("ruolo", localSession.getRuolo());
 			theModel.addAttribute("titlePage", "Nuovo Candidato");
+			theModel.addAttribute("path", "candidati/");
 			theModel.addAttribute("view", "nuovoCandidato");
 			
 			return "default"+localSession.getRuolo();
@@ -341,9 +344,11 @@ public class CandidatiController {
 				theModel.addAttribute("linguaggi5", linguaggi5);
 				theModel.addAttribute("profili", profili);
 				theModel.addAttribute("esitiColloquio", esitiColloquio);
+				
 				theModel.addAttribute("nomeCognome", localSession.getNomeCognome());
 				theModel.addAttribute("ruolo", localSession.getRuolo());
 				theModel.addAttribute("titlePage", "Nuovo Candidato");
+				theModel.addAttribute("path", "candidati/");
 				theModel.addAttribute("view", "nuovoCandidato");
 				
 				return "default"+localSession.getRuolo();
@@ -396,6 +401,7 @@ public class CandidatiController {
 			theModel.addAttribute("nomeCognome", localSession.getNomeCognome());
 			theModel.addAttribute("ruolo", localSession.getRuolo());
 			theModel.addAttribute("titlePage", "Visualizza Candidato");
+			theModel.addAttribute("path", "candidati/");
 			theModel.addAttribute("view", "visualizzaCandidato");
 			
 			return "default"+localSession.getRuolo();
@@ -539,9 +545,11 @@ public class CandidatiController {
 			theModel.addAttribute("profili", profili);
 			theModel.addAttribute("esitiColloquio", esitiColloquio);
 			theModel.addAttribute("errore", "");
+			
 			theModel.addAttribute("nomeCognome", localSession.getNomeCognome());
 			theModel.addAttribute("ruolo", localSession.getRuolo());
 			theModel.addAttribute("titlePage", "Modifica Candidato");
+			theModel.addAttribute("path", "candidati/");
 			theModel.addAttribute("view", "modificaCandidato");
 			
 			return "default"+localSession.getRuolo();
@@ -724,6 +732,7 @@ public class CandidatiController {
 			theModel.addAttribute("nomeCognome", localSession.getNomeCognome());
 			theModel.addAttribute("ruolo", localSession.getRuolo());
 			theModel.addAttribute("titlePage", "Modifica Candidato");
+			theModel.addAttribute("path", "candidati/");
 			theModel.addAttribute("view", "modificaCandidato");
 			
 			return "default"+localSession.getRuolo();		
@@ -751,6 +760,7 @@ public class CandidatiController {
 			theModel.addAttribute("nomeCognome", localSession.getNomeCognome());
 			theModel.addAttribute("ruolo", localSession.getRuolo());
 			theModel.addAttribute("titlePage", "Candidati");
+			theModel.addAttribute("path", "candidati/");
 			theModel.addAttribute("view", "paginaCandidati");
 			return "default"+localSession.getRuolo();
 		}

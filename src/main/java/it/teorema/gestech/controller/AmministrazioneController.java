@@ -29,6 +29,7 @@ public class AmministrazioneController {
 			theModel.addAttribute("nomeCognome", localSession.getNomeCognome());
 			theModel.addAttribute("ruolo", localSession.getRuolo());
 			theModel.addAttribute("titlePage", "Buste Paga");
+			theModel.addAttribute("path", "amministrazione/");
 			theModel.addAttribute("view", "paginaBustePaga");
 			
 			return "default"+localSession.getRuolo();
@@ -52,6 +53,7 @@ public class AmministrazioneController {
 			theModel.addAttribute("nomeCognome", localSession.getNomeCognome());
 			theModel.addAttribute("ruolo", localSession.getRuolo());
 			theModel.addAttribute("titlePage", "Certificazione Unica");
+			theModel.addAttribute("path", "amministrazione/");
 			theModel.addAttribute("view", "paginaCertificazioneUnica");
 			
 			return "default"+localSession.getRuolo();

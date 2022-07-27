@@ -58,6 +58,7 @@ public class HomeController {
 			theModel.addAttribute("nomeCognome", localSession.getNomeCognome());
 			theModel.addAttribute("ruolo", localSession.getRuolo());
 			theModel.addAttribute("titlePage", "Password");
+			theModel.addAttribute("path", "utente/");
 			theModel.addAttribute("view", "cambiaPassword");
 			
 			return "default"+localSession.getRuolo();
@@ -83,6 +84,7 @@ public class HomeController {
 			theModel.addAttribute("nomeCognome", localSession.getNomeCognome());
 			theModel.addAttribute("ruolo", localSession.getRuolo());
 			theModel.addAttribute("titlePage", "Candidati");
+			theModel.addAttribute("path", "candidati/");
 			theModel.addAttribute("view", "paginaCandidati");
 			
 			return "default"+localSession.getRuolo();
@@ -105,6 +107,7 @@ public class HomeController {
 			theModel.addAttribute("nomeCognome", localSession.getNomeCognome());
 			theModel.addAttribute("ruolo", localSession.getRuolo());
 			theModel.addAttribute("titlePage", "HOME");
+			theModel.addAttribute("path", "home/");
 			theModel.addAttribute("view", "home"+localSession.getRuolo());
 			
 			List<Avvisi> avvisi = new ArrayList<Avvisi>();
@@ -172,6 +175,7 @@ public class HomeController {
 			theModel.addAttribute("nomeCognome", localSession.getNomeCognome());
 			theModel.addAttribute("ruolo", localSession.getRuolo());
 			theModel.addAttribute("titlePage", "HOME");
+			theModel.addAttribute("path", "home/");
 			theModel.addAttribute("view", "home"+localSession.getRuolo());
 			
 			return "redirect:/home";
