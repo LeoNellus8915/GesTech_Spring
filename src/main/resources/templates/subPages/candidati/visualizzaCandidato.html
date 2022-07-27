@@ -17,8 +17,8 @@
                                     <input type="hidden" id="id" th:value="${id}">
 									<a onclick="scarica()" class="btn btn-success  mt-3 martopsu">Scarica CV</a> 
 									<a onclick="genera_cv()" class="btn btn-success  mt-3 martopsu">Genera CV</a> 
-									<a th:href="@{'modifica-candidato?idRisorsa=' + ${risorse.id}}" class="btn btn-success giallo mt-3">Modifica</a> 
-									<a th:href="@{'elimina-candidato?idRisorsa=' + ${risorse.id}}" class="btn btn-success rosso mt-3">Elimina</a>
+									<a th:href="@{'/modifica-candidato/' + ${risorse.id}}" class="btn btn-success giallo mt-3">Modifica</a> 
+									<a th:href="@{'/elimina-candidato/' + ${risorse.id}}" class="btn btn-success rosso mt-3">Elimina</a>
 
 									<div class="mt-5">
                                     <ul class="social social list-inline">

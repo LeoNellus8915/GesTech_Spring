@@ -114,14 +114,14 @@ public class UtenteController {
 				
 				dettagliRisorsaService.save(dettagliRisorsa);
 				
-				return "redirect:pagina-candidati";
+				return "redirect:/pagina-candidati";
 			}
 			else {
 				
 				//da fare stampa in nuovoUtente
 				
 				theModel.addAttribute("controllo", "Utente già presente");
-				return "redirect:nuovo-utente";
+				return "redirect:/nuovo-utente";
 			}
 		}
 	}

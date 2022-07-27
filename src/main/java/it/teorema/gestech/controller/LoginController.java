@@ -83,7 +83,7 @@ public class LoginController {
 			HttpSession session = request.getSession(true);
 			session.setAttribute("localSession", localSession);
 			session.setAttribute("idSessione", 1);
-			return "redirect:home";
+			return "redirect:/home";
 		}
 		else
 		{

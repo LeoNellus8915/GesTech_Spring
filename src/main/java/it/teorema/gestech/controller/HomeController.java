@@ -39,7 +39,7 @@ public class HomeController {
 			return "index";
 		}
 		else
-			return "redirect:home";
+			return "redirect:/home";
 	}
 	
 	@RequestMapping("/modifica-password")

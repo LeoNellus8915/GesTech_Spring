@@ -76,7 +76,7 @@ public class CandidatiController {
 			theModel.addAttribute("nomeCognome", localSession.getNomeCognome());
 			theModel.addAttribute("ruolo", localSession.getRuolo());
 			theModel.addAttribute("titlePage", "Candidati");
-			theModel.addAttribute("view", "paginaCandidati");
+			theModel.addAttribute("view", "candidati/paginaCandidati");
 			
 			return "default"+localSession.getRuolo();
 		}
@@ -216,7 +216,7 @@ public class CandidatiController {
 				if(!commenti.getNote().equals(null))
 					commentiService.save(commenti);
 				
-				return "redirect:pagina-candidati";
+				return "redirect:/pagina-candidati";
 			}
 			else {
 				List<EsitiColloquio> esitiColloquio = new ArrayList<EsitiColloquio>();
@@ -360,7 +360,7 @@ public class CandidatiController {
 		return commenti;
 	}
 	
-	@RequestMapping(value = "/visualizza-candidato/{idRisorsa}")
+	@RequestMapping("visualizza-candidato/{idRisorsa}")
 	public String visualizzaCandidato(@PathVariable int idRisorsa, HttpServletRequest request, Model theModel)
 	{
 		HttpSession session = request.getSession(true);
@@ -402,7 +402,7 @@ public class CandidatiController {
 		}
 	}
 	
-	@RequestMapping(value = "/modifica-candidato/{idRisorsa}")
+	@RequestMapping("modifica-candidato/{idRisorsa}")
 	public String modifcaCandidato(@PathVariable int idRisorsa, HttpServletRequest request, Model theModel)
 	{
 		HttpSession session = request.getSession(true);
@@ -730,9 +730,9 @@ public class CandidatiController {
 		}
 	}
 	
-	@RequestMapping("/elimina-candidato")
+	@RequestMapping("/elimina-candidato/{idRisorsa}")
 	@Transactional
-	public String eliminaCandidato(@RequestParam(value="idRisorsa") int idRisorsa, HttpServletRequest request, Model theModel)
+	public String eliminaCandidato(@PathVariable int idRisorsa, HttpServletRequest request, Model theModel)
 	{
 		HttpSession session = request.getSession(true);
 		if (session.getAttribute("idSessione") == null)
