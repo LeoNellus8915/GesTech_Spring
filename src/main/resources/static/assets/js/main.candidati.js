@@ -1,6 +1,8 @@
-$(document).ready( function () {  
-    $('#tabellaRicerca').DataTable();  
-} )  
+$(document).ready(function () {
+    $('#tabellaCandidati').DataTable({
+        stateSave: true,
+    });
+});
 
 /*function tutteLeRisorse()
 {
