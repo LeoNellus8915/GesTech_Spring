@@ -25,7 +25,7 @@
 				<div class="row">
 					<div class="col-4 card_avvisi" th:each="avviso : ${avvisi}">
 						<span class="data_ora_avvisi" th:text="${avviso.data}"></span>
-					    <a href="cancella-avviso?idAvviso=${avviso.id}"><i class="icon icon-delete red-text s-18"></i></a> 
+					    <a th:href="@{'/cancella-avviso/' + ${avviso.id}}"><i class="icon icon-delete red-text s-18"></i></a> 
 						<p class="titolo_avvisi" th:text="${avviso.titolo}">
 						<p class="testo_avvisi" th:text="${avviso.note}">
 						<p class="ruolo_avvisi" th:text="${avviso.ruoli}">

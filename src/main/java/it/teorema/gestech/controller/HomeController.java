@@ -13,11 +13,8 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
-
-
 
 import it.teorema.gestech.model.Avvisi;
 import it.teorema.gestech.service.AuthService;
@@ -177,13 +174,13 @@ public class HomeController {
 			theModel.addAttribute("titlePage", "HOME");
 			theModel.addAttribute("view", "home"+localSession.getRuolo());
 			
-			return "default"+localSession.getRuolo();
+			return "redirect:/home";
 		}
 	}
 	
-	@RequestMapping("/cancella-avviso")
+	@RequestMapping(value = "/cancella-avviso/{idAvviso}")
 	@Transactional
-	public String cancellaAvviso(@RequestParam(value="idAvviso") int idAvviso, HttpServletRequest request, Model theModel)
+	public String cancellaAvviso(@PathVariable int idAvviso, HttpServletRequest request, Model theModel)
 	{
 		HttpSession session = request.getSession(true);
 		if (session.getAttribute("idSessione") == null)
@@ -194,16 +191,8 @@ public class HomeController {
 		}
 		else
 		{
-			LocalSession localSession = (LocalSession) session.getAttribute("localSession");
-			
-			avvisiService.cancellaAvviso(idAvviso);	
-			
-			theModel.addAttribute("nomeCognome", localSession.getNomeCognome());
-			theModel.addAttribute("ruolo", localSession.getRuolo());
-			theModel.addAttribute("titlePage", "HOME");
-			theModel.addAttribute("view", "home"+localSession.getRuolo());
-			
-			return "default"+localSession.getRuolo();
+			avvisiService.cancellaAvviso(idAvviso);
+			return "redirect:/home";
 		}	
 	}
 }
