@@ -27,6 +27,9 @@ function tutteLeRisorse()
         	.appendTo('#tabellaRicerca thead');
 			$('#tabellaRicerca').DataTable({				
 				data: arrayRow,
+       			buttons: [
+           		 'print'
+       					 ],
 				createdRow: function(row, dati) 				
 				{
 					console.log(dati);

@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.google.gson.Gson;
+
 
 import it.teorema.gestech.model.Avvisi;
 import it.teorema.gestech.service.AuthService;
@@ -95,7 +95,6 @@ public class HomeController {
 	@RequestMapping("/home")
 	public String home(HttpServletRequest request, Model theModel) {
 		HttpSession session = request.getSession(true);
-		Gson gson = new Gson();
 		if (session.getAttribute("idSessione") == null)
 		{
 			theModel.addAttribute("titlePage", "Login");

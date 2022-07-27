@@ -40,3 +40,14 @@ a.btn-fab.btn-fab-md.fab-right.fab-right-bottom-fixed.shadow.btn-primary.chiudir
     color: #fff;
     margin-left: 10px;
 }
+
+p.ruolo_avvisi {
+    background: #f1f1f1;
+    margin-right: 10px;
+    padding: 5px;
+    border-radius: 5px;
+    color: #18448f;
+    text-align: center;
+    font-weight: bold;
+}
+}
