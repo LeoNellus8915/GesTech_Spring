@@ -2,11 +2,12 @@
 	<form method="post" action="modifica-campi-candidato">
 		<div class="card no-b  no-r">
 			<div class="card-body">
+			<span th:text="${errore}"></span>
 				<h5 class="card-title">Anagrafica</h5>
 				<div class="form-row">
 					<div class="col-md-12">
 						<div class="form-row">
-							<input type="hidden" name="idRisorsa" th:value="1">
+							<input type="hidden" name="idRisorsa" th:value="${risorsa.id}">
 							<div class="form-group col-6 m-0">
 								<label for="nomeCognome" class="col-form-label s-12">NOME
 									E COGNOME</label> <input id="nomeCognome" name="nomeCognome"

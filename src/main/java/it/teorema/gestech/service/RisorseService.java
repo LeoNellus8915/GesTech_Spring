@@ -40,12 +40,12 @@ public interface RisorseService extends JpaRepository <Risorse, Integer>
 	void rimuoviCandidato(@Param("idRisorsa") int idRisorsa);
 	
 	@Modifying
-	@Query("update Risorse set nomeCognome = :nomeCognome, recapito = :recapito, profiloLinkedin = :profiloLinkedin, citta = :citta, "
+	@Query("update Risorse set nomeCognome = :nomeCognome, recapito = :recapito, email = :email, profiloLinkedin = :profiloLinkedin, citta = :citta, "
 			+ "dataColloquio = :dataColloquio, annoColloquio = :annoColloquio, fonteReperimento = :fonteReperimento, "
 			+ "competenzaPrincipale = :competenzaPrincipale, costoGiornaliero = :costoGiornaliero, possibilitaLavorativa = :possibilitaLavorativa, "
 			+ "skillCampoLibero = :skillCampoLibero, competenzeTotali = :competenzeTotali, certificazioni = :certificazioni where id = :idRisorsa")
 	abstract
-	void updateCandidato(int idRisorsa, String nomeCognome, String recapito, String profiloLinkedin, String citta, LocalDate dataColloquio, 
+	void updateCandidato(int idRisorsa, String nomeCognome, String recapito, String email, String profiloLinkedin, String citta, LocalDate dataColloquio, 
 			String annoColloquio, String fonteReperimento, String competenzaPrincipale, Double costoGiornaliero, String possibilitaLavorativa, 
 			String skillCampoLibero, String competenzeTotali, String certificazioni);
 }
