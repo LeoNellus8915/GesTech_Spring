@@ -13,6 +13,7 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -67,6 +68,10 @@ public class CandidatiController {
 		else
 		{
 			LocalSession localSession = (LocalSession) session.getAttribute("localSession");
+			
+			List listaCandidati = dettagliRisorseService.findAll();
+
+			theModel.addAttribute("candidati", listaCandidati);
 			
 			theModel.addAttribute("nomeCognome", localSession.getNomeCognome());
 			theModel.addAttribute("ruolo", localSession.getRuolo());
@@ -346,25 +351,17 @@ public class CandidatiController {
 		}
 	}
 	
-	@RequestMapping("/tutte-le-risorse")
-	@ResponseBody
-	public List tutteLeRisorse()
-	{
-		List json = dettagliRisorseService.findAll();
-		return json;
-	}
-	
 	@RequestMapping("/stampa-commenti")
 	@ResponseBody
-	public List stampaCommenti(@RequestParam(value="idRisorsa") int idRisorsa) 
+	public List stampaComment(@RequestParam(value="idRisorsa") int idRisorsa) 
 	{
 		List commenti = commentiService.stampaCommenti(idRisorsa);
 		
 		return commenti;
 	}
 	
-	@RequestMapping("/visualizza-candidato")
-	public String visualizzaCandidati(@RequestParam(value="idRisorsa") int idRisorsa, HttpServletRequest request, Model theModel)
+	@RequestMapping(value = "/visualizza-candidato/{idRisorsa}")
+	public String visualizzaCandidato(@PathVariable int idRisorsa, HttpServletRequest request, Model theModel)
 	{
 		HttpSession session = request.getSession(true);
 		if (session.getAttribute("idSessione") == null)
@@ -405,8 +402,8 @@ public class CandidatiController {
 		}
 	}
 	
-	@RequestMapping("/modifica-candidato")
-	public String modificaCandidati(@RequestParam(value="idRisorsa") int idRisorsa, HttpServletRequest request, Model theModel)
+	@RequestMapping(value = "/modifca-candidato/{idRisorsa}")
+	public String modifcaCandidato(@PathVariable int idRisorsa, HttpServletRequest request, Model theModel)
 	{
 		HttpSession session = request.getSession(true);
 		if (session.getAttribute("idSessione") == null)
@@ -420,8 +417,6 @@ public class CandidatiController {
 			LocalSession localSession = (LocalSession) session.getAttribute("localSession");
 			Risorse risorsa = risorseService.findById(idRisorsa);
 			DettagliRisorse dettagliRisorsa = dettagliRisorseService.findById(idRisorsa);
-			
-			System.out.println(risorsa.getId());
 			
 			List<EsitiColloquio> esitiColloquio = new ArrayList<EsitiColloquio>();
 			List<Profili> profili = new ArrayList<Profili>();
@@ -543,6 +538,7 @@ public class CandidatiController {
 			theModel.addAttribute("linguaggi5", linguaggi5);
 			theModel.addAttribute("profili", profili);
 			theModel.addAttribute("esitiColloquio", esitiColloquio);
+			
 			theModel.addAttribute("nomeCognome", localSession.getNomeCognome());
 			theModel.addAttribute("ruolo", localSession.getRuolo());
 			theModel.addAttribute("titlePage", "Modifica Candidato");
