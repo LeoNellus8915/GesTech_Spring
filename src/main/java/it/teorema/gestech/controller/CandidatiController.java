@@ -765,7 +765,7 @@ public class CandidatiController {
 			theModel.addAttribute("titlePage", "Candidati");
 			theModel.addAttribute("path", "candidati/");
 			theModel.addAttribute("view", "paginaCandidati");
-			return "default"+localSession.getRuolo();
+			return "redirect:/pagina-candidati";
 		}
 	}
 	
