@@ -1,5 +1,5 @@
 <div th:fragment="nuovoCandidato">
-	<form method="post" action="/aggiungi-candidato" enctype="multipart/form-data">
+	<form id="form" method="post" action="/aggiungi-candidato">
 		<div class="card no-b  no-r">
 			<div class="card-body">
 				<p class="errore" th:text="${errore}"></p>
@@ -277,11 +277,12 @@
 				<hr>
 
 				<div class="card-body">
-					<input type="submit" value="SALVA">
+					<input type="submit" onclick="base64()" value="SALVA">
 				</div>
-				<a href="pagina-candidati" class="btn-fab btn-fab-md fab-right fab-right-bottom-fixed shadow btn-primary chiudiruota"><i
+				<a href="/pagina-candidati" class="btn-fab btn-fab-md fab-right fab-right-bottom-fixed shadow btn-primary chiudiruota"><i
 				class="icon-add"></i></a>
 			</div>
 		</div>
+		<div id="codice64"></div>
 	</form>
 </div>

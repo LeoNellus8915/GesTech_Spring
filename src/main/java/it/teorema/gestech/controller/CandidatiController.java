@@ -209,6 +209,9 @@ public class CandidatiController {
 			int idRisorsa = risorseService.findId();			
 	        
 			dettagliRisorsa.setDataInserimento(data);
+			dettagliRisorsa.setFileBase64(request.getParameter("base64"));
+			System.out.println("bellaaaaa" + request.getParameter("base64"));
+			System.out.println(dettagliRisorsa.getFileBase64());
 			dettagliRisorsa.setIdEsitoColloquio(Integer.parseInt(request.getParameter("esitoColloquio")));
 			dettagliRisorsa.setIdProfilo(Integer.parseInt(request.getParameter("profilo")));
 			dettagliRisorsa.setIdLingua1(Integer.parseInt(request.getParameter("lingua1")));

@@ -4,6 +4,26 @@ $(document).ready(function () {
     });
 });
 
+function base64()
+{
+	var file = $("#cv").val();
+	$('form').one('submit', function(e) {
+		if (file != "")
+		{
+			var fileInput = document.getElementById("cv");
+	
+	        var reader = new FileReader();
+	        reader.readAsDataURL(fileInput.files[0]);
+	
+	        reader.onload = function () {
+				$("#codice64").append(
+					$('<input>', { type: 'hidden', id: 'base64', name: 'base64', value: reader.result })
+				);
+	        };
+		}
+	});
+}
+
 /*function tutteLeRisorse()
 {
 	$('#tabellaRicerca').dataTable({
