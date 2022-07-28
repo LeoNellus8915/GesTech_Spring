@@ -142,7 +142,7 @@ function scarica()
 			if (dati.code == 0)
 			{
 				var link = document.createElement("a");
-				link.href = "data:application/pdf;base64," + dati.payload[0];
+				link.href = dati.payload[0];
 				
 				link.download = "SomeName";
 				link.target = "blank";
