@@ -97,7 +97,7 @@ public class UtenteController {
 				
 				risorseService.save(risorsa);
 				
-				int idRisorsa = risorseService.findId();
+				int idRisorsa = risorseService.findIdByMail(risorsa.getEmail());
 				
 				auth.setPassword((String) request.getParameter("passwordMD5"));
 				auth.setIdRisorsa(idRisorsa);

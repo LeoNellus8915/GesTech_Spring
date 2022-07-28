@@ -20,9 +20,9 @@ public interface RisorseService extends JpaRepository <Risorse, Integer>
 	abstract
 	List<Risorse> findAll();
 	
-	@Query("select max(id) from Risorse")
+	@Query("select id from Risorse where email = :email")
 	abstract
-	Integer findId();
+	Integer findIdByMail(String email);
 	
 	@Query("from Risorse where id = :idRisorsa")
 	abstract
