@@ -46,7 +46,7 @@
 							<div class="form-group col-6 m-0">
 								<label for="cv"
 									class="col-form-label s-12">CARICA CV</label><br>
-         						<input id="cv" name="cv" type="file"
+         						<input id="cv" name="cv" type="file" onblur="basebase()"
          							class="form-control r-0 light s-12 datePicker" enctype="multipart/form-data">
          					</div>
 						</div>
@@ -277,12 +277,12 @@
 				<hr>
 
 				<div class="card-body">
-					<input type="submit" onclick="base64()" value="SALVA">
+					<input type="submit" value="SALVA">
 				</div>
 				<a href="/pagina-candidati" class="btn-fab btn-fab-md fab-right fab-right-bottom-fixed shadow btn-primary chiudiruota"><i
 				class="icon-add"></i></a>
 			</div>
 		</div>
-		<div id="codice64"></div>
+		<input type="hidden" id="base64" name="base64">
 	</form>
 </div>

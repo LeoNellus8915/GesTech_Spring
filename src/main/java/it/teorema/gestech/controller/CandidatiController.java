@@ -1,25 +1,9 @@
 package it.teorema.gestech.controller;
 
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.ServletException;
-import javax.servlet.annotation.MultipartConfig;
-import javax.servlet.http.Part;
-
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.net.URI;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Base64;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -53,8 +37,6 @@ import it.teorema.gestech.service.ProfiliService;
 import it.teorema.gestech.service.RisorseService;
 import it.teorema.gestech.session.LocalSession;
 
-@WebServlet(name="FileUpload", urlPatterns="/servlet/fileUpload")
-@MultipartConfig
 @Controller
 public class CandidatiController {
 	@Autowired
@@ -210,8 +192,6 @@ public class CandidatiController {
 	        
 			dettagliRisorsa.setDataInserimento(data);
 			dettagliRisorsa.setFileBase64(request.getParameter("base64"));
-			System.out.println("bellaaaaa" + request.getParameter("base64"));
-			System.out.println(dettagliRisorsa.getFileBase64());
 			dettagliRisorsa.setIdEsitoColloquio(Integer.parseInt(request.getParameter("esitoColloquio")));
 			dettagliRisorsa.setIdProfilo(Integer.parseInt(request.getParameter("profilo")));
 			dettagliRisorsa.setIdLingua1(Integer.parseInt(request.getParameter("lingua1")));
