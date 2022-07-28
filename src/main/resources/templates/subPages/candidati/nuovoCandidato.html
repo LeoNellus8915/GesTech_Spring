@@ -1,5 +1,5 @@
 <div th:fragment="nuovoCandidato">
-	<form method="post" action="/aggiungi-candidato">
+	<form method="post" action="/aggiungi-candidato" enctype="multipart/form-data">
 		<div class="card no-b  no-r">
 			<div class="card-body">
 				<p class="errore" th:text="${errore}"></p>
@@ -43,6 +43,12 @@
 									class="form-control r-0 light s-12 datePicker"
 									type="text" required>
 							</div>
+							<div class="form-group col-6 m-0">
+								<label for="cv"
+									class="col-form-label s-12">CARICA CV</label><br>
+         						<input id="cv" name="cv" type="file"
+         							class="form-control r-0 light s-12 datePicker" enctype="multipart/form-data">
+         					</div>
 						</div>
 					</div>
 				</div>
