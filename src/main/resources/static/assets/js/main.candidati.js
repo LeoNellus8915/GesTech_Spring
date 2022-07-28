@@ -1,8 +1,3 @@
-$(document).ready(function () {
-    $('#tabellaCandidati').DataTable({
-        stateSave: true,
-    });
-});
 
 function basebase()
 {
