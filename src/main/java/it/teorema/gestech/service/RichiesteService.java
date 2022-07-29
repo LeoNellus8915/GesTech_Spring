@@ -10,7 +10,7 @@ import it.teorema.gestech.model.Richieste;
 public interface RichiesteService extends JpaRepository <Richieste, Integer>
 {
 	
-	@Query("from Risorse")
+	@Query("from Richieste")
 	abstract
 	List<Richieste> findAll();
 	

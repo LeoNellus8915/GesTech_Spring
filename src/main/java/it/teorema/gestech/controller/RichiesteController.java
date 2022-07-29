@@ -3,6 +3,7 @@ package it.teorema.gestech.controller;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -96,17 +97,19 @@ public class RichiesteController {
 			LocalDateTime now = LocalDateTime.now();  
 			LocalDateTime data = LocalDateTime.parse(format1.format(now), format1);	
 			
+			String[] inputRecruiter = request.getParameterValues("recruiter");
+			List<String> listaRecuiter = Arrays.asList(inputRecruiter);
+			
 			richiesta.setIdRisorsa(localSession.getIdRisorsa());
 			richiesta.setData(data);
-			richiesta.setIdSkill(Integer.parseInt(request.getParameter("skill")));
-			richiesta.setIdProfilo(Integer.parseInt(request.getParameter("skill")));
+			richiesta.setIdSkill(Integer.parseInt(request.getParameter("linguaggio")));
+			richiesta.setIdProfilo(Integer.parseInt(request.getParameter("profilo")));
 			richiesta.setIdSeniority(Integer.parseInt(request.getParameter("seniority")));
 			richiesta.setCliente(request.getParameter("cliente"));
 			richiesta.setCitta(request.getParameter("citta"));
 			richiesta.setCosto(Double.parseDouble(request.getParameter("costo")));
 			richiesta.setNote(request.getParameter("note"));
-			richiesta.setRecruiter(request.getParameter("recruiter"));
-			richiesta.setIdProfilo(Integer.parseInt(request.getParameter("profilo")));
+			richiesta.setRecruiter(listaRecuiter.toString());
 			
 			richiesteService.save(richiesta);
 			

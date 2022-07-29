@@ -53,8 +53,8 @@
 							<textarea class="note" name="note" id="note" placeholder="Inserire messaggio"></textarea>
 							<div class="row">
 								<ul>
-									<input type="checkbox" value="Tutti">Tutti
-						        	<input th:each="nomeRecruiter : ${nomiRecruiter}" type="checkbox" th:text="${nomeRecruiter}" th:value="${nomeRecruiter}" />
+									<input name="recruiter" type="checkbox"  value="Tutti">Tutti
+						        	<input name="recruiter" th:each="nomeRecruiter : ${nomiRecruiter}" type="checkbox" th:text="${nomeRecruiter}" th:value="${nomeRecruiter}" />
 								</ul>
 							</div>
 						</div>
