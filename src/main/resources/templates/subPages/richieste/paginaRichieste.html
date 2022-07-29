@@ -3,10 +3,16 @@
 	<div class="page">
 		<div class="row">
 			<div class="col-4 card_avvisi" th:each="richiesta : ${richieste}">
-				<span class="data_ora_avvisi" th:text="${richiesta.data}"></span>
-				<p class="titolo_avvisi" th:text="${avviso.titolo}">
-				<p class="testo_avvisi" th:text="${avviso.note}">
-				<p class="ruolo_avvisi" th:text="${avviso.ruoli}">
+				<span th:text="${richiesta[1]}"></span>
+				<span th:text="${richiesta[2]}"></span>
+				<span th:text="${richiesta[3]}"></span>
+				<span th:text="${richiesta[4]}"></span>
+				<span th:text="${richiesta[5]}"></span>
+				<span th:text="${richiesta[6]}"></span>
+				<span th:text="${richiesta[7]}"></span>
+				<span th:text="${richiesta[8]}"></span>
+				<span th:text="${richiesta[9]}"></span>
+				
 	       		</div>
 			</div>
 		</div>
