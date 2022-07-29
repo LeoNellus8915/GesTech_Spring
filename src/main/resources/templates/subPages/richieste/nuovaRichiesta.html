@@ -1,2 +1,59 @@
 <div th:fragment="">
+<form id="form" method="post" action="">
+		<div class="card no-b  no-r">
+			<div class="card-body">
+				<p class="errore" th:text="${errore}"></p>
+				<h5 class="card-title">Nuova Richiesta</h5>
+				<div class="form-row">
+					<div class="col-md-12">
+						<div class="form-row">
+							<div class="form-group col-6 m-0">
+								<label for="nomeCognome" class="col-form-label s-12">Ruolo</label> <input th:value="${risorsa.nomeCognome}" id="nomeCognome" name="nomeCognome"
+									placeholder="Inserisci Ruolo" required
+									class="form-control r-0 light s-12 " type="text">
+							</div>
+							<div class="form-group col-6 m-0">
+								<label for="recapito" class="col-form-label s-12">Skill</label>
+								<input th:value="${risorsa.recapito}" id="recapito" name="recapito"
+									placeholder="Inserisci Skill"
+									class="form-control r-0 light s-12 date-picker" type="text">
+							</div>
+						</div>
+						<div class="form-row">
+							<div class="form-group col-6 m-0">
+								<label for="email" class="col-form-label s-12">Seniority</label>
+								<input th:value="${risorsa.email}" id="email" name="email" placeholder="Inserisci Seniority"
+									class="form-control r-0 light s-12 datePicker"
+									data-time-picker="false" data-format-date='Y/m/d'
+									type="text">
+							</div>
+							<div class="form-group col-6 m-0">
+								<label for="email" class="col-form-label s-12">Cliente</label>
+								<input th:value="${risorsa.email}" id="email" name="email" placeholder="Inserisci Cliente"
+									class="form-control r-0 light s-12 datePicker"
+									data-time-picker="false" data-format-date='Y/m/d'
+									type="text">
+							</div>
+						 </div>	
+						 <div class="form-row">
+							<div class="form-group col-6 m-0">
+								<label for="email" class="col-form-label s-12">Città</label>
+								<input th:value="${risorsa.email}" id="email" name="email" placeholder="Inserisci Città"
+									class="form-control r-0 light s-12 datePicker"
+									data-time-picker="false" data-format-date='Y/m/d'
+									type="text">
+							</div>
+							<div class="form-group col-6 m-0">
+								<label for="email" class="col-form-label s-12">Costo</label>
+								<input th:value="${risorsa.email}" id="email" name="email" placeholder="Inserisci Costo"
+									class="form-control r-0 light s-12 datePicker"
+									data-time-picker="false" data-format-date='Y/m/d'
+									type="text">
+							</div>
+						 </div>	
+					</div>
+				</div>
+			</div>
+		</div>
+	</form>	
 </div>
