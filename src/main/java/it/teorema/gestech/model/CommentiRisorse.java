@@ -10,7 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="hy_commenti")
+@Table(name="hy_commenti_risorse")
 public class CommentiRisorse
 {
 	@Id

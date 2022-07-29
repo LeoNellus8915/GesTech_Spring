@@ -215,7 +215,7 @@ public class CandidatiController {
 				}
 				dettagliRisorseService.save(dettagliRisorsa);
 	
-				if(!commentiRisorse.getNote().equals(null))
+				if(commentiRisorse.getNote().equals(null))
 					commentiRisorseService.save(commentiRisorse);
 				
 				return "redirect:/pagina-candidati";
