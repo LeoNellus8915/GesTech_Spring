@@ -18,6 +18,8 @@ public class Richieste
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
 	private int id;
+	@Column(name = "id_risorsa")
+	private int idRisorsa;
 	@Column(name = "data")
 	private LocalDateTime data;
 	@Column(name = "id_skill")
@@ -36,13 +38,31 @@ public class Richieste
 	private String note;
 	@Column(name = "recruiter")
 	private String recruiter;
+	@Column(name = "id_stato")
+	private int idStato;
+	@Column(name = "id_commento")
+	private int idCommento;
 	
-	public Richieste () {}
+	public Richieste() {
+		id = 0;
+		idRisorsa = 0;
+		idSkill = 0;
+		idProfilo = 0;
+		idSeniority = 0;
+		cliente = "";
+		citta = "";
+		costo = 0.0;
+		note = "";
+		recruiter = "";
+		idStato = 0;
+		idCommento = 0;
+	}
 
-	public Richieste(int id, LocalDateTime data, int idSkill, int idProfilo, int idSeniority, String cliente,
-			String citta, double costo, String note, String recruiter) {
+	public Richieste(int id, int idRisorsa,LocalDateTime data, int idSkill, int idProfilo, int idSeniority, String cliente,
+			String citta, double costo, String note, String recruiter, int idStato, int idCommento) {
 		super();
 		this.id = id;
+		this.idRisorsa = idRisorsa;
 		this.data = data;
 		this.idSkill = idSkill;
 		this.idProfilo = idProfilo;
@@ -52,6 +72,8 @@ public class Richieste
 		this.costo = costo;
 		this.note = note;
 		this.recruiter = recruiter;
+		this.idStato = idStato;
+		this.idCommento = idCommento;
 	}
 
 	public int getId() {
@@ -60,6 +82,14 @@ public class Richieste
 
 	public void setId(int id) {
 		this.id = id;
+	}
+
+	public int getIdRisorsa() {
+		return idRisorsa;
+	}
+
+	public void setIdRisorsa(int idRisorsa) {
+		this.idRisorsa = idRisorsa;
 	}
 
 	public LocalDateTime getData() {
@@ -74,7 +104,7 @@ public class Richieste
 		return idSkill;
 	}
 
-	public void setId_skill(int idSkill) {
+	public void setIdSkill(int idSkill) {
 		this.idSkill = idSkill;
 	}
 
@@ -82,7 +112,7 @@ public class Richieste
 		return idProfilo;
 	}
 
-	public void setId_profilo(int idProfilo) {
+	public void setIdProfilo(int idProfilo) {
 		this.idProfilo = idProfilo;
 	}
 
@@ -90,7 +120,7 @@ public class Richieste
 		return idSeniority;
 	}
 
-	public void setId_seniority(int idSeniority) {
+	public void setIdSeniority(int idSeniority) {
 		this.idSeniority = idSeniority;
 	}
 
@@ -132,5 +162,22 @@ public class Richieste
 
 	public void setRecruiter(String recruiter) {
 		this.recruiter = recruiter;
-	}	
-}
+	}
+
+	public int getIdStato() {
+		return idStato;
+	}
+
+	public void setIdStato(int idStato) {
+		this.idStato = idStato;
+	}
+
+	public int getIdCommento() {
+		return idCommento;
+	}
+
+	public void setIdCommento(int idCommento) {
+		this.idCommento = idCommento;
+	}
+	
+	}
