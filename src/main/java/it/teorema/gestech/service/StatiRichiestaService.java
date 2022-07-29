@@ -8,11 +8,7 @@ import org.springframework.data.jpa.repository.Query;
 import it.teorema.gestech.model.StatiRichiesta;
 
 public interface StatiRichiestaService extends JpaRepository <StatiRichiesta, Integer>
-{
-	@Query("from StatiRichiesta")
-	abstract
-	List <StatiRichiesta> findAll();
-	
+{	
 	@Query("select nome "
 			+ "from StatiRichiesta "
 			+ "where id = :idStato")

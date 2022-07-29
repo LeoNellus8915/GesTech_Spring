@@ -8,12 +8,7 @@ import org.springframework.data.jpa.repository.Query;
 import it.teorema.gestech.model.Richieste;
 
 public interface RichiesteService extends JpaRepository <Richieste, Integer>
-{
-	
-	@Query("from Richieste")
-	abstract
-	List<Richieste> findAll();
-	
+{	
 	@Query("from Richieste "
 			+ "where id = :idRichiesta")
 	abstract

@@ -4,16 +4,11 @@ import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.query.Param;
 
 import it.teorema.gestech.model.Linguaggi;
 
 public interface LinguaggiService extends JpaRepository <Linguaggi, Integer>
-{
-	@Query("from Linguaggi")
-	abstract
-	List <Linguaggi> findAll();
-	
+{	
 	@Query("select nome "
 			+ "from Linguaggi "
 			+ "where id = :idRisorsa")

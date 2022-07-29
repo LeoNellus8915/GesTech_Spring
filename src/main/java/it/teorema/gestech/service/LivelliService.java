@@ -4,17 +4,11 @@ import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.query.Param;
 
 import it.teorema.gestech.model.Livelli;
-import it.teorema.gestech.model.Profili;
 
 public interface LivelliService extends JpaRepository <Livelli, Integer>
-{
-	@Query("from Livelli")
-	abstract
-	List<Livelli> findAll();
-	
+{	
 	@Query("select l.nome "
 			+ "from Livelli l, DettagliRisorse d "
 			+ "where l.id = d.idSeniority and d.idRisorsa = :idRisorsa")

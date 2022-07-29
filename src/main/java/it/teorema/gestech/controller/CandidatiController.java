@@ -69,7 +69,7 @@ public class CandidatiController {
 		{
 			LocalSession localSession = (LocalSession) session.getAttribute("localSession");
 			
-			List listaCandidati = dettagliRisorseService.findAll();
+			List listaCandidati = dettagliRisorseService.getCandidati();
 
 			theModel.addAttribute("candidati", listaCandidati);
 			
