@@ -60,17 +60,16 @@ public class RichiesteController {
 			List<Livelli> livelli = livelliService.findAll();
 			
 			theModel.addAttribute("livelli", livelli);
-			theModel.addAttribute("livelli", "Selezionare...");
 			theModel.addAttribute("linguaggi", linguaggi);
-			theModel.addAttribute("linguaggi", "Selezionare...");
 			theModel.addAttribute("profili", profili);
-			theModel.addAttribute("profilo", "Selezionare...");
 			
 			theModel.addAttribute("nomeCognome", localSession.getNomeCognome());
 			theModel.addAttribute("ruolo", localSession.getRuolo());
 			theModel.addAttribute("titlePage", "Nuova Richiesta");
+			theModel.addAttribute("path", "richieste/");
 			theModel.addAttribute("view", "nuovaRichiesta");
+			
+			return "default" + localSession.getRuolo();
 		}
-		return null;
 	}
 }

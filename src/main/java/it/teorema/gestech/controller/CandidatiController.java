@@ -97,9 +97,7 @@ public class CandidatiController {
 		{
 			LocalSession localSession = (LocalSession) session.getAttribute("localSession");
 			
-			Risorse risorsa = new Risorse();
 			DettagliRisorse dettagliRisorsa = new DettagliRisorse();
-			CommentiRisorse commentiRisorse = new CommentiRisorse();
 			
 			List<EsitiColloquio> esitiColloquio = esitiColloquioService.findAll();
 			List<Profili> profili = profiliService.findAll();
@@ -107,9 +105,7 @@ public class CandidatiController {
 			List<Lingue> lingue = lingueService.findAll();
 			List<Livelli> livelli = livelliService.findAll();
 	
-			theModel.addAttribute("risorsa", risorsa);
 			theModel.addAttribute("dettagliRisorsa", dettagliRisorsa);
-			theModel.addAttribute("commenti", commentiRisorse);
 			theModel.addAttribute("livelli", livelli);
 			theModel.addAttribute("lingue1", lingue);
 			theModel.addAttribute("lingue2", lingue);
