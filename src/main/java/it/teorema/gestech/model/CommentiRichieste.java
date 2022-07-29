@@ -31,6 +31,7 @@ public class CommentiRichieste {
 	}
 	
 	public CommentiRichieste(int id, int idRisorse, String note, LocalDate data) {
+		super();
 		this.id = id;
 		this.idRisorsa = idRisorse;
 		this.note = note;

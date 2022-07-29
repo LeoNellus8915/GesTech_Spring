@@ -17,6 +17,15 @@ public class StatiRichiesta {
 	private int id;
 	@Column(name = "nome")
 	private String nome;
+	
+	public StatiRichiesta() {}
+
+	public StatiRichiesta(int id, String nome) {
+		super();
+		this.id = id;
+		this.nome = nome;
+	}
+	
 	public int getId() {
 		return id;
 	}
