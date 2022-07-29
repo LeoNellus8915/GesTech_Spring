@@ -6,3 +6,30 @@ textarea.note {
     border-radius: 5px;
     margin-top: 30px;
 }
+
+p.ruolo_richieste {
+    background: #f1f1f1;
+    margin-right: 10px;
+    padding: 5px;
+    border-radius: 5px;
+    color: #18448f;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* TITOLO AVVISO*/
+p.titolo_richieste {
+    margin-top: 18px;
+    font-size: 22px;
+    font-weight: bold;
+    color: #000;
+    font-variant: all-petite-caps;
+}
+/* CORPO AVVISO*/
+p.testo_richieste {
+    font-size: 14px;
+    font-weight: 300;
+    letter-spacing: .2px;
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
