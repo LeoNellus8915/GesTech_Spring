@@ -11,7 +11,7 @@ import it.teorema.gestech.model.CommentiRisorse;
 public interface CommentiRisorseService extends JpaRepository <CommentiRisorse, Integer>
 {
 	@Query("select c.data, r.nomeCognome, c.note "
-			+ "from Commenti c, Risorse r "
+			+ "from CommentiRisorse c, Risorse r "
 			+ "where r.id = c.idRisorsa and r.id = :idRisorsa "
 			+ "order by c.data desc")
 	abstract
