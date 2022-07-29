@@ -19,7 +19,7 @@ COLLATE = utf8mb4_0900_ai_ci;
 
 
 
-ALTER TABLE `gestech2`.`hy_commenti_avvisi` 
+ALTER TABLE `gestech2`.`hy_commenti` 
 RENAME TO  `gestech2`.`hy_commenti_risorse` ;
 
 
@@ -47,3 +47,5 @@ INSERT INTO `gestech2`.`ty_stati_richiesta` (`nome`) VALUES ('In Corso');
 INSERT INTO `gestech2`.`ty_stati_richiesta` (`nome`) VALUES ('In Lavorazione');
 INSERT INTO `gestech2`.`ty_stati_richiesta` (`nome`) VALUES ('Sospesa');
 INSERT INTO `gestech2`.`ty_stati_richiesta` (`nome`) VALUES ('Chiusa');
+
+
