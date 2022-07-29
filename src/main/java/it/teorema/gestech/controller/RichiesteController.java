@@ -119,8 +119,9 @@ public class RichiesteController {
 			theModel.addAttribute("titlePage", "Tutte le Richieste");
 			theModel.addAttribute("path", "richieste/");
 			theModel.addAttribute("view", "visualizzaRichieste");
+			
+			return "default" + localSession.getRuolo();
 		}
-		return "redirect:/visualizza-richieste";
 	}
 	
 	@RequestMapping("/pagina-richieste")
