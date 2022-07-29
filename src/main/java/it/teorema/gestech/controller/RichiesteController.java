@@ -120,8 +120,9 @@ public class RichiesteController {
 			theModel.addAttribute("path", "richieste/");
 			theModel.addAttribute("view", "visualizzaRichieste");
 			
-			return "default" + localSession.getRuolo();
+			return "default"+localSession.getRuolo();
 		}
+		
 	}
 	
 	@RequestMapping("/pagina-richieste")
@@ -138,6 +139,8 @@ public class RichiesteController {
 		{
 			LocalSession localSession = (LocalSession) session.getAttribute("localSession");
 			
+			List lista = new ArrayList();
+			
 			List<Richieste>richieste = richiesteService.findAll();
 			List<Richieste> stampaRichieste = new ArrayList<Richieste>();
 			
@@ -146,13 +149,14 @@ public class RichiesteController {
 			if(localSession.getRuolo().equals("Commerciale")) 
 			{
 				for (Richieste richieste2 : richieste) {
-					appoggio = richieste2.getRecruiter();
+					/*appoggio = richieste2.getRecruiter();
 					appoggio=appoggio.replace("[","");
 					appoggio=appoggio.replace("]","");
 					appoggio=appoggio.replace(",", "");
-					richieste2.setRecruiter(appoggio);
+					richieste2.setRecruiter(appoggio);*/
+					lista.add(richiesteService.stampaCard(richieste2.getIdSeniority(), richieste2.getIdSkill(), 
+							richieste2.getIdProfilo(), richieste2.getIdStato()));
 				}
-				theModel.addAttribute("richieste", richieste);
 			}
 			else 
 			{
@@ -160,17 +164,19 @@ public class RichiesteController {
 				{
 					if(richieste2.getRecruiter().contains("Tutti") 
 							|| richieste2.getRecruiter().contains(localSession.getNomeCognome())) {
-						appoggio = richieste2.getRecruiter();
+						/*appoggio = richieste2.getRecruiter();
 						appoggio=appoggio.replace("[","");
 						appoggio=appoggio.replace("]","");
 						appoggio=appoggio.replace(",", "");
 						richieste2.setRecruiter(appoggio);
-						stampaRichieste.add(richieste2);
+						stampaRichieste.add(richieste2);*/
+						lista.add(richiesteService.stampaCard(richieste2.getIdSeniority(), richieste2.getIdSkill(), 
+								richieste2.getIdProfilo(), richieste2.getIdStato()));
 					}
 				}
-				theModel.addAttribute("richieste", stampaRichieste);
+				
 			}
-			
+			theModel.addAttribute("richieste", lista);
 			theModel.addAttribute("nomeCognome", localSession.getNomeCognome());
 			theModel.addAttribute("ruolo", localSession.getRuolo());
 			theModel.addAttribute("titlePage", "Visualizza Richiesta");

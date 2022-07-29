@@ -1,2 +1,14 @@
-<div th:fragment="">
+<div th:fragment="paginaRichieste">
+<div class="page avviso">
+	<div class="page">
+		<div class="row">
+			<div class="col-4 card_avvisi" th:each="richiesta : ${richieste}">
+				<span class="data_ora_avvisi" th:text="${richiesta.data}"></span>
+				<p class="titolo_avvisi" th:text="${avviso.titolo}">
+				<p class="testo_avvisi" th:text="${avviso.note}">
+				<p class="ruolo_avvisi" th:text="${avviso.ruoli}">
+	       		</div>
+			</div>
+		</div>
+	</div>	
 </div>
