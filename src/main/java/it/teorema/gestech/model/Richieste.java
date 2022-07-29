@@ -10,7 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="hy_commenti_richieste")
+@Table(name="hy_richieste")
 public class Richieste 
 
 {
@@ -40,7 +40,7 @@ public class Richieste
 	private String recruiter;
 	@Column(name = "id_stato")
 	private int idStato;
-	@Column(name = "id_commento")
+	@Column(name = "id_commenti_richiesta")
 	private int idCommento;
 	
 	public Richieste() {
