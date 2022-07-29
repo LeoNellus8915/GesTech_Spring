@@ -2,6 +2,7 @@ package it.teorema.gestech.controller;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -10,13 +11,17 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+import it.teorema.gestech.model.CommentiRichieste;
 import it.teorema.gestech.model.Linguaggi;
 import it.teorema.gestech.model.Livelli;
 import it.teorema.gestech.model.Profili;
 import it.teorema.gestech.model.Richieste;
-import it.teorema.gestech.model.CommentiRichieste;
+import it.teorema.gestech.model.StatiRichiesta;
 import it.teorema.gestech.service.CommentiRichiesteService;
 import it.teorema.gestech.service.LinguaggiService;
 import it.teorema.gestech.service.LivelliService;
@@ -29,11 +34,11 @@ import it.teorema.gestech.session.LocalSession;
 public class RichiesteController {
 	
 	@Autowired
-	CommentiRichiesteService commentiRichieste;
+	CommentiRichiesteService commentiRichiesteService;
 	@Autowired
 	RichiesteService richiesteService;
 	@Autowired
-	StatiRichiestaService statiRichieste;
+	StatiRichiestaService statiRichiesteService;
 	@Autowired
 	ProfiliService profiliService;
 	@Autowired
@@ -112,7 +117,7 @@ public class RichiesteController {
 			theModel.addAttribute("nomeCognome", localSession.getNomeCognome());
 			theModel.addAttribute("ruolo", localSession.getRuolo());
 			theModel.addAttribute("titlePage", "Tutte le Richieste");
-			theModel.addAttribute("path", "candidati/");
+			theModel.addAttribute("path", "richieste/");
 			theModel.addAttribute("view", "visualizzaRichieste");
 		}
 		return "redirect:/visualizza-richieste";
@@ -131,8 +136,90 @@ public class RichiesteController {
 		else
 		{
 			LocalSession localSession = (LocalSession) session.getAttribute("localSession");
+			
+			List<Richieste>richieste = richiesteService.findAll();
+			List<Richieste> stampaRichieste = new ArrayList<Richieste>();
+			
+			String appoggio = null;
+			
+			if(localSession.getRuolo().equals("Commerciale")) 
+			{
+				for (Richieste richieste2 : richieste) {
+					appoggio = richieste2.getRecruiter();
+					appoggio=appoggio.replace("[","");
+					appoggio=appoggio.replace("]","");
+					appoggio=appoggio.replace(",", "");
+					richieste2.setRecruiter(appoggio);
+				}
+				theModel.addAttribute("richieste", richieste);
+			}
+			else 
+			{
+				for (Richieste richieste2 : richieste) 
+				{
+					if(richieste2.getRecruiter().contains("Tutti") 
+							|| richieste2.getRecruiter().contains(localSession.getNomeCognome())) {
+						appoggio = richieste2.getRecruiter();
+						appoggio=appoggio.replace("[","");
+						appoggio=appoggio.replace("]","");
+						appoggio=appoggio.replace(",", "");
+						richieste2.setRecruiter(appoggio);
+						stampaRichieste.add(richieste2);
+					}
+				}
+				theModel.addAttribute("richieste", stampaRichieste);
+			}
+			
+			theModel.addAttribute("nomeCognome", localSession.getNomeCognome());
+			theModel.addAttribute("ruolo", localSession.getRuolo());
+			theModel.addAttribute("titlePage", "Visualizza Richiesta");
+			theModel.addAttribute("path", "richieste/");
+			theModel.addAttribute("view", "visualizzaRichieste");
+			
+			return "default"+localSession.getRuolo();
 		}
-		
-		return null;
 	}
+	
+	@RequestMapping("/stampa-commenti-richiesta")
+	@ResponseBody
+	public List stampaCommentiRichiesta(@RequestParam(value="idRisorsa") int idRisorsa) 
+	{
+		List commentiRichiesta = commentiRichiesteService.stampaCommentiRichieste(idRisorsa);
+		
+		return commentiRichiesta;
+	}
+	
+	@RequestMapping("visualizza-richiesta/{idRichiesta}")
+	public String visualizzaRichiesta(@PathVariable int idRichiesta, HttpServletRequest request, Model theModel)
+	{
+		HttpSession session = request.getSession(true);
+		if (session.getAttribute("idSessione") == null)
+		{
+			theModel.addAttribute("titlePage", "Login");
+			theModel.addAttribute("msgCredenziali", "Inserisci le credenziali per accedere al sistema");
+			return "index";
+		}
+		else
+		{
+			LocalSession localSession = (LocalSession) session.getAttribute("localSession");
+			
+			Richieste richiesta = richiesteService.findById(idRichiesta);
+			List<CommentiRichieste> commentoRichiesta = commentiRichiesteService.findById(richiesta.getIdCommento());
+			List<StatiRichiesta> statiRichiesta = statiRichiesteService.findAllException(statiRichiesteService.findById(richiesta.getIdStato()));
+			
+			theModel.addAttribute("richiesta", richiesta);
+			theModel.addAttribute("commentiRichiesta", commentoRichiesta);
+			theModel.addAttribute("statoRichiesta", richiesteService.findById(richiesta.getIdStato()));
+			theModel.addAttribute("statiRichiesta", statiRichiesta);
+			
+			theModel.addAttribute("nomeCognome", localSession.getNomeCognome());
+			theModel.addAttribute("ruolo", localSession.getRuolo());
+			theModel.addAttribute("titlePage", "Visualizza Richiesta");
+			theModel.addAttribute("path", "richieste/");
+			theModel.addAttribute("view", "visualizzaRichieste");
+			
+			return "default"+localSession.getRuolo();
+		}
+	}
+	
 }
