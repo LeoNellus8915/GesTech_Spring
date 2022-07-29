@@ -6,9 +6,9 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
-import it.teorema.gestech.model.Commenti;
+import it.teorema.gestech.model.CommentiRisorse;
 
-public interface CommentiService extends JpaRepository <Commenti, Integer>
+public interface CommentiRisorseService extends JpaRepository <CommentiRisorse, Integer>
 {
 	@Query("select c.data, r.nomeCognome, c.note "
 			+ "from Commenti c, Risorse r "

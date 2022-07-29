@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import it.teorema.gestech.model.Commenti;
+import it.teorema.gestech.model.CommentiRisorse;
 import it.teorema.gestech.model.DettagliRisorse;
 import it.teorema.gestech.model.EsitiColloquio;
 import it.teorema.gestech.model.Linguaggi;
@@ -27,7 +27,7 @@ import it.teorema.gestech.model.Livelli;
 import it.teorema.gestech.model.Profili;
 import it.teorema.gestech.model.ResponseWrapper;
 import it.teorema.gestech.model.Risorse;
-import it.teorema.gestech.service.CommentiService;
+import it.teorema.gestech.service.CommentiRisorseService;
 import it.teorema.gestech.service.DettagliRisorseService;
 import it.teorema.gestech.service.EsitiColloquioService;
 import it.teorema.gestech.service.LinguaggiService;
@@ -54,7 +54,7 @@ public class CandidatiController {
 	@Autowired
 	DettagliRisorseService dettagliRisorseService;
 	@Autowired
-	CommentiService commentiService;
+	CommentiRisorseService commentiRisorseService;
 	
 	@RequestMapping("/pagina-candidati")
 	public String paginaCandidati(HttpServletRequest request, Model theModel){
@@ -99,7 +99,7 @@ public class CandidatiController {
 			
 			Risorse risorsa = new Risorse();
 			DettagliRisorse dettagliRisorsa = new DettagliRisorse();
-			Commenti commenti = new Commenti();
+			CommentiRisorse commentiRisorse = new CommentiRisorse();
 			
 			List<EsitiColloquio> esitiColloquio = esitiColloquioService.findAll();
 			List<Profili> profili = profiliService.findAll();
@@ -109,7 +109,7 @@ public class CandidatiController {
 	
 			theModel.addAttribute("risorsa", risorsa);
 			theModel.addAttribute("dettagliRisorsa", dettagliRisorsa);
-			theModel.addAttribute("commenti", commenti);
+			theModel.addAttribute("commenti", commentiRisorse);
 			theModel.addAttribute("livelli", livelli);
 			theModel.addAttribute("lingue1", lingue);
 			theModel.addAttribute("lingue2", lingue);
@@ -160,7 +160,7 @@ public class CandidatiController {
 			LocalSession localSession = (LocalSession) session.getAttribute("localSession");
 			Risorse risorsa = new Risorse();
 			DettagliRisorse dettagliRisorsa = new DettagliRisorse();
-			Commenti commenti = new Commenti();
+			CommentiRisorse commentiRisorse = new CommentiRisorse();
 			Double costoGiornaliero;
 		
 			DateTimeFormatter format1 = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");  
@@ -209,14 +209,14 @@ public class CandidatiController {
 				
 				if (request.getParameter("commento") != "")
 				{
-					commenti.setData(LocalDate.parse(format2.format(now), format2));
-					commenti.setIdRisorsa(idRisorsa);
-					commenti.setNote(request.getParameter("commento"));
+					commentiRisorse.setData(LocalDate.parse(format2.format(now), format2));
+					commentiRisorse.setIdRisorsa(idRisorsa);
+					commentiRisorse.setNote(request.getParameter("commento"));
 				}
 				dettagliRisorseService.save(dettagliRisorsa);
 	
-				if(!commenti.getNote().equals(null))
-					commentiService.save(commenti);
+				if(!commentiRisorse.getNote().equals(null))
+					commentiRisorseService.save(commentiRisorse);
 				
 				return "redirect:/pagina-candidati";
 			}
@@ -330,7 +330,7 @@ public class CandidatiController {
 				
 				theModel.addAttribute("risorsa", risorsa);
 				theModel.addAttribute("dettagliRisorsa", dettagliRisorsa);
-				theModel.addAttribute("commenti", commenti);
+				theModel.addAttribute("commenti", commentiRisorse);
 				theModel.addAttribute("errore", "Candidato già presente");
 				theModel.addAttribute("livelli", livelli);
 				theModel.addAttribute("lingue1", lingue1);
@@ -359,7 +359,7 @@ public class CandidatiController {
 	@ResponseBody
 	public List stampaComment(@RequestParam(value="idRisorsa") int idRisorsa) 
 	{
-		List commenti = commentiService.stampaCommenti(idRisorsa);
+		List commenti = commentiRisorseService.stampaCommenti(idRisorsa);
 		
 		return commenti;
 	}

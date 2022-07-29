@@ -11,7 +11,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="hy_commenti")
-public class Commenti
+public class CommentiRisorse
 {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,13 +24,13 @@ public class Commenti
 	@Column(name = "data")
 	private LocalDate data;
 	
-	public Commenti() {
+	public CommentiRisorse() {
 		id = 0;
 		idRisorsa = 0;
 		note = "";
 	}
 
-	public Commenti(int id, int idRisorsa, String note, LocalDate data) {
+	public CommentiRisorse(int id, int idRisorsa, String note, LocalDate data) {
 		super();
 		this.id = id;
 		this.idRisorsa = idRisorsa;
