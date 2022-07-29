@@ -123,7 +123,6 @@ public class HomeController {
 					appoggio=appoggio.replace("]","");
 					appoggio=appoggio.replace(",", "");
 					avviso.setRuoli(appoggio);
-					System.out.println(appoggio);
 					theModel.addAttribute("avvisi", avvisi);
 				}
 			}

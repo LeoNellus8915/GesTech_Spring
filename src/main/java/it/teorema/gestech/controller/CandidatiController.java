@@ -439,7 +439,6 @@ public class CandidatiController {
 			if(dettagliRisorsa.getIdEsitoColloquio()!=11) {
 				esitiColloquio = esitiColloquioService.findAllException(esitiColloquioService.getEsitoColloquioNonSalvato(dettagliRisorsa.getIdEsitoColloquio()));
 				theModel.addAttribute("esitoColloquio", esitiColloquioService.getEsitoColloquioNonSalvato(dettagliRisorsa.getIdEsitoColloquio()));
-				System.out.println("Esito Colloquio ----"+esitiColloquioService.getEsitoColloquioNonSalvato(dettagliRisorsa.getIdEsitoColloquio()));
 			}
 			else {
 				esitiColloquio = esitiColloquioService.findAll();
@@ -627,7 +626,6 @@ public class CandidatiController {
 			if(dettagliRisorsa.getIdEsitoColloquio()!=11) {
 				esitiColloquio = esitiColloquioService.findAllException(esitiColloquioService.getEsitoColloquioNonSalvato(dettagliRisorsa.getIdEsitoColloquio()));
 				theModel.addAttribute("esitoColloquio", esitiColloquioService.getEsitoColloquioNonSalvato(dettagliRisorsa.getIdEsitoColloquio()));
-				System.out.println("Esito Colloquio ----"+esitiColloquioService.getEsitoColloquioNonSalvato(dettagliRisorsa.getIdEsitoColloquio()));
 			}
 			else {
 				esitiColloquio = esitiColloquioService.findAll();
