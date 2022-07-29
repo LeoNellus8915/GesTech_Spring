@@ -54,4 +54,10 @@ public interface RisorseService extends JpaRepository <Risorse, Integer>
 	void updateCandidato(int idRisorsa, String nomeCognome, String recapito, String email, String profiloLinkedin, String citta, LocalDate dataColloquio, 
 			String annoColloquio, String fonteReperimento, String competenzaPrincipale, Double costoGiornaliero, String possibilitaLavorativa, 
 			String skillCampoLibero, String competenzeTotali, String certificazioni);
+	
+	@Query("select r.nomeCognome "
+			+ "from Risorse r, RuoliRisorse rr, Ruoli ru "
+			+ "where r.id = rr.idRisorsa and rr.idRuolo = ru.id and ru.nome like '%Recruiter%'")
+	abstract
+	List<String> getNomi();
 }

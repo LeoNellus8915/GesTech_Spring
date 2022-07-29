@@ -17,9 +17,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import it.teorema.gestech.model.CommentiRichieste;
-import it.teorema.gestech.model.Linguaggi;
-import it.teorema.gestech.model.Livelli;
-import it.teorema.gestech.model.Profili;
 import it.teorema.gestech.model.Richieste;
 import it.teorema.gestech.model.StatiRichiesta;
 import it.teorema.gestech.service.CommentiRichiesteService;
@@ -27,6 +24,7 @@ import it.teorema.gestech.service.LinguaggiService;
 import it.teorema.gestech.service.LivelliService;
 import it.teorema.gestech.service.ProfiliService;
 import it.teorema.gestech.service.RichiesteService;
+import it.teorema.gestech.service.RisorseService;
 import it.teorema.gestech.service.StatiRichiestaService;
 import it.teorema.gestech.session.LocalSession;
 
@@ -39,6 +37,8 @@ public class RichiesteController {
 	RichiesteService richiesteService;
 	@Autowired
 	StatiRichiestaService statiRichiesteService;
+	@Autowired
+	RisorseService risorseService;
 	@Autowired
 	ProfiliService profiliService;
 	@Autowired
@@ -61,13 +61,10 @@ public class RichiesteController {
 		{
 			LocalSession localSession = (LocalSession) session.getAttribute("localSession");
 			
-			List<Profili> profili = profiliService.findAll();
-			List<Linguaggi> linguaggi = linguaggiService.findAll();
-			List<Livelli> livelli = livelliService.findAll();
-			
-			theModel.addAttribute("livelli", livelli);
-			theModel.addAttribute("linguaggi", linguaggi);
-			theModel.addAttribute("profili", profili);
+			theModel.addAttribute("nomiRecruiter", risorseService.getNomi());
+			theModel.addAttribute("livelli", livelliService.findAll());
+			theModel.addAttribute("linguaggi", linguaggiService.findAll());
+			theModel.addAttribute("profili", profiliService.findAll());
 			
 			theModel.addAttribute("nomeCognome", localSession.getNomeCognome());
 			theModel.addAttribute("ruolo", localSession.getRuolo());

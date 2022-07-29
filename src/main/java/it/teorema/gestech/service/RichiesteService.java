@@ -14,7 +14,7 @@ public interface RichiesteService extends JpaRepository <Richieste, Integer>
 	abstract
 	List<Richieste> findAll();
 	
-	@Query("from Richiesta "
+	@Query("from Richieste "
 			+ "where id = :idRichiesta")
 	abstract
 	Richieste findById(int idRichiesta);

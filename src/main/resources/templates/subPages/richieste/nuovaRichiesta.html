@@ -1,5 +1,5 @@
 <div th:fragment="nuovaRichiesta">
-<form id="form" method="post" action="/aggiungi-richiesta">
+	<form id="form" method="post" action="/aggiungi-richiesta">
 		<div class="card no-b  no-r">
 			<div class="card-body">
 				<p class="errore" th:text="${errore}"></p>
@@ -36,11 +36,11 @@
 									class="form-control r-0 light s-12 datePicker"
 									type="text">
 							</div>
-						 </div>	
-						 <div class="form-row">
+						</div>	
+						<div class="form-row">
 							<div class="form-group col-6 m-0">
-								<label for="citta" class="col-form-label s-12">Citt&agrave;</label>
-								<input id="citta" name="citta" placeholder="Inserisci Citt&agrave;"
+								<label for="citta" class="col-form-label s-12">Citt&agrave</label>
+								<input id="citta" name="citta" placeholder="Inserisci Citt&agrave"
 									class="form-control r-0 light s-12 datePicker"
 									type="text">
 							</div>
@@ -50,27 +50,16 @@
 									class="form-control r-0 light s-12 datePicker"
 									type="text">
 							</div>
-						 </div>
-						 <label class="error" id="label-error-text" style="display:none">Il testo non pu&ograve; contenere i seguenti caratteri: % &</label>
-						 <textarea name="richiesta" id="richiesta" onkeyup="controllo_caratteri('avviso')" placeholder="Inserire Messaggio" required></textarea>
-					<div class="row">
-						<div class="col-6">
-							<input name="ruolo" type="checkbox" id="admin" value="Admin">
-  							<label>Admin</label>
-  							<input name="ruolo" type="checkbox" id="recruiter" value="Recruiter">
-  							<label>Recruiter</label>
-  							<input name="ruolo" type="checkbox" id="commerciale" value="Commerciale">
-  							<label>Commerciale</label>
-  							<input name="ruolo" type="checkbox" id="dipendente" value="Dipendente">
-  							<label>Dipendente</label>
-  							<input name="ruolo" type="checkbox" id="tutti" value="Tutti"> 
-							<label>Tutti</label>
+							<textarea class="note" name="note" id="note" placeholder="Inserire messaggio"></textarea>
+							<div class="row">
+								<ul>
+									<input type="checkbox" value="Tutti">Tutti
+						        	<input th:each="nomeRecruiter : ${nomiRecruiter}" type="checkbox" th:text="${nomeRecruiter}" th:value="${nomeRecruiter}" />
+								</ul>
+							</div>
 						</div>
-						<div class="col-6">
-							<div class="btright"><input type="submit" onclick="controlloCheckbox()"></div>
-						</div>
-					</div>
-						 <div class="card-body">
+						<hr>
+						<div class="card-body">
 							<input type="submit" value="INVIA">
 						</div>
 					</div>

@@ -13,8 +13,8 @@ public interface StatiRichiestaService extends JpaRepository <StatiRichiesta, In
 	abstract
 	List <StatiRichiesta> findAll();
 	
-	@Query("select name "
-			+ "from StatiRichiesta"
+	@Query("select nome "
+			+ "from StatiRichiesta "
 			+ "where id = :idStato")
 	abstract
 	String findById(int idStato);
