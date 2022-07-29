@@ -50,9 +50,10 @@ p.ruolo_avvisi {
     text-align: center;
     font-weight: bold;
 }
-p.errore{
+p.errore {	
 	font-size: 17px;
     color: red;
     font-weight: bold;
     text-align: center;
+    padding: 20px;
 }
