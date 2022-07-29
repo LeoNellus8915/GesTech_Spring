@@ -31,7 +31,7 @@ public class RichiesteController {
 	@Autowired
 	CommentiRichiesteService commentiRichieste;
 	@Autowired
-	RichiesteService Richieste;
+	RichiesteService richiesteService;
 	@Autowired
 	StatiRichiestaService statiRichieste;
 	@Autowired
@@ -40,6 +40,7 @@ public class RichiesteController {
 	LinguaggiService linguaggiService;
 	@Autowired
 	LivelliService livelliService;
+	
 	
 	@RequestMapping("/nuova-richiesta")
 	public String paginaNuovaRichiesta(HttpServletRequest request, Model theModel)
@@ -71,5 +72,67 @@ public class RichiesteController {
 			
 			return "default" + localSession.getRuolo();
 		}
+	}
+	
+	@RequestMapping("/aggiungi-richiesta")
+	public String aggiungiRichiesta(HttpServletRequest request, Model theModel) {
+		
+		HttpSession session = request.getSession(true);
+		if (session.getAttribute("idSessione") == null)
+		{
+			theModel.addAttribute("titlePage", "Login");
+			theModel.addAttribute("msgCredenziali", "Inserisci le credenziali per accedere al sistema");
+			return "index";
+		}
+		else
+		{
+			LocalSession localSession = (LocalSession) session.getAttribute("localSession");
+			
+			Richieste richiesta = new Richieste();
+			
+			DateTimeFormatter format1 = DateTimeFormatter.ofPattern("yyyy-MM-dd");  
+			LocalDateTime now = LocalDateTime.now();  
+			LocalDateTime data = LocalDateTime.parse(format1.format(now), format1);	
+			
+			richiesta.setIdRisorsa(localSession.getIdRisorsa());
+			richiesta.setData(data);
+			richiesta.setIdSkill(Integer.parseInt(request.getParameter("skill")));
+			richiesta.setIdProfilo(Integer.parseInt(request.getParameter("skill")));
+			richiesta.setIdSeniority(Integer.parseInt(request.getParameter("seniority")));
+			richiesta.setCliente(request.getParameter("cliente"));
+			richiesta.setCitta(request.getParameter("citta"));
+			richiesta.setCosto(Double.parseDouble(request.getParameter("costo")));
+			richiesta.setNote(request.getParameter("note"));
+			richiesta.setRecruiter(request.getParameter("recruiter"));
+			richiesta.setIdProfilo(Integer.parseInt(request.getParameter("profilo")));
+			
+			richiesteService.save(richiesta);
+			
+			theModel.addAttribute("risorsa", richiesta);
+			theModel.addAttribute("nomeCognome", localSession.getNomeCognome());
+			theModel.addAttribute("ruolo", localSession.getRuolo());
+			theModel.addAttribute("titlePage", "Tutte le Richieste");
+			theModel.addAttribute("path", "candidati/");
+			theModel.addAttribute("view", "visualizzaRichieste");
+		}
+		return "redirect:/visualizza-richieste";
+	}
+	
+	@RequestMapping("/pagina-richieste")
+	public String paginaRichiesta(HttpServletRequest request, Model theModel) {
+		
+		HttpSession session = request.getSession(true);
+		if (session.getAttribute("idSessione") == null)
+		{
+			theModel.addAttribute("titlePage", "Login");
+			theModel.addAttribute("msgCredenziali", "Inserisci le credenziali per accedere al sistema");
+			return "index";
+		}
+		else
+		{
+			LocalSession localSession = (LocalSession) session.getAttribute("localSession");
+		}
+		
+		return null;
 	}
 }
