@@ -99,8 +99,6 @@ public class CandidatiController {
 			
 			DettagliRisorse dettagliRisorsa = new DettagliRisorse();
 			
-			List<EsitiColloquio> esitiColloquio = esitiColloquioService.findAll();
-			List<Profili> profili = profiliService.findAll();
 			List<Linguaggi> linguaggi = linguaggiService.findAll();
 			List<Lingue> lingue = lingueService.findAll();
 			List<Livelli> livelli = livelliService.findAll();
@@ -115,8 +113,8 @@ public class CandidatiController {
 			theModel.addAttribute("linguaggi3", linguaggi);
 			theModel.addAttribute("linguaggi4", linguaggi);
 			theModel.addAttribute("linguaggi5", linguaggi);
-			theModel.addAttribute("profili", profili);
-			theModel.addAttribute("esitiColloquio", esitiColloquio);
+			theModel.addAttribute("profili", profiliService.findAll());
+			theModel.addAttribute("esitiColloquio", esitiColloquioService.findAll());
 			theModel.addAttribute("esitoColloquio", "Selezionare...");
 			theModel.addAttribute("profilo", "Selezionare...");
 			theModel.addAttribute("skill1", "Selezionare...");
@@ -355,9 +353,7 @@ public class CandidatiController {
 	@ResponseBody
 	public List stampaComment(@RequestParam(value="idRisorsa") int idRisorsa) 
 	{
-		List commenti = commentiRisorseService.stampaCommenti(idRisorsa);
-		
-		return commenti;
+		return commentiRisorseService.stampaCommenti(idRisorsa);
 	}
 	
 	@RequestMapping("visualizza-candidato/{idRisorsa}")

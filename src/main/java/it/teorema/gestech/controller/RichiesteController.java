@@ -92,7 +92,7 @@ public class RichiesteController {
 			
 			Richieste richiesta = new Richieste();
 			
-			DateTimeFormatter format1 = DateTimeFormatter.ofPattern("yyyy-MM-dd");  
+			DateTimeFormatter format1 = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");  
 			LocalDateTime now = LocalDateTime.now();  
 			LocalDateTime data = LocalDateTime.parse(format1.format(now), format1);	
 			
@@ -201,13 +201,11 @@ public class RichiesteController {
 			LocalSession localSession = (LocalSession) session.getAttribute("localSession");
 			
 			Richieste richiesta = richiesteService.findById(idRichiesta);
-			List<CommentiRichieste> commentoRichiesta = commentiRichiesteService.findById(richiesta.getIdCommento());
-			List<StatiRichiesta> statiRichiesta = statiRichiesteService.findAllException(statiRichiesteService.findById(richiesta.getIdStato()));
 			
 			theModel.addAttribute("richiesta", richiesta);
-			theModel.addAttribute("commentiRichiesta", commentoRichiesta);
+			theModel.addAttribute("commentiRichiesta", commentiRichiesteService.findById(richiesta.getIdCommento()));
 			theModel.addAttribute("statoRichiesta", richiesteService.findById(richiesta.getIdStato()));
-			theModel.addAttribute("statiRichiesta", statiRichiesta);
+			theModel.addAttribute("statiRichiesta", statiRichiesteService.findAllException(statiRichiesteService.findById(richiesta.getIdStato())));
 			
 			theModel.addAttribute("nomeCognome", localSession.getNomeCognome());
 			theModel.addAttribute("ruolo", localSession.getRuolo());

@@ -110,9 +110,7 @@ public class HomeController {
 			theModel.addAttribute("path", "home/");
 			theModel.addAttribute("view", "home"+localSession.getRuolo());
 			
-			List<Avvisi> avvisi = new ArrayList<Avvisi>();
-			avvisi = avvisiService.findAll();
-			
+			List<Avvisi> avvisi = avvisiService.findAll();			
 			List<Avvisi> stampaAvvisi = new ArrayList<Avvisi>();
 			
 			if(localSession.getRuolo().equals("Admin")) {
