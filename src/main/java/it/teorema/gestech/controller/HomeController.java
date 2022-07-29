@@ -116,19 +116,19 @@ public class HomeController {
 			if(localSession.getRuolo().equals("Admin")) {
 				for (Avvisi avviso : avvisi) {
 					String appoggio = avviso.getRuoli();
-					appoggio.substring(1);
-					appoggio=appoggio.replace("[","");
-					appoggio=appoggio.replace("]","");
-					appoggio=appoggio.replace(",", "");
+					appoggio = appoggio.replace("[","");
+					appoggio = appoggio.replace("]","");
+					appoggio = appoggio.replace(",", "");
 					avviso.setRuoli(appoggio);
-					theModel.addAttribute("avvisi", avvisi);
 				}
+				theModel.addAttribute("avvisi", avvisi);
 			}
 			else 
 			{
 				for (Avvisi avviso : avvisi) {	
 					if(avviso.getRuoli().indexOf("Tutti") > 0 || 
 							avviso.getRuoli().indexOf(localSession.getRuolo()) > 0) {
+								stampaAvvisi.add(avviso);
 					}
 				}
 				theModel.addAttribute("avvisi", stampaAvvisi);
