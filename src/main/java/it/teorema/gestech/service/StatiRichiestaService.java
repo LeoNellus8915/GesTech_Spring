@@ -4,7 +4,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import it.teorema.gestech.model.CommentiRisorse;
 
-public interface StatiRichiestaServie extends JpaRepository <CommentiRisorse, Integer>
+public interface StatiRichiestaService extends JpaRepository <CommentiRisorse, Integer>
 {
 
 }
